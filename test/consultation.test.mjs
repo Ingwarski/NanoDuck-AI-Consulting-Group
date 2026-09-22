@@ -78,6 +78,36 @@ test("a selected Claude Code Critic never moves Head or specialist work off Code
   assert.equal(calls.filter(call => call.outputKind.startsWith("critic_")).every(call => call.research === false), true);
 });
 
+test("GPT-6 Sol choices route the accepted Head or Codex Critic snapshot after preferences change", async t => {
+  const cases = [
+    {
+      name: "Head and specialists",
+      settings: { ...defaultSettings, headModel: "gpt-6-sol", headReasoning: "high", specialistCount: "1" },
+      codex: call => call.model === "gpt-6-sol" && call.effort === "high",
+      critic: call => call.provider === "claude_code" && call.model === "claude-opus-5-5" && call.effort === "medium"
+    },
+    {
+      name: "Codex Critic",
+      settings: { ...defaultSettings, specialistCount: "1", criticProvider: "codex", criticCodexModel: "gpt-6-sol", criticCodexReasoning: "max", criticModel: "gpt-6-sol", criticReasoning: "max" },
+      codex: call => call.model === "gpt-6-astra" && call.effort === "xhigh",
+      critic: call => call.provider === "codex" && call.model === "gpt-6-sol" && call.effort === "max"
+    }
+  ];
+  for (const [index, scenario] of cases.entries()) await t.test(scenario.name, async () => {
+    const store = createMemoryStore(); const conversation = await store.createConversation(); const calls = [];
+    const accepted = await store.acceptMessage(conversation.id, { body: "Should we test preorders?", clientRequestId: `sol-routing-${index}-0001` }, scenario.settings);
+    await store.saveSettings(defaultSettings);
+    const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
+    await createConsultationService({ store, provider }).start(conversation.id, accepted.run);
+    await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+    const criticCalls = calls.filter(call => call.outputKind.startsWith("critic_"));
+    const headAndSpecialistCalls = calls.filter(call => !call.outputKind.startsWith("critic_"));
+    assert.ok(criticCalls.length > 0 && headAndSpecialistCalls.length > 0);
+    assert.equal(headAndSpecialistCalls.every(scenario.codex), true);
+    assert.equal(criticCalls.every(scenario.critic), true);
+  });
+});
+
 test("a failed specialist reply resumes after the last confirmed challenge without replaying or skipping the review", async () => {
   const store = createMemoryStore();
   const conversation = await store.createConversation();

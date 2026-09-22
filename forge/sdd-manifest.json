@@ -8,13 +8,13 @@
     "product-idea": {
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "r21-opus-5-5-product-idea-2026-09-22T18:16:58.000Z",
+      "owner_invocation_id": "r22-gpt-6-sol-product-idea-2026-09-22T18:51:51.000Z",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r21-opus-5-5-product-idea-2026-09-22T18:16:58.000Z",
+      "source_version": "r22-gpt-6-sol-product-idea-2026-09-22T18:51:51.000Z",
       "source_usage": {
         "docs/model-settings.md": "full",
         "docs/deployment-boundary.md": "full",
@@ -22,20 +22,20 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/model-settings.md": "e197ffc67cf6f976ec16f88686471c1fc0dd32a00cfb81db3ec5bfaa81d4d03d",
+        "docs/model-settings.md": "3c66d9a1aba090d694e7c5a60d04837a036c81a3889f96930dfd99b2b810c9df",
         "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
       },
       "dependencies": [],
-      "content_hash": "c3c72ff583ed11f6a2b99bc6b9f9b7a3340617e7176f6fc6534abdc11827d0dd",
+      "content_hash": "9df6edad8b11c0c13ec18728d87c225de69718c0764bcef940eed60f17a5f0c4",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r21-owner-directed-critic-model-update",
-        "reviewed_at": "2026-09-22T18:16:58.000Z",
+        "kind": "r22-owner-directed-additional-codex-model",
+        "reviewed_at": "2026-09-22T18:51:51.000Z",
         "executor": "Codex inline to-product-idea",
-        "scope": "Record the owner-selected Claude Code Opus 5.5 / Medium Critic for future consultations while preserving Head/specialists, accepted run snapshots, subscription constraints and the approved visual baseline."
+        "scope": "Add GPT-6 Sol as an optional live-catalog Codex choice for Head/specialists and the Critic Codex branch while preserving selected Astra/Opus settings, accepted snapshots and the approved visual baseline."
       },
       "open_questions": [],
       "traceability": {
@@ -97,35 +97,35 @@
         ],
         "links": []
       },
-      "supersedes": "r20-policy-recovery-product-idea-2026-09-18T00:33:43.756Z"
+      "supersedes": "r21-opus-5-5-product-idea-2026-09-22T18:16:58.000Z"
     },
     "prd": {
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "r21-opus-5-5-prd-2026-09-22T18:18:30.000Z",
+      "owner_invocation_id": "r22-gpt-6-sol-prd-2026-09-22T18:53:00.000Z",
       "declared_output_set": [
         "docs/prd.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r21-opus-5-5-prd-2026-09-22T18:18:30.000Z",
+      "source_version": "r22-gpt-6-sol-prd-2026-09-22T18:53:00.000Z",
       "source_usage": {
         "docs/product-idea.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "c3c72ff583ed11f6a2b99bc6b9f9b7a3340617e7176f6fc6534abdc11827d0dd"
+        "docs/product-idea.md": "9df6edad8b11c0c13ec18728d87c225de69718c0764bcef940eed60f17a5f0c4"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d",
+      "content_hash": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r21-owner-directed-critic-model-update",
-        "reviewed_at": "2026-09-22T18:18:30.000Z",
+        "kind": "r22-owner-directed-additional-codex-model",
+        "reviewed_at": "2026-09-22T18:53:00.000Z",
         "executor": "Codex inline to-sdd-prd",
-        "scope": "Bind UC-005 and AC-006 to the owner-selected Opus 5.5 / Medium Critic revision while preserving immutable active-run settings, later owner saves, provider boundaries and all existing requirements."
+        "scope": "Add catalog-backed GPT-6 Sol as an optional Head/specialist and Critic Codex model under UC-005/AC-006; preserve existing selected defaults and accepted run snapshots."
       },
       "open_questions": [],
       "traceability": {
@@ -2367,97 +2367,97 @@
           "reviewed_at": "2026-09-14T20:13:37+03:00"
         }
       },
-      "supersedes": "r20-policy-recovery-prd-2026-09-18T00:33:43.756Z"
+      "supersedes": "r21-opus-5-5-prd-2026-09-22T18:18:30.000Z"
     },
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "r21-opus-5-5-project-context-bundle-2026-09-22T18:20:00.000Z",
+      "owner_invocation_id": "r22-gpt-6-sol-project-context-bundle-2026-09-22T18:56:00.000Z",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r21-opus-5-5-project-context-bundle-2026-09-22T18:20:00.000Z",
+      "source_version": "r22-gpt-6-sol-project-context-bundle-2026-09-22T18:56:00.000Z",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "c3c72ff583ed11f6a2b99bc6b9f9b7a3340617e7176f6fc6534abdc11827d0dd",
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d"
+        "docs/product-idea.md": "9df6edad8b11c0c13ec18728d87c225de69718c0764bcef940eed60f17a5f0c4",
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "996e72fb0acf85e8b67b1730e7625779ff584bc8e9292d6bfc46b6bcc05276f2",
+      "content_hash": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r21-owner-directed-critic-model-update",
-        "reviewed_at": "2026-09-22T18:20:00.000Z",
+        "kind": "r22-owner-directed-additional-codex-model",
+        "reviewed_at": "2026-09-22T18:56:00.000Z",
         "executor": "Codex inline to-project-context",
-        "scope": "Record Opus 5.5 / Medium as the current Critic selection, retain the independent Codex branch, and keep live entitlement as release evidence without changing the approved visual baseline."
+        "scope": "Record GPT-6 Sol as an optional catalog-backed Codex choice for Head/specialists and Critic without changing the active Astra/Opus tuples or accepted consultation snapshots."
       },
       "open_questions": [],
-      "supersedes": "r20-policy-recovery-project-context-bundle-2026-09-18T00:33:43.756Z"
+      "supersedes": "r21-opus-5-5-project-context-bundle-2026-09-22T18:20:00.000Z"
     },
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "r21-opus-5-5-project-context-bundle-2026-09-22T18:20:00.000Z",
+      "owner_invocation_id": "r22-gpt-6-sol-project-context-bundle-2026-09-22T18:56:00.000Z",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r21-opus-5-5-project-context-bundle-2026-09-22T18:20:00.000Z",
+      "source_version": "r22-gpt-6-sol-project-context-bundle-2026-09-22T18:56:00.000Z",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "c3c72ff583ed11f6a2b99bc6b9f9b7a3340617e7176f6fc6534abdc11827d0dd",
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d"
+        "docs/product-idea.md": "9df6edad8b11c0c13ec18728d87c225de69718c0764bcef940eed60f17a5f0c4",
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "a0d29a01201747247cf721bc5ae149c08b1938dcff2b5aef04053cc3c5217446",
+      "content_hash": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r21-owner-directed-critic-model-update",
-        "reviewed_at": "2026-09-22T18:20:00.000Z",
+        "kind": "r22-owner-directed-additional-codex-model",
+        "reviewed_at": "2026-09-22T18:56:00.000Z",
         "executor": "Codex inline to-project-context",
-        "scope": "Record Opus 5.5 / Medium as the current Critic selection, retain the independent Codex branch, and keep live entitlement as release evidence without changing the approved visual baseline."
+        "scope": "Record GPT-6 Sol as an optional catalog-backed Codex choice for Head/specialists and Critic without changing the active Astra/Opus tuples or accepted consultation snapshots."
       },
       "open_questions": [],
-      "supersedes": "r20-policy-recovery-project-context-bundle-2026-09-18T00:33:43.756Z"
+      "supersedes": "r21-opus-5-5-project-context-bundle-2026-09-22T18:20:00.000Z"
     },
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "r21-opus-5-5-guardrails-2026-09-22T18:22:00.000Z",
+      "owner_invocation_id": "r22-gpt-6-sol-guardrails-2026-09-22T18:57:47.221Z",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r21-opus-5-5-guardrails-2026-09-22T18:22:00.000Z",
+      "source_version": "r22-gpt-6-sol-guardrails-2026-09-22T18:57:47.221Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
         "docs/canonical-terms.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d",
-        "docs/project-context.md": "996e72fb0acf85e8b67b1730e7625779ff584bc8e9292d6bfc46b6bcc05276f2",
-        "docs/canonical-terms.md": "a0d29a01201747247cf721bc5ae149c08b1938dcff2b5aef04053cc3c5217446"
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
+        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
+        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5"
       },
       "dependencies": [
         "prd",
@@ -2468,24 +2468,24 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r21-owner-directed-critic-model-update",
-        "reviewed_at": "2026-09-22T18:22:00.000Z",
+        "kind": "r22-owner-directed-additional-codex-model",
+        "reviewed_at": "2026-09-22T18:57:47.221Z",
         "executor": "Codex inline to-guardrails",
-        "scope": "No guardrail text change. Revalidate the existing source authority, provider boundaries, snapshot integrity, external-effect authorization and evidence rules against the current Critic selection."
+        "scope": "Revalidated existing source authority, provider boundaries, saved model tuples and accepted snapshots against the optional live-catalog GPT-6 Sol choice; no guardrail text change."
       },
       "open_questions": [],
-      "supersedes": "r20-policy-recovery-guardrails-2026-09-18T00:33:43.756Z"
+      "supersedes": "r21-opus-5-5-guardrails-2026-09-22T18:22:00.000Z"
     },
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "r21-opus-5-5-user-journey-2026-09-22T18:22:30.000Z",
+      "owner_invocation_id": "r22-gpt-6-sol-user-journey-2026-09-22T18:58:13.823Z",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r21-opus-5-5-user-journey-2026-09-22T18:22:30.000Z",
+      "source_version": "r22-gpt-6-sol-user-journey-2026-09-22T18:58:13.823Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2493,9 +2493,9 @@
         "docs/guardrails.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d",
-        "docs/project-context.md": "996e72fb0acf85e8b67b1730e7625779ff584bc8e9292d6bfc46b6bcc05276f2",
-        "docs/canonical-terms.md": "a0d29a01201747247cf721bc5ae149c08b1938dcff2b5aef04053cc3c5217446",
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
+        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
+        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb"
       },
       "dependencies": [
@@ -2508,24 +2508,24 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r21-owner-directed-critic-model-update",
-        "reviewed_at": "2026-09-22T18:22:30.000Z",
+        "kind": "r22-owner-directed-additional-codex-model",
+        "reviewed_at": "2026-09-22T18:58:13.823Z",
         "executor": "Codex inline to-user-journey",
-        "scope": "No journey text change. J-07 already treats provider, model and effort as deliberate future preferences with immutable active-run settings; revalidate it against the current Critic tuple."
+        "scope": "Revalidated J-07 deliberate model and reasoning choice, catalog failure, future-only preferences and immutable active-run snapshot for optional GPT-6 Sol; no journey text change."
       },
       "open_questions": [],
-      "supersedes": "r20-policy-recovery-user-journey-2026-09-18T00:33:43.756Z"
+      "supersedes": "r21-opus-5-5-user-journey-2026-09-22T18:22:30.000Z"
     },
     "screen-map": {
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "r21-opus-5-5-screen-map-2026-09-22T18:23:00.000Z",
+      "owner_invocation_id": "r22-gpt-6-sol-screen-map-2026-09-22T18:58:38.651Z",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r21-opus-5-5-screen-map-2026-09-22T18:23:00.000Z",
+      "source_version": "r22-gpt-6-sol-screen-map-2026-09-22T18:58:38.651Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2537,9 +2537,9 @@
         "forge/design/candidates/c/v1/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d",
-        "docs/project-context.md": "996e72fb0acf85e8b67b1730e7625779ff584bc8e9292d6bfc46b6bcc05276f2",
-        "docs/canonical-terms.md": "a0d29a01201747247cf721bc5ae149c08b1938dcff2b5aef04053cc3c5217446",
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
+        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
+        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
@@ -2557,10 +2557,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r21-owner-directed-critic-model-update",
-        "reviewed_at": "2026-09-22T18:23:00.000Z",
+        "kind": "r22-owner-directed-additional-codex-model",
+        "reviewed_at": "2026-09-22T18:58:38.651Z",
         "executor": "Codex inline to-screen-map",
-        "scope": "No screen or state change. The existing Settings surface and provider-unavailable recovery state cover the current Opus 5.5 / Medium selection without adding routes or interactions."
+        "scope": "Revalidated existing S-04 Settings saved, edited, invalid-settings and catalog-unavailable states for optional GPT-6 Sol; no new screen, route or state."
       },
       "open_questions": [],
       "traceability": {
@@ -3568,18 +3568,18 @@
           }
         ]
       },
-      "supersedes": "r20-policy-recovery-screen-map-2026-09-18T00:33:43.756Z"
+      "supersedes": "r21-opus-5-5-screen-map-2026-09-22T18:23:00.000Z"
     },
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "r21-opus-5-5-wireframes-2026-09-22T18:23:30.000Z",
+      "owner_invocation_id": "r22-gpt-6-sol-wireframes-2026-09-22T18:58:59.962Z",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r21-opus-5-5-wireframes-2026-09-22T18:23:30.000Z",
+      "source_version": "r22-gpt-6-sol-wireframes-2026-09-22T18:58:59.962Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3589,9 +3589,9 @@
         "docs/screen-map.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d",
-        "docs/project-context.md": "996e72fb0acf85e8b67b1730e7625779ff584bc8e9292d6bfc46b6bcc05276f2",
-        "docs/canonical-terms.md": "a0d29a01201747247cf721bc5ae149c08b1938dcff2b5aef04053cc3c5217446",
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
+        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
+        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2"
@@ -3608,24 +3608,24 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r21-owner-directed-critic-model-update",
-        "reviewed_at": "2026-09-22T18:23:30.000Z",
+        "kind": "r22-owner-directed-additional-codex-model",
+        "reviewed_at": "2026-09-22T18:58:59.962Z",
         "executor": "Codex inline to-wireframes",
-        "scope": "No structural change. Existing labelled Critic provider, model and reasoning controls and preserved-state recovery already express the updated preference."
+        "scope": "Revalidated existing S-04 model and reasoning controls plus saved, edited, invalid and catalog-unavailable recovery for optional GPT-6 Sol; no structural or copy change."
       },
       "open_questions": [],
-      "supersedes": "r20-policy-recovery-wireframes-2026-09-18T00:33:43.756Z"
+      "supersedes": "r21-opus-5-5-wireframes-2026-09-22T18:23:30.000Z"
     },
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "r21-opus-5-5-design-brief-2026-09-22T18:24:30.000Z",
+      "owner_invocation_id": "r22-gpt-6-sol-design-brief-2026-09-22T18:59:19.363Z",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r21-opus-5-5-design-brief-2026-09-22T18:24:30.000Z",
+      "source_version": "r22-gpt-6-sol-design-brief-2026-09-22T18:59:19.363Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3681,14 +3681,14 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d",
-        "docs/project-context.md": "996e72fb0acf85e8b67b1730e7625779ff584bc8e9292d6bfc46b6bcc05276f2",
-        "docs/canonical-terms.md": "a0d29a01201747247cf721bc5ae149c08b1938dcff2b5aef04053cc3c5217446",
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
+        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
+        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
-        "docs/product-idea.md": "c3c72ff583ed11f6a2b99bc6b9f9b7a3340617e7176f6fc6534abdc11827d0dd",
+        "docs/product-idea.md": "9df6edad8b11c0c13ec18728d87c225de69718c0764bcef940eed60f17a5f0c4",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -3747,24 +3747,24 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r21-owner-directed-critic-model-update",
-        "reviewed_at": "2026-09-22T18:24:30.000Z",
+        "kind": "r22-owner-directed-additional-codex-model",
+        "reviewed_at": "2026-09-22T18:59:19.363Z",
         "executor": "Codex inline to-design-brief",
-        "scope": "Reconcile current Settings vocabulary to Claude Code Opus 5.5 / Medium (Default), preserve unavailable-provider behavior, and keep the approved Electric A v8 visual baseline unchanged."
+        "scope": "Revalidated Electric A v8 native labelled model and reasoning selects plus compatible-effort recovery for an additional Codex catalog option; no visual baseline, token, layout or state change."
       },
       "open_questions": [],
-      "supersedes": "r20-policy-recovery-design-brief-2026-09-18T00:33:43.756Z"
+      "supersedes": "r21-opus-5-5-design-brief-2026-09-22T18:24:30.000Z"
     },
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "r21-opus-5-5-architecture-2026-09-22T18:27:00.000Z",
+      "owner_invocation_id": "r22-gpt-6-sol-architecture-2026-09-22T19:05:35.924Z",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r21-opus-5-5-architecture-2026-09-22T18:27:00.000Z",
+      "source_version": "r22-gpt-6-sol-architecture-2026-09-22T19:05:35.924Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3823,18 +3823,19 @@
         "src/server/migrate.mjs": "full",
         "src/server/configuration-recovery.mjs": "full",
         "test/settings-migration.test.mjs": "full",
-        "test/fixtures/fake-claude.mjs": "full"
+        "test/fixtures/fake-claude.mjs": "full",
+        "src/server/codex-models.mjs": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d",
-        "docs/project-context.md": "996e72fb0acf85e8b67b1730e7625779ff584bc8e9292d6bfc46b6bcc05276f2",
-        "docs/canonical-terms.md": "a0d29a01201747247cf721bc5ae149c08b1938dcff2b5aef04053cc3c5217446",
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
+        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
+        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "98017ae378c5f1288cea290897649f1fa57d1a63fb324379a91f9513c663e5a7",
-        "docs/model-settings.md": "e197ffc67cf6f976ec16f88686471c1fc0dd32a00cfb81db3ec5bfaa81d4d03d",
+        "docs/model-settings.md": "3c66d9a1aba090d694e7c5a60d04837a036c81a3889f96930dfd99b2b810c9df",
         "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
         "package.json": "07cd75788ee43dce13e0f0a046bd0319937cb6332dbee96ecea53f89305269e3",
@@ -3842,16 +3843,16 @@
         "src/server/index.mjs": "3bc460c60f8931c05fefc575a985fca1ed71d0f1838f0a276a4e758812120ece",
         "src/server/store.mjs": "c05a7290046f90f7aca67e3bb73a32da4ff3cfd62109b29f9022144227c81db5",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
-        "test/core.test.mjs": "3de9c4e0aed2915fc0f8beb6bc4d4db0cd66901503f2c168d208ea195c7c6484",
-        "src/server/codex-provider.mjs": "407b3318aa09d7151999f1d52100f6e08ac318404c154e3eed037e46057b7685",
+        "test/core.test.mjs": "91cbedcc3c0951683a3762c1333d7c55af6f605d0c5f52ae687cc4ad768cc394",
+        "src/server/codex-provider.mjs": "ccf55470ef499fe9375b4b3d3e6a5bec59c3ae0808597b8aae67ac4ae31e9604",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
-        "test/codex-provider.test.mjs": "57f6eca5bab27eb807920fe1a38713981e8eb757fc0fe4f5f21f7b4221b1753c",
-        "test/consultation.test.mjs": "d6f8314794a6b038ef7054b2dddb824aeb61f7b2422004492fa4649876090749",
-        "test/http.test.mjs": "ffcec1c486859a9c4940df2346dd1226a5f5b463a603f40ba9f1fd5931cbc087",
+        "test/codex-provider.test.mjs": "8e3f97c867459c414d3476476bff2fe76171118e030e1bcf804f44a3fde9bdaf",
+        "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
+        "test/http.test.mjs": "058527520d62314075778076789d55503ae43f9d69d739386e90e8d39e435c61",
         ".env.example": "71983a7601c502c44bddb0f1a6fb9c2a8ebe170dd7151395b9199e16da713d3d",
-        "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
+        "test/fixtures/fake-codex.mjs": "253022fb119541d22e64e6a9b7968840b14ee82cd70a42f1d1ff465ea0f27855",
         "src/server/prompt-contracts.mjs": "6ae5ab7c303bb1cf48d8eff524592e80287b03ce456c74a93c72a30ccd4a3652",
-        "src/client/app.js": "ace19e9881c8a5a8e3a3e6f98732a93f1bf4cc5681500b28c667ab0b07410a3b",
+        "src/client/app.js": "029ea3f84f4a92d3ded3c10138515e528380e30dfbcb0317653e317212073809",
         "test/consolidation.test.mjs": "c29cb6ecca6f28811b16370ae1e00d698a47e6e07cc02c36cc96a90cd7a77102",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -3860,7 +3861,7 @@
         "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
         "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
         "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
-        "src/server/validation.mjs": "4f342027528df8732faf996d5c85a84c3cf35739340cc0aeacf48bf14f9a61b4",
+        "src/server/validation.mjs": "9975418088378295e8fed316ba11ecb9b788017953b78691aa61df7c28af5f9f",
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
@@ -3883,7 +3884,8 @@
         "src/server/migrate.mjs": "92f01ab752106741786174ce22e82d1d2888a5d5f0354bbabce7dac1218f60f1",
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
         "test/settings-migration.test.mjs": "aa04be0abb0fa69c2f0cc919506db3272da06d574c333dc34024a0998947cca2",
-        "test/fixtures/fake-claude.mjs": "1d867014e911f5ef29e92be0af5e126903934b53458d8934c00c82638bc07e96"
+        "test/fixtures/fake-claude.mjs": "1d867014e911f5ef29e92be0af5e126903934b53458d8934c00c82638bc07e96",
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760"
       },
       "dependencies": [
         "prd",
@@ -3895,14 +3897,14 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "fe6cf390bbd2116ee39b958e6865f830628222455093b229a7fba5a57a21a15e",
+      "content_hash": "a57ef36f25f4723d4812c10b399780c31dff265e35ffa2fa0504e76af96e24cb",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r21-owner-directed-critic-model-update",
-        "reviewed_at": "2026-09-22T18:27:00.000Z",
+        "kind": "r22-owner-directed-additional-codex-model",
+        "reviewed_at": "2026-09-22T19:05:35.924Z",
         "executor": "Codex inline to-architecture",
-        "scope": "Define the one-time revisioned Opus 5.5 / Medium Critic preference migration, immutable accepted snapshots, current and legacy Claude CLI mapping, and remaining live entitlement/alias evidence within the existing one-app/one-database architecture."
+        "scope": "Preserve known inactive Critic Codex pairs even when omitted by the current catalog; require live catalog validation when selected, and deliberate compatible-effort choice without silent fallback."
       },
       "open_questions": [],
       "security_coverage": {
@@ -3975,19 +3977,19 @@
           "heading": "## Security enforcement map"
         }
       },
-      "supersedes": "r23-accepted-knock-architecture-approved-2026-09-18T01:13:25.320Z",
+      "supersedes": "r22-gpt-6-sol-architecture-2026-09-22T19:00:24.892Z",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "r21-opus-5-5-dod-evals-2026-09-22T18:28:00.000Z",
+      "owner_invocation_id": "r22-gpt-6-sol-dod-evals-2026-09-22T19:06:02.556Z",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r21-opus-5-5-dod-evals-2026-09-22T18:28:00.000Z",
+      "source_version": "r22-gpt-6-sol-dod-evals-2026-09-22T19:06:02.556Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4009,30 +4011,32 @@
         "src/server/settings-migration.mjs": "full",
         "src/server/migrate.mjs": "full",
         "src/server/configuration-recovery.mjs": "full",
-        "test/settings-migration.test.mjs": "full"
+        "test/settings-migration.test.mjs": "full",
+        "src/server/codex-models.mjs": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d",
-        "docs/project-context.md": "996e72fb0acf85e8b67b1730e7625779ff584bc8e9292d6bfc46b6bcc05276f2",
-        "docs/canonical-terms.md": "a0d29a01201747247cf721bc5ae149c08b1938dcff2b5aef04053cc3c5217446",
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
+        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
+        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "98017ae378c5f1288cea290897649f1fa57d1a63fb324379a91f9513c663e5a7",
-        "docs/architecture.md": "fe6cf390bbd2116ee39b958e6865f830628222455093b229a7fba5a57a21a15e",
+        "docs/architecture.md": "a57ef36f25f4723d4812c10b399780c31dff265e35ffa2fa0504e76af96e24cb",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
         "src/server/claude-provider.mjs": "8678d891083d00e9fa69002a126032a95ebe6b63207e26d31f6e5fb8546c9105",
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
         "test/claude-provider.test.mjs": "76bbb498810672925304ba2edc430e767c161163e8b1b36d8ba8a65923dee991",
-        "test/consultation.test.mjs": "d6f8314794a6b038ef7054b2dddb824aeb61f7b2422004492fa4649876090749",
+        "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
         "src/server/settings.mjs": "c51192b0cbeef05403a89522b2849dee78abbbd73f51e8299eb133e6c1ab4c81",
         "src/server/settings-migration.mjs": "962a06c2aca26fe19654d7a05b7aefff1e7986b53d966cba59c5a212d3bd9db5",
         "src/server/migrate.mjs": "92f01ab752106741786174ce22e82d1d2888a5d5f0354bbabce7dac1218f60f1",
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
-        "test/settings-migration.test.mjs": "aa04be0abb0fa69c2f0cc919506db3272da06d574c333dc34024a0998947cca2"
+        "test/settings-migration.test.mjs": "aa04be0abb0fa69c2f0cc919506db3272da06d574c333dc34024a0998947cca2",
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760"
       },
       "dependencies": [
         "prd",
@@ -4045,14 +4049,14 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "eb1acffa410426c1f7d9bccfc2e0cf3397bf2d3c2e1d6297d806182e09b8df2d",
+      "content_hash": "30e2d83ad6595218a52aa10d974efa97d8a668e355808b40d13a637c8985efbc",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r21-owner-directed-critic-model-update",
-        "reviewed_at": "2026-09-22T18:28:00.000Z",
+        "kind": "r22-owner-directed-additional-codex-model",
+        "reviewed_at": "2026-09-22T19:06:02.556Z",
         "executor": "Codex inline to-dod-evals",
-        "scope": "Revalidate prepared functional and continuity gates for the one-time settings revision, accepted-snapshot immutability, later owner choices and exact current/legacy Claude CLI arguments. Gates remain not evaluated."
+        "scope": "Revalidated FR-05.1 gate after inactive Critic Codex branch preservation and deliberate compatible-effort selection; existing evidence definition covers this without a text change."
       },
       "open_questions": [],
       "security_coverage": {
@@ -4125,19 +4129,19 @@
           "heading": "### Product security membership"
         }
       },
-      "supersedes": "r23-accepted-knock-dod-evals-approved-2026-09-18T01:13:25.320Z",
+      "supersedes": "r22-gpt-6-sol-dod-evals-2026-09-22T19:01:09.468Z",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "r21-opus-5-5-qa-checklist-2026-09-22T18:29:30.000Z",
+      "owner_invocation_id": "r22-gpt-6-sol-qa-checklist-2026-09-22T19:06:44.853Z",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r21-opus-5-5-qa-checklist-2026-09-22T18:29:30.000Z",
+      "source_version": "r22-gpt-6-sol-qa-checklist-2026-09-22T19:06:44.853Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4198,19 +4202,20 @@
         "src/server/migrate.mjs": "full",
         "src/server/configuration-recovery.mjs": "full",
         "test/settings-migration.test.mjs": "full",
-        "test/fixtures/fake-claude.mjs": "full"
+        "test/fixtures/fake-claude.mjs": "full",
+        "src/server/codex-models.mjs": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d",
-        "docs/project-context.md": "996e72fb0acf85e8b67b1730e7625779ff584bc8e9292d6bfc46b6bcc05276f2",
-        "docs/canonical-terms.md": "a0d29a01201747247cf721bc5ae149c08b1938dcff2b5aef04053cc3c5217446",
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
+        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
+        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "98017ae378c5f1288cea290897649f1fa57d1a63fb324379a91f9513c663e5a7",
-        "docs/architecture.md": "fe6cf390bbd2116ee39b958e6865f830628222455093b229a7fba5a57a21a15e",
-        "docs/dod-evals.md": "eb1acffa410426c1f7d9bccfc2e0cf3397bf2d3c2e1d6297d806182e09b8df2d",
+        "docs/architecture.md": "a57ef36f25f4723d4812c10b399780c31dff265e35ffa2fa0504e76af96e24cb",
+        "docs/dod-evals.md": "30e2d83ad6595218a52aa10d974efa97d8a668e355808b40d13a637c8985efbc",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -4220,15 +4225,15 @@
         "src/server/index.mjs": "3bc460c60f8931c05fefc575a985fca1ed71d0f1838f0a276a4e758812120ece",
         "src/server/store.mjs": "c05a7290046f90f7aca67e3bb73a32da4ff3cfd62109b29f9022144227c81db5",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
-        "test/core.test.mjs": "3de9c4e0aed2915fc0f8beb6bc4d4db0cd66901503f2c168d208ea195c7c6484",
-        "src/server/codex-provider.mjs": "407b3318aa09d7151999f1d52100f6e08ac318404c154e3eed037e46057b7685",
+        "test/core.test.mjs": "91cbedcc3c0951683a3762c1333d7c55af6f605d0c5f52ae687cc4ad768cc394",
+        "src/server/codex-provider.mjs": "ccf55470ef499fe9375b4b3d3e6a5bec59c3ae0808597b8aae67ac4ae31e9604",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
-        "test/codex-provider.test.mjs": "57f6eca5bab27eb807920fe1a38713981e8eb757fc0fe4f5f21f7b4221b1753c",
-        "test/consultation.test.mjs": "d6f8314794a6b038ef7054b2dddb824aeb61f7b2422004492fa4649876090749",
-        "test/http.test.mjs": "ffcec1c486859a9c4940df2346dd1226a5f5b463a603f40ba9f1fd5931cbc087",
-        "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
+        "test/codex-provider.test.mjs": "8e3f97c867459c414d3476476bff2fe76171118e030e1bcf804f44a3fde9bdaf",
+        "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
+        "test/http.test.mjs": "058527520d62314075778076789d55503ae43f9d69d739386e90e8d39e435c61",
+        "test/fixtures/fake-codex.mjs": "253022fb119541d22e64e6a9b7968840b14ee82cd70a42f1d1ff465ea0f27855",
         "src/server/prompt-contracts.mjs": "6ae5ab7c303bb1cf48d8eff524592e80287b03ce456c74a93c72a30ccd4a3652",
-        "src/client/app.js": "ace19e9881c8a5a8e3a3e6f98732a93f1bf4cc5681500b28c667ab0b07410a3b",
+        "src/client/app.js": "029ea3f84f4a92d3ded3c10138515e528380e30dfbcb0317653e317212073809",
         "test/consolidation.test.mjs": "c29cb6ecca6f28811b16370ae1e00d698a47e6e07cc02c36cc96a90cd7a77102",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -4237,7 +4242,7 @@
         "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
         "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
         "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
-        "src/server/validation.mjs": "4f342027528df8732faf996d5c85a84c3cf35739340cc0aeacf48bf14f9a61b4",
+        "src/server/validation.mjs": "9975418088378295e8fed316ba11ecb9b788017953b78691aa61df7c28af5f9f",
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
@@ -4260,7 +4265,8 @@
         "src/server/migrate.mjs": "92f01ab752106741786174ce22e82d1d2888a5d5f0354bbabce7dac1218f60f1",
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
         "test/settings-migration.test.mjs": "aa04be0abb0fa69c2f0cc919506db3272da06d574c333dc34024a0998947cca2",
-        "test/fixtures/fake-claude.mjs": "1d867014e911f5ef29e92be0af5e126903934b53458d8934c00c82638bc07e96"
+        "test/fixtures/fake-claude.mjs": "1d867014e911f5ef29e92be0af5e126903934b53458d8934c00c82638bc07e96",
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760"
       },
       "dependencies": [
         "prd",
@@ -4274,14 +4280,14 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "c66a594fc51c27d9ddded49a8e3ad13a0b85d0de196d1b65b47ae864da803774",
+      "content_hash": "205b5295d0ccc0eb7217b008cde5dcf4cd9e2545a94bf168c6906f2965bcec91",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r21-owner-directed-critic-model-update",
-        "reviewed_at": "2026-09-22T18:29:30.000Z",
+        "kind": "r22-owner-directed-additional-codex-model",
+        "reviewed_at": "2026-09-22T19:06:44.853Z",
         "executor": "Codex inline to-qa-checklist",
-        "scope": "Reconcile existing prepared checks for visible Opus 5.5 / Medium values, one-time and recovery migration, later owner choices, accepted-run immutability, exact CLI arguments and hosted table isolation. Formal status remains not_run."
+        "scope": "Verify Critic provider switching retains an unresolved incompatible-effort placeholder and inactive Sol survives temporary catalog omission but cannot be activated until supported; formal QA remains not run."
       },
       "open_questions": [],
       "traceability": {
@@ -6043,19 +6049,19 @@
           "heading": "## Product acceptance"
         }
       },
-      "supersedes": "r23-accepted-knock-qa-checklist-approved-2026-09-18T01:13:25.320Z",
+      "supersedes": "r22-gpt-6-sol-qa-checklist-2026-09-22T19:01:58.871Z",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "r21-opus-5-5-development-plan-2026-09-22T18:37:34.000Z",
+      "owner_invocation_id": "r22-gpt-6-sol-development-plan-2026-09-22T19:07:14.659Z",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r21-opus-5-5-development-plan-2026-09-22T18:37:34.000Z",
+      "source_version": "r22-gpt-6-sol-development-plan-2026-09-22T19:07:14.659Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -6121,21 +6127,22 @@
         "src/server/migrate.mjs": "full",
         "src/server/configuration-recovery.mjs": "full",
         "test/settings-migration.test.mjs": "full",
-        "test/fixtures/fake-claude.mjs": "full"
+        "test/fixtures/fake-claude.mjs": "full",
+        "src/server/codex-models.mjs": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d",
-        "docs/project-context.md": "996e72fb0acf85e8b67b1730e7625779ff584bc8e9292d6bfc46b6bcc05276f2",
-        "docs/canonical-terms.md": "a0d29a01201747247cf721bc5ae149c08b1938dcff2b5aef04053cc3c5217446",
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
+        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
+        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "98017ae378c5f1288cea290897649f1fa57d1a63fb324379a91f9513c663e5a7",
-        "docs/architecture.md": "fe6cf390bbd2116ee39b958e6865f830628222455093b229a7fba5a57a21a15e",
-        "docs/dod-evals.md": "eb1acffa410426c1f7d9bccfc2e0cf3397bf2d3c2e1d6297d806182e09b8df2d",
-        "docs/qa-checklist.md": "c66a594fc51c27d9ddded49a8e3ad13a0b85d0de196d1b65b47ae864da803774",
-        "docs/model-settings.md": "e197ffc67cf6f976ec16f88686471c1fc0dd32a00cfb81db3ec5bfaa81d4d03d",
+        "docs/architecture.md": "a57ef36f25f4723d4812c10b399780c31dff265e35ffa2fa0504e76af96e24cb",
+        "docs/dod-evals.md": "30e2d83ad6595218a52aa10d974efa97d8a668e355808b40d13a637c8985efbc",
+        "docs/qa-checklist.md": "205b5295d0ccc0eb7217b008cde5dcf4cd9e2545a94bf168c6906f2965bcec91",
+        "docs/model-settings.md": "3c66d9a1aba090d694e7c5a60d04837a036c81a3889f96930dfd99b2b810c9df",
         "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "package.json": "07cd75788ee43dce13e0f0a046bd0319937cb6332dbee96ecea53f89305269e3",
         "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
@@ -6148,15 +6155,15 @@
         "src/server/index.mjs": "3bc460c60f8931c05fefc575a985fca1ed71d0f1838f0a276a4e758812120ece",
         "src/server/store.mjs": "c05a7290046f90f7aca67e3bb73a32da4ff3cfd62109b29f9022144227c81db5",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
-        "test/core.test.mjs": "3de9c4e0aed2915fc0f8beb6bc4d4db0cd66901503f2c168d208ea195c7c6484",
-        "src/server/codex-provider.mjs": "407b3318aa09d7151999f1d52100f6e08ac318404c154e3eed037e46057b7685",
+        "test/core.test.mjs": "91cbedcc3c0951683a3762c1333d7c55af6f605d0c5f52ae687cc4ad768cc394",
+        "src/server/codex-provider.mjs": "ccf55470ef499fe9375b4b3d3e6a5bec59c3ae0808597b8aae67ac4ae31e9604",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
-        "test/codex-provider.test.mjs": "57f6eca5bab27eb807920fe1a38713981e8eb757fc0fe4f5f21f7b4221b1753c",
-        "test/consultation.test.mjs": "d6f8314794a6b038ef7054b2dddb824aeb61f7b2422004492fa4649876090749",
-        "test/http.test.mjs": "ffcec1c486859a9c4940df2346dd1226a5f5b463a603f40ba9f1fd5931cbc087",
-        "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
+        "test/codex-provider.test.mjs": "8e3f97c867459c414d3476476bff2fe76171118e030e1bcf804f44a3fde9bdaf",
+        "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
+        "test/http.test.mjs": "058527520d62314075778076789d55503ae43f9d69d739386e90e8d39e435c61",
+        "test/fixtures/fake-codex.mjs": "253022fb119541d22e64e6a9b7968840b14ee82cd70a42f1d1ff465ea0f27855",
         "src/server/prompt-contracts.mjs": "6ae5ab7c303bb1cf48d8eff524592e80287b03ce456c74a93c72a30ccd4a3652",
-        "src/client/app.js": "ace19e9881c8a5a8e3a3e6f98732a93f1bf4cc5681500b28c667ab0b07410a3b",
+        "src/client/app.js": "029ea3f84f4a92d3ded3c10138515e528380e30dfbcb0317653e317212073809",
         "test/consolidation.test.mjs": "c29cb6ecca6f28811b16370ae1e00d698a47e6e07cc02c36cc96a90cd7a77102",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -6165,7 +6172,7 @@
         "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
         "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
         "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
-        "src/server/validation.mjs": "4f342027528df8732faf996d5c85a84c3cf35739340cc0aeacf48bf14f9a61b4",
+        "src/server/validation.mjs": "9975418088378295e8fed316ba11ecb9b788017953b78691aa61df7c28af5f9f",
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
@@ -6188,7 +6195,8 @@
         "src/server/migrate.mjs": "92f01ab752106741786174ce22e82d1d2888a5d5f0354bbabce7dac1218f60f1",
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
         "test/settings-migration.test.mjs": "aa04be0abb0fa69c2f0cc919506db3272da06d574c333dc34024a0998947cca2",
-        "test/fixtures/fake-claude.mjs": "1d867014e911f5ef29e92be0af5e126903934b53458d8934c00c82638bc07e96"
+        "test/fixtures/fake-claude.mjs": "1d867014e911f5ef29e92be0af5e126903934b53458d8934c00c82638bc07e96",
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760"
       },
       "dependencies": [
         "prd",
@@ -6203,16 +6211,16 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "fc62d3beb1f9cea1999cc3149598b973b979602fed604b42b761bffc4a62ee21",
+      "content_hash": "7efdc8c7400c78e624f59530449f8e51a31e4c7d7edb1045256797b51dbd40f3",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r21-owner-directed-critic-model-update",
-        "reviewed_at": "2026-09-22T18:37:34.000Z",
+        "kind": "r22-owner-directed-additional-codex-model",
+        "reviewed_at": "2026-09-22T19:07:14.659Z",
         "executor": "Codex inline to-development-plan",
-        "scope": "Revalidate U-01, U-03, U-04, U-08 and C-02 for the Opus 5.5 / Medium Critic preference, one-time settings migration, immutable accepted snapshots, exact Claude CLI arguments and remaining live evidence."
+        "scope": "Revalidated U-03 acceptance against inactive Sol branch retention, provider-toggle placeholder and exact live-catalog activation; existing plan text and gate scope remain current."
       },
-      "supersedes": "r23-accepted-knock-development-plan-2026-09-18T01:13:25.320Z",
+      "supersedes": "r22-gpt-6-sol-development-plan-2026-09-22T19:04:42.340Z",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
       "traceability": {
         "definitions": [
@@ -7912,18 +7920,18 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "fc62d3beb1f9cea1999cc3149598b973b979602fed604b42b761bffc4a62ee21",
+    "development_plan_hash": "7efdc8c7400c78e624f59530449f8e51a31e4c7d7edb1045256797b51dbd40f3",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "impl-critic-opus-5-5-20260922",
-    "prompt_received_at": "2026-09-22T21:37:34+03:00",
-    "released_at": "2026-09-22T21:37:34+03:00",
+    "prompt_id": "impl-gpt-6-sol-20260922",
+    "prompt_received_at": "2026-09-22T19:04:42.485Z",
+    "released_at": "2026-09-22T19:04:42.485Z",
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
-      "path": "forge/runs/implementation-prompt-20260922-critic-opus-5-5.json",
-      "content_hash": "de364d3f98d6137baf8cda0903b2e87707b41cd13ec359238d1f10f585361d97"
+      "path": "forge/runs/implementation-prompt-20260922-gpt-6-sol.json",
+      "content_hash": "79305d725c8b9c5970b35296c900ca3f3e38c0c573d36b7cf2c367e928d65419"
     },
-    "reason": "The owner explicitly requested the current Critic preference to use Claude Code Opus 5.5 with Medium effort. Scope is limited to repository settings, a settings-only migration, tests and SDD reconciliation; deployment, a hosted database migration, a live provider turn and external-service changes remain outside this receipt."
+    "reason": "Authorize the repository change that adds GPT-6 Sol as an optional Codex model in Head/specialist and Critic Settings, validates catalog-backed model/effort choices, preserves existing defaults and accepted snapshots, updates tests and reconciles SDD artifacts. This does not authorize deployment, a hosted database migration, a live provider turn or changes to external services."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -9043,12 +9051,12 @@
   ],
   "dispatches": {
     "product-idea": {
-      "invocation_id": "r21-opus-5-5-product-idea-2026-09-22T18:16:58.000Z",
+      "invocation_id": "r22-gpt-6-sol-product-idea-2026-09-22T18:51:51.000Z",
       "outputs": [
         "docs/product-idea.md"
       ],
       "source_hashes": {
-        "docs/model-settings.md": "e197ffc67cf6f976ec16f88686471c1fc0dd32a00cfb81db3ec5bfaa81d4d03d",
+        "docs/model-settings.md": "3c66d9a1aba090d694e7c5a60d04837a036c81a3889f96930dfd99b2b810c9df",
         "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
@@ -9056,73 +9064,73 @@
       "consumed_source_fragments": {}
     },
     "prd": {
-      "invocation_id": "r21-opus-5-5-prd-2026-09-22T18:18:30.000Z",
+      "invocation_id": "r22-gpt-6-sol-prd-2026-09-22T18:53:00.000Z",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "c3c72ff583ed11f6a2b99bc6b9f9b7a3340617e7176f6fc6534abdc11827d0dd"
+        "docs/product-idea.md": "9df6edad8b11c0c13ec18728d87c225de69718c0764bcef940eed60f17a5f0c4"
       },
       "consumed_source_fragments": {}
     },
     "project-context": {
-      "invocation_id": "r21-opus-5-5-project-context-bundle-2026-09-22T18:20:00.000Z",
+      "invocation_id": "r22-gpt-6-sol-project-context-bundle-2026-09-22T18:56:00.000Z",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "c3c72ff583ed11f6a2b99bc6b9f9b7a3340617e7176f6fc6534abdc11827d0dd",
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d"
+        "docs/product-idea.md": "9df6edad8b11c0c13ec18728d87c225de69718c0764bcef940eed60f17a5f0c4",
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122"
       },
       "consumed_source_fragments": {}
     },
     "canonical-terms": {
-      "invocation_id": "r21-opus-5-5-project-context-bundle-2026-09-22T18:20:00.000Z",
+      "invocation_id": "r22-gpt-6-sol-project-context-bundle-2026-09-22T18:56:00.000Z",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "c3c72ff583ed11f6a2b99bc6b9f9b7a3340617e7176f6fc6534abdc11827d0dd",
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d"
+        "docs/product-idea.md": "9df6edad8b11c0c13ec18728d87c225de69718c0764bcef940eed60f17a5f0c4",
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122"
       },
       "consumed_source_fragments": {}
     },
     "guardrails": {
-      "invocation_id": "r21-opus-5-5-guardrails-2026-09-22T18:22:00.000Z",
+      "invocation_id": "r22-gpt-6-sol-guardrails-2026-09-22T18:57:47.221Z",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d",
-        "docs/project-context.md": "996e72fb0acf85e8b67b1730e7625779ff584bc8e9292d6bfc46b6bcc05276f2",
-        "docs/canonical-terms.md": "a0d29a01201747247cf721bc5ae149c08b1938dcff2b5aef04053cc3c5217446"
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
+        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
+        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5"
       },
       "consumed_source_fragments": {}
     },
     "user-journey": {
-      "invocation_id": "r21-opus-5-5-user-journey-2026-09-22T18:22:30.000Z",
+      "invocation_id": "r22-gpt-6-sol-user-journey-2026-09-22T18:58:13.823Z",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d",
-        "docs/project-context.md": "996e72fb0acf85e8b67b1730e7625779ff584bc8e9292d6bfc46b6bcc05276f2",
-        "docs/canonical-terms.md": "a0d29a01201747247cf721bc5ae149c08b1938dcff2b5aef04053cc3c5217446",
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
+        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
+        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb"
       },
       "consumed_source_fragments": {}
     },
     "screen-map": {
-      "invocation_id": "r21-opus-5-5-screen-map-2026-09-22T18:23:00.000Z",
+      "invocation_id": "r22-gpt-6-sol-screen-map-2026-09-22T18:58:38.651Z",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d",
-        "docs/project-context.md": "996e72fb0acf85e8b67b1730e7625779ff584bc8e9292d6bfc46b6bcc05276f2",
-        "docs/canonical-terms.md": "a0d29a01201747247cf721bc5ae149c08b1938dcff2b5aef04053cc3c5217446",
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
+        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
+        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
@@ -9132,14 +9140,14 @@
       "consumed_source_fragments": {}
     },
     "wireframes": {
-      "invocation_id": "r21-opus-5-5-wireframes-2026-09-22T18:23:30.000Z",
+      "invocation_id": "r22-gpt-6-sol-wireframes-2026-09-22T18:58:59.962Z",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d",
-        "docs/project-context.md": "996e72fb0acf85e8b67b1730e7625779ff584bc8e9292d6bfc46b6bcc05276f2",
-        "docs/canonical-terms.md": "a0d29a01201747247cf721bc5ae149c08b1938dcff2b5aef04053cc3c5217446",
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
+        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
+        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2"
@@ -9147,19 +9155,19 @@
       "consumed_source_fragments": {}
     },
     "design-brief": {
-      "invocation_id": "r21-opus-5-5-design-brief-2026-09-22T18:24:30.000Z",
+      "invocation_id": "r22-gpt-6-sol-design-brief-2026-09-22T18:59:19.363Z",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d",
-        "docs/project-context.md": "996e72fb0acf85e8b67b1730e7625779ff584bc8e9292d6bfc46b6bcc05276f2",
-        "docs/canonical-terms.md": "a0d29a01201747247cf721bc5ae149c08b1938dcff2b5aef04053cc3c5217446",
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
+        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
+        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
-        "docs/product-idea.md": "c3c72ff583ed11f6a2b99bc6b9f9b7a3340617e7176f6fc6534abdc11827d0dd",
+        "docs/product-idea.md": "9df6edad8b11c0c13ec18728d87c225de69718c0764bcef940eed60f17a5f0c4",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -9208,20 +9216,20 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "r21-opus-5-5-architecture-2026-09-22T18:27:00.000Z",
+      "invocation_id": "r22-gpt-6-sol-architecture-2026-09-22T19:05:35.924Z",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d",
-        "docs/project-context.md": "996e72fb0acf85e8b67b1730e7625779ff584bc8e9292d6bfc46b6bcc05276f2",
-        "docs/canonical-terms.md": "a0d29a01201747247cf721bc5ae149c08b1938dcff2b5aef04053cc3c5217446",
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
+        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
+        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "98017ae378c5f1288cea290897649f1fa57d1a63fb324379a91f9513c663e5a7",
-        "docs/model-settings.md": "e197ffc67cf6f976ec16f88686471c1fc0dd32a00cfb81db3ec5bfaa81d4d03d",
+        "docs/model-settings.md": "3c66d9a1aba090d694e7c5a60d04837a036c81a3889f96930dfd99b2b810c9df",
         "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
         "package.json": "07cd75788ee43dce13e0f0a046bd0319937cb6332dbee96ecea53f89305269e3",
@@ -9229,16 +9237,16 @@
         "src/server/index.mjs": "3bc460c60f8931c05fefc575a985fca1ed71d0f1838f0a276a4e758812120ece",
         "src/server/store.mjs": "c05a7290046f90f7aca67e3bb73a32da4ff3cfd62109b29f9022144227c81db5",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
-        "test/core.test.mjs": "3de9c4e0aed2915fc0f8beb6bc4d4db0cd66901503f2c168d208ea195c7c6484",
-        "src/server/codex-provider.mjs": "407b3318aa09d7151999f1d52100f6e08ac318404c154e3eed037e46057b7685",
+        "test/core.test.mjs": "91cbedcc3c0951683a3762c1333d7c55af6f605d0c5f52ae687cc4ad768cc394",
+        "src/server/codex-provider.mjs": "ccf55470ef499fe9375b4b3d3e6a5bec59c3ae0808597b8aae67ac4ae31e9604",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
-        "test/codex-provider.test.mjs": "57f6eca5bab27eb807920fe1a38713981e8eb757fc0fe4f5f21f7b4221b1753c",
-        "test/consultation.test.mjs": "d6f8314794a6b038ef7054b2dddb824aeb61f7b2422004492fa4649876090749",
-        "test/http.test.mjs": "ffcec1c486859a9c4940df2346dd1226a5f5b463a603f40ba9f1fd5931cbc087",
+        "test/codex-provider.test.mjs": "8e3f97c867459c414d3476476bff2fe76171118e030e1bcf804f44a3fde9bdaf",
+        "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
+        "test/http.test.mjs": "058527520d62314075778076789d55503ae43f9d69d739386e90e8d39e435c61",
         ".env.example": "71983a7601c502c44bddb0f1a6fb9c2a8ebe170dd7151395b9199e16da713d3d",
-        "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
+        "test/fixtures/fake-codex.mjs": "253022fb119541d22e64e6a9b7968840b14ee82cd70a42f1d1ff465ea0f27855",
         "src/server/prompt-contracts.mjs": "6ae5ab7c303bb1cf48d8eff524592e80287b03ce456c74a93c72a30ccd4a3652",
-        "src/client/app.js": "ace19e9881c8a5a8e3a3e6f98732a93f1bf4cc5681500b28c667ab0b07410a3b",
+        "src/client/app.js": "029ea3f84f4a92d3ded3c10138515e528380e30dfbcb0317653e317212073809",
         "test/consolidation.test.mjs": "c29cb6ecca6f28811b16370ae1e00d698a47e6e07cc02c36cc96a90cd7a77102",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -9247,7 +9255,7 @@
         "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
         "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
         "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
-        "src/server/validation.mjs": "4f342027528df8732faf996d5c85a84c3cf35739340cc0aeacf48bf14f9a61b4",
+        "src/server/validation.mjs": "9975418088378295e8fed316ba11ecb9b788017953b78691aa61df7c28af5f9f",
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
@@ -9270,56 +9278,58 @@
         "src/server/migrate.mjs": "92f01ab752106741786174ce22e82d1d2888a5d5f0354bbabce7dac1218f60f1",
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
         "test/settings-migration.test.mjs": "aa04be0abb0fa69c2f0cc919506db3272da06d574c333dc34024a0998947cca2",
-        "test/fixtures/fake-claude.mjs": "1d867014e911f5ef29e92be0af5e126903934b53458d8934c00c82638bc07e96"
+        "test/fixtures/fake-claude.mjs": "1d867014e911f5ef29e92be0af5e126903934b53458d8934c00c82638bc07e96",
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760"
       },
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "r21-opus-5-5-dod-evals-2026-09-22T18:28:00.000Z",
+      "invocation_id": "r22-gpt-6-sol-dod-evals-2026-09-22T19:06:02.556Z",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d",
-        "docs/project-context.md": "996e72fb0acf85e8b67b1730e7625779ff584bc8e9292d6bfc46b6bcc05276f2",
-        "docs/canonical-terms.md": "a0d29a01201747247cf721bc5ae149c08b1938dcff2b5aef04053cc3c5217446",
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
+        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
+        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "98017ae378c5f1288cea290897649f1fa57d1a63fb324379a91f9513c663e5a7",
-        "docs/architecture.md": "fe6cf390bbd2116ee39b958e6865f830628222455093b229a7fba5a57a21a15e",
+        "docs/architecture.md": "a57ef36f25f4723d4812c10b399780c31dff265e35ffa2fa0504e76af96e24cb",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
         "src/server/claude-provider.mjs": "8678d891083d00e9fa69002a126032a95ebe6b63207e26d31f6e5fb8546c9105",
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
         "test/claude-provider.test.mjs": "76bbb498810672925304ba2edc430e767c161163e8b1b36d8ba8a65923dee991",
-        "test/consultation.test.mjs": "d6f8314794a6b038ef7054b2dddb824aeb61f7b2422004492fa4649876090749",
+        "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
         "src/server/settings.mjs": "c51192b0cbeef05403a89522b2849dee78abbbd73f51e8299eb133e6c1ab4c81",
         "src/server/settings-migration.mjs": "962a06c2aca26fe19654d7a05b7aefff1e7986b53d966cba59c5a212d3bd9db5",
         "src/server/migrate.mjs": "92f01ab752106741786174ce22e82d1d2888a5d5f0354bbabce7dac1218f60f1",
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
-        "test/settings-migration.test.mjs": "aa04be0abb0fa69c2f0cc919506db3272da06d574c333dc34024a0998947cca2"
+        "test/settings-migration.test.mjs": "aa04be0abb0fa69c2f0cc919506db3272da06d574c333dc34024a0998947cca2",
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760"
       },
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "r21-opus-5-5-qa-checklist-2026-09-22T18:29:30.000Z",
+      "invocation_id": "r22-gpt-6-sol-qa-checklist-2026-09-22T19:06:44.853Z",
       "outputs": [
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d",
-        "docs/project-context.md": "996e72fb0acf85e8b67b1730e7625779ff584bc8e9292d6bfc46b6bcc05276f2",
-        "docs/canonical-terms.md": "a0d29a01201747247cf721bc5ae149c08b1938dcff2b5aef04053cc3c5217446",
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
+        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
+        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "98017ae378c5f1288cea290897649f1fa57d1a63fb324379a91f9513c663e5a7",
-        "docs/architecture.md": "fe6cf390bbd2116ee39b958e6865f830628222455093b229a7fba5a57a21a15e",
-        "docs/dod-evals.md": "eb1acffa410426c1f7d9bccfc2e0cf3397bf2d3c2e1d6297d806182e09b8df2d",
+        "docs/architecture.md": "a57ef36f25f4723d4812c10b399780c31dff265e35ffa2fa0504e76af96e24cb",
+        "docs/dod-evals.md": "30e2d83ad6595218a52aa10d974efa97d8a668e355808b40d13a637c8985efbc",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -9329,15 +9339,15 @@
         "src/server/index.mjs": "3bc460c60f8931c05fefc575a985fca1ed71d0f1838f0a276a4e758812120ece",
         "src/server/store.mjs": "c05a7290046f90f7aca67e3bb73a32da4ff3cfd62109b29f9022144227c81db5",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
-        "test/core.test.mjs": "3de9c4e0aed2915fc0f8beb6bc4d4db0cd66901503f2c168d208ea195c7c6484",
-        "src/server/codex-provider.mjs": "407b3318aa09d7151999f1d52100f6e08ac318404c154e3eed037e46057b7685",
+        "test/core.test.mjs": "91cbedcc3c0951683a3762c1333d7c55af6f605d0c5f52ae687cc4ad768cc394",
+        "src/server/codex-provider.mjs": "ccf55470ef499fe9375b4b3d3e6a5bec59c3ae0808597b8aae67ac4ae31e9604",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
-        "test/codex-provider.test.mjs": "57f6eca5bab27eb807920fe1a38713981e8eb757fc0fe4f5f21f7b4221b1753c",
-        "test/consultation.test.mjs": "d6f8314794a6b038ef7054b2dddb824aeb61f7b2422004492fa4649876090749",
-        "test/http.test.mjs": "ffcec1c486859a9c4940df2346dd1226a5f5b463a603f40ba9f1fd5931cbc087",
-        "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
+        "test/codex-provider.test.mjs": "8e3f97c867459c414d3476476bff2fe76171118e030e1bcf804f44a3fde9bdaf",
+        "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
+        "test/http.test.mjs": "058527520d62314075778076789d55503ae43f9d69d739386e90e8d39e435c61",
+        "test/fixtures/fake-codex.mjs": "253022fb119541d22e64e6a9b7968840b14ee82cd70a42f1d1ff465ea0f27855",
         "src/server/prompt-contracts.mjs": "6ae5ab7c303bb1cf48d8eff524592e80287b03ce456c74a93c72a30ccd4a3652",
-        "src/client/app.js": "ace19e9881c8a5a8e3a3e6f98732a93f1bf4cc5681500b28c667ab0b07410a3b",
+        "src/client/app.js": "029ea3f84f4a92d3ded3c10138515e528380e30dfbcb0317653e317212073809",
         "test/consolidation.test.mjs": "c29cb6ecca6f28811b16370ae1e00d698a47e6e07cc02c36cc96a90cd7a77102",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -9346,7 +9356,7 @@
         "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
         "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
         "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
-        "src/server/validation.mjs": "4f342027528df8732faf996d5c85a84c3cf35739340cc0aeacf48bf14f9a61b4",
+        "src/server/validation.mjs": "9975418088378295e8fed316ba11ecb9b788017953b78691aa61df7c28af5f9f",
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
@@ -9369,28 +9379,29 @@
         "src/server/migrate.mjs": "92f01ab752106741786174ce22e82d1d2888a5d5f0354bbabce7dac1218f60f1",
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
         "test/settings-migration.test.mjs": "aa04be0abb0fa69c2f0cc919506db3272da06d574c333dc34024a0998947cca2",
-        "test/fixtures/fake-claude.mjs": "1d867014e911f5ef29e92be0af5e126903934b53458d8934c00c82638bc07e96"
+        "test/fixtures/fake-claude.mjs": "1d867014e911f5ef29e92be0af5e126903934b53458d8934c00c82638bc07e96",
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760"
       },
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "r21-opus-5-5-development-plan-2026-09-22T18:37:34.000Z",
+      "invocation_id": "r22-gpt-6-sol-development-plan-2026-09-22T19:07:14.659Z",
       "outputs": [
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "d1762dc72052150e15dafbe0c0f7bcb2f0e1bb1b63f4c630cfa39c26e5b00a9d",
-        "docs/project-context.md": "996e72fb0acf85e8b67b1730e7625779ff584bc8e9292d6bfc46b6bcc05276f2",
-        "docs/canonical-terms.md": "a0d29a01201747247cf721bc5ae149c08b1938dcff2b5aef04053cc3c5217446",
+        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
+        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
+        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "98017ae378c5f1288cea290897649f1fa57d1a63fb324379a91f9513c663e5a7",
-        "docs/architecture.md": "fe6cf390bbd2116ee39b958e6865f830628222455093b229a7fba5a57a21a15e",
-        "docs/dod-evals.md": "eb1acffa410426c1f7d9bccfc2e0cf3397bf2d3c2e1d6297d806182e09b8df2d",
-        "docs/qa-checklist.md": "c66a594fc51c27d9ddded49a8e3ad13a0b85d0de196d1b65b47ae864da803774",
-        "docs/model-settings.md": "e197ffc67cf6f976ec16f88686471c1fc0dd32a00cfb81db3ec5bfaa81d4d03d",
+        "docs/architecture.md": "a57ef36f25f4723d4812c10b399780c31dff265e35ffa2fa0504e76af96e24cb",
+        "docs/dod-evals.md": "30e2d83ad6595218a52aa10d974efa97d8a668e355808b40d13a637c8985efbc",
+        "docs/qa-checklist.md": "205b5295d0ccc0eb7217b008cde5dcf4cd9e2545a94bf168c6906f2965bcec91",
+        "docs/model-settings.md": "3c66d9a1aba090d694e7c5a60d04837a036c81a3889f96930dfd99b2b810c9df",
         "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "package.json": "07cd75788ee43dce13e0f0a046bd0319937cb6332dbee96ecea53f89305269e3",
         "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
@@ -9403,15 +9414,15 @@
         "src/server/index.mjs": "3bc460c60f8931c05fefc575a985fca1ed71d0f1838f0a276a4e758812120ece",
         "src/server/store.mjs": "c05a7290046f90f7aca67e3bb73a32da4ff3cfd62109b29f9022144227c81db5",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
-        "test/core.test.mjs": "3de9c4e0aed2915fc0f8beb6bc4d4db0cd66901503f2c168d208ea195c7c6484",
-        "src/server/codex-provider.mjs": "407b3318aa09d7151999f1d52100f6e08ac318404c154e3eed037e46057b7685",
+        "test/core.test.mjs": "91cbedcc3c0951683a3762c1333d7c55af6f605d0c5f52ae687cc4ad768cc394",
+        "src/server/codex-provider.mjs": "ccf55470ef499fe9375b4b3d3e6a5bec59c3ae0808597b8aae67ac4ae31e9604",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
-        "test/codex-provider.test.mjs": "57f6eca5bab27eb807920fe1a38713981e8eb757fc0fe4f5f21f7b4221b1753c",
-        "test/consultation.test.mjs": "d6f8314794a6b038ef7054b2dddb824aeb61f7b2422004492fa4649876090749",
-        "test/http.test.mjs": "ffcec1c486859a9c4940df2346dd1226a5f5b463a603f40ba9f1fd5931cbc087",
-        "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
+        "test/codex-provider.test.mjs": "8e3f97c867459c414d3476476bff2fe76171118e030e1bcf804f44a3fde9bdaf",
+        "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
+        "test/http.test.mjs": "058527520d62314075778076789d55503ae43f9d69d739386e90e8d39e435c61",
+        "test/fixtures/fake-codex.mjs": "253022fb119541d22e64e6a9b7968840b14ee82cd70a42f1d1ff465ea0f27855",
         "src/server/prompt-contracts.mjs": "6ae5ab7c303bb1cf48d8eff524592e80287b03ce456c74a93c72a30ccd4a3652",
-        "src/client/app.js": "ace19e9881c8a5a8e3a3e6f98732a93f1bf4cc5681500b28c667ab0b07410a3b",
+        "src/client/app.js": "029ea3f84f4a92d3ded3c10138515e528380e30dfbcb0317653e317212073809",
         "test/consolidation.test.mjs": "c29cb6ecca6f28811b16370ae1e00d698a47e6e07cc02c36cc96a90cd7a77102",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -9420,7 +9431,7 @@
         "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
         "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
         "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
-        "src/server/validation.mjs": "4f342027528df8732faf996d5c85a84c3cf35739340cc0aeacf48bf14f9a61b4",
+        "src/server/validation.mjs": "9975418088378295e8fed316ba11ecb9b788017953b78691aa61df7c28af5f9f",
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
@@ -9443,7 +9454,8 @@
         "src/server/migrate.mjs": "92f01ab752106741786174ce22e82d1d2888a5d5f0354bbabce7dac1218f60f1",
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
         "test/settings-migration.test.mjs": "aa04be0abb0fa69c2f0cc919506db3272da06d574c333dc34024a0998947cca2",
-        "test/fixtures/fake-claude.mjs": "1d867014e911f5ef29e92be0af5e126903934b53458d8934c00c82638bc07e96"
+        "test/fixtures/fake-claude.mjs": "1d867014e911f5ef29e92be0af5e126903934b53458d8934c00c82638bc07e96",
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760"
       },
       "consumed_source_fragments": {}
     }
@@ -67773,8 +67785,8 @@
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "eb1acffa410426c1f7d9bccfc2e0cf3397bf2d3c2e1d6297d806182e09b8df2d",
-      "docs/qa-checklist.md": "c66a594fc51c27d9ddded49a8e3ad13a0b85d0de196d1b65b47ae864da803774"
+      "docs/dod-evals.md": "30e2d83ad6595218a52aa10d974efa97d8a668e355808b40d13a637c8985efbc",
+      "docs/qa-checklist.md": "205b5295d0ccc0eb7217b008cde5dcf4cd9e2545a94bf168c6906f2965bcec91"
     },
     "gates": [
       {
@@ -108433,6 +108445,21 @@
         "content_hash": "f8e81f5f9cc7274d4d257b41073187c306237a2c46636dc86f9f8c7cce1eb7c7"
       },
       "reason": "Documentation, provenance and Git history maintenance only. Preserve executable application, tests, dependency manifests, assets, current product behavior and approved visual baseline. No feature implementation, database operation or host configuration change is authorized by this receipt."
+    },
+    {
+      "state": "authorized_for_phase3",
+      "development_plan_hash": "fc62d3beb1f9cea1999cc3149598b973b979602fed604b42b761bffc4a62ee21",
+      "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+      "awaiting_at": "2026-09-14T20:13:37+03:00",
+      "prompt_id": "impl-critic-opus-5-5-20260922",
+      "prompt_received_at": "2026-09-22T21:37:34+03:00",
+      "released_at": "2026-09-22T21:37:34+03:00",
+      "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
+      "prompt_receipt": {
+        "path": "forge/runs/implementation-prompt-20260922-critic-opus-5-5.json",
+        "content_hash": "de364d3f98d6137baf8cda0903b2e87707b41cd13ec359238d1f10f585361d97"
+      },
+      "reason": "The owner explicitly requested the current Critic preference to use Claude Code Opus 5.5 with Medium effort. Scope is limited to repository settings, a settings-only migration, tests and SDD reconciliation; deployment, a hosted database migration, a live provider turn and external-service changes remain outside this receipt."
     }
   ]
 }

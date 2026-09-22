@@ -3,6 +3,8 @@ import { createInterface } from "node:readline";
 
 const send = value => process.stdout.write(`${JSON.stringify({ jsonrpc: "2.0", ...value })}\n`);
 const expectedFeatures = ["shell_tool", "unified_exec", "view_image", "shell_snapshot", "apps", "plugins", "hooks", "memories", "browser_use", "browser_use_external", "browser_use_full_cdp_access", "computer_use", "image_generation", "workspace_dependencies", "code_mode", "code_mode_host", "multi_agent", "multi_agent_v2", "skill_search", "tool_suggest", "request_permissions_tool"];
+const modelEfforts = Object.freeze({ "gpt-6-astra": ["xhigh", "ultra"], "gpt-6-sol": ["low", "medium", "high", "xhigh", "max", "ultra"] });
+let activeModel;
 const replyFor = prompt => {
   let answer = "A bounded answer.";
   if (prompt.includes("Return a Ukrainian relative-pronoun example")) return 'Уточніть, які умови потрібно виконати.\n<nanoduck-source>{"title":"Курси, які доступні","url":"https://example.com/courses","claim":"Вимоги, які підтверджує програма."}</nanoduck-source>';
@@ -26,13 +28,15 @@ createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line =
   if (request.method === "initialize") return send({ id: request.id, result: {} });
   if (request.method === "thread/start") {
     const config = request.params?.config;
-    const safe = request.params?.ephemeral === true && request.params?.cwd === process.env.HOME && request.params?.environments?.length === 0 && expectedFeatures.every(key => config?.features?.[key] === false);
+    const safe = request.params?.ephemeral === true && request.params?.cwd === process.env.HOME && request.params?.environments?.length === 0 && expectedFeatures.every(key => config?.features?.[key] === false) && Object.hasOwn(modelEfforts, request.params?.model);
+    if (safe) activeModel = request.params.model;
     return safe ? send({ id: request.id, result: { model: request.params.model, thread: { id: "isolated-thread", model: request.params.model } } }) : send({ id: request.id, error: { message: "unsafe_thread" } });
   }
   if (request.method === "account/read") return send({ id: request.id, result: { account: { type: "chatgpt" } } });
-  if (request.method === "model/list") return send({ id: request.id, result: { data: [{ id: "astra", model: "gpt-6-astra", supportedReasoningEfforts: [{ reasoningEffort: "xhigh" }, { reasoningEffort: "ultra" }] }], nextCursor: null } });
+  if (request.method === "model/list") return send({ id: request.id, result: { data: Object.entries(modelEfforts).map(([model, efforts]) => ({ id: model, model, supportedReasoningEfforts: efforts.map(reasoningEffort => ({ reasoningEffort })) })), nextCursor: null } });
   if (request.method === "account/rateLimits/read") return send({ id: request.id, result: { rateLimits: { rateLimitReachedType: null } } });
   if (request.method === "turn/start") {
+    if (request.params?.model !== activeModel || !modelEfforts[activeModel]?.includes(request.params?.effort)) return send({ id: request.id, error: { message: "unsupported model or reasoning effort" } });
     const prompt = request.params?.input?.[0]?.text ?? "";
     if (prompt.includes("Wait for the notification")) {
       send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });

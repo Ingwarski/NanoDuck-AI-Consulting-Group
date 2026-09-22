@@ -7,11 +7,24 @@ import { fileURLToPath } from "node:url";
 import { createCodexProvider } from "../src/server/codex-provider.mjs";
 import { testRuntimeInstructions as initialRuntimeInstructions } from "./fixtures/runtime-instructions.mjs";
 
+const codexModels = [
+  { id: "gpt-6-astra", efforts: ["xhigh", "ultra"] },
+  { id: "gpt-6-sol", efforts: ["low", "medium", "high", "xhigh", "max", "ultra"] }
+];
+
 test("Codex turns use an owned workspace and deny local tool channels", async () => {
   const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
   const provider = createCodexProvider({ readyForProvider: true, codexCommand: command, codexAuthPath: undefined });
-  assert.deepEqual(await provider.inspect(), { status: "ready", models: [{ id: "gpt-6-astra", efforts: ["xhigh", "ultra"] }] });
+  assert.deepEqual(await provider.inspect(), { status: "ready", models: codexModels });
   const result = await provider.invoke({ assignment: "Give a practical answer.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: new AbortController().signal });
+  assert.deepEqual(result, { ok: true, body: "A bounded answer.", sources: [] });
+});
+
+test("GPT-6 Sol is advertised and its selected model and effort reach an isolated turn", async () => {
+  const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: command, codexAuthPath: undefined });
+  assert.deepEqual(await provider.inspect(), { status: "ready", models: codexModels });
+  const result = await provider.invoke({ assignment: "Give a practical answer.", model: "gpt-6-sol", effort: "high", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: new AbortController().signal });
   assert.deepEqual(result, { ok: true, body: "A bounded answer.", sources: [] });
 });
 

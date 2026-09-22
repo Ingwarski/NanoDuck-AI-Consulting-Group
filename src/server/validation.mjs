@@ -1,5 +1,6 @@
 import { containsSecretLikeContent } from "./content-policy.mjs";
 import { currentClaudeCritic, currentSettingsRevision } from "./settings.mjs";
+import { codexModelEfforts } from "./codex-models.mjs";
 const text = (value, maximum) => typeof value === "string" && value.trim().length > 0 && value.length <= maximum;
 const identifier = value => typeof value === "string" && /^[A-Za-z0-9_-]{16,128}$/u.test(value);
 const forbiddenHostSuffixes = Object.freeze([".ru", ".by", ".su", ".xn--p1ai", ".xn--90ais"]);
@@ -32,7 +33,6 @@ export function messageError(value) {
   return body && (hasProhibitedLanguage(body.body) || hasUnsafeExternalUrl(body.body)) ? "language_not_supported" : "invalid_message";
 }
 
-const knownCodexEfforts = new Set(["xhigh", "ultra"]);
 const knownClaudeEfforts = new Set(["low", "medium", "high", "extra", "max"]);
 const catalogFor = (catalog, provider) => Array.isArray(catalog)
   ? (provider === "codex" ? catalog : [])
@@ -50,7 +50,7 @@ export function parseSettings(value, catalog = undefined) {
   const claudeModels = catalogFor(catalog, "claude_code");
   const codexAllowed = (model, effort) => codexModels.length
     ? modelSupports(codexModels, model, effort)
-    : model === "gpt-6-astra" && knownCodexEfforts.has(effort);
+    : model === "gpt-6-astra" && codexModelEfforts[model].includes(effort);
   const claudeAllowed = (model, effort) => claudeModels.length
     ? modelSupports(claudeModels, model, effort)
     : catalog === undefined && model === currentClaudeCritic.model && knownClaudeEfforts.has(effort);
@@ -70,8 +70,9 @@ export function parseSettings(value, catalog = undefined) {
     ? codexAllowed(criticCodexModel, criticCodexReasoning)
     : criticProvider === "claude_code" && claudeAllowed(activeClaudeModel, activeClaudeReasoning);
   const notificationSound = body.notificationSound ?? "knock";
+  const inactiveCodexValid = validModelId(criticCodexModel) && codexModelEfforts[criticCodexModel]?.includes(criticCodexReasoning);
   const inactiveClaudeValid = (criticClaudeModel === undefined || validModelId(criticClaudeModel)) && (criticClaudeReasoning === undefined || knownClaudeEfforts.has(criticClaudeReasoning));
-  if (!codexAllowed(body.headModel, body.headReasoning) || !criticAllowed || !codexAllowed(criticCodexModel, criticCodexReasoning) || !validModelId(criticCodexModel) || !knownCodexEfforts.has(criticCodexReasoning) || !inactiveClaudeValid || !validSpecialistCounts.has(body.specialistCount) || !validDiscussionDepths.has(body.discussionDepth) || !validNotificationSounds.has(notificationSound)) return undefined;
+  if (!codexAllowed(body.headModel, body.headReasoning) || !criticAllowed || !inactiveCodexValid || !inactiveClaudeValid || !validSpecialistCounts.has(body.specialistCount) || !validDiscussionDepths.has(body.discussionDepth) || !validNotificationSounds.has(notificationSound)) return undefined;
   const criticModel = criticProvider === "claude_code" ? activeClaudeModel : criticCodexModel;
   const criticReasoning = criticProvider === "claude_code" ? activeClaudeReasoning : criticCodexReasoning;
   const savedClaudeModel = criticClaudeModel ?? (criticProvider === "claude_code" ? activeClaudeModel : undefined);

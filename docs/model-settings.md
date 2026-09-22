@@ -29,6 +29,12 @@ The owner supplied a current Claude picker screenshot and directed the Critic to
 
 The repository applies this as a one-time saved-preference revision for future consultations. It preserves specialist count, discussion depth, sound and the Codex branch, and it never rewrites an accepted consultation snapshot. A later owner save is authoritative and is not overwritten on restart. This repository change does not prove a managed Claude grant, Opus 5.5 entitlement, a successful model turn or deployment.
 
+## Additional Codex model choice — 22 September 2026
+
+The owner subsequently requested **GPT-6 Sol** (`gpt-6-sol`) as an additional choice in every Codex model selector: Head/specialists and the independent Critic Codex branch. This expands the selectable catalog; it does not change the saved Head/specialist `gpt-6-astra` / `xhigh` tuple, the current Claude Code Opus 5.5 / Medium Critic tuple, or any accepted consultation snapshot. A later supported owner selection of GPT-6 Sol applies only to future consultations.
+
+Offer GPT-6 Sol with only the reasoning efforts supported by the current inspected Codex catalog, and validate the selected model/effort pair on save and invocation. The owner's request is product intent, not evidence of current managed-account entitlement, quota or a successful GPT-6 Sol turn; those require separate live checks.
+
 ## Selection and execution rules
 
 Do not silently substitute a model or effort from an unavailable catalog or from a historical record. Fresh and pre-revision saved preferences move once to the owner-directed Opus 5.5 / Medium Critic tuple. The obsolete revision-2 `Claude Code default`, `default`, and `xhigh` placeholders and the former Opus 5 preference normalize to the current tuple. Later supported owner choices remain unchanged.

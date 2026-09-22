@@ -6,6 +6,7 @@ import { join } from "node:path";
 import { randomId } from "./crypto.mjs";
 import { createRuntimePrompts, RuntimeInstructionError } from "./prompt-contracts.mjs";
 import { hasProhibitedLanguage, hasUnsafeExternalUrl, safeExternalUrl } from "./validation.mjs";
+import { codexModelEfforts } from "./codex-models.mjs";
 
 const waitFor = (promise, milliseconds, label, signal = undefined) => new Promise((resolve, reject) => {
   let settled = false;
@@ -20,8 +21,6 @@ const waitFor = (promise, milliseconds, label, signal = undefined) => new Promis
   Promise.resolve(promise).then(value => finish(resolve, value), error => finish(reject, error));
 });
 const record = value => typeof value === "object" && value !== null && !Array.isArray(value);
-const preservedModel = "gpt-6-astra";
-const preservedEfforts = new Set(["xhigh", "ultra"]);
 const terminalTurn = value => record(value) && ["completed", "interrupted", "failed"].includes(value.status) ? value : undefined;
 const providerLog = (event, details) => process.stdout.write(`${JSON.stringify({ event, ...details })}\n`);
 
@@ -187,10 +186,13 @@ async function supportedCatalog(connection) {
     cursor = result.nextCursor;
   }
   if (cursor || models.length > 2_000) throw new Error("invalid_catalog");
-  const astra = models.find(item => record(item) && item.model === preservedModel && typeof item.id === "string" && Array.isArray(item.supportedReasoningEfforts));
-  if (!record(astra)) return undefined;
-  const efforts = astra.supportedReasoningEfforts.flatMap(item => record(item) && typeof item.reasoningEffort === "string" && preservedEfforts.has(item.reasoningEffort) ? [item.reasoningEffort] : []);
-  return efforts.length ? Object.freeze([{ id: preservedModel, efforts: Object.freeze([...new Set(efforts)]) }]) : undefined;
+  const supported = Object.entries(codexModelEfforts).flatMap(([model, allowedEfforts]) => {
+    const available = models.find(item => record(item) && item.model === model && typeof item.id === "string" && Array.isArray(item.supportedReasoningEfforts));
+    if (!available) return [];
+    const efforts = available.supportedReasoningEfforts.flatMap(item => record(item) && typeof item.reasoningEffort === "string" && allowedEfforts.includes(item.reasoningEffort) ? [item.reasoningEffort] : []);
+    return efforts.length ? [Object.freeze({ id: model, efforts: Object.freeze([...new Set(efforts)]) })] : [];
+  });
+  return supported.length ? Object.freeze(supported) : undefined;
 }
 
 export function createCodexProvider(config) {

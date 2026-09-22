@@ -300,11 +300,33 @@ const criticProviderStatus = provider => {
   if (status === "quota_blocked") return `${criticProviderName(provider)} has reached its current limit.`;
   return `${criticProviderName(provider)} is unavailable on this runtime.`;
 };
-const replaceOptions = (select, options, selected) => {
+const replaceOptions = (select, options, selected, preserveMissing = false) => {
   clear(select);
-  for (const option of options) select.append(node("option", { value: option.id }, option.label ?? option.id));
-  if (options.some(option => option.id === selected)) select.value = selected;
+  for (const option of options) select.append(node("option", { value: option.id, disabled: option.disabled ?? false }, option.label ?? option.id));
+  if (preserveMissing && selected && !options.some(option => option.id === selected)) select.append(node("option", { value: selected, disabled: true }, `${selected} (unavailable)`));
+  if (options.some(option => option.id === selected) || preserveMissing && selected) select.value = selected;
 };
+const codexModelOption = model => ({ ...model, label: model.id === "gpt-6-sol" ? "GPT-6 Sol" : model.id });
+const replaceReasoningOptions = (select, efforts, selected, modelChanged = false, label = id => id) => {
+  const options = efforts.map(id => ({ id, label: label(id) }));
+  if (!selected || modelChanged && !efforts.includes(selected)) {
+    replaceOptions(select, [{ id: "", label: "Choose a compatible reasoning level", disabled: true }, ...options], "");
+    select.value = "";
+  } else replaceOptions(select, options, selected, true);
+  select.required = true;
+};
+function renderHeadReasoning(selectedEffort, modelChanged = false) {
+  const models = state.criticProviders?.codex?.models ?? [];
+  const selectedModel = models.find(model => model.id === $("#head-model").value);
+  replaceReasoningOptions($("#head-reasoning"), selectedModel?.efforts ?? [], selectedEffort, modelChanged);
+}
+function renderHeadControls(model, effort) {
+  const models = state.criticProviders?.codex?.models ?? [];
+  replaceOptions($("#head-model"), models.map(codexModelOption), model, true);
+  renderHeadReasoning(effort);
+  $("#head-model").disabled = models.length === 0;
+  $("#head-reasoning").disabled = models.length === 0;
+}
 function ensureCriticProviderControl() {
   if ($("#critic-provider")) return;
   const fieldset = $("#critic-model").closest("fieldset"); const first = fieldset.querySelector("label");
@@ -320,32 +342,30 @@ function ensureCriticProviderControl() {
 }
 function saveVisibleCriticSettings() {
   if (!state.criticSettings) return;
-  if ($("#critic-provider").value === "claude_code") {
+  if (state.criticSettings.criticProvider === "claude_code") {
     state.criticSettings.criticClaudeModel = $("#critic-model").value; state.criticSettings.criticClaudeReasoning = $("#critic-reasoning").value;
   } else {
     state.criticSettings.criticCodexModel = $("#critic-model").value; state.criticSettings.criticCodexReasoning = $("#critic-reasoning").value;
   }
 }
-function renderCriticControls() {
+function renderCriticControls(modelChanged = false) {
   const provider = state.criticSettings.criticProvider; const capability = state.criticProviders?.[provider] ?? { status: "unavailable", models: [] };
   $("#critic-provider").value = provider;
-  const models = capability.models?.length ? capability.models : provider === "codex"
-    ? [{ id: "gpt-6-astra", label: "gpt-6-astra", efforts: ["xhigh", "ultra"] }]
-    : [{ id: "claude-opus-5-5", label: "Opus 5.5", efforts: ["low", "medium", "high", "extra", "max"] }];
+  const models = capability.models ?? [];
   const selectedModel = provider === "claude_code" ? state.criticSettings.criticClaudeModel : state.criticSettings.criticCodexModel;
   const selectedEffort = provider === "claude_code" ? state.criticSettings.criticClaudeReasoning ?? "medium" : state.criticSettings.criticCodexReasoning;
-  replaceOptions($("#critic-model"), models, selectedModel);
-  const current = models.find(model => model.id === $("#critic-model").value) ?? models[0];
+  replaceOptions($("#critic-model"), provider === "codex" ? models.map(codexModelOption) : models, selectedModel, true);
+  const current = models.find(model => model.id === $("#critic-model").value);
   const effortLabel = id => provider === "claude_code" ? ({ low: "Low", medium: "Medium (Default)", high: "High", extra: "Extra", max: "Max" }[id] ?? id) : id;
-  replaceOptions($("#critic-reasoning"), current.efforts.map(id => ({ id, label: effortLabel(id) })), selectedEffort);
-  const unavailable = provider === "claude_code" && capability.status !== "ready";
+  replaceReasoningOptions($("#critic-reasoning"), current?.efforts ?? [], selectedEffort, modelChanged, effortLabel);
+  const unavailable = models.length === 0 || provider === "claude_code" && capability.status !== "ready";
   $("#critic-model").disabled = unavailable; $("#critic-reasoning").disabled = unavailable;
   $("#settings-status").textContent = `${criticProviderStatus("codex")} ${criticProviderStatus("claude_code")}`;
 }
 async function loadSettings() {
   const [{ data: settingsData }, { data: instructionsData }, { data: documentData }] = await Promise.all([request("/api/settings"), request("/api/runtime-instructions"), request("/api/instruction-documents")]); const settings = settingsData.settings; const instructions = instructionsData.runtimeInstructions;
-  $("#head-model").value = settings.headModel; $("#head-reasoning").value = settings.headReasoning;
   state.criticProviders = settingsData.criticProviders ?? { codex: { status: settingsData.provider, models: settingsData.catalog ?? [] }, claude_code: { status: "unavailable", models: [] } };
+  renderHeadControls(settings.headModel, settings.headReasoning);
   const legacyClaudeModel = settings.criticClaudeModel === "claude-code-default";
   state.criticSettings = {
     criticProvider: settings.criticProvider ?? "claude_code",
@@ -628,6 +648,8 @@ function voiceAction() {
 
 $("#menu").addEventListener("click", () => { const menu = $("#mobile-nav"); menu.hidden = !menu.hidden; $("#menu").setAttribute("aria-expanded", String(!menu.hidden)); });
 document.addEventListener("click", event => { const button = event.target.closest("[data-nav]"); if (button) void nav(button.dataset.nav).catch(() => toast("That page could not be loaded. Please try again.")); const tab = event.target.closest("[data-tab]"); if (tab) setTab(tab.dataset.tab); });
+$("#head-model").addEventListener("change", () => renderHeadReasoning($("#head-reasoning").value, true));
+$("#critic-model").addEventListener("change", () => { saveVisibleCriticSettings(); renderCriticControls(true); });
 $("#new-conversation").addEventListener("click", () => { clearAttachmentDraft(); void newConversation(); }); $("#composer").addEventListener("submit", event => void acceptMessage(event)); $("#message").addEventListener("keydown", event => { if (event.key !== "Enter" || event.shiftKey || event.isComposing) return; event.preventDefault(); $("#composer").requestSubmit(); }); $("#stop").addEventListener("click", () => void stop()); $("#continue").addEventListener("click", () => void continueRun());
 $("#google-sign-in").addEventListener("click", signIn);
 $("#development-sign-in").addEventListener("click", signIn);

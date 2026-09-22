@@ -257,6 +257,15 @@ test("the authenticated discussion preserves a Critic exchange with both special
     const session = await (await fetch(`${origin}/api/session`, { headers: { cookie } })).json();
     const headers = { cookie, "x-csrf-token": session.csrfToken, "content-type": "application/json" };
     await fetch(`${origin}/api/consent`, { method: "POST", headers });
+    const initialSettings = await (await fetch(`${origin}/api/settings`, { headers: { cookie } })).json();
+    assert.equal(initialSettings.settings.headModel, "gpt-6-astra");
+    assert.equal(initialSettings.settings.criticClaudeModel, "claude-opus-5-5");
+    assert.ok(initialSettings.criticProviders.codex.models.some(model => model.id === "gpt-6-sol" && model.efforts.includes("high")));
+    const solSettings = { ...initialSettings.settings, headModel: "gpt-6-sol", headReasoning: "high" };
+    const savedSol = await fetch(`${origin}/api/settings`, { method: "PUT", headers, body: JSON.stringify(solSettings) });
+    assert.equal(savedSol.status, 200);
+    assert.equal((await savedSol.json()).settings.headModel, "gpt-6-sol");
+    assert.equal((await (await fetch(`${origin}/api/settings`, { headers: { cookie } })).json()).settings.headReasoning, "high");
     const created = await (await fetch(`${origin}/api/conversations`, { method: "POST", headers })).json();
     const conversationId = created.conversation.id;
     const accepted = await fetch(`${origin}/api/conversations/${conversationId}/messages`, {

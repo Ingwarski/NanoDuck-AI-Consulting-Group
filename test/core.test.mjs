@@ -365,6 +365,39 @@ test("settings and message validation reject unsupported model values and malfor
   assert.equal(parseConversationIds({ conversationIds: ["conversation-identifier-0001", "conversation-identifier-0001"] }), undefined);
 });
 
+test("GPT-6 Sol is a catalog-backed choice for Head, specialists, and Codex Critic without changing defaults", () => {
+  const catalog = {
+    codex: { models: [
+      { id: "gpt-6-astra", efforts: ["xhigh", "ultra"] },
+      { id: "gpt-6-sol", efforts: ["low", "medium", "high", "xhigh", "max", "ultra"] }
+    ] },
+    claude_code: { models: [{ id: "claude-opus-5-5", efforts: ["low", "medium", "high", "extra", "max"] }] }
+  };
+  const solHead = { ...defaultSettings, headModel: "gpt-6-sol", headReasoning: "high" };
+  assert.deepEqual(parseSettings(solHead, catalog), solHead);
+  const solCritic = {
+    ...solHead,
+    criticProvider: "codex",
+    criticCodexModel: "gpt-6-sol",
+    criticCodexReasoning: "max",
+    criticModel: "gpt-6-sol",
+    criticReasoning: "max"
+  };
+  assert.deepEqual(parseSettings(solCritic, catalog), solCritic);
+  assert.equal(parseSettings({ ...solHead, headReasoning: "extra" }, catalog), undefined);
+  assert.equal(parseSettings({ ...solCritic, criticCodexReasoning: "extra", criticReasoning: "extra" }, catalog), undefined);
+  assert.equal(parseSettings(solHead, { ...catalog, codex: { models: catalog.codex.models.slice(0, 1) } }), undefined);
+  assert.equal(parseSettings({ ...solHead, headReasoning: "max" }, { ...catalog, codex: { models: [catalog.codex.models[0], { id: "gpt-6-sol", efforts: ["high"] }] } }), undefined);
+  const solOnly = { ...catalog, codex: { models: [catalog.codex.models[1]] } };
+  assert.deepEqual(parseSettings(solHead, solOnly), solHead);
+  assert.equal(parseSettings({ ...solHead, criticProvider: "codex", criticModel: "gpt-6-astra", criticReasoning: "xhigh" }, solOnly), undefined);
+  const solInactive = { ...defaultSettings, criticCodexModel: "gpt-6-sol", criticCodexReasoning: "high" };
+  assert.deepEqual(parseSettings(solInactive, { ...catalog, codex: { models: [catalog.codex.models[0]] } }), solInactive);
+  assert.equal(defaultSettings.headModel, "gpt-6-astra");
+  assert.equal(defaultSettings.criticProvider, "claude_code");
+  assert.equal(defaultSettings.criticClaudeModel, "claude-opus-5-5");
+});
+
 test("Ukrainian shared words are allowed without permitting distinctive prohibited language", () => {
   for (const body of ["Які умови вступу?", "Перевірте курси, які викладають англійською.", "Уточніть, які саме дані потрібно надати."]) {
     assert.equal(hasProhibitedLanguage(body), false, body);
