@@ -331,12 +331,12 @@ function renderCriticControls() {
   $("#critic-provider").value = provider;
   const models = capability.models?.length ? capability.models : provider === "codex"
     ? [{ id: "gpt-6-astra", label: "gpt-6-astra", efforts: ["xhigh", "ultra"] }]
-    : [{ id: "claude-opus-5", label: "Opus 5", efforts: ["low", "medium", "high", "extra", "max"] }];
+    : [{ id: "claude-opus-5-5", label: "Opus 5.5", efforts: ["low", "medium", "high", "extra", "max"] }];
   const selectedModel = provider === "claude_code" ? state.criticSettings.criticClaudeModel : state.criticSettings.criticCodexModel;
-  const selectedEffort = provider === "claude_code" ? state.criticSettings.criticClaudeReasoning ?? "high" : state.criticSettings.criticCodexReasoning;
+  const selectedEffort = provider === "claude_code" ? state.criticSettings.criticClaudeReasoning ?? "medium" : state.criticSettings.criticCodexReasoning;
   replaceOptions($("#critic-model"), models, selectedModel);
   const current = models.find(model => model.id === $("#critic-model").value) ?? models[0];
-  const effortLabel = id => provider === "claude_code" ? ({ low: "Low", medium: "Medium", high: "High (Default)", extra: "Extra", max: "Max" }[id] ?? id) : id;
+  const effortLabel = id => provider === "claude_code" ? ({ low: "Low", medium: "Medium (Default)", high: "High", extra: "Extra", max: "Max" }[id] ?? id) : id;
   replaceOptions($("#critic-reasoning"), current.efforts.map(id => ({ id, label: effortLabel(id) })), selectedEffort);
   const unavailable = provider === "claude_code" && capability.status !== "ready";
   $("#critic-model").disabled = unavailable; $("#critic-reasoning").disabled = unavailable;
@@ -346,12 +346,13 @@ async function loadSettings() {
   const [{ data: settingsData }, { data: instructionsData }, { data: documentData }] = await Promise.all([request("/api/settings"), request("/api/runtime-instructions"), request("/api/instruction-documents")]); const settings = settingsData.settings; const instructions = instructionsData.runtimeInstructions;
   $("#head-model").value = settings.headModel; $("#head-reasoning").value = settings.headReasoning;
   state.criticProviders = settingsData.criticProviders ?? { codex: { status: settingsData.provider, models: settingsData.catalog ?? [] }, claude_code: { status: "unavailable", models: [] } };
+  const legacyClaudeModel = settings.criticClaudeModel === "claude-code-default";
   state.criticSettings = {
-    criticProvider: settings.criticProvider ?? "codex",
+    criticProvider: settings.criticProvider ?? "claude_code",
     criticCodexModel: settings.criticCodexModel ?? settings.criticModel,
     criticCodexReasoning: settings.criticCodexReasoning ?? settings.criticReasoning,
-    criticClaudeModel: settings.criticClaudeModel === "claude-code-default" ? undefined : settings.criticClaudeModel,
-    criticClaudeReasoning: ["default", "xhigh"].includes(settings.criticClaudeReasoning) ? undefined : settings.criticClaudeReasoning
+    criticClaudeModel: legacyClaudeModel ? undefined : settings.criticClaudeModel,
+    criticClaudeReasoning: legacyClaudeModel || ["default", "xhigh"].includes(settings.criticClaudeReasoning) ? undefined : settings.criticClaudeReasoning
   };
   ensureCriticProviderControl(); replaceOptions($("#critic-provider"), [{ id: "codex", label: "GPT (Codex)" }, { id: "claude_code", label: "Claude Code" }], state.criticSettings.criticProvider); renderCriticControls();
   $("#specialist-count").value = settings.specialistCount; $("#discussion-depth").value = settings.discussionDepth; $("#notification-sound").value = settings.notificationSound ?? "knock"; state.notificationSound = $("#notification-sound").value;

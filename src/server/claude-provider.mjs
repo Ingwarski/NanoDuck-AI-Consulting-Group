@@ -5,6 +5,7 @@ import { join } from "node:path";
 import { hasProhibitedLanguage, hasUnsafeExternalUrl, safeExternalUrl } from "./validation.mjs";
 import { createRuntimePrompts } from "./prompt-contracts.mjs";
 import { containsInternalToolTrace } from "./output-safety.mjs";
+import { currentClaudeCritic } from "./settings.mjs";
 
 const maxOutputBytes = 96 * 1024;
 const maxPromptBytes = 128 * 1024;
@@ -82,14 +83,16 @@ export const runClaudeCommand = ({ command, args, environment, cwd, signal, time
   if (signal?.aborted) abort();
 });
 
-const modelLabel = id => id === "claude-opus-5" ? "Opus 5" : id;
+const modelLabel = id => ({ [currentClaudeCritic.model]: currentClaudeCritic.label, "claude-opus-5": "Opus 5" }[id] ?? id);
 // Claude Code uses concise CLI values while its owner-facing desktop picker
-// names the same choices Opus 5 and Extra. Persist and display the picker
+// names the same choices Opus 5.5 and Extra. Persist and display the picker
 // vocabulary; translate only at the isolated process boundary.
-const cliModel = id => id === "claude-opus-5" ? "opus" : id;
+// The latest model uses the documented moving alias. A legacy Opus 5 snapshot
+// keeps its exact ID so resuming it never silently upgrades the recorded model.
+const cliModel = id => id === currentClaudeCritic.model ? "opus" : id;
 const cliEffort = effort => effort === "extra" ? "xhigh" : effort;
 const catalog = config => Object.freeze(
-  [...new Set(["claude-opus-5", ...(config.claudeModelCandidates ?? [])])]
+  [...new Set([currentClaudeCritic.model, ...(config.claudeModelCandidates ?? [])])]
     .filter(safeModel)
     .map(id => Object.freeze({ id, label: modelLabel(id), efforts: supportedEfforts }))
 );

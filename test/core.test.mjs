@@ -10,15 +10,18 @@ import { createMemoryStore, createMySqlStore, defaultSettings } from "../src/ser
 import { hasProhibitedLanguage, parseConversationIds, parseMessage, parseSettings, safeExternalUrl } from "../src/server/validation.mjs";
 import { testRuntimeInstructions } from "./fixtures/runtime-instructions.mjs";
 
-test("new consultations default to the current saved Codex settings", () => {
+test("new consultations use Codex specialists and the owner-selected Opus 5.5 Critic", () => {
   assert.deepEqual(defaultSettings, {
+    settingsRevision: "critic-opus-5-5-medium-20260922",
     headModel: "gpt-6-astra",
     headReasoning: "xhigh",
-    criticProvider: "codex",
+    criticProvider: "claude_code",
     criticCodexModel: "gpt-6-astra",
     criticCodexReasoning: "xhigh",
-    criticModel: "gpt-6-astra",
-    criticReasoning: "xhigh",
+    criticClaudeModel: "claude-opus-5-5",
+    criticClaudeReasoning: "medium",
+    criticModel: "claude-opus-5-5",
+    criticReasoning: "medium",
     specialistCount: "2",
     discussionDepth: "1",
     notificationSound: "knock"
@@ -341,10 +344,13 @@ test("settings and message validation reject unsupported model values and malfor
   assert.equal(parseSettings({ ...defaultSettings, specialistCount: "4" }), undefined);
   assert.equal(parseSettings({ ...defaultSettings, discussionDepth: "2" }), undefined);
   assert.equal(parseSettings({ ...defaultSettings, criticCodexModel: "another-model" }), undefined);
-  const claudeCatalog = { codex: { models: [{ id: "gpt-6-astra", efforts: ["xhigh", "ultra"] }] }, claude_code: { models: [{ id: "claude-opus-5", efforts: ["low", "medium", "high", "extra", "max"] }] } };
-  assert.deepEqual(parseSettings({ ...defaultSettings, criticProvider: "claude_code", criticModel: "claude-opus-5", criticReasoning: "high", criticClaudeReasoning: "high" }, claudeCatalog), { ...defaultSettings, criticProvider: "claude_code", criticModel: "claude-opus-5", criticReasoning: "high", criticClaudeReasoning: "high" });
-  assert.equal(parseSettings({ ...defaultSettings, criticProvider: "claude_code", criticModel: "claude-opus-5", criticReasoning: "extreme", criticClaudeReasoning: "extreme" }, claudeCatalog), undefined);
-  assert.deepEqual(parseSettings({ ...defaultSettings, criticProvider: "claude_code", criticModel: "claude-code-default", criticReasoning: "default", criticClaudeModel: "claude-code-default", criticClaudeReasoning: "default" }, claudeCatalog), { ...defaultSettings, criticProvider: "claude_code", criticModel: "claude-opus-5", criticReasoning: "high" });
+  const claudeCatalog = { codex: { models: [{ id: "gpt-6-astra", efforts: ["xhigh", "ultra"] }] }, claude_code: { models: [{ id: "claude-opus-5-5", efforts: ["low", "medium", "high", "extra", "max"] }] } };
+  assert.deepEqual(parseSettings({ ...defaultSettings, criticClaudeReasoning: "high", criticReasoning: "high" }, claudeCatalog), { ...defaultSettings, criticClaudeReasoning: "high", criticReasoning: "high" });
+  assert.equal(parseSettings({ ...defaultSettings, criticReasoning: "extreme", criticClaudeReasoning: "extreme" }, claudeCatalog), undefined);
+  assert.deepEqual(parseSettings({ ...defaultSettings, criticModel: "claude-code-default", criticReasoning: "default", criticClaudeModel: "claude-code-default", criticClaudeReasoning: "default" }, claudeCatalog), defaultSettings);
+  assert.equal(parseSettings({ ...defaultSettings, criticModel: "claude-opus-5", criticReasoning: "high", criticClaudeModel: "claude-opus-5", criticClaudeReasoning: "high" }, claudeCatalog), undefined);
+  const catalogWithLegacyClaude = { ...claudeCatalog, claude_code: { models: [...claudeCatalog.claude_code.models, { id: "claude-opus-5", efforts: ["high"] }] } };
+  assert.deepEqual(parseSettings({ ...defaultSettings, criticModel: "claude-opus-5", criticReasoning: "high", criticClaudeModel: "claude-opus-5", criticClaudeReasoning: "high" }, catalogWithLegacyClaude), { ...defaultSettings, criticModel: "claude-opus-5", criticReasoning: "high", criticClaudeModel: "claude-opus-5", criticClaudeReasoning: "high" });
   assert.equal(parseSettings({ ...defaultSettings, criticProvider: "claude_code" }, { codex: { models: [{ id: "gpt-6-astra", efforts: ["xhigh", "ultra"] }] }, claude_code: { models: [] } }), undefined);
   assert.deepEqual(parseSettings({ ...defaultSettings, notificationSound: "ripple" }), { ...defaultSettings, notificationSound: "ripple" });
   assert.equal(parseSettings({ ...defaultSettings, notificationSound: "loud" }), undefined);

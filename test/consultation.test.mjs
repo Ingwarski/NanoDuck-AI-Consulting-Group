@@ -65,10 +65,10 @@ test("a selected Claude Code Critic never moves Head or specialist work off Code
   const accepted = await store.acceptMessage(conversation.id, { body: "Should we test preorders?", clientRequestId: "claude-critic-routing-0001" }, {
     ...defaultSettings,
     criticProvider: "claude_code",
-    criticClaudeModel: "claude-opus-5",
-    criticClaudeReasoning: "high",
-    criticModel: "claude-opus-5",
-    criticReasoning: "high"
+    criticClaudeModel: "claude-opus-5-5",
+    criticClaudeReasoning: "medium",
+    criticModel: "claude-opus-5-5",
+    criticReasoning: "medium"
   });
   const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
   await createConsultationService({ store, provider }).start(conversation.id, accepted.run);
@@ -115,8 +115,8 @@ test("an internal provider tool trace cannot be committed to a consultation", as
   const accepted = await store.acceptMessage(conversation.id, { body: "Should we fund the expansion?", clientRequestId: "internal-tool-trace-0001" }, {
     ...defaultSettings,
     criticProvider: "claude_code",
-    criticClaudeModel: "claude-opus-5",
-    criticClaudeReasoning: "high"
+    criticClaudeModel: "claude-opus-5-5",
+    criticClaudeReasoning: "medium"
   });
   const provider = { async invoke(input) {
     if (input.outputKind === "critic_challenge") return { ok: true, body: '<invoke name="Bash"><parameter name="command">pwd</parameter></invoke>', sources: [] };
@@ -259,7 +259,8 @@ test("ordinary consultations can use restricted live research without a keyword"
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
   assert.equal(calls.length, 12);
   assert.equal(calls.slice(0, 2).every(call => call.research === false), true);
-  assert.equal(calls.slice(2, -1).every(call => call.research === true), true);
+  assert.equal(calls.filter(call => call.provider === "claude_code").every(call => call.research === false), true);
+  assert.equal(calls.slice(2, -1).filter(call => call.provider === "codex").every(call => call.research === true), true);
 });
 
 test("a simple Ukrainian explanation still convenes the configured specialists and Critic", async () => {
@@ -310,7 +311,8 @@ test("a fixed specialist count selects the requested team without changing the m
     ["Critic", "Operations Consultant"], ["Operations Consultant", "Critic"],
     ...closingSequence(["Strategy Consultant", "Finance Consultant", "Operations Consultant"]), ["Head Consultant", null]
   ]);
-  assert.equal(calls.every(call => call.model === "gpt-6-astra" && call.effort === "xhigh"), true);
+  assert.equal(calls.filter(call => call.provider === "codex").every(call => call.model === "gpt-6-astra" && call.effort === "xhigh"), true);
+  assert.equal(calls.filter(call => call.provider === "claude_code").every(call => call.model === "claude-opus-5-5" && call.effort === "medium"), true);
 });
 
 test("five specialists remain distinct from Head Consultant and Critic", async () => {

@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { documentNames, validDocument } from "./instruction-documents.mjs";
 import { decryptText, encryptText } from "./crypto.mjs";
+import { upgradeSettings } from "./settings.mjs";
 
 const object = value => value && typeof value === "object" && !Array.isArray(value);
 const hash = text => createHash("sha256").update(text).digest("hex");
@@ -14,7 +15,7 @@ export function normalizeConfiguration(value) {
   if (value.runtimeInstructions != null && (!object(value.runtimeInstructions) || !value.runtimeHistory.some(item => item.id === value.runtimeInstructions.revision && item.contentHash === value.runtimeInstructions.contentHash && item.markdown === value.runtimeInstructions.markdown))) return undefined;
   if (!value.documents.every(item => object(item) && documentNames.includes(item.name) && Number.isSafeInteger(item.revision) && item.revision > 0 && item.revision <= 0xffffffff && validDocument(item.markdown) && hash(item.markdown) === item.sha256 && date(item.createdAt))) return undefined;
   if (new Set(value.documents.map(item => `${item.name}:${item.revision}`)).size !== value.documents.length) return undefined;
-  return structuredClone({ settings: value.settings, runtimeInstructions: value.runtimeInstructions ?? null, runtimeHistory: value.runtimeHistory, documents: value.documents });
+  return structuredClone({ settings: upgradeSettings(value.settings), runtimeInstructions: value.runtimeInstructions ?? null, runtimeHistory: value.runtimeHistory, documents: value.documents });
 }
 
 export async function readConfiguration(connection, key, defaults) {

@@ -1,6 +1,6 @@
 # Project context
 
-14 September 2026 · Source references: [product idea](product-idea.md), [PRD](prd.md). This bundle clarifies those sources; it does not replace them.
+22 September 2026 · Source references: [product idea](product-idea.md), [PRD](prd.md). This bundle clarifies those sources; it does not replace them.
 
 ## Language and vocabulary
 
@@ -18,7 +18,7 @@ Phone browsers are primary; tablet and desktop complete the same tasks. The desi
 
 Only the existing named GoDaddy consulting app is a possible later deployment target. Its exact storage/lifecycle and provider compatibility remain technical verification work. Phase 3 implements and tests the local browser application; it does not deploy, connect to live providers or change a GoDaddy database.
 
-Preserve the current saved Astra/xhigh setting for Head/specialists and Critic and the existing subscription constraints. The 14 September legacy GoDaddy surface reported a Balanced preset; the replacement maps its default to 2 specialists and 1 exchange per specialist while offering independent specialist-count and discussion-depth controls. A dated 7 September Critic/ultra record is historical and does not override the authenticated 14 September setting read. Supported choices are catalog-driven; a prototype may use a clearly identified catalog fixture.
+Preserve Codex `gpt-6-astra` / `xhigh` for Head/specialists. For future consultations, Critic uses the owner's 22 September selection: Claude Code Opus 5.5 (`claude-opus-5-5`) / Medium; its independent Codex branch retains `gpt-6-astra` / `xhigh`. Apply this Critic selection once to fresh and pre-revision preferences, never to accepted run snapshots, and preserve later supported owner saves. The 14 September legacy GoDaddy surface reported a Balanced preset; the replacement maps its default to 2 specialists and 1 exchange per specialist while offering independent specialist-count and discussion-depth controls. Supported choices remain catalog-validated, and the current picker does not prove live entitlement or execution.
 
 ## Scope and ownership
 
@@ -30,7 +30,7 @@ Source code is public. Conversation content, attachments, identity data and gran
 
 - Floating navigation means a conventional bar that stays available while scrolling; arbitrary dragging is not required. This is a reversible interpretation of the correction.
 - The owner has requested a combined dark layout from Ember and Cobalt, with Electric selected after three agent-colour palettes using the same fictional task and interaction coverage; the latest request adds the NanoDuck name, SVG mark and slightly warmer Head yellow. Normal sign-in lasts 24 hours under the PRD session rule. The owner approved Electric A v8 on 14 September 2026 and authorized Phase 3 implementation.
-- Browser capability checks and owner-confirmed Ukrainian probing covered Safari and Chrome on the current Mac. Mobile Safari and Android Chrome recognition, current saved settings, identity assurance and hosting recovery still need release evidence. Their absence blocks production claims, not local implementation.
+- Browser capability checks and owner-confirmed Ukrainian probing covered Safari and Chrome on the current Mac. Mobile Safari and Android Chrome recognition, live Opus 5.5 entitlement/execution, identity assurance and hosting recovery still need release evidence. Their absence blocks production claims, not local implementation.
 - High-stakes decision support and voice/privacy flows need representative-owner validation before release. The present work is expert design/review, not user research.
 
 No material intent question blocks the selected design refinement. Architecture owns unresolved implementation parameters and returns any new product boundary to the PRD owner.

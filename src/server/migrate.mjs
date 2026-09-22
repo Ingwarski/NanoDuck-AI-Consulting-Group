@@ -5,6 +5,7 @@ import { readFile } from "node:fs/promises";
 import { createConnection } from "mysql2/promise";
 import { loadConfig } from "./config.mjs";
 import { migrateRuntimeInstructionStorage } from "./runtime-instructions-migration.mjs";
+import { migrateSettingsStorage } from "./settings-migration.mjs";
 
 const config = loadConfig();
 if (!config.databaseUrl) throw new Error("DATABASE_URL is required to run migrations.");
@@ -17,6 +18,7 @@ try {
   if (Number(lease[0]?.acquired) !== 1) throw new Error("Stop the application before migrating its database.");
   const schema = await readFile(new URL("./schema.sql", import.meta.url), "utf8");
   for (const statement of schema.split(/;\s*$/mu).map(value => value.trim()).filter(Boolean)) await connection.query(statement);
+  const settings = await migrateSettingsStorage(connection);
   const runtimeInstructions = await migrateRuntimeInstructionStorage(connection, config.dataKey, (await readPromptDefault()).markdown);
   // Convert existing plaintext instruction snapshots in bounded batches; repeat-safe.
   let lastId = "";
@@ -33,7 +35,7 @@ try {
       lastId = rows.at(-1).id;
     } catch (error) { await connection.rollback(); throw error; }
   }
-  process.stdout.write(`NanoDuck schema applied. Runtime instructions ${runtimeInstructions.bootstrapped ? "bootstrapped into encrypted database storage" : "left in encrypted database storage"}.\n`);
+  process.stdout.write(`NanoDuck schema applied. Critic settings ${settings.migrated ? "migrated to Opus 5.5 / Medium" : "left at the current revision"}. Runtime instructions ${runtimeInstructions.bootstrapped ? "bootstrapped into encrypted database storage" : "left in encrypted database storage"}.\n`);
 } finally {
   await connection.end();
 }

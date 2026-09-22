@@ -82,7 +82,12 @@ test("the local HTTP flow protects data, saves settings and preserves a truthful
     const created = await (await fetch(`${origin}/api/conversations`, { method: "POST", headers })).json();
     const conversationId = created.conversation.id;
     const settings = { headModel: "gpt-6-astra", headReasoning: "ultra", criticProvider: "codex", criticCodexModel: "gpt-6-astra", criticCodexReasoning: "xhigh", criticModel: "gpt-6-astra", criticReasoning: "xhigh", specialistCount: "3", discussionDepth: "3", notificationSound: "ripple" };
-    assert.deepEqual((await (await fetch(`${origin}/api/settings`, { method: "PUT", headers, body: JSON.stringify(settings) })).json()).settings, settings);
+    assert.deepEqual((await (await fetch(`${origin}/api/settings`, { method: "PUT", headers, body: JSON.stringify(settings) })).json()).settings, {
+      settingsRevision: "critic-opus-5-5-medium-20260922",
+      ...settings,
+      criticClaudeModel: "claude-opus-5-5",
+      criticClaudeReasoning: "medium"
+    });
     const bulk = await (await fetch(`${origin}/api/conversations`, { method: "POST", headers })).json();
     assert.deepEqual((await (await fetch(`${origin}/api/conversations`, { method: "DELETE", headers, body: JSON.stringify({ conversationIds: [bulk.conversation.id] }) })).json()).deletedConversationIds, [bulk.conversation.id]);
 
@@ -225,6 +230,7 @@ test("the authenticated discussion preserves a Critic exchange with both special
   const directory = await mkdtemp(`${tmpdir()}/nanoduck-http-provider-`);
   const authPath = `${directory}/auth.json`;
   const codexCommand = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
+  const claudeCommand = fileURLToPath(new URL("./fixtures/fake-claude.mjs", import.meta.url));
   await writeFile(authPath, "{}", { mode: 0o600 });
   const child = spawn(globalThis.process.execPath, ["src/server/index.mjs"], {
     cwd: process.cwd(),
@@ -235,7 +241,9 @@ test("the authenticated discussion preserves a Critic exchange with both special
       PORT: String(port),
       RUNTIME_INSTRUCTIONS_BOOTSTRAP_B64: testRuntimeInstructionsBootstrap,
       CODEX_APP_SERVER_AUTH_PATH: authPath,
-      CODEX_APP_SERVER_COMMAND: codexCommand
+      CODEX_APP_SERVER_COMMAND: codexCommand,
+      CLAUDE_CODE_COMMAND: claudeCommand,
+      CLAUDE_CODE_OAUTH_TOKEN: "managed-test-token"
     },
     stdio: "ignore"
   });

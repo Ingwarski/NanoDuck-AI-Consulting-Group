@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "event": "implementation_prompt",
+  "role": "user",
+  "intent": "start_production_implementation",
+  "prompt_id": "impl-critic-opus-5-5-20260922",
+  "message": "There's Opus 5.5 since now! Give these new settings to Critic.",
+  "received_at": "2026-09-22T21:37:34+03:00",
+  "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+  "scope_note": "Authorize the repository change that sets the Critic preference to Claude Code Opus 5.5 with Medium effort, adds a one-time settings-only migration, updates local tests and reconciles SDD artifacts. It does not authorize deployment, a hosted database migration, a live provider turn or changes to external services.",
+  "development_plan_hash": "fc62d3beb1f9cea1999cc3149598b973b979602fed604b42b761bffc4a62ee21",
+  "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc"
+}

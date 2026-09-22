@@ -1,4 +1,5 @@
 import { containsSecretLikeContent } from "./content-policy.mjs";
+import { currentClaudeCritic, currentSettingsRevision } from "./settings.mjs";
 const text = (value, maximum) => typeof value === "string" && value.trim().length > 0 && value.length <= maximum;
 const identifier = value => typeof value === "string" && /^[A-Za-z0-9_-]{16,128}$/u.test(value);
 const forbiddenHostSuffixes = Object.freeze([".ru", ".by", ".su", ".xn--p1ai", ".xn--90ais"]);
@@ -50,25 +51,32 @@ export function parseSettings(value, catalog = undefined) {
   const codexAllowed = (model, effort) => codexModels.length
     ? modelSupports(codexModels, model, effort)
     : model === "gpt-6-astra" && knownCodexEfforts.has(effort);
+  const claudeAllowed = (model, effort) => claudeModels.length
+    ? modelSupports(claudeModels, model, effort)
+    : catalog === undefined && model === currentClaudeCritic.model && knownClaudeEfforts.has(effort);
   const criticProvider = body.criticProvider ?? "codex";
   const criticCodexModel = body.criticCodexModel ?? body.criticModel;
   const criticCodexReasoning = body.criticCodexReasoning ?? body.criticReasoning;
-  // Revision 2 stored placeholders that were never valid Claude desktop
-  // choices. Treat them as an absent inactive preference so the owner sees
-  // the verified Opus 5 / High defaults instead of being locked out of saving.
-  const criticClaudeModel = body.criticClaudeModel === "claude-code-default" ? undefined : body.criticClaudeModel;
-  const criticClaudeReasoning = ["default", "xhigh"].includes(body.criticClaudeReasoning) ? undefined : body.criticClaudeReasoning;
-  const activeClaudeModel = criticClaudeModel ?? "claude-opus-5";
-  const activeClaudeReasoning = criticClaudeReasoning ?? "high";
+  // Obsolete placeholders resolve to the owner's current Opus 5.5 / Medium
+  // choice. A real older model remains valid when the current catalog still
+  // advertises it; the settings revision migration, not this request parser,
+  // upgrades pre-revision stored preferences.
+  const legacyClaudeModel = body.criticClaudeModel === "claude-code-default";
+  const criticClaudeModel = legacyClaudeModel ? undefined : body.criticClaudeModel;
+  const criticClaudeReasoning = legacyClaudeModel || ["default", "xhigh"].includes(body.criticClaudeReasoning) ? undefined : body.criticClaudeReasoning;
+  const activeClaudeModel = criticClaudeModel ?? currentClaudeCritic.model;
+  const activeClaudeReasoning = criticClaudeReasoning ?? currentClaudeCritic.effort;
   const criticAllowed = criticProvider === "codex"
     ? codexAllowed(criticCodexModel, criticCodexReasoning)
-    : criticProvider === "claude_code" && claudeModels.length > 0 && modelSupports(claudeModels, activeClaudeModel, activeClaudeReasoning);
+    : criticProvider === "claude_code" && claudeAllowed(activeClaudeModel, activeClaudeReasoning);
   const notificationSound = body.notificationSound ?? "knock";
   const inactiveClaudeValid = (criticClaudeModel === undefined || validModelId(criticClaudeModel)) && (criticClaudeReasoning === undefined || knownClaudeEfforts.has(criticClaudeReasoning));
-  if (!codexAllowed(body.headModel, body.headReasoning) || !criticAllowed || !validModelId(criticCodexModel) || !knownCodexEfforts.has(criticCodexReasoning) || !inactiveClaudeValid || !validSpecialistCounts.has(body.specialistCount) || !validDiscussionDepths.has(body.discussionDepth) || !validNotificationSounds.has(notificationSound)) return undefined;
+  if (!codexAllowed(body.headModel, body.headReasoning) || !criticAllowed || !codexAllowed(criticCodexModel, criticCodexReasoning) || !validModelId(criticCodexModel) || !knownCodexEfforts.has(criticCodexReasoning) || !inactiveClaudeValid || !validSpecialistCounts.has(body.specialistCount) || !validDiscussionDepths.has(body.discussionDepth) || !validNotificationSounds.has(notificationSound)) return undefined;
   const criticModel = criticProvider === "claude_code" ? activeClaudeModel : criticCodexModel;
   const criticReasoning = criticProvider === "claude_code" ? activeClaudeReasoning : criticCodexReasoning;
-  return Object.freeze({ headModel: body.headModel, headReasoning: body.headReasoning, criticProvider, criticCodexModel, criticCodexReasoning, ...(criticClaudeModel === undefined ? {} : { criticClaudeModel }), ...(criticClaudeReasoning === undefined ? {} : { criticClaudeReasoning }), criticModel, criticReasoning, specialistCount: body.specialistCount, discussionDepth: body.discussionDepth, notificationSound });
+  const savedClaudeModel = criticClaudeModel ?? (criticProvider === "claude_code" ? activeClaudeModel : undefined);
+  const savedClaudeReasoning = criticClaudeReasoning ?? (criticProvider === "claude_code" ? activeClaudeReasoning : undefined);
+  return Object.freeze({ settingsRevision: currentSettingsRevision, headModel: body.headModel, headReasoning: body.headReasoning, criticProvider, criticCodexModel, criticCodexReasoning, ...(savedClaudeModel === undefined ? {} : { criticClaudeModel: savedClaudeModel }), ...(savedClaudeReasoning === undefined ? {} : { criticClaudeReasoning: savedClaudeReasoning }), criticModel, criticReasoning, specialistCount: body.specialistCount, discussionDepth: body.discussionDepth, notificationSound });
 }
 
 export function parseConversationId(value) {

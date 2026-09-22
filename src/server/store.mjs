@@ -5,19 +5,7 @@ import { sealRunSnapshot, openRunSnapshot } from "./run-snapshot.mjs";
 import { randomId, encryptText, decryptText, encryptBytes, decryptBytes } from "./crypto.mjs";
 import { readFile } from "node:fs/promises";
 import { normalizeRecoverySnapshot } from "./recovery.mjs";
-
-const defaults = Object.freeze({
-  headModel: "gpt-6-astra",
-  headReasoning: "xhigh",
-  criticProvider: "codex",
-  criticCodexModel: "gpt-6-astra",
-  criticCodexReasoning: "xhigh",
-  criticModel: "gpt-6-astra",
-  criticReasoning: "xhigh",
-  specialistCount: "2",
-  discussionDepth: "1",
-  notificationSound: "knock"
-});
+import { defaultSettings as defaults, upgradeSettings } from "./settings.mjs";
 
 const now = () => new Date().toISOString();
 const databaseConnectionErrorCodes = new Set(["PROTOCOL_CONNECTION_LOST", "PROTOCOL_SEQUENCE_TIMEOUT", "PROTOCOL_PACKETS_OUT_OF_ORDER", "ECONNRESET", "ECONNREFUSED", "EPIPE", "ETIMEDOUT", "ER_CLIENT_INTERACTION_TIMEOUT", "ER_SERVER_SHUTDOWN", "ER_CONNECTION_KILLED", "ER_UNKNOWN_ERROR", "LEADERSHIP_HEARTBEAT_TIMEOUT", "LEADERSHIP_OWNERSHIP_LOST"]);
@@ -75,8 +63,8 @@ export function createMemoryStore() {
     async session(id) { const item = sessions.get(id); return item ? { ...item } : undefined; },
     async updateSession(id, patch) { const item = sessions.get(id); if (!item || item.revokedAt) return undefined; Object.assign(item, patch); return { ...item }; },
     async revokeSession(id) { const item = sessions.get(id); if (!item) return false; item.revokedAt = now(); return true; },
-    async settings() { return Object.freeze({ ...settings }); },
-    async saveSettings(next) { settings = { ...next }; return Object.freeze({ ...settings }); },
+    async settings() { return upgradeSettings(settings); },
+    async saveSettings(next) { settings = { ...upgradeSettings(next) }; return Object.freeze({ ...settings }); },
     async runtimeInstructions() { return runtimeInstructions ? Object.freeze({ ...runtimeInstructions }) : undefined; },
     async bootstrapRuntimeInstructions(contract) {
       if (!runtimeInstructions) runtimeInstructions = runtimeVersion(contract, "bootstrap");
@@ -194,7 +182,7 @@ export function createMemoryStore() {
     async restoreRecovery(snapshot, { restoreConfiguration = false } = {}) {
       const recovered = normalizeRecoverySnapshot(snapshot); if (!recovered) return undefined;
       if (restoreConfiguration && recovered.configuration) {
-        settings = structuredClone(recovered.configuration.settings);
+        settings = structuredClone(upgradeSettings(recovered.configuration.settings));
         runtimeInstructions = structuredClone(recovered.configuration.runtimeInstructions);
         runtimeInstructionHistory.clear();
         for (const item of recovered.configuration.runtimeHistory) runtimeInstructionHistory.set(item.id, structuredClone(item));
@@ -317,8 +305,8 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
     async session(id) { const [rows] = await query("SELECT id,owner_subject,csrf_token,consented_at,issued_at,expires_at,revoked_at FROM nanoduck_sessions WHERE id=? LIMIT 1", [id]); return rows.length ? { id: rows[0].id, ownerSubject: rows[0].owner_subject, csrfToken: rows[0].csrf_token, consentedAt: rows[0].consented_at, issuedAt: rows[0].issued_at, expiresAt: rows[0].expires_at, revokedAt: rows[0].revoked_at } : undefined; },
     async updateSession(id, patch) { const [result] = await query("UPDATE nanoduck_sessions SET consented_at=COALESCE(?, consented_at) WHERE id=? AND revoked_at IS NULL", [patch.consentedAt ?? null,id]); return result.affectedRows ? this.session(id) : undefined; },
     async revokeSession(id) { const [result] = await query("UPDATE nanoduck_sessions SET revoked_at=? WHERE id=? AND revoked_at IS NULL", [now(),id]); return result.affectedRows === 1; },
-    async settings() { const [rows] = await query("SELECT settings_json FROM nanoduck_settings WHERE owner_id = 'owner' LIMIT 1"); return rows.length ? Object.freeze({ ...defaults, ...storedObject(rows[0].settings_json, "settings") }) : Object.freeze({ ...defaults }); },
-    async saveSettings(next) { await query("INSERT INTO nanoduck_settings (owner_id, settings_json) VALUES ('owner', ?) ON DUPLICATE KEY UPDATE settings_json=VALUES(settings_json)", [JSON.stringify(next)]); return Object.freeze({ ...next }); },
+    async settings() { const [rows] = await query("SELECT settings_json FROM nanoduck_settings WHERE owner_id = 'owner' LIMIT 1"); return upgradeSettings(rows.length ? storedObject(rows[0].settings_json, "settings") : defaults); },
+    async saveSettings(next) { const upgraded = upgradeSettings(next); await query("INSERT INTO nanoduck_settings (owner_id, settings_json) VALUES ('owner', ?) ON DUPLICATE KEY UPDATE settings_json=VALUES(settings_json)", [JSON.stringify(upgraded)]); return upgraded; },
     async runtimeInstructions() {
       const [rows] = await query("SELECT ciphertext,iv,tag,revision,content_hash,created_at,updated_at FROM nanoduck_runtime_instructions WHERE owner_id = 'owner' LIMIT 1");
       return rows.length ? runtimeDocument(rows[0]) : undefined;
