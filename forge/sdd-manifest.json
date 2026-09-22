@@ -8,13 +8,13 @@
     "product-idea": {
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "r22-gpt-6-sol-product-idea-2026-09-22T18:51:51.000Z",
+      "owner_invocation_id": "r23-critic-cache-product-idea-2026-09-22T20:44:34.635Z",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r22-gpt-6-sol-product-idea-2026-09-22T18:51:51.000Z",
+      "source_version": "r23-critic-cache-product-idea-2026-09-22T20:44:34.635Z",
       "source_usage": {
         "docs/model-settings.md": "full",
         "docs/deployment-boundary.md": "full",
@@ -22,20 +22,20 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/model-settings.md": "3c66d9a1aba090d694e7c5a60d04837a036c81a3889f96930dfd99b2b810c9df",
+        "docs/model-settings.md": "678d708c4222371cf065e407ac7780079a435a46518b7810fd93897974007df9",
         "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
       },
       "dependencies": [],
-      "content_hash": "9df6edad8b11c0c13ec18728d87c225de69718c0764bcef940eed60f17a5f0c4",
+      "content_hash": "9a84b7444e963cb420b3293af085022f952b12a0d83b03a0805ecb0d7b35b5b6",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r22-owner-directed-additional-codex-model",
-        "reviewed_at": "2026-09-22T18:51:51.000Z",
+        "kind": "r23-owner-directed-critic-visibility-and-cache",
+        "reviewed_at": "2026-09-22T20:44:34.635Z",
         "executor": "Codex inline to-product-idea",
-        "scope": "Add GPT-6 Sol as an optional live-catalog Codex choice for Head/specialists and the Critic Codex branch while preserving selected Astra/Opus settings, accepted snapshots and the approved visual baseline."
+        "scope": "Pin Claude Code 2.1.280 with exact Opus 5.5 model ID, retain Medium through Max choices and prior Low compatibility normalization, and preserve accepted snapshots."
       },
       "open_questions": [],
       "traceability": {
@@ -97,35 +97,35 @@
         ],
         "links": []
       },
-      "supersedes": "r21-opus-5-5-product-idea-2026-09-22T18:16:58.000Z"
+      "supersedes": "r23-critic-cache-product-idea-2026-09-22T20:40:04.077Z"
     },
     "prd": {
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "r22-gpt-6-sol-prd-2026-09-22T18:53:00.000Z",
+      "owner_invocation_id": "r23-critic-cache-prd-2026-09-22T20:45:22.139Z",
       "declared_output_set": [
         "docs/prd.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r22-gpt-6-sol-prd-2026-09-22T18:53:00.000Z",
+      "source_version": "r23-critic-cache-prd-2026-09-22T20:45:22.139Z",
       "source_usage": {
         "docs/product-idea.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "9df6edad8b11c0c13ec18728d87c225de69718c0764bcef940eed60f17a5f0c4"
+        "docs/product-idea.md": "9a84b7444e963cb420b3293af085022f952b12a0d83b03a0805ecb0d7b35b5b6"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
+      "content_hash": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r22-owner-directed-additional-codex-model",
-        "reviewed_at": "2026-09-22T18:53:00.000Z",
+        "kind": "r23-owner-directed-critic-visibility-and-cache",
+        "reviewed_at": "2026-09-22T20:45:22.139Z",
         "executor": "Codex inline to-sdd-prd",
-        "scope": "Add catalog-backed GPT-6 Sol as an optional Head/specialist and Critic Codex model under UC-005/AC-006; preserve existing selected defaults and accepted run snapshots."
+        "scope": "Require Claude Code 2.1.280 and exact Opus 5.5 model ID with Medium through Max, old Low normalization, current Settings assets and snapshot preservation."
       },
       "open_questions": [],
       "traceability": {
@@ -2367,97 +2367,97 @@
           "reviewed_at": "2026-09-14T20:13:37+03:00"
         }
       },
-      "supersedes": "r21-opus-5-5-prd-2026-09-22T18:18:30.000Z"
+      "supersedes": "r23-critic-cache-prd-2026-09-22T20:40:53.568Z"
     },
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "r22-gpt-6-sol-project-context-bundle-2026-09-22T18:56:00.000Z",
+      "owner_invocation_id": "r23-critic-cache-project-context-bundle-2026-09-22T20:46:26.466Z",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r22-gpt-6-sol-project-context-bundle-2026-09-22T18:56:00.000Z",
+      "source_version": "r23-critic-cache-project-context-bundle-2026-09-22T20:46:26.466Z",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "9df6edad8b11c0c13ec18728d87c225de69718c0764bcef940eed60f17a5f0c4",
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122"
+        "docs/product-idea.md": "9a84b7444e963cb420b3293af085022f952b12a0d83b03a0805ecb0d7b35b5b6",
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
+      "content_hash": "10baa4fcab143f2ddc72684374bbdffbd402710e1e191efd7ceee0dd04f4bbef",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r22-owner-directed-additional-codex-model",
-        "reviewed_at": "2026-09-22T18:56:00.000Z",
+        "kind": "r23-owner-directed-critic-visibility-and-cache",
+        "reviewed_at": "2026-09-22T20:46:26.466Z",
         "executor": "Codex inline to-project-context",
-        "scope": "Record GPT-6 Sol as an optional catalog-backed Codex choice for Head/specialists and Critic without changing the active Astra/Opus tuples or accepted consultation snapshots."
+        "scope": "Bind exact Claude Code 2.1.280 Opus 5.5 model routing, saved effort compatibility and current Settings asset delivery to the project context and canonical terms."
       },
       "open_questions": [],
-      "supersedes": "r21-opus-5-5-project-context-bundle-2026-09-22T18:20:00.000Z"
+      "supersedes": "r23-critic-cache-project-context-bundle-2026-09-22T20:41:46.236Z"
     },
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "r22-gpt-6-sol-project-context-bundle-2026-09-22T18:56:00.000Z",
+      "owner_invocation_id": "r23-critic-cache-project-context-bundle-2026-09-22T20:46:26.466Z",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r22-gpt-6-sol-project-context-bundle-2026-09-22T18:56:00.000Z",
+      "source_version": "r23-critic-cache-project-context-bundle-2026-09-22T20:46:26.466Z",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "9df6edad8b11c0c13ec18728d87c225de69718c0764bcef940eed60f17a5f0c4",
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122"
+        "docs/product-idea.md": "9a84b7444e963cb420b3293af085022f952b12a0d83b03a0805ecb0d7b35b5b6",
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
+      "content_hash": "88b9f54a8268eb12b8ac911f61ba0173e9459e00500624461156e059669adf1a",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r22-owner-directed-additional-codex-model",
-        "reviewed_at": "2026-09-22T18:56:00.000Z",
+        "kind": "r23-owner-directed-critic-visibility-and-cache",
+        "reviewed_at": "2026-09-22T20:46:26.466Z",
         "executor": "Codex inline to-project-context",
-        "scope": "Record GPT-6 Sol as an optional catalog-backed Codex choice for Head/specialists and Critic without changing the active Astra/Opus tuples or accepted consultation snapshots."
+        "scope": "Bind exact Claude Code 2.1.280 Opus 5.5 model routing, saved effort compatibility and current Settings asset delivery to the project context and canonical terms."
       },
       "open_questions": [],
-      "supersedes": "r21-opus-5-5-project-context-bundle-2026-09-22T18:20:00.000Z"
+      "supersedes": "r23-critic-cache-project-context-bundle-2026-09-22T20:41:46.236Z"
     },
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "r22-gpt-6-sol-guardrails-2026-09-22T18:57:47.221Z",
+      "owner_invocation_id": "r23-critic-cache-guardrails-2026-09-22T20:46:44.759Z",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r22-gpt-6-sol-guardrails-2026-09-22T18:57:47.221Z",
+      "source_version": "r23-critic-cache-guardrails-2026-09-22T20:46:44.759Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
         "docs/canonical-terms.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
-        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
-        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5"
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
+        "docs/project-context.md": "10baa4fcab143f2ddc72684374bbdffbd402710e1e191efd7ceee0dd04f4bbef",
+        "docs/canonical-terms.md": "88b9f54a8268eb12b8ac911f61ba0173e9459e00500624461156e059669adf1a"
       },
       "dependencies": [
         "prd",
@@ -2468,24 +2468,24 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r22-owner-directed-additional-codex-model",
-        "reviewed_at": "2026-09-22T18:57:47.221Z",
+        "kind": "r23-owner-directed-critic-visibility-and-cache",
+        "reviewed_at": "2026-09-22T20:46:44.759Z",
         "executor": "Codex inline to-guardrails",
-        "scope": "Revalidated existing source authority, provider boundaries, saved model tuples and accepted snapshots against the optional live-catalog GPT-6 Sol choice; no guardrail text change."
+        "scope": "Review exact Claude Code Opus 5.5 pin and compatibility correction against existing guardrails; no rule change needed."
       },
       "open_questions": [],
-      "supersedes": "r21-opus-5-5-guardrails-2026-09-22T18:22:00.000Z"
+      "supersedes": "r23-critic-cache-guardrails-2026-09-22T20:30:00.621Z"
     },
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "r22-gpt-6-sol-user-journey-2026-09-22T18:58:13.823Z",
+      "owner_invocation_id": "r23-critic-cache-user-journey-2026-09-22T20:47:11.262Z",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r22-gpt-6-sol-user-journey-2026-09-22T18:58:13.823Z",
+      "source_version": "r23-critic-cache-user-journey-2026-09-22T20:47:11.262Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2493,9 +2493,9 @@
         "docs/guardrails.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
-        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
-        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
+        "docs/project-context.md": "10baa4fcab143f2ddc72684374bbdffbd402710e1e191efd7ceee0dd04f4bbef",
+        "docs/canonical-terms.md": "88b9f54a8268eb12b8ac911f61ba0173e9459e00500624461156e059669adf1a",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb"
       },
       "dependencies": [
@@ -2504,28 +2504,28 @@
         "canonical-terms",
         "guardrails"
       ],
-      "content_hash": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
+      "content_hash": "5903371a5d1b767c7782e6199d12ce0659dff13bd2a920ded24008509c9b6f14",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r22-owner-directed-additional-codex-model",
-        "reviewed_at": "2026-09-22T18:58:13.823Z",
+        "kind": "r23-owner-directed-critic-visibility-and-cache",
+        "reviewed_at": "2026-09-22T20:47:11.262Z",
         "executor": "Codex inline to-user-journey",
-        "scope": "Revalidated J-07 deliberate model and reasoning choice, catalog failure, future-only preferences and immutable active-run snapshot for optional GPT-6 Sol; no journey text change."
+        "scope": "Review the existing current Settings and Critic journey against the exact Opus 5.5 CLI pin; no journey changes."
       },
       "open_questions": [],
-      "supersedes": "r21-opus-5-5-user-journey-2026-09-22T18:22:30.000Z"
+      "supersedes": "r23-critic-cache-user-journey-2026-09-22T20:30:31.899Z"
     },
     "screen-map": {
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "r22-gpt-6-sol-screen-map-2026-09-22T18:58:38.651Z",
+      "owner_invocation_id": "r23-critic-cache-screen-map-2026-09-22T20:47:30.979Z",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r22-gpt-6-sol-screen-map-2026-09-22T18:58:38.651Z",
+      "source_version": "r23-critic-cache-screen-map-2026-09-22T20:47:30.979Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2537,11 +2537,11 @@
         "forge/design/candidates/c/v1/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
-        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
-        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
+        "docs/project-context.md": "10baa4fcab143f2ddc72684374bbdffbd402710e1e191efd7ceee0dd04f4bbef",
+        "docs/canonical-terms.md": "88b9f54a8268eb12b8ac911f61ba0173e9459e00500624461156e059669adf1a",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
-        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
+        "docs/user-journey.md": "5903371a5d1b767c7782e6199d12ce0659dff13bd2a920ded24008509c9b6f14",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
         "forge/design/candidates/c/v1/app.js": "f64ab8a6962cc700c8087803d33ecda68884da78158ea0e5547235c6d4fff530"
@@ -2553,14 +2553,14 @@
         "guardrails",
         "user-journey"
       ],
-      "content_hash": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
+      "content_hash": "40df920688609526f1b3d5a4082a341e15c0932e12192b75a4cf87409eb7b343",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r22-owner-directed-additional-codex-model",
-        "reviewed_at": "2026-09-22T18:58:38.651Z",
+        "kind": "r23-owner-directed-critic-visibility-and-cache",
+        "reviewed_at": "2026-09-22T20:47:30.979Z",
         "executor": "Codex inline to-screen-map",
-        "scope": "Revalidated existing S-04 Settings saved, edited, invalid-settings and catalog-unavailable states for optional GPT-6 Sol; no new screen, route or state."
+        "scope": "Review S-04/ST-21 current Settings states against exact Opus 5.5 CLI pin; no route/state change."
       },
       "open_questions": [],
       "traceability": {
@@ -3568,18 +3568,18 @@
           }
         ]
       },
-      "supersedes": "r21-opus-5-5-screen-map-2026-09-22T18:23:00.000Z"
+      "supersedes": "r23-critic-cache-screen-map-2026-09-22T20:31:16.687Z"
     },
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "r22-gpt-6-sol-wireframes-2026-09-22T18:58:59.962Z",
+      "owner_invocation_id": "r23-critic-cache-wireframes-2026-09-22T20:47:47.713Z",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r22-gpt-6-sol-wireframes-2026-09-22T18:58:59.962Z",
+      "source_version": "r23-critic-cache-wireframes-2026-09-22T20:47:47.713Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3589,12 +3589,12 @@
         "docs/screen-map.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
-        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
-        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
+        "docs/project-context.md": "10baa4fcab143f2ddc72684374bbdffbd402710e1e191efd7ceee0dd04f4bbef",
+        "docs/canonical-terms.md": "88b9f54a8268eb12b8ac911f61ba0173e9459e00500624461156e059669adf1a",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
-        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
-        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2"
+        "docs/user-journey.md": "5903371a5d1b767c7782e6199d12ce0659dff13bd2a920ded24008509c9b6f14",
+        "docs/screen-map.md": "40df920688609526f1b3d5a4082a341e15c0932e12192b75a4cf87409eb7b343"
       },
       "dependencies": [
         "prd",
@@ -3604,28 +3604,28 @@
         "user-journey",
         "screen-map"
       ],
-      "content_hash": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
+      "content_hash": "4f7378790527ef8c9e52de1fa799fd6f14bb343b484b15d06b719d4caaf1d976",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r22-owner-directed-additional-codex-model",
-        "reviewed_at": "2026-09-22T18:58:59.962Z",
+        "kind": "r23-owner-directed-critic-visibility-and-cache",
+        "reviewed_at": "2026-09-22T20:47:47.713Z",
         "executor": "Codex inline to-wireframes",
-        "scope": "Revalidated existing S-04 model and reasoning controls plus saved, edited, invalid and catalog-unavailable recovery for optional GPT-6 Sol; no structural or copy change."
+        "scope": "Review S-04 Settings layout and effort text against exact Opus 5.5 CLI pin; no visual change."
       },
       "open_questions": [],
-      "supersedes": "r21-opus-5-5-wireframes-2026-09-22T18:23:30.000Z"
+      "supersedes": "r23-critic-cache-wireframes-2026-09-22T20:32:01.924Z"
     },
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "r22-gpt-6-sol-design-brief-2026-09-22T18:59:19.363Z",
+      "owner_invocation_id": "r23-critic-cache-design-brief-2026-09-22T20:48:06.502Z",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r22-gpt-6-sol-design-brief-2026-09-22T18:59:19.363Z",
+      "source_version": "r23-critic-cache-design-brief-2026-09-22T20:48:06.502Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3681,14 +3681,14 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
-        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
-        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
+        "docs/project-context.md": "10baa4fcab143f2ddc72684374bbdffbd402710e1e191efd7ceee0dd04f4bbef",
+        "docs/canonical-terms.md": "88b9f54a8268eb12b8ac911f61ba0173e9459e00500624461156e059669adf1a",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
-        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
-        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
-        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
-        "docs/product-idea.md": "9df6edad8b11c0c13ec18728d87c225de69718c0764bcef940eed60f17a5f0c4",
+        "docs/user-journey.md": "5903371a5d1b767c7782e6199d12ce0659dff13bd2a920ded24008509c9b6f14",
+        "docs/screen-map.md": "40df920688609526f1b3d5a4082a341e15c0932e12192b75a4cf87409eb7b343",
+        "docs/wireframes.md": "4f7378790527ef8c9e52de1fa799fd6f14bb343b484b15d06b719d4caaf1d976",
+        "docs/product-idea.md": "9a84b7444e963cb420b3293af085022f952b12a0d83b03a0805ecb0d7b35b5b6",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -3743,28 +3743,28 @@
         "screen-map",
         "wireframes"
       ],
-      "content_hash": "98017ae378c5f1288cea290897649f1fa57d1a63fb324379a91f9513c663e5a7",
+      "content_hash": "4157aa753c472a0a9b96492f930d06598e7f3327e62ec16e2c6acd545e15e92d",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r22-owner-directed-additional-codex-model",
-        "reviewed_at": "2026-09-22T18:59:19.363Z",
+        "kind": "r23-owner-directed-critic-visibility-and-cache",
+        "reviewed_at": "2026-09-22T20:48:06.502Z",
         "executor": "Codex inline to-design-brief",
-        "scope": "Revalidated Electric A v8 native labelled model and reasoning selects plus compatible-effort recovery for an additional Codex catalog option; no visual baseline, token, layout or state change."
+        "scope": "Review current approved Settings design against exact Opus 5.5 CLI pin; frozen Electric A v8 visual baseline unchanged."
       },
       "open_questions": [],
-      "supersedes": "r21-opus-5-5-design-brief-2026-09-22T18:24:30.000Z"
+      "supersedes": "r23-critic-cache-design-brief-2026-09-22T20:33:16.191Z"
     },
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "r22-gpt-6-sol-architecture-2026-09-22T19:05:35.924Z",
+      "owner_invocation_id": "r23-critic-cache-architecture-2026-09-22T20:49:45.303Z",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r22-gpt-6-sol-architecture-2026-09-22T19:05:35.924Z",
+      "source_version": "r23-critic-cache-architecture-2026-09-22T20:49:45.303Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3824,51 +3824,54 @@
         "src/server/configuration-recovery.mjs": "full",
         "test/settings-migration.test.mjs": "full",
         "test/fixtures/fake-claude.mjs": "full",
-        "src/server/codex-models.mjs": "full"
+        "src/server/codex-models.mjs": "full",
+        "src/server/browser-assets.mjs": "full",
+        "test/browser-assets.test.mjs": "full",
+        "package-lock.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
-        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
-        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
+        "docs/project-context.md": "10baa4fcab143f2ddc72684374bbdffbd402710e1e191efd7ceee0dd04f4bbef",
+        "docs/canonical-terms.md": "88b9f54a8268eb12b8ac911f61ba0173e9459e00500624461156e059669adf1a",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
-        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
-        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
-        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
-        "docs/design-brief.md": "98017ae378c5f1288cea290897649f1fa57d1a63fb324379a91f9513c663e5a7",
-        "docs/model-settings.md": "3c66d9a1aba090d694e7c5a60d04837a036c81a3889f96930dfd99b2b810c9df",
+        "docs/user-journey.md": "5903371a5d1b767c7782e6199d12ce0659dff13bd2a920ded24008509c9b6f14",
+        "docs/screen-map.md": "40df920688609526f1b3d5a4082a341e15c0932e12192b75a4cf87409eb7b343",
+        "docs/wireframes.md": "4f7378790527ef8c9e52de1fa799fd6f14bb343b484b15d06b719d4caaf1d976",
+        "docs/design-brief.md": "4157aa753c472a0a9b96492f930d06598e7f3327e62ec16e2c6acd545e15e92d",
+        "docs/model-settings.md": "678d708c4222371cf065e407ac7780079a435a46518b7810fd93897974007df9",
         "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
-        "package.json": "07cd75788ee43dce13e0f0a046bd0319937cb6332dbee96ecea53f89305269e3",
+        "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
         "src/server/config.mjs": "b3039bc097bcc657ad2c6c420904395f0832c8b9c0268bd33cc2cb1e97e87495",
-        "src/server/index.mjs": "3bc460c60f8931c05fefc575a985fca1ed71d0f1838f0a276a4e758812120ece",
+        "src/server/index.mjs": "23cc92260ab5ca3f11749095f4d23397404ac72aed0d21ad96943e0326be948b",
         "src/server/store.mjs": "c05a7290046f90f7aca67e3bb73a32da4ff3cfd62109b29f9022144227c81db5",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
-        "test/core.test.mjs": "91cbedcc3c0951683a3762c1333d7c55af6f605d0c5f52ae687cc4ad768cc394",
+        "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
         "src/server/codex-provider.mjs": "ccf55470ef499fe9375b4b3d3e6a5bec59c3ae0808597b8aae67ac4ae31e9604",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
         "test/codex-provider.test.mjs": "8e3f97c867459c414d3476476bff2fe76171118e030e1bcf804f44a3fde9bdaf",
         "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
-        "test/http.test.mjs": "058527520d62314075778076789d55503ae43f9d69d739386e90e8d39e435c61",
+        "test/http.test.mjs": "fa2f37e5d93439946aaec1b7e6aa4e92a6a74818650a32573d0f2d780d1bded4",
         ".env.example": "71983a7601c502c44bddb0f1a6fb9c2a8ebe170dd7151395b9199e16da713d3d",
         "test/fixtures/fake-codex.mjs": "253022fb119541d22e64e6a9b7968840b14ee82cd70a42f1d1ff465ea0f27855",
         "src/server/prompt-contracts.mjs": "6ae5ab7c303bb1cf48d8eff524592e80287b03ce456c74a93c72a30ccd4a3652",
-        "src/client/app.js": "029ea3f84f4a92d3ded3c10138515e528380e30dfbcb0317653e317212073809",
+        "src/client/app.js": "632608165853408b692d60d93d8deba23397f87252d40caecd1e16fdb6fe3564",
         "test/consolidation.test.mjs": "c29cb6ecca6f28811b16370ae1e00d698a47e6e07cc02c36cc96a90cd7a77102",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
-        "public/index.html": "5345bdbf3a7e17ff84ad8f7f78f81258799ddd9ca3cc3113cff3c6501b20e52a",
+        "public/index.html": "dd08625e44e39892e93daa6d8051ac56a48bcefa5aafef766eea9a071c602a2a",
         "public/styles.css": "d92ee023de308477be95fd67d261dbf97bfcebf276209c9c2b578387f465081a",
         "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
         "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
         "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
-        "src/server/validation.mjs": "9975418088378295e8fed316ba11ecb9b788017953b78691aa61df7c28af5f9f",
+        "src/server/validation.mjs": "1dbbceae77466a21e454690638ab6116a66af9ea05ad0ccd7ea77177d3c35410",
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
-        "src/server/claude-provider.mjs": "8678d891083d00e9fa69002a126032a95ebe6b63207e26d31f6e5fb8546c9105",
+        "src/server/claude-provider.mjs": "6fcff16b308d6d466c9ce93ebc24fd2ef319752322b7962fc592169e5024542d",
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
-        "test/claude-provider.test.mjs": "76bbb498810672925304ba2edc430e767c161163e8b1b36d8ba8a65923dee991",
+        "test/claude-provider.test.mjs": "f995bb93fd3a203b2e52ab2133937d89d93129494736bd56a265ef6aced9293e",
         "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
         "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
@@ -3879,13 +3882,16 @@
         "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
         "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
         "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22",
-        "src/server/settings.mjs": "c51192b0cbeef05403a89522b2849dee78abbbd73f51e8299eb133e6c1ab4c81",
+        "src/server/settings.mjs": "d18f32fbc90a991324b0f1ef0056be0830e02817f648e0c2148dd82fccbff3e9",
         "src/server/settings-migration.mjs": "962a06c2aca26fe19654d7a05b7aefff1e7986b53d966cba59c5a212d3bd9db5",
-        "src/server/migrate.mjs": "92f01ab752106741786174ce22e82d1d2888a5d5f0354bbabce7dac1218f60f1",
+        "src/server/migrate.mjs": "e2d2eb82f43470c9e71693545692844d3ef34ab7c0ee9f24d375256e291a2a57",
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
-        "test/settings-migration.test.mjs": "aa04be0abb0fa69c2f0cc919506db3272da06d574c333dc34024a0998947cca2",
+        "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
         "test/fixtures/fake-claude.mjs": "1d867014e911f5ef29e92be0af5e126903934b53458d8934c00c82638bc07e96",
-        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760"
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
+        "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06"
       },
       "dependencies": [
         "prd",
@@ -3897,14 +3903,14 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "a57ef36f25f4723d4812c10b399780c31dff265e35ffa2fa0504e76af96e24cb",
+      "content_hash": "eb25c5b60ecf963fc716a1d5f83b64c0217651c9b67192f8682bda4609ac3065",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r22-owner-directed-additional-codex-model",
-        "reviewed_at": "2026-09-22T19:05:35.924Z",
+        "kind": "r23-owner-directed-critic-visibility-and-cache",
+        "reviewed_at": "2026-09-22T20:49:45.303Z",
         "executor": "Codex inline to-architecture",
-        "scope": "Preserve known inactive Critic Codex pairs even when omitted by the current catalog; require live catalog validation when selected, and deliberate compatible-effort choice without silent fallback."
+        "scope": "Bind exact Claude Code 2.1.280 Opus 5.5 ID, prior Low-only preference migration, current browser assets and honest port diagnosis to the existing architecture/security boundaries."
       },
       "open_questions": [],
       "security_coverage": {
@@ -3977,19 +3983,19 @@
           "heading": "## Security enforcement map"
         }
       },
-      "supersedes": "r22-gpt-6-sol-architecture-2026-09-22T19:00:24.892Z",
+      "supersedes": "r23-critic-cache-architecture-2026-09-22T20:35:23.708Z",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "r22-gpt-6-sol-dod-evals-2026-09-22T19:06:02.556Z",
+      "owner_invocation_id": "r23-critic-cache-dod-evals-2026-09-22T20:50:38.476Z",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r22-gpt-6-sol-dod-evals-2026-09-22T19:06:02.556Z",
+      "source_version": "r23-critic-cache-dod-evals-2026-09-22T20:50:38.476Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4012,31 +4018,39 @@
         "src/server/migrate.mjs": "full",
         "src/server/configuration-recovery.mjs": "full",
         "test/settings-migration.test.mjs": "full",
-        "src/server/codex-models.mjs": "full"
+        "src/server/codex-models.mjs": "full",
+        "src/server/browser-assets.mjs": "full",
+        "test/browser-assets.test.mjs": "full",
+        "package.json": "full",
+        "package-lock.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
-        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
-        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
+        "docs/project-context.md": "10baa4fcab143f2ddc72684374bbdffbd402710e1e191efd7ceee0dd04f4bbef",
+        "docs/canonical-terms.md": "88b9f54a8268eb12b8ac911f61ba0173e9459e00500624461156e059669adf1a",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
-        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
-        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
-        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
-        "docs/design-brief.md": "98017ae378c5f1288cea290897649f1fa57d1a63fb324379a91f9513c663e5a7",
-        "docs/architecture.md": "a57ef36f25f4723d4812c10b399780c31dff265e35ffa2fa0504e76af96e24cb",
+        "docs/user-journey.md": "5903371a5d1b767c7782e6199d12ce0659dff13bd2a920ded24008509c9b6f14",
+        "docs/screen-map.md": "40df920688609526f1b3d5a4082a341e15c0932e12192b75a4cf87409eb7b343",
+        "docs/wireframes.md": "4f7378790527ef8c9e52de1fa799fd6f14bb343b484b15d06b719d4caaf1d976",
+        "docs/design-brief.md": "4157aa753c472a0a9b96492f930d06598e7f3327e62ec16e2c6acd545e15e92d",
+        "docs/architecture.md": "eb25c5b60ecf963fc716a1d5f83b64c0217651c9b67192f8682bda4609ac3065",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
-        "src/server/claude-provider.mjs": "8678d891083d00e9fa69002a126032a95ebe6b63207e26d31f6e5fb8546c9105",
+        "src/server/claude-provider.mjs": "6fcff16b308d6d466c9ce93ebc24fd2ef319752322b7962fc592169e5024542d",
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
-        "test/claude-provider.test.mjs": "76bbb498810672925304ba2edc430e767c161163e8b1b36d8ba8a65923dee991",
+        "test/claude-provider.test.mjs": "f995bb93fd3a203b2e52ab2133937d89d93129494736bd56a265ef6aced9293e",
         "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
-        "src/server/settings.mjs": "c51192b0cbeef05403a89522b2849dee78abbbd73f51e8299eb133e6c1ab4c81",
+        "src/server/settings.mjs": "d18f32fbc90a991324b0f1ef0056be0830e02817f648e0c2148dd82fccbff3e9",
         "src/server/settings-migration.mjs": "962a06c2aca26fe19654d7a05b7aefff1e7986b53d966cba59c5a212d3bd9db5",
-        "src/server/migrate.mjs": "92f01ab752106741786174ce22e82d1d2888a5d5f0354bbabce7dac1218f60f1",
+        "src/server/migrate.mjs": "e2d2eb82f43470c9e71693545692844d3ef34ab7c0ee9f24d375256e291a2a57",
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
-        "test/settings-migration.test.mjs": "aa04be0abb0fa69c2f0cc919506db3272da06d574c333dc34024a0998947cca2",
-        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760"
+        "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
+        "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
+        "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06"
       },
       "dependencies": [
         "prd",
@@ -4049,14 +4063,14 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "30e2d83ad6595218a52aa10d974efa97d8a668e355808b40d13a637c8985efbc",
+      "content_hash": "a21761977d4d453f724194118fd3eca89a28496162fad802d6c20ab9db44e77a",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r22-owner-directed-additional-codex-model",
-        "reviewed_at": "2026-09-22T19:06:02.556Z",
+        "kind": "r23-owner-directed-critic-visibility-and-cache",
+        "reviewed_at": "2026-09-22T20:50:38.476Z",
         "executor": "Codex inline to-dod-evals",
-        "scope": "Revalidated FR-05.1 gate after inactive Critic Codex branch preservation and deliberate compatible-effort selection; existing evidence definition covers this without a text change."
+        "scope": "Bind FR-05.1 and delivery gates to installed Claude CLI 2.1.280, exact Opus 5.5 ID, old Low-only migration and versioned browser assets; canonical checks remain prepared/not_run."
       },
       "open_questions": [],
       "security_coverage": {
@@ -4129,19 +4143,19 @@
           "heading": "### Product security membership"
         }
       },
-      "supersedes": "r22-gpt-6-sol-dod-evals-2026-09-22T19:01:09.468Z",
+      "supersedes": "r23-critic-cache-dod-evals-2026-09-22T20:36:16.202Z",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "r22-gpt-6-sol-qa-checklist-2026-09-22T19:06:44.853Z",
+      "owner_invocation_id": "r23-critic-cache-qa-checklist-2026-09-22T20:51:25.732Z",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r22-gpt-6-sol-qa-checklist-2026-09-22T19:06:44.853Z",
+      "source_version": "r23-critic-cache-qa-checklist-2026-09-22T20:51:25.732Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4203,53 +4217,56 @@
         "src/server/configuration-recovery.mjs": "full",
         "test/settings-migration.test.mjs": "full",
         "test/fixtures/fake-claude.mjs": "full",
-        "src/server/codex-models.mjs": "full"
+        "src/server/codex-models.mjs": "full",
+        "src/server/browser-assets.mjs": "full",
+        "test/browser-assets.test.mjs": "full",
+        "package-lock.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
-        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
-        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
+        "docs/project-context.md": "10baa4fcab143f2ddc72684374bbdffbd402710e1e191efd7ceee0dd04f4bbef",
+        "docs/canonical-terms.md": "88b9f54a8268eb12b8ac911f61ba0173e9459e00500624461156e059669adf1a",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
-        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
-        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
-        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
-        "docs/design-brief.md": "98017ae378c5f1288cea290897649f1fa57d1a63fb324379a91f9513c663e5a7",
-        "docs/architecture.md": "a57ef36f25f4723d4812c10b399780c31dff265e35ffa2fa0504e76af96e24cb",
-        "docs/dod-evals.md": "30e2d83ad6595218a52aa10d974efa97d8a668e355808b40d13a637c8985efbc",
+        "docs/user-journey.md": "5903371a5d1b767c7782e6199d12ce0659dff13bd2a920ded24008509c9b6f14",
+        "docs/screen-map.md": "40df920688609526f1b3d5a4082a341e15c0932e12192b75a4cf87409eb7b343",
+        "docs/wireframes.md": "4f7378790527ef8c9e52de1fa799fd6f14bb343b484b15d06b719d4caaf1d976",
+        "docs/design-brief.md": "4157aa753c472a0a9b96492f930d06598e7f3327e62ec16e2c6acd545e15e92d",
+        "docs/architecture.md": "eb25c5b60ecf963fc716a1d5f83b64c0217651c9b67192f8682bda4609ac3065",
+        "docs/dod-evals.md": "a21761977d4d453f724194118fd3eca89a28496162fad802d6c20ab9db44e77a",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
         "forge/design/evidence/c-v1-visual-qa.json": "b5517ae544724b5ae54c60f63e328797b4788b4abda5828ceaea81f439c4ae83",
-        "package.json": "07cd75788ee43dce13e0f0a046bd0319937cb6332dbee96ecea53f89305269e3",
+        "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
         "src/server/config.mjs": "b3039bc097bcc657ad2c6c420904395f0832c8b9c0268bd33cc2cb1e97e87495",
-        "src/server/index.mjs": "3bc460c60f8931c05fefc575a985fca1ed71d0f1838f0a276a4e758812120ece",
+        "src/server/index.mjs": "23cc92260ab5ca3f11749095f4d23397404ac72aed0d21ad96943e0326be948b",
         "src/server/store.mjs": "c05a7290046f90f7aca67e3bb73a32da4ff3cfd62109b29f9022144227c81db5",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
-        "test/core.test.mjs": "91cbedcc3c0951683a3762c1333d7c55af6f605d0c5f52ae687cc4ad768cc394",
+        "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
         "src/server/codex-provider.mjs": "ccf55470ef499fe9375b4b3d3e6a5bec59c3ae0808597b8aae67ac4ae31e9604",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
         "test/codex-provider.test.mjs": "8e3f97c867459c414d3476476bff2fe76171118e030e1bcf804f44a3fde9bdaf",
         "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
-        "test/http.test.mjs": "058527520d62314075778076789d55503ae43f9d69d739386e90e8d39e435c61",
+        "test/http.test.mjs": "fa2f37e5d93439946aaec1b7e6aa4e92a6a74818650a32573d0f2d780d1bded4",
         "test/fixtures/fake-codex.mjs": "253022fb119541d22e64e6a9b7968840b14ee82cd70a42f1d1ff465ea0f27855",
         "src/server/prompt-contracts.mjs": "6ae5ab7c303bb1cf48d8eff524592e80287b03ce456c74a93c72a30ccd4a3652",
-        "src/client/app.js": "029ea3f84f4a92d3ded3c10138515e528380e30dfbcb0317653e317212073809",
+        "src/client/app.js": "632608165853408b692d60d93d8deba23397f87252d40caecd1e16fdb6fe3564",
         "test/consolidation.test.mjs": "c29cb6ecca6f28811b16370ae1e00d698a47e6e07cc02c36cc96a90cd7a77102",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
-        "public/index.html": "5345bdbf3a7e17ff84ad8f7f78f81258799ddd9ca3cc3113cff3c6501b20e52a",
+        "public/index.html": "dd08625e44e39892e93daa6d8051ac56a48bcefa5aafef766eea9a071c602a2a",
         "public/styles.css": "d92ee023de308477be95fd67d261dbf97bfcebf276209c9c2b578387f465081a",
         "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
         "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
         "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
-        "src/server/validation.mjs": "9975418088378295e8fed316ba11ecb9b788017953b78691aa61df7c28af5f9f",
+        "src/server/validation.mjs": "1dbbceae77466a21e454690638ab6116a66af9ea05ad0ccd7ea77177d3c35410",
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
-        "src/server/claude-provider.mjs": "8678d891083d00e9fa69002a126032a95ebe6b63207e26d31f6e5fb8546c9105",
+        "src/server/claude-provider.mjs": "6fcff16b308d6d466c9ce93ebc24fd2ef319752322b7962fc592169e5024542d",
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
-        "test/claude-provider.test.mjs": "76bbb498810672925304ba2edc430e767c161163e8b1b36d8ba8a65923dee991",
+        "test/claude-provider.test.mjs": "f995bb93fd3a203b2e52ab2133937d89d93129494736bd56a265ef6aced9293e",
         "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
         "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
@@ -4260,13 +4277,16 @@
         "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
         "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
         "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22",
-        "src/server/settings.mjs": "c51192b0cbeef05403a89522b2849dee78abbbd73f51e8299eb133e6c1ab4c81",
+        "src/server/settings.mjs": "d18f32fbc90a991324b0f1ef0056be0830e02817f648e0c2148dd82fccbff3e9",
         "src/server/settings-migration.mjs": "962a06c2aca26fe19654d7a05b7aefff1e7986b53d966cba59c5a212d3bd9db5",
-        "src/server/migrate.mjs": "92f01ab752106741786174ce22e82d1d2888a5d5f0354bbabce7dac1218f60f1",
+        "src/server/migrate.mjs": "e2d2eb82f43470c9e71693545692844d3ef34ab7c0ee9f24d375256e291a2a57",
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
-        "test/settings-migration.test.mjs": "aa04be0abb0fa69c2f0cc919506db3272da06d574c333dc34024a0998947cca2",
+        "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
         "test/fixtures/fake-claude.mjs": "1d867014e911f5ef29e92be0af5e126903934b53458d8934c00c82638bc07e96",
-        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760"
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
+        "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06"
       },
       "dependencies": [
         "prd",
@@ -4280,14 +4300,14 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "205b5295d0ccc0eb7217b008cde5dcf4cd9e2545a94bf168c6906f2965bcec91",
+      "content_hash": "ce5a868e7616c3f0e26f7a2d5ede4045bbcec4e8c5b10637289fbf3dd072e4f4",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r22-owner-directed-additional-codex-model",
-        "reviewed_at": "2026-09-22T19:06:44.853Z",
+        "kind": "r23-owner-directed-critic-visibility-and-cache",
+        "reviewed_at": "2026-09-22T20:51:25.732Z",
         "executor": "Codex inline to-qa-checklist",
-        "scope": "Verify Critic provider switching retains an unresolved incompatible-effort placeholder and inactive Sol survives temporary catalog omission but cannot be activated until supported; formal QA remains not run."
+        "scope": "Bind exact Claude CLI 2.1.280 Opus 5.5 routing, old Low-only migration, asset hash delivery and truthful port/release evidence across existing 83 prepared QA checks."
       },
       "open_questions": [],
       "traceability": {
@@ -6049,19 +6069,19 @@
           "heading": "## Product acceptance"
         }
       },
-      "supersedes": "r22-gpt-6-sol-qa-checklist-2026-09-22T19:01:58.871Z",
+      "supersedes": "r23-critic-cache-qa-checklist-2026-09-22T20:37:50.058Z",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "r22-gpt-6-sol-development-plan-2026-09-22T19:07:14.659Z",
+      "owner_invocation_id": "r23-critic-cache-development-plan-2026-09-22T20:52:46.601Z",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r22-gpt-6-sol-development-plan-2026-09-22T19:07:14.659Z",
+      "source_version": "r23-critic-cache-development-plan-2026-09-22T20:52:46.601Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -6128,23 +6148,26 @@
         "src/server/configuration-recovery.mjs": "full",
         "test/settings-migration.test.mjs": "full",
         "test/fixtures/fake-claude.mjs": "full",
-        "src/server/codex-models.mjs": "full"
+        "src/server/codex-models.mjs": "full",
+        "package-lock.json": "full",
+        "src/server/browser-assets.mjs": "full",
+        "test/browser-assets.test.mjs": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
-        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
-        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
+        "docs/project-context.md": "10baa4fcab143f2ddc72684374bbdffbd402710e1e191efd7ceee0dd04f4bbef",
+        "docs/canonical-terms.md": "88b9f54a8268eb12b8ac911f61ba0173e9459e00500624461156e059669adf1a",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
-        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
-        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
-        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
-        "docs/design-brief.md": "98017ae378c5f1288cea290897649f1fa57d1a63fb324379a91f9513c663e5a7",
-        "docs/architecture.md": "a57ef36f25f4723d4812c10b399780c31dff265e35ffa2fa0504e76af96e24cb",
-        "docs/dod-evals.md": "30e2d83ad6595218a52aa10d974efa97d8a668e355808b40d13a637c8985efbc",
-        "docs/qa-checklist.md": "205b5295d0ccc0eb7217b008cde5dcf4cd9e2545a94bf168c6906f2965bcec91",
-        "docs/model-settings.md": "3c66d9a1aba090d694e7c5a60d04837a036c81a3889f96930dfd99b2b810c9df",
+        "docs/user-journey.md": "5903371a5d1b767c7782e6199d12ce0659dff13bd2a920ded24008509c9b6f14",
+        "docs/screen-map.md": "40df920688609526f1b3d5a4082a341e15c0932e12192b75a4cf87409eb7b343",
+        "docs/wireframes.md": "4f7378790527ef8c9e52de1fa799fd6f14bb343b484b15d06b719d4caaf1d976",
+        "docs/design-brief.md": "4157aa753c472a0a9b96492f930d06598e7f3327e62ec16e2c6acd545e15e92d",
+        "docs/architecture.md": "eb25c5b60ecf963fc716a1d5f83b64c0217651c9b67192f8682bda4609ac3065",
+        "docs/dod-evals.md": "a21761977d4d453f724194118fd3eca89a28496162fad802d6c20ab9db44e77a",
+        "docs/qa-checklist.md": "ce5a868e7616c3f0e26f7a2d5ede4045bbcec4e8c5b10637289fbf3dd072e4f4",
+        "docs/model-settings.md": "678d708c4222371cf065e407ac7780079a435a46518b7810fd93897974007df9",
         "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
-        "package.json": "07cd75788ee43dce13e0f0a046bd0319937cb6332dbee96ecea53f89305269e3",
+        "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
         "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
         "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
         "forge/design/candidates/a/v8/styles.css": "f8fd6e8832671b05dc8b7a2a034ee41fb2aad4f085468965feaf1c34a3b57d43",
@@ -6152,34 +6175,34 @@
         "forge/design/candidates/a/v8/nanoduck-original.svg": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528",
         "forge/design/candidates/a/v8/app.js": "d7ac2287ce8496772592d42d134fc530affcb9147f0a7641655a56c6cf83775f",
         "src/server/config.mjs": "b3039bc097bcc657ad2c6c420904395f0832c8b9c0268bd33cc2cb1e97e87495",
-        "src/server/index.mjs": "3bc460c60f8931c05fefc575a985fca1ed71d0f1838f0a276a4e758812120ece",
+        "src/server/index.mjs": "23cc92260ab5ca3f11749095f4d23397404ac72aed0d21ad96943e0326be948b",
         "src/server/store.mjs": "c05a7290046f90f7aca67e3bb73a32da4ff3cfd62109b29f9022144227c81db5",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
-        "test/core.test.mjs": "91cbedcc3c0951683a3762c1333d7c55af6f605d0c5f52ae687cc4ad768cc394",
+        "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
         "src/server/codex-provider.mjs": "ccf55470ef499fe9375b4b3d3e6a5bec59c3ae0808597b8aae67ac4ae31e9604",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
         "test/codex-provider.test.mjs": "8e3f97c867459c414d3476476bff2fe76171118e030e1bcf804f44a3fde9bdaf",
         "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
-        "test/http.test.mjs": "058527520d62314075778076789d55503ae43f9d69d739386e90e8d39e435c61",
+        "test/http.test.mjs": "fa2f37e5d93439946aaec1b7e6aa4e92a6a74818650a32573d0f2d780d1bded4",
         "test/fixtures/fake-codex.mjs": "253022fb119541d22e64e6a9b7968840b14ee82cd70a42f1d1ff465ea0f27855",
         "src/server/prompt-contracts.mjs": "6ae5ab7c303bb1cf48d8eff524592e80287b03ce456c74a93c72a30ccd4a3652",
-        "src/client/app.js": "029ea3f84f4a92d3ded3c10138515e528380e30dfbcb0317653e317212073809",
+        "src/client/app.js": "632608165853408b692d60d93d8deba23397f87252d40caecd1e16fdb6fe3564",
         "test/consolidation.test.mjs": "c29cb6ecca6f28811b16370ae1e00d698a47e6e07cc02c36cc96a90cd7a77102",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
-        "public/index.html": "5345bdbf3a7e17ff84ad8f7f78f81258799ddd9ca3cc3113cff3c6501b20e52a",
+        "public/index.html": "dd08625e44e39892e93daa6d8051ac56a48bcefa5aafef766eea9a071c602a2a",
         "public/styles.css": "d92ee023de308477be95fd67d261dbf97bfcebf276209c9c2b578387f465081a",
         "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
         "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
         "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
-        "src/server/validation.mjs": "9975418088378295e8fed316ba11ecb9b788017953b78691aa61df7c28af5f9f",
+        "src/server/validation.mjs": "1dbbceae77466a21e454690638ab6116a66af9ea05ad0ccd7ea77177d3c35410",
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
-        "src/server/claude-provider.mjs": "8678d891083d00e9fa69002a126032a95ebe6b63207e26d31f6e5fb8546c9105",
+        "src/server/claude-provider.mjs": "6fcff16b308d6d466c9ce93ebc24fd2ef319752322b7962fc592169e5024542d",
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
-        "test/claude-provider.test.mjs": "76bbb498810672925304ba2edc430e767c161163e8b1b36d8ba8a65923dee991",
+        "test/claude-provider.test.mjs": "f995bb93fd3a203b2e52ab2133937d89d93129494736bd56a265ef6aced9293e",
         "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
         "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
@@ -6190,13 +6213,16 @@
         "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
         "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
         "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22",
-        "src/server/settings.mjs": "c51192b0cbeef05403a89522b2849dee78abbbd73f51e8299eb133e6c1ab4c81",
+        "src/server/settings.mjs": "d18f32fbc90a991324b0f1ef0056be0830e02817f648e0c2148dd82fccbff3e9",
         "src/server/settings-migration.mjs": "962a06c2aca26fe19654d7a05b7aefff1e7986b53d966cba59c5a212d3bd9db5",
-        "src/server/migrate.mjs": "92f01ab752106741786174ce22e82d1d2888a5d5f0354bbabce7dac1218f60f1",
+        "src/server/migrate.mjs": "e2d2eb82f43470c9e71693545692844d3ef34ab7c0ee9f24d375256e291a2a57",
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
-        "test/settings-migration.test.mjs": "aa04be0abb0fa69c2f0cc919506db3272da06d574c333dc34024a0998947cca2",
+        "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
         "test/fixtures/fake-claude.mjs": "1d867014e911f5ef29e92be0af5e126903934b53458d8934c00c82638bc07e96",
-        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760"
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06",
+        "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
+        "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5"
       },
       "dependencies": [
         "prd",
@@ -6211,16 +6237,16 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "7efdc8c7400c78e624f59530449f8e51a31e4c7d7edb1045256797b51dbd40f3",
+      "content_hash": "550188b891ec8a556d184fffffbbbc7ab0822372bf6efdabe556394e430c3d00",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r22-owner-directed-additional-codex-model",
-        "reviewed_at": "2026-09-22T19:07:14.659Z",
+        "kind": "r23-owner-directed-critic-visibility-and-cache",
+        "reviewed_at": "2026-09-22T20:52:46.601Z",
         "executor": "Codex inline to-development-plan",
-        "scope": "Revalidated U-03 acceptance against inactive Sol branch retention, provider-toggle placeholder and exact live-catalog activation; existing plan text and gate scope remain current."
+        "scope": "Bind U-01/U-03/U-08 and C-02 to pinned Claude Code 2.1.280, exact Opus 5.5 ID, old Low-only preference migration, current browser assets and honest live evidence gaps."
       },
-      "supersedes": "r22-gpt-6-sol-development-plan-2026-09-22T19:04:42.340Z",
+      "supersedes": "r22-gpt-6-sol-development-plan-2026-09-22T19:07:14.659Z",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
       "traceability": {
         "definitions": [
@@ -7920,18 +7946,18 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "7efdc8c7400c78e624f59530449f8e51a31e4c7d7edb1045256797b51dbd40f3",
+    "development_plan_hash": "550188b891ec8a556d184fffffbbbc7ab0822372bf6efdabe556394e430c3d00",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "impl-gpt-6-sol-20260922",
-    "prompt_received_at": "2026-09-22T19:04:42.485Z",
-    "released_at": "2026-09-22T19:04:42.485Z",
+    "prompt_id": "impl-critic-opus-5-5-visible-20260922",
+    "prompt_received_at": "2026-09-22T20:54:34.847Z",
+    "released_at": "2026-09-22T20:54:34.847Z",
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
-      "path": "forge/runs/implementation-prompt-20260922-gpt-6-sol.json",
-      "content_hash": "79305d725c8b9c5970b35296c900ca3f3e38c0c573d36b7cf2c367e928d65419"
+      "path": "forge/runs/implementation-prompt-20260922-critic-visibility.json",
+      "content_hash": "01ece8884d2f29f3010f1283d9c922fe331b85ec522020cd5f5b4f958b5bd4dd"
     },
-    "reason": "Authorize the repository change that adds GPT-6 Sol as an optional Codex model in Head/specialist and Critic Settings, validates catalog-backed model/effort choices, preserves existing defaults and accepted snapshots, updates tests and reconciles SDD artifacts. This does not authorize deployment, a hosted database migration, a live provider turn or changes to external services."
+    "reason": "Fix the Critic settings so Claude Code is visible, offers Opus 5.5 with Medium, High, Extra and Max effort, preserves valid saved settings, and prevents stale browser assets from hiding the update. Inspect the reported GoDaddy port warning and verify the named app state. This does not authorize a paid provider turn, credential access, database migration against a target, or deletion of resources."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -9051,12 +9077,12 @@
   ],
   "dispatches": {
     "product-idea": {
-      "invocation_id": "r22-gpt-6-sol-product-idea-2026-09-22T18:51:51.000Z",
+      "invocation_id": "r23-critic-cache-product-idea-2026-09-22T20:44:34.635Z",
       "outputs": [
         "docs/product-idea.md"
       ],
       "source_hashes": {
-        "docs/model-settings.md": "3c66d9a1aba090d694e7c5a60d04837a036c81a3889f96930dfd99b2b810c9df",
+        "docs/model-settings.md": "678d708c4222371cf065e407ac7780079a435a46518b7810fd93897974007df9",
         "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
@@ -9064,75 +9090,75 @@
       "consumed_source_fragments": {}
     },
     "prd": {
-      "invocation_id": "r22-gpt-6-sol-prd-2026-09-22T18:53:00.000Z",
+      "invocation_id": "r23-critic-cache-prd-2026-09-22T20:45:22.139Z",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "9df6edad8b11c0c13ec18728d87c225de69718c0764bcef940eed60f17a5f0c4"
+        "docs/product-idea.md": "9a84b7444e963cb420b3293af085022f952b12a0d83b03a0805ecb0d7b35b5b6"
       },
       "consumed_source_fragments": {}
     },
     "project-context": {
-      "invocation_id": "r22-gpt-6-sol-project-context-bundle-2026-09-22T18:56:00.000Z",
+      "invocation_id": "r23-critic-cache-project-context-bundle-2026-09-22T20:46:26.466Z",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "9df6edad8b11c0c13ec18728d87c225de69718c0764bcef940eed60f17a5f0c4",
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122"
+        "docs/product-idea.md": "9a84b7444e963cb420b3293af085022f952b12a0d83b03a0805ecb0d7b35b5b6",
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64"
       },
       "consumed_source_fragments": {}
     },
     "canonical-terms": {
-      "invocation_id": "r22-gpt-6-sol-project-context-bundle-2026-09-22T18:56:00.000Z",
+      "invocation_id": "r23-critic-cache-project-context-bundle-2026-09-22T20:46:26.466Z",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "9df6edad8b11c0c13ec18728d87c225de69718c0764bcef940eed60f17a5f0c4",
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122"
+        "docs/product-idea.md": "9a84b7444e963cb420b3293af085022f952b12a0d83b03a0805ecb0d7b35b5b6",
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64"
       },
       "consumed_source_fragments": {}
     },
     "guardrails": {
-      "invocation_id": "r22-gpt-6-sol-guardrails-2026-09-22T18:57:47.221Z",
+      "invocation_id": "r23-critic-cache-guardrails-2026-09-22T20:46:44.759Z",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
-        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
-        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5"
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
+        "docs/project-context.md": "10baa4fcab143f2ddc72684374bbdffbd402710e1e191efd7ceee0dd04f4bbef",
+        "docs/canonical-terms.md": "88b9f54a8268eb12b8ac911f61ba0173e9459e00500624461156e059669adf1a"
       },
       "consumed_source_fragments": {}
     },
     "user-journey": {
-      "invocation_id": "r22-gpt-6-sol-user-journey-2026-09-22T18:58:13.823Z",
+      "invocation_id": "r23-critic-cache-user-journey-2026-09-22T20:47:11.262Z",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
-        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
-        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
+        "docs/project-context.md": "10baa4fcab143f2ddc72684374bbdffbd402710e1e191efd7ceee0dd04f4bbef",
+        "docs/canonical-terms.md": "88b9f54a8268eb12b8ac911f61ba0173e9459e00500624461156e059669adf1a",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb"
       },
       "consumed_source_fragments": {}
     },
     "screen-map": {
-      "invocation_id": "r22-gpt-6-sol-screen-map-2026-09-22T18:58:38.651Z",
+      "invocation_id": "r23-critic-cache-screen-map-2026-09-22T20:47:30.979Z",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
-        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
-        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
+        "docs/project-context.md": "10baa4fcab143f2ddc72684374bbdffbd402710e1e191efd7ceee0dd04f4bbef",
+        "docs/canonical-terms.md": "88b9f54a8268eb12b8ac911f61ba0173e9459e00500624461156e059669adf1a",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
-        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
+        "docs/user-journey.md": "5903371a5d1b767c7782e6199d12ce0659dff13bd2a920ded24008509c9b6f14",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
         "forge/design/candidates/c/v1/app.js": "f64ab8a6962cc700c8087803d33ecda68884da78158ea0e5547235c6d4fff530"
@@ -9140,34 +9166,34 @@
       "consumed_source_fragments": {}
     },
     "wireframes": {
-      "invocation_id": "r22-gpt-6-sol-wireframes-2026-09-22T18:58:59.962Z",
+      "invocation_id": "r23-critic-cache-wireframes-2026-09-22T20:47:47.713Z",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
-        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
-        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
+        "docs/project-context.md": "10baa4fcab143f2ddc72684374bbdffbd402710e1e191efd7ceee0dd04f4bbef",
+        "docs/canonical-terms.md": "88b9f54a8268eb12b8ac911f61ba0173e9459e00500624461156e059669adf1a",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
-        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
-        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2"
+        "docs/user-journey.md": "5903371a5d1b767c7782e6199d12ce0659dff13bd2a920ded24008509c9b6f14",
+        "docs/screen-map.md": "40df920688609526f1b3d5a4082a341e15c0932e12192b75a4cf87409eb7b343"
       },
       "consumed_source_fragments": {}
     },
     "design-brief": {
-      "invocation_id": "r22-gpt-6-sol-design-brief-2026-09-22T18:59:19.363Z",
+      "invocation_id": "r23-critic-cache-design-brief-2026-09-22T20:48:06.502Z",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
-        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
-        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
+        "docs/project-context.md": "10baa4fcab143f2ddc72684374bbdffbd402710e1e191efd7ceee0dd04f4bbef",
+        "docs/canonical-terms.md": "88b9f54a8268eb12b8ac911f61ba0173e9459e00500624461156e059669adf1a",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
-        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
-        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
-        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
-        "docs/product-idea.md": "9df6edad8b11c0c13ec18728d87c225de69718c0764bcef940eed60f17a5f0c4",
+        "docs/user-journey.md": "5903371a5d1b767c7782e6199d12ce0659dff13bd2a920ded24008509c9b6f14",
+        "docs/screen-map.md": "40df920688609526f1b3d5a4082a341e15c0932e12192b75a4cf87409eb7b343",
+        "docs/wireframes.md": "4f7378790527ef8c9e52de1fa799fd6f14bb343b484b15d06b719d4caaf1d976",
+        "docs/product-idea.md": "9a84b7444e963cb420b3293af085022f952b12a0d83b03a0805ecb0d7b35b5b6",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -9216,53 +9242,53 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "r22-gpt-6-sol-architecture-2026-09-22T19:05:35.924Z",
+      "invocation_id": "r23-critic-cache-architecture-2026-09-22T20:49:45.303Z",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
-        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
-        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
+        "docs/project-context.md": "10baa4fcab143f2ddc72684374bbdffbd402710e1e191efd7ceee0dd04f4bbef",
+        "docs/canonical-terms.md": "88b9f54a8268eb12b8ac911f61ba0173e9459e00500624461156e059669adf1a",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
-        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
-        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
-        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
-        "docs/design-brief.md": "98017ae378c5f1288cea290897649f1fa57d1a63fb324379a91f9513c663e5a7",
-        "docs/model-settings.md": "3c66d9a1aba090d694e7c5a60d04837a036c81a3889f96930dfd99b2b810c9df",
+        "docs/user-journey.md": "5903371a5d1b767c7782e6199d12ce0659dff13bd2a920ded24008509c9b6f14",
+        "docs/screen-map.md": "40df920688609526f1b3d5a4082a341e15c0932e12192b75a4cf87409eb7b343",
+        "docs/wireframes.md": "4f7378790527ef8c9e52de1fa799fd6f14bb343b484b15d06b719d4caaf1d976",
+        "docs/design-brief.md": "4157aa753c472a0a9b96492f930d06598e7f3327e62ec16e2c6acd545e15e92d",
+        "docs/model-settings.md": "678d708c4222371cf065e407ac7780079a435a46518b7810fd93897974007df9",
         "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
-        "package.json": "07cd75788ee43dce13e0f0a046bd0319937cb6332dbee96ecea53f89305269e3",
+        "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
         "src/server/config.mjs": "b3039bc097bcc657ad2c6c420904395f0832c8b9c0268bd33cc2cb1e97e87495",
-        "src/server/index.mjs": "3bc460c60f8931c05fefc575a985fca1ed71d0f1838f0a276a4e758812120ece",
+        "src/server/index.mjs": "23cc92260ab5ca3f11749095f4d23397404ac72aed0d21ad96943e0326be948b",
         "src/server/store.mjs": "c05a7290046f90f7aca67e3bb73a32da4ff3cfd62109b29f9022144227c81db5",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
-        "test/core.test.mjs": "91cbedcc3c0951683a3762c1333d7c55af6f605d0c5f52ae687cc4ad768cc394",
+        "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
         "src/server/codex-provider.mjs": "ccf55470ef499fe9375b4b3d3e6a5bec59c3ae0808597b8aae67ac4ae31e9604",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
         "test/codex-provider.test.mjs": "8e3f97c867459c414d3476476bff2fe76171118e030e1bcf804f44a3fde9bdaf",
         "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
-        "test/http.test.mjs": "058527520d62314075778076789d55503ae43f9d69d739386e90e8d39e435c61",
+        "test/http.test.mjs": "fa2f37e5d93439946aaec1b7e6aa4e92a6a74818650a32573d0f2d780d1bded4",
         ".env.example": "71983a7601c502c44bddb0f1a6fb9c2a8ebe170dd7151395b9199e16da713d3d",
         "test/fixtures/fake-codex.mjs": "253022fb119541d22e64e6a9b7968840b14ee82cd70a42f1d1ff465ea0f27855",
         "src/server/prompt-contracts.mjs": "6ae5ab7c303bb1cf48d8eff524592e80287b03ce456c74a93c72a30ccd4a3652",
-        "src/client/app.js": "029ea3f84f4a92d3ded3c10138515e528380e30dfbcb0317653e317212073809",
+        "src/client/app.js": "632608165853408b692d60d93d8deba23397f87252d40caecd1e16fdb6fe3564",
         "test/consolidation.test.mjs": "c29cb6ecca6f28811b16370ae1e00d698a47e6e07cc02c36cc96a90cd7a77102",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
-        "public/index.html": "5345bdbf3a7e17ff84ad8f7f78f81258799ddd9ca3cc3113cff3c6501b20e52a",
+        "public/index.html": "dd08625e44e39892e93daa6d8051ac56a48bcefa5aafef766eea9a071c602a2a",
         "public/styles.css": "d92ee023de308477be95fd67d261dbf97bfcebf276209c9c2b578387f465081a",
         "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
         "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
         "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
-        "src/server/validation.mjs": "9975418088378295e8fed316ba11ecb9b788017953b78691aa61df7c28af5f9f",
+        "src/server/validation.mjs": "1dbbceae77466a21e454690638ab6116a66af9ea05ad0ccd7ea77177d3c35410",
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
-        "src/server/claude-provider.mjs": "8678d891083d00e9fa69002a126032a95ebe6b63207e26d31f6e5fb8546c9105",
+        "src/server/claude-provider.mjs": "6fcff16b308d6d466c9ce93ebc24fd2ef319752322b7962fc592169e5024542d",
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
-        "test/claude-provider.test.mjs": "76bbb498810672925304ba2edc430e767c161163e8b1b36d8ba8a65923dee991",
+        "test/claude-provider.test.mjs": "f995bb93fd3a203b2e52ab2133937d89d93129494736bd56a265ef6aced9293e",
         "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
         "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
@@ -9273,97 +9299,104 @@
         "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
         "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
         "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22",
-        "src/server/settings.mjs": "c51192b0cbeef05403a89522b2849dee78abbbd73f51e8299eb133e6c1ab4c81",
+        "src/server/settings.mjs": "d18f32fbc90a991324b0f1ef0056be0830e02817f648e0c2148dd82fccbff3e9",
         "src/server/settings-migration.mjs": "962a06c2aca26fe19654d7a05b7aefff1e7986b53d966cba59c5a212d3bd9db5",
-        "src/server/migrate.mjs": "92f01ab752106741786174ce22e82d1d2888a5d5f0354bbabce7dac1218f60f1",
+        "src/server/migrate.mjs": "e2d2eb82f43470c9e71693545692844d3ef34ab7c0ee9f24d375256e291a2a57",
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
-        "test/settings-migration.test.mjs": "aa04be0abb0fa69c2f0cc919506db3272da06d574c333dc34024a0998947cca2",
+        "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
         "test/fixtures/fake-claude.mjs": "1d867014e911f5ef29e92be0af5e126903934b53458d8934c00c82638bc07e96",
-        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760"
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
+        "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06"
       },
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "r22-gpt-6-sol-dod-evals-2026-09-22T19:06:02.556Z",
+      "invocation_id": "r23-critic-cache-dod-evals-2026-09-22T20:50:38.476Z",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
-        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
-        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
+        "docs/project-context.md": "10baa4fcab143f2ddc72684374bbdffbd402710e1e191efd7ceee0dd04f4bbef",
+        "docs/canonical-terms.md": "88b9f54a8268eb12b8ac911f61ba0173e9459e00500624461156e059669adf1a",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
-        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
-        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
-        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
-        "docs/design-brief.md": "98017ae378c5f1288cea290897649f1fa57d1a63fb324379a91f9513c663e5a7",
-        "docs/architecture.md": "a57ef36f25f4723d4812c10b399780c31dff265e35ffa2fa0504e76af96e24cb",
+        "docs/user-journey.md": "5903371a5d1b767c7782e6199d12ce0659dff13bd2a920ded24008509c9b6f14",
+        "docs/screen-map.md": "40df920688609526f1b3d5a4082a341e15c0932e12192b75a4cf87409eb7b343",
+        "docs/wireframes.md": "4f7378790527ef8c9e52de1fa799fd6f14bb343b484b15d06b719d4caaf1d976",
+        "docs/design-brief.md": "4157aa753c472a0a9b96492f930d06598e7f3327e62ec16e2c6acd545e15e92d",
+        "docs/architecture.md": "eb25c5b60ecf963fc716a1d5f83b64c0217651c9b67192f8682bda4609ac3065",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
-        "src/server/claude-provider.mjs": "8678d891083d00e9fa69002a126032a95ebe6b63207e26d31f6e5fb8546c9105",
+        "src/server/claude-provider.mjs": "6fcff16b308d6d466c9ce93ebc24fd2ef319752322b7962fc592169e5024542d",
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
-        "test/claude-provider.test.mjs": "76bbb498810672925304ba2edc430e767c161163e8b1b36d8ba8a65923dee991",
+        "test/claude-provider.test.mjs": "f995bb93fd3a203b2e52ab2133937d89d93129494736bd56a265ef6aced9293e",
         "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
-        "src/server/settings.mjs": "c51192b0cbeef05403a89522b2849dee78abbbd73f51e8299eb133e6c1ab4c81",
+        "src/server/settings.mjs": "d18f32fbc90a991324b0f1ef0056be0830e02817f648e0c2148dd82fccbff3e9",
         "src/server/settings-migration.mjs": "962a06c2aca26fe19654d7a05b7aefff1e7986b53d966cba59c5a212d3bd9db5",
-        "src/server/migrate.mjs": "92f01ab752106741786174ce22e82d1d2888a5d5f0354bbabce7dac1218f60f1",
+        "src/server/migrate.mjs": "e2d2eb82f43470c9e71693545692844d3ef34ab7c0ee9f24d375256e291a2a57",
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
-        "test/settings-migration.test.mjs": "aa04be0abb0fa69c2f0cc919506db3272da06d574c333dc34024a0998947cca2",
-        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760"
+        "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
+        "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
+        "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06"
       },
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "r22-gpt-6-sol-qa-checklist-2026-09-22T19:06:44.853Z",
+      "invocation_id": "r23-critic-cache-qa-checklist-2026-09-22T20:51:25.732Z",
       "outputs": [
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
-        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
-        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
+        "docs/project-context.md": "10baa4fcab143f2ddc72684374bbdffbd402710e1e191efd7ceee0dd04f4bbef",
+        "docs/canonical-terms.md": "88b9f54a8268eb12b8ac911f61ba0173e9459e00500624461156e059669adf1a",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
-        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
-        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
-        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
-        "docs/design-brief.md": "98017ae378c5f1288cea290897649f1fa57d1a63fb324379a91f9513c663e5a7",
-        "docs/architecture.md": "a57ef36f25f4723d4812c10b399780c31dff265e35ffa2fa0504e76af96e24cb",
-        "docs/dod-evals.md": "30e2d83ad6595218a52aa10d974efa97d8a668e355808b40d13a637c8985efbc",
+        "docs/user-journey.md": "5903371a5d1b767c7782e6199d12ce0659dff13bd2a920ded24008509c9b6f14",
+        "docs/screen-map.md": "40df920688609526f1b3d5a4082a341e15c0932e12192b75a4cf87409eb7b343",
+        "docs/wireframes.md": "4f7378790527ef8c9e52de1fa799fd6f14bb343b484b15d06b719d4caaf1d976",
+        "docs/design-brief.md": "4157aa753c472a0a9b96492f930d06598e7f3327e62ec16e2c6acd545e15e92d",
+        "docs/architecture.md": "eb25c5b60ecf963fc716a1d5f83b64c0217651c9b67192f8682bda4609ac3065",
+        "docs/dod-evals.md": "a21761977d4d453f724194118fd3eca89a28496162fad802d6c20ab9db44e77a",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
         "forge/design/evidence/c-v1-visual-qa.json": "b5517ae544724b5ae54c60f63e328797b4788b4abda5828ceaea81f439c4ae83",
-        "package.json": "07cd75788ee43dce13e0f0a046bd0319937cb6332dbee96ecea53f89305269e3",
+        "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
         "src/server/config.mjs": "b3039bc097bcc657ad2c6c420904395f0832c8b9c0268bd33cc2cb1e97e87495",
-        "src/server/index.mjs": "3bc460c60f8931c05fefc575a985fca1ed71d0f1838f0a276a4e758812120ece",
+        "src/server/index.mjs": "23cc92260ab5ca3f11749095f4d23397404ac72aed0d21ad96943e0326be948b",
         "src/server/store.mjs": "c05a7290046f90f7aca67e3bb73a32da4ff3cfd62109b29f9022144227c81db5",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
-        "test/core.test.mjs": "91cbedcc3c0951683a3762c1333d7c55af6f605d0c5f52ae687cc4ad768cc394",
+        "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
         "src/server/codex-provider.mjs": "ccf55470ef499fe9375b4b3d3e6a5bec59c3ae0808597b8aae67ac4ae31e9604",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
         "test/codex-provider.test.mjs": "8e3f97c867459c414d3476476bff2fe76171118e030e1bcf804f44a3fde9bdaf",
         "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
-        "test/http.test.mjs": "058527520d62314075778076789d55503ae43f9d69d739386e90e8d39e435c61",
+        "test/http.test.mjs": "fa2f37e5d93439946aaec1b7e6aa4e92a6a74818650a32573d0f2d780d1bded4",
         "test/fixtures/fake-codex.mjs": "253022fb119541d22e64e6a9b7968840b14ee82cd70a42f1d1ff465ea0f27855",
         "src/server/prompt-contracts.mjs": "6ae5ab7c303bb1cf48d8eff524592e80287b03ce456c74a93c72a30ccd4a3652",
-        "src/client/app.js": "029ea3f84f4a92d3ded3c10138515e528380e30dfbcb0317653e317212073809",
+        "src/client/app.js": "632608165853408b692d60d93d8deba23397f87252d40caecd1e16fdb6fe3564",
         "test/consolidation.test.mjs": "c29cb6ecca6f28811b16370ae1e00d698a47e6e07cc02c36cc96a90cd7a77102",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
-        "public/index.html": "5345bdbf3a7e17ff84ad8f7f78f81258799ddd9ca3cc3113cff3c6501b20e52a",
+        "public/index.html": "dd08625e44e39892e93daa6d8051ac56a48bcefa5aafef766eea9a071c602a2a",
         "public/styles.css": "d92ee023de308477be95fd67d261dbf97bfcebf276209c9c2b578387f465081a",
         "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
         "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
         "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
-        "src/server/validation.mjs": "9975418088378295e8fed316ba11ecb9b788017953b78691aa61df7c28af5f9f",
+        "src/server/validation.mjs": "1dbbceae77466a21e454690638ab6116a66af9ea05ad0ccd7ea77177d3c35410",
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
-        "src/server/claude-provider.mjs": "8678d891083d00e9fa69002a126032a95ebe6b63207e26d31f6e5fb8546c9105",
+        "src/server/claude-provider.mjs": "6fcff16b308d6d466c9ce93ebc24fd2ef319752322b7962fc592169e5024542d",
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
-        "test/claude-provider.test.mjs": "76bbb498810672925304ba2edc430e767c161163e8b1b36d8ba8a65923dee991",
+        "test/claude-provider.test.mjs": "f995bb93fd3a203b2e52ab2133937d89d93129494736bd56a265ef6aced9293e",
         "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
         "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
@@ -9374,36 +9407,39 @@
         "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
         "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
         "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22",
-        "src/server/settings.mjs": "c51192b0cbeef05403a89522b2849dee78abbbd73f51e8299eb133e6c1ab4c81",
+        "src/server/settings.mjs": "d18f32fbc90a991324b0f1ef0056be0830e02817f648e0c2148dd82fccbff3e9",
         "src/server/settings-migration.mjs": "962a06c2aca26fe19654d7a05b7aefff1e7986b53d966cba59c5a212d3bd9db5",
-        "src/server/migrate.mjs": "92f01ab752106741786174ce22e82d1d2888a5d5f0354bbabce7dac1218f60f1",
+        "src/server/migrate.mjs": "e2d2eb82f43470c9e71693545692844d3ef34ab7c0ee9f24d375256e291a2a57",
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
-        "test/settings-migration.test.mjs": "aa04be0abb0fa69c2f0cc919506db3272da06d574c333dc34024a0998947cca2",
+        "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
         "test/fixtures/fake-claude.mjs": "1d867014e911f5ef29e92be0af5e126903934b53458d8934c00c82638bc07e96",
-        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760"
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
+        "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06"
       },
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "r22-gpt-6-sol-development-plan-2026-09-22T19:07:14.659Z",
+      "invocation_id": "r23-critic-cache-development-plan-2026-09-22T20:52:46.601Z",
       "outputs": [
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "4492db86e8da809ce08ae7c02930942bf93874b35bbe2fb6f93cb46a4cd7b122",
-        "docs/project-context.md": "1baa79c574212d7cd91660848d549a52ea7da308bda019bfa8640a8890482560",
-        "docs/canonical-terms.md": "d81d6bca812308777b24390821ec3a5fef152effb7477f72285f327d14355ff5",
+        "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
+        "docs/project-context.md": "10baa4fcab143f2ddc72684374bbdffbd402710e1e191efd7ceee0dd04f4bbef",
+        "docs/canonical-terms.md": "88b9f54a8268eb12b8ac911f61ba0173e9459e00500624461156e059669adf1a",
         "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
-        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
-        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
-        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
-        "docs/design-brief.md": "98017ae378c5f1288cea290897649f1fa57d1a63fb324379a91f9513c663e5a7",
-        "docs/architecture.md": "a57ef36f25f4723d4812c10b399780c31dff265e35ffa2fa0504e76af96e24cb",
-        "docs/dod-evals.md": "30e2d83ad6595218a52aa10d974efa97d8a668e355808b40d13a637c8985efbc",
-        "docs/qa-checklist.md": "205b5295d0ccc0eb7217b008cde5dcf4cd9e2545a94bf168c6906f2965bcec91",
-        "docs/model-settings.md": "3c66d9a1aba090d694e7c5a60d04837a036c81a3889f96930dfd99b2b810c9df",
+        "docs/user-journey.md": "5903371a5d1b767c7782e6199d12ce0659dff13bd2a920ded24008509c9b6f14",
+        "docs/screen-map.md": "40df920688609526f1b3d5a4082a341e15c0932e12192b75a4cf87409eb7b343",
+        "docs/wireframes.md": "4f7378790527ef8c9e52de1fa799fd6f14bb343b484b15d06b719d4caaf1d976",
+        "docs/design-brief.md": "4157aa753c472a0a9b96492f930d06598e7f3327e62ec16e2c6acd545e15e92d",
+        "docs/architecture.md": "eb25c5b60ecf963fc716a1d5f83b64c0217651c9b67192f8682bda4609ac3065",
+        "docs/dod-evals.md": "a21761977d4d453f724194118fd3eca89a28496162fad802d6c20ab9db44e77a",
+        "docs/qa-checklist.md": "ce5a868e7616c3f0e26f7a2d5ede4045bbcec4e8c5b10637289fbf3dd072e4f4",
+        "docs/model-settings.md": "678d708c4222371cf065e407ac7780079a435a46518b7810fd93897974007df9",
         "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
-        "package.json": "07cd75788ee43dce13e0f0a046bd0319937cb6332dbee96ecea53f89305269e3",
+        "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
         "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
         "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
         "forge/design/candidates/a/v8/styles.css": "f8fd6e8832671b05dc8b7a2a034ee41fb2aad4f085468965feaf1c34a3b57d43",
@@ -9411,34 +9447,34 @@
         "forge/design/candidates/a/v8/nanoduck-original.svg": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528",
         "forge/design/candidates/a/v8/app.js": "d7ac2287ce8496772592d42d134fc530affcb9147f0a7641655a56c6cf83775f",
         "src/server/config.mjs": "b3039bc097bcc657ad2c6c420904395f0832c8b9c0268bd33cc2cb1e97e87495",
-        "src/server/index.mjs": "3bc460c60f8931c05fefc575a985fca1ed71d0f1838f0a276a4e758812120ece",
+        "src/server/index.mjs": "23cc92260ab5ca3f11749095f4d23397404ac72aed0d21ad96943e0326be948b",
         "src/server/store.mjs": "c05a7290046f90f7aca67e3bb73a32da4ff3cfd62109b29f9022144227c81db5",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
-        "test/core.test.mjs": "91cbedcc3c0951683a3762c1333d7c55af6f605d0c5f52ae687cc4ad768cc394",
+        "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
         "src/server/codex-provider.mjs": "ccf55470ef499fe9375b4b3d3e6a5bec59c3ae0808597b8aae67ac4ae31e9604",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
         "test/codex-provider.test.mjs": "8e3f97c867459c414d3476476bff2fe76171118e030e1bcf804f44a3fde9bdaf",
         "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
-        "test/http.test.mjs": "058527520d62314075778076789d55503ae43f9d69d739386e90e8d39e435c61",
+        "test/http.test.mjs": "fa2f37e5d93439946aaec1b7e6aa4e92a6a74818650a32573d0f2d780d1bded4",
         "test/fixtures/fake-codex.mjs": "253022fb119541d22e64e6a9b7968840b14ee82cd70a42f1d1ff465ea0f27855",
         "src/server/prompt-contracts.mjs": "6ae5ab7c303bb1cf48d8eff524592e80287b03ce456c74a93c72a30ccd4a3652",
-        "src/client/app.js": "029ea3f84f4a92d3ded3c10138515e528380e30dfbcb0317653e317212073809",
+        "src/client/app.js": "632608165853408b692d60d93d8deba23397f87252d40caecd1e16fdb6fe3564",
         "test/consolidation.test.mjs": "c29cb6ecca6f28811b16370ae1e00d698a47e6e07cc02c36cc96a90cd7a77102",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
-        "public/index.html": "5345bdbf3a7e17ff84ad8f7f78f81258799ddd9ca3cc3113cff3c6501b20e52a",
+        "public/index.html": "dd08625e44e39892e93daa6d8051ac56a48bcefa5aafef766eea9a071c602a2a",
         "public/styles.css": "d92ee023de308477be95fd67d261dbf97bfcebf276209c9c2b578387f465081a",
         "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
         "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
         "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
-        "src/server/validation.mjs": "9975418088378295e8fed316ba11ecb9b788017953b78691aa61df7c28af5f9f",
+        "src/server/validation.mjs": "1dbbceae77466a21e454690638ab6116a66af9ea05ad0ccd7ea77177d3c35410",
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
-        "src/server/claude-provider.mjs": "8678d891083d00e9fa69002a126032a95ebe6b63207e26d31f6e5fb8546c9105",
+        "src/server/claude-provider.mjs": "6fcff16b308d6d466c9ce93ebc24fd2ef319752322b7962fc592169e5024542d",
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
-        "test/claude-provider.test.mjs": "76bbb498810672925304ba2edc430e767c161163e8b1b36d8ba8a65923dee991",
+        "test/claude-provider.test.mjs": "f995bb93fd3a203b2e52ab2133937d89d93129494736bd56a265ef6aced9293e",
         "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
         "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
@@ -9449,13 +9485,16 @@
         "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
         "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
         "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22",
-        "src/server/settings.mjs": "c51192b0cbeef05403a89522b2849dee78abbbd73f51e8299eb133e6c1ab4c81",
+        "src/server/settings.mjs": "d18f32fbc90a991324b0f1ef0056be0830e02817f648e0c2148dd82fccbff3e9",
         "src/server/settings-migration.mjs": "962a06c2aca26fe19654d7a05b7aefff1e7986b53d966cba59c5a212d3bd9db5",
-        "src/server/migrate.mjs": "92f01ab752106741786174ce22e82d1d2888a5d5f0354bbabce7dac1218f60f1",
+        "src/server/migrate.mjs": "e2d2eb82f43470c9e71693545692844d3ef34ab7c0ee9f24d375256e291a2a57",
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
-        "test/settings-migration.test.mjs": "aa04be0abb0fa69c2f0cc919506db3272da06d574c333dc34024a0998947cca2",
+        "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
         "test/fixtures/fake-claude.mjs": "1d867014e911f5ef29e92be0af5e126903934b53458d8934c00c82638bc07e96",
-        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760"
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06",
+        "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
+        "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5"
       },
       "consumed_source_fragments": {}
     }
@@ -67785,8 +67824,8 @@
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "30e2d83ad6595218a52aa10d974efa97d8a668e355808b40d13a637c8985efbc",
-      "docs/qa-checklist.md": "205b5295d0ccc0eb7217b008cde5dcf4cd9e2545a94bf168c6906f2965bcec91"
+      "docs/dod-evals.md": "a21761977d4d453f724194118fd3eca89a28496162fad802d6c20ab9db44e77a",
+      "docs/qa-checklist.md": "ce5a868e7616c3f0e26f7a2d5ede4045bbcec4e8c5b10637289fbf3dd072e4f4"
     },
     "gates": [
       {

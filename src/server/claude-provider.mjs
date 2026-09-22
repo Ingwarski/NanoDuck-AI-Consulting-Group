@@ -5,7 +5,7 @@ import { join } from "node:path";
 import { hasProhibitedLanguage, hasUnsafeExternalUrl, safeExternalUrl } from "./validation.mjs";
 import { createRuntimePrompts } from "./prompt-contracts.mjs";
 import { containsInternalToolTrace } from "./output-safety.mjs";
-import { currentClaudeCritic } from "./settings.mjs";
+import { currentClaudeCritic, currentClaudeCriticEfforts } from "./settings.mjs";
 
 const maxOutputBytes = 96 * 1024;
 const maxPromptBytes = 128 * 1024;
@@ -84,17 +84,13 @@ export const runClaudeCommand = ({ command, args, environment, cwd, signal, time
 });
 
 const modelLabel = id => ({ [currentClaudeCritic.model]: currentClaudeCritic.label, "claude-opus-5": "Opus 5" }[id] ?? id);
-// Claude Code uses concise CLI values while its owner-facing desktop picker
-// names the same choices Opus 5.5 and Extra. Persist and display the picker
-// vocabulary; translate only at the isolated process boundary.
-// The latest model uses the documented moving alias. A legacy Opus 5 snapshot
-// keeps its exact ID so resuming it never silently upgrades the recorded model.
-const cliModel = id => id === currentClaudeCritic.model ? "opus" : id;
+// Pin the exact selected model ID so a later moving `opus` alias cannot change
+// an accepted run. Only the owner-facing Extra effort needs CLI translation.
 const cliEffort = effort => effort === "extra" ? "xhigh" : effort;
 const catalog = config => Object.freeze(
   [...new Set([currentClaudeCritic.model, ...(config.claudeModelCandidates ?? [])])]
     .filter(safeModel)
-    .map(id => Object.freeze({ id, label: modelLabel(id), efforts: supportedEfforts }))
+    .map(id => Object.freeze({ id, label: modelLabel(id), efforts: id === currentClaudeCritic.model ? currentClaudeCriticEfforts : supportedEfforts }))
 );
 
 export function createClaudeProvider(config, { run = runClaudeCommand } = {}) {
@@ -132,7 +128,7 @@ export function createClaudeProvider(config, { run = runClaudeCommand } = {}) {
       const prompt = `${input.assignment}\n\nOwner question:\n${evidence.owner ?? ""}\n\nPrior confirmed discussion:\n${evidence.discussion ?? ""}\n\n${outputContract} ${prompts.providerPolicy(false)}`;
       if (Buffer.byteLength(prompt, "utf8") > maxPromptBytes) return { ok: false, code: "incompatible" };
       const runOnce = async assignment => {
-        const args = ["--print", "--output-format", "json", "--no-session-persistence", "--strict-mcp-config", "--permission-mode", "dontAsk", "--disallowedTools", blockedTools, "--max-turns", "1", "--system-prompt", textOnlySystemPrompt, "--model", cliModel(input.model), "--effort", cliEffort(input.effort), assignment];
+        const args = ["--print", "--output-format", "json", "--no-session-persistence", "--strict-mcp-config", "--permission-mode", "dontAsk", "--disallowedTools", blockedTools, "--max-turns", "1", "--system-prompt", textOnlySystemPrompt, "--model", input.model, "--effort", cliEffort(input.effort), assignment];
         const result = await execute(args, input.signal);
         if (input.signal?.aborted || result.aborted) return { kind: "cancelled" };
         const body = result.exitCode === 0 ? parseCompletion(result.stdout) : undefined;

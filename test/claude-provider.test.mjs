@@ -27,14 +27,15 @@ test("Claude Code exposes only authenticated configured models and returns safe 
       return { exitCode: 0, stdout: JSON.stringify({ subtype: "success", result: "A bounded Critic reply.\n\n[Primary source](https://example.com/evidence)" }), stderr: "" };
     }
   });
-  assert.deepEqual(await provider.inspect(), { status: "ready", models: [{ id: "claude-opus-5-5", label: "Opus 5.5", efforts: ["low", "medium", "high", "extra", "max"] }, { id: "claude-sonnet", label: "claude-sonnet", efforts: ["low", "medium", "high", "extra", "max"] }] });
+  assert.deepEqual(await provider.inspect(), { status: "ready", models: [{ id: "claude-opus-5-5", label: "Opus 5.5", efforts: ["medium", "high", "extra", "max"] }, { id: "claude-sonnet", label: "claude-sonnet", efforts: ["low", "medium", "high", "extra", "max"] }] });
   const result = await provider.invoke(criticInput);
   const primaryCall = calls.at(-1);
   assert.equal(result.ok, true);
   assert.equal(result.body, "A bounded Critic reply.\n\n[Primary source](https://example.com/evidence)");
   assert.deepEqual(result.sources.map(source => ({ title: source.title, url: source.url })), [{ title: "Primary source", url: "https://example.com/evidence" }]);
   assert.equal(primaryCall.args.includes("--model"), true);
-  assert.equal(primaryCall.args.includes("opus"), true);
+  assert.equal(primaryCall.args.includes("claude-opus-5-5"), true);
+  assert.equal(primaryCall.args.includes("opus"), false);
   assert.equal(primaryCall.args.includes("--effort"), true);
   assert.equal(primaryCall.args.includes("medium"), true);
   assert.equal(primaryCall.args.includes("xhigh"), false);

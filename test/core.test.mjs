@@ -12,7 +12,7 @@ import { testRuntimeInstructions } from "./fixtures/runtime-instructions.mjs";
 
 test("new consultations use Codex specialists and the owner-selected Opus 5.5 Critic", () => {
   assert.deepEqual(defaultSettings, {
-    settingsRevision: "critic-opus-5-5-medium-20260922",
+    settingsRevision: "critic-opus-5-5-effort-floor-20260922",
     headModel: "gpt-6-astra",
     headReasoning: "xhigh",
     criticProvider: "claude_code",
@@ -344,8 +344,10 @@ test("settings and message validation reject unsupported model values and malfor
   assert.equal(parseSettings({ ...defaultSettings, specialistCount: "4" }), undefined);
   assert.equal(parseSettings({ ...defaultSettings, discussionDepth: "2" }), undefined);
   assert.equal(parseSettings({ ...defaultSettings, criticCodexModel: "another-model" }), undefined);
-  const claudeCatalog = { codex: { models: [{ id: "gpt-6-astra", efforts: ["xhigh", "ultra"] }] }, claude_code: { models: [{ id: "claude-opus-5-5", efforts: ["low", "medium", "high", "extra", "max"] }] } };
+  const claudeCatalog = { codex: { models: [{ id: "gpt-6-astra", efforts: ["xhigh", "ultra"] }] }, claude_code: { models: [{ id: "claude-opus-5-5", efforts: ["medium", "high", "extra", "max"] }] } };
   assert.deepEqual(parseSettings({ ...defaultSettings, criticClaudeReasoning: "high", criticReasoning: "high" }, claudeCatalog), { ...defaultSettings, criticClaudeReasoning: "high", criticReasoning: "high" });
+  assert.equal(parseSettings({ ...defaultSettings, criticClaudeReasoning: "low", criticReasoning: "low" }, claudeCatalog), undefined);
+  assert.equal(parseSettings({ ...defaultSettings, criticClaudeReasoning: "low", criticReasoning: "low" }), undefined);
   assert.equal(parseSettings({ ...defaultSettings, criticReasoning: "extreme", criticClaudeReasoning: "extreme" }, claudeCatalog), undefined);
   assert.deepEqual(parseSettings({ ...defaultSettings, criticModel: "claude-code-default", criticReasoning: "default", criticClaudeModel: "claude-code-default", criticClaudeReasoning: "default" }, claudeCatalog), defaultSettings);
   assert.equal(parseSettings({ ...defaultSettings, criticModel: "claude-opus-5", criticReasoning: "high", criticClaudeModel: "claude-opus-5", criticClaudeReasoning: "high" }, claudeCatalog), undefined);
@@ -371,7 +373,7 @@ test("GPT-6 Sol is a catalog-backed choice for Head, specialists, and Codex Crit
       { id: "gpt-6-astra", efforts: ["xhigh", "ultra"] },
       { id: "gpt-6-sol", efforts: ["low", "medium", "high", "xhigh", "max", "ultra"] }
     ] },
-    claude_code: { models: [{ id: "claude-opus-5-5", efforts: ["low", "medium", "high", "extra", "max"] }] }
+    claude_code: { models: [{ id: "claude-opus-5-5", efforts: ["medium", "high", "extra", "max"] }] }
   };
   const solHead = { ...defaultSettings, headModel: "gpt-6-sol", headReasoning: "high" };
   assert.deepEqual(parseSettings(solHead, catalog), solHead);

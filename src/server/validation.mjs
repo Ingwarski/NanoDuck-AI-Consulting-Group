@@ -1,5 +1,5 @@
 import { containsSecretLikeContent } from "./content-policy.mjs";
-import { currentClaudeCritic, currentSettingsRevision } from "./settings.mjs";
+import { currentClaudeCritic, currentClaudeCriticEfforts, currentSettingsRevision } from "./settings.mjs";
 import { codexModelEfforts } from "./codex-models.mjs";
 const text = (value, maximum) => typeof value === "string" && value.trim().length > 0 && value.length <= maximum;
 const identifier = value => typeof value === "string" && /^[A-Za-z0-9_-]{16,128}$/u.test(value);
@@ -53,7 +53,7 @@ export function parseSettings(value, catalog = undefined) {
     : model === "gpt-6-astra" && codexModelEfforts[model].includes(effort);
   const claudeAllowed = (model, effort) => claudeModels.length
     ? modelSupports(claudeModels, model, effort)
-    : catalog === undefined && model === currentClaudeCritic.model && knownClaudeEfforts.has(effort);
+    : catalog === undefined && model === currentClaudeCritic.model && currentClaudeCriticEfforts.includes(effort);
   const criticProvider = body.criticProvider ?? "codex";
   const criticCodexModel = body.criticCodexModel ?? body.criticModel;
   const criticCodexReasoning = body.criticCodexReasoning ?? body.criticReasoning;

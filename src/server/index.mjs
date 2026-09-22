@@ -13,6 +13,7 @@ import { parseRuntimeInstructions, RuntimeInstructionError, upgradeRuntimeInstru
 import { attachmentExtension, readImageAttachment } from "./attachments.mjs";
 import { exportConversationRtf } from "./conversation-export.mjs";
 import { messageError, parseConversationId, parseConversationIds, parseMessage, parseSettings } from "./validation.mjs";
+import { loadBrowserAssets } from "./browser-assets.mjs";
 
 const config = loadConfig();
 const store = config.databaseUrl ? await createMySqlStore(config.databaseUrl, config.dataKey, config.databaseSslCaPath) : createMemoryStore();
@@ -39,6 +40,7 @@ const providers = createProviders(config);
 const consultation = createConsultationService({ store, provider: providers });
 const publicDirectory = fileURLToPath(new URL("../../public/", import.meta.url));
 const clientDirectory = fileURLToPath(new URL("../client/", import.meta.url));
+const browserAssets = await loadBrowserAssets(publicDirectory, clientDirectory);
 const mime = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "application/javascript; charset=utf-8", ".svg": "image/svg+xml", ".json": "application/json; charset=utf-8", ".wav": "audio/wav" };
 
 const securityHeaders = { "cache-control": "no-store", "content-security-policy": "default-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; connect-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; media-src 'self' blob:;", "permissions-policy": "camera=(), geolocation=(), microphone=(self)", "referrer-policy": "no-referrer", "x-content-type-options": "nosniff", "x-frame-options": "DENY" };
@@ -65,6 +67,17 @@ const activeRuntimeInstructions = async () => {
 };
 
 async function staticFile(request, response, pathname) {
+  if (pathname === "/" || pathname === "/index.html") {
+    response.writeHead(200, { ...securityHeaders, "content-type": mime[".html"], "content-length": browserAssets.html.byteLength });
+    response.end(browserAssets.html);
+    return true;
+  }
+  const versioned = browserAssets.versioned.get(pathname);
+  if (versioned) {
+    response.writeHead(200, { ...securityHeaders, "content-type": mime[extname(pathname)], "content-length": versioned.byteLength });
+    response.end(versioned);
+    return true;
+  }
   const wanted = pathname === "/" ? "/index.html" : pathname;
   const safe = normalize(wanted).replace(/^([/\\])+/, "");
   if (safe.includes("..")) return false;

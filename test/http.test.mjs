@@ -83,7 +83,7 @@ test("the local HTTP flow protects data, saves settings and preserves a truthful
     const conversationId = created.conversation.id;
     const settings = { headModel: "gpt-6-astra", headReasoning: "ultra", criticProvider: "codex", criticCodexModel: "gpt-6-astra", criticCodexReasoning: "xhigh", criticModel: "gpt-6-astra", criticReasoning: "xhigh", specialistCount: "3", discussionDepth: "3", notificationSound: "ripple" };
     assert.deepEqual((await (await fetch(`${origin}/api/settings`, { method: "PUT", headers, body: JSON.stringify(settings) })).json()).settings, {
-      settingsRevision: "critic-opus-5-5-medium-20260922",
+      settingsRevision: "critic-opus-5-5-effort-floor-20260922",
       ...settings,
       criticClaudeModel: "claude-opus-5-5",
       criticClaudeReasoning: "medium"

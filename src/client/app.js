@@ -293,6 +293,9 @@ async function loadConversations() {
 }
 
 const criticProviderName = provider => provider === "claude_code" ? "Claude Code" : "GPT (Codex)";
+// Show the owner's current Claude choice even when this runtime cannot use it.
+// Capability data from the server remains authoritative for saving and runs.
+const unavailableClaudePreview = Object.freeze([{ id: "claude-opus-5-5", label: "Opus 5.5", efforts: Object.freeze(["medium", "high", "extra", "max"]) }]);
 const criticProviderStatus = provider => {
   const status = state.criticProviders?.[provider]?.status;
   if (status === "ready") return `${criticProviderName(provider)} is ready for this runtime.`;
@@ -328,15 +331,16 @@ function renderHeadControls(model, effort) {
   $("#head-reasoning").disabled = models.length === 0;
 }
 function ensureCriticProviderControl() {
-  if ($("#critic-provider")) return;
-  const fieldset = $("#critic-model").closest("fieldset"); const first = fieldset.querySelector("label");
-  const label = node("label", {}, "Provider"); const select = node("select", { id: "critic-provider" });
-  label.append(select); fieldset.insertBefore(label, first);
+  let select = $("#critic-provider");
+  if (!select) {
+    const fieldset = $("#critic-model").closest("fieldset"); const first = fieldset.querySelector("label");
+    const label = node("label", {}, "Provider"); select = node("select", { id: "critic-provider" });
+    label.append(select); fieldset.insertBefore(label, first);
+  }
+  if (select.dataset.bound === "true") return;
+  select.dataset.bound = "true";
   select.addEventListener("change", () => {
     const next = select.value;
-    if (next === "claude_code" && state.criticProviders?.claude_code?.status !== "ready") {
-      select.value = state.criticSettings.criticProvider; toast("Claude Code needs its managed sign-in before it can be selected."); return;
-    }
     saveVisibleCriticSettings(); state.criticSettings.criticProvider = next; renderCriticControls();
   });
 }
@@ -351,15 +355,22 @@ function saveVisibleCriticSettings() {
 function renderCriticControls(modelChanged = false) {
   const provider = state.criticSettings.criticProvider; const capability = state.criticProviders?.[provider] ?? { status: "unavailable", models: [] };
   $("#critic-provider").value = provider;
-  const models = capability.models ?? [];
+  const claudeUnavailable = provider === "claude_code" && capability.status !== "ready";
+  const models = capability.models?.length ? capability.models : claudeUnavailable ? unavailableClaudePreview : [];
   const selectedModel = provider === "claude_code" ? state.criticSettings.criticClaudeModel : state.criticSettings.criticCodexModel;
   const selectedEffort = provider === "claude_code" ? state.criticSettings.criticClaudeReasoning ?? "medium" : state.criticSettings.criticCodexReasoning;
   replaceOptions($("#critic-model"), provider === "codex" ? models.map(codexModelOption) : models, selectedModel, true);
   const current = models.find(model => model.id === $("#critic-model").value);
   const effortLabel = id => provider === "claude_code" ? ({ low: "Low", medium: "Medium (Default)", high: "High", extra: "Extra", max: "Max" }[id] ?? id) : id;
   replaceReasoningOptions($("#critic-reasoning"), current?.efforts ?? [], selectedEffort, modelChanged, effortLabel);
-  const unavailable = models.length === 0 || provider === "claude_code" && capability.status !== "ready";
-  $("#critic-model").disabled = unavailable; $("#critic-reasoning").disabled = unavailable;
+  const preview = claudeUnavailable && !capability.models?.length;
+  $("#critic-model").disabled = models.length === 0; $("#critic-reasoning").disabled = models.length === 0;
+  const availability = $("#critic-availability");
+  if (availability) {
+    availability.hidden = !claudeUnavailable;
+    availability.textContent = claudeUnavailable ? `Claude Code is not ready on this runtime. ${preview ? "Opus 5.5 and its effort choices are a preview. " : ""}A working Claude Code installation and managed sign-in are required before saving or using it for Critic.` : "";
+  }
+  $("#settings-form button[type=submit]").disabled = models.length === 0 || claudeUnavailable;
   $("#settings-status").textContent = `${criticProviderStatus("codex")} ${criticProviderStatus("claude_code")}`;
 }
 async function loadSettings() {

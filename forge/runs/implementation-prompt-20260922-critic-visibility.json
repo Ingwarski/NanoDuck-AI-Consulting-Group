@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "event": "implementation_prompt",
+  "role": "user",
+  "intent": "start_production_implementation",
+  "prompt_id": "impl-critic-opus-5-5-visible-20260922",
+  "message": "What is this? Also I do not see the Claude Code option for Critic. It must have new Opus 5.5 option, effort - Medium to Max. Fix it.",
+  "received_at": "2026-09-22T20:54:34.847Z",
+  "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+  "scope_note": "Fix the Critic settings so Claude Code is visible, offers Opus 5.5 with Medium, High, Extra and Max effort, preserves valid saved settings, and prevents stale browser assets from hiding the update. Inspect the reported GoDaddy port warning and verify the named app state. This does not authorize a paid provider turn, credential access, database migration against a target, or deletion of resources.",
+  "development_plan_hash": "550188b891ec8a556d184fffffbbbc7ab0822372bf6efdabe556394e430c3d00",
+  "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc"
+}

@@ -35,7 +35,7 @@ try {
       lastId = rows.at(-1).id;
     } catch (error) { await connection.rollback(); throw error; }
   }
-  process.stdout.write(`NanoDuck schema applied. Critic settings ${settings.migrated ? "migrated to Opus 5.5 / Medium" : "left at the current revision"}. Runtime instructions ${runtimeInstructions.bootstrapped ? "bootstrapped into encrypted database storage" : "left in encrypted database storage"}.\n`);
+  process.stdout.write(`NanoDuck schema applied. Critic settings ${settings.migrated ? "updated to the current compatibility revision" : "left at the current revision"}. Runtime instructions ${runtimeInstructions.bootstrapped ? "bootstrapped into encrypted database storage" : "left in encrypted database storage"}.\n`);
 } finally {
   await connection.end();
 }
