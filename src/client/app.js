@@ -1,7 +1,7 @@
 import { parseMarkdown } from "/client/markdown.js";
 import { normalizeRefreshState, refreshStateKey, serializeRefreshState } from "/client/refresh-state.js";
 
-const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "", runtimeInstructionHistory: [], documents: [], notificationSound: "knock", conversations: [], selectedConversationIds: new Set(), criticSettings: null, criticProviders: null };
+const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, renderedRunStatus: null, poll: null, pollEpoch: 0, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "", runtimeInstructionHistory: [], documents: [], notificationSound: "knock", conversations: [], selectedConversationIds: new Set(), criticSettings: null, criticProviders: null };
 const $ = selector => document.querySelector(selector);
 const roleInitials = { owner: "I", "Head Consultant": "HC", "Strategy Consultant": "SC", "Finance Consultant": "FC", "Operations Consultant": "OC", "Sales Consultant": "SL", "Marketing Consultant": "MC", "Product Consultant": "PC", "Spiritual Consultant": "SP", Psychotherapist: "PT", "Risk Consultant": "RC", Critic: "CR", System: "•" };
 const displayRole = role => role === "owner" ? "You" : role;
@@ -174,6 +174,9 @@ async function loadSession() {
 }
 
 function renderEvents() {
+  const previousRunStatus = state.renderedRunStatus;
+  const runStatus = state.run?.status ?? "idle";
+  state.renderedRunStatus = runStatus;
   const thread = clear($("#thread"));
   if (state.events.length === 0) {
     const empty = node("div", { class: "empty" }); empty.append(node("h2", {}, "Bring in the decision."), node("p", {}, "The specialists and Critic review your question before the Head presents consolidated advice.")); thread.append(empty);
@@ -195,7 +198,7 @@ function renderEvents() {
     if (event.sources?.length) { const links = node("div", { class: "source-links" }); for (const source of event.sources) { const link = node("a", { href: source.url, target: "_blank", rel: "noopener noreferrer" }, source.title); links.append(link); } content.append(links); }
     message.append(content); thread.append(message);
   }
-  const active = state.run?.status === "active"; $("#stop").hidden = !active; $("#continue").hidden = !["stopped", "failed"].includes(state.run?.status);
+  const active = state.run?.status === "active"; syncDiscussionControls(); $("#continue").hidden = !["stopped", "failed"].includes(state.run?.status);
   $("#continue").textContent = state.run?.status === "failed" ? "Retry" : "Continue";
   if (active) {
     const indicator = node("div", { class: "thinking-indicator", role: "img", ariaLabel: "The consultation is thinking. The next message will appear here." });
@@ -205,6 +208,21 @@ function renderEvents() {
   const labels = { active: "The team is preparing the next message.", stopped: "Consultation stopped. Confirmed discussion is preserved.", complete: "Discussion complete.", failed: "Paused before the next reply. Retry to continue here." };
   $("#run-status").textContent = labels[state.run?.status] ?? "Describe the decision you want to make.";
   renderOutcome(); renderSources();
+  focusRunTransition(previousRunStatus, runStatus);
+}
+
+function syncDiscussionControls() {
+  const active = state.run?.status === "active";
+  $("#stop").hidden = !active;
+  $("#discussion-page .topic").classList.toggle("has-active-run", active);
+  $("#composer").hidden = state.tab !== "discussion" || active;
+}
+
+function focusRunTransition(previousRunStatus, runStatus) {
+  if (previousRunStatus === null || previousRunStatus === runStatus || state.page !== "discussion") return;
+  if (runStatus === "active" || state.tab !== "discussion") return $("#run-status").focus({ preventScroll: true });
+  const target = ["stopped", "failed"].includes(runStatus) ? $("#continue") : $("#message");
+  if (!target.hidden && !target.closest("[hidden]")) target.focus({ preventScroll: true });
 }
 
 function renderOutcome() { const target = clear($("#outcome")); const ownerIndex = state.events.map(event => event.role).lastIndexOf("owner"); const outcome = state.events.slice(ownerIndex + 1).find(event => event.role === "Head Consultant" && !event.recipient); if (outcome) { const body = node("div", { class: "message-body outcome-body" }); renderMarkdown(body, outcome.body); target.append(body); } else target.append(node("div", { class: "empty" }, "Consolidated advice appears after every specialist's final position and the Critic's closing review.")); }
@@ -467,7 +485,33 @@ async function acceptMessage(event) {
   }
 }
 
-async function stop() { if (!state.conversation) return; const { data } = await request(`/api/conversations/${state.conversation.id}/stop`, { method: "POST" }); state.run = data.run; renderEvents(); }
+async function stop() {
+  if (!state.conversation || $("#stop").disabled) return;
+  const conversationId = state.conversation.id;
+  $("#stop").disabled = true;
+  stopPolling();
+  try {
+    const { data } = await request(`/api/conversations/${conversationId}/stop`, { method: "POST" });
+    if (state.conversation?.id !== conversationId) return;
+    state.run = data.run; renderEvents();
+  } catch {
+    if (state.conversation?.id !== conversationId) return;
+    try {
+      const { data } = await request(`/api/conversations/${conversationId}`);
+      if (state.conversation?.id !== conversationId) return;
+      const previous = state.events;
+      state.conversation = data.conversation; state.events = data.events; state.run = data.run;
+      announceIncomingMessages(previous, state.events); renderEvents();
+      if (state.run?.status === "active") { startPolling(); toast("The consultation is still running. Try Stop again."); }
+    } catch {
+      if (state.conversation?.id !== conversationId) return;
+      if (state.run?.status === "active") startPolling();
+      toast("Stop status could not be confirmed. NanoDuck will keep checking.");
+    }
+  } finally {
+    $("#stop").disabled = false;
+  }
+}
 async function continueRun() {
   if (!state.conversation || $("#continue").disabled) return;
   $("#continue").disabled = true;
@@ -475,10 +519,29 @@ async function continueRun() {
   catch (error) { toast(error.response?.status === 409 ? "Another consultation is running or this one is no longer paused. Reopen it and try again." : "Could not resume. Your saved discussion is unchanged. Try again."); }
   finally { $("#continue").disabled = false; }
 }
-function startPolling() { stopPolling(); if (state.run?.status !== "active") return; state.poll = setInterval(async () => { try { const { data } = await request(`/api/conversations/${state.conversation.id}`); const previous = state.events; state.conversation = data.conversation; state.events = data.events; state.run = data.run; announceIncomingMessages(previous, state.events); renderEvents(); if (state.run?.status !== "active") stopPolling(); } catch { stopPolling(); } }, 2_000); }
-function stopPolling() { if (state.poll) clearInterval(state.poll); state.poll = null; }
+function startPolling() {
+  stopPolling();
+  if (state.run?.status !== "active" || !state.conversation) return;
+  const epoch = state.pollEpoch;
+  const conversationId = state.conversation.id;
+  const poll = async () => {
+    try {
+      const { data } = await request(`/api/conversations/${conversationId}`);
+      if (state.pollEpoch !== epoch || state.conversation?.id !== conversationId) return;
+      const previous = state.events;
+      state.conversation = data.conversation; state.events = data.events; state.run = data.run;
+      announceIncomingMessages(previous, state.events); renderEvents();
+      if (state.run?.status !== "active") return stopPolling();
+      state.poll = setTimeout(poll, 2_000);
+    } catch {
+      if (state.pollEpoch === epoch) stopPolling();
+    }
+  };
+  state.poll = setTimeout(poll, 2_000);
+}
+function stopPolling() { state.pollEpoch += 1; if (state.poll) clearTimeout(state.poll); state.poll = null; }
 
-function setTab(tab) { state.tab = tab; document.querySelectorAll("[data-tab]").forEach(button => button.setAttribute("aria-selected", String(button.dataset.tab === tab))); $("#thread").hidden = tab !== "discussion"; $("#composer").hidden = tab !== "discussion"; $("#outcome").hidden = tab !== "outcome"; $("#sources").hidden = tab !== "sources"; }
+function setTab(tab) { state.tab = tab; document.querySelectorAll("[data-tab]").forEach(button => button.setAttribute("aria-selected", String(button.dataset.tab === tab))); $("#thread").hidden = tab !== "discussion"; syncDiscussionControls(); $("#outcome").hidden = tab !== "outcome"; $("#sources").hidden = tab !== "sources"; }
 
 const recognitionConstructor = () => window.SpeechRecognition ?? window.webkitSpeechRecognition;
 const browserLanguage = () => {
