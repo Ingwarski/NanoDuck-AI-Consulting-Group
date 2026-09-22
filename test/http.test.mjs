@@ -161,6 +161,29 @@ test("the local HTTP flow protects data, saves settings and preserves a truthful
   }
 });
 
+test("an invalid managed Codex bootstrap leaves the app healthy and reports sign-in required", async () => {
+  const port = await reservePort();
+  const directory = await mkdtemp(`${tmpdir()}/nanoduck-invalid-codex-`);
+  const authPath = `${directory}/auth.json`;
+  await writeFile(authPath, "{}", { mode: 0o600 });
+  const child = spawn(globalThis.process.execPath, ["src/server/index.mjs"], {
+    cwd: process.cwd(),
+    env: { ...globalThis.process.env, NODE_ENV: "development", DEV_OWNER_EMAIL: "owner@local.test", PORT: String(port), RUNTIME_INSTRUCTIONS_BOOTSTRAP_B64: testRuntimeInstructionsBootstrap, CODEX_APP_SERVER_AUTH_PATH: authPath },
+    stdio: "ignore"
+  });
+  const origin = `http://127.0.0.1:${port}`;
+  try {
+    await waitFor(async () => { try { return (await fetch(`${origin}/healthz`)).ok; } catch { return false; } });
+    const signIn = await fetch(`${origin}/api/auth/development`, { method: "POST" });
+    const cookie = signIn.headers.get("set-cookie").split(";", 1)[0];
+    const session = await (await fetch(`${origin}/api/session`, { headers: { cookie } })).json();
+    await fetch(`${origin}/api/consent`, { method: "POST", headers: { cookie, "x-csrf-token": session.csrfToken } });
+    const settings = await (await fetch(`${origin}/api/settings`, { headers: { cookie } })).json();
+    assert.equal(settings.criticProviders.codex.status, "auth_required");
+    assert.equal((await fetch(`${origin}/healthz`)).status, 200);
+  } finally { child.kill("SIGTERM"); await rm(directory, { recursive: true, force: true }); }
+});
+
 test("owner image attachments validate bytes, link only on message acceptance and download safely", async () => {
   const port = await reservePort();
   const child = spawn(globalThis.process.execPath, ["src/server/index.mjs"], {
@@ -231,7 +254,7 @@ test("the authenticated discussion preserves a Critic exchange with both special
   const authPath = `${directory}/auth.json`;
   const codexCommand = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
   const claudeCommand = fileURLToPath(new URL("./fixtures/fake-claude.mjs", import.meta.url));
-  await writeFile(authPath, "{}", { mode: 0o600 });
+  await writeFile(authPath, JSON.stringify({ auth_mode: "chatgpt", tokens: { access_token: "synthetic-access", refresh_token: "synthetic-refresh" } }), { mode: 0o600 });
   const child = spawn(globalThis.process.execPath, ["src/server/index.mjs"], {
     cwd: process.cwd(),
     env: {

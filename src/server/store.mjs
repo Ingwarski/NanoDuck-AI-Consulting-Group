@@ -3,6 +3,7 @@ import { databaseLockName } from "./database-lock.mjs";
 import { createMemoryDocuments, createMySqlDocuments } from "./instruction-documents.mjs";
 import { sealRunSnapshot, openRunSnapshot } from "./run-snapshot.mjs";
 import { randomId, encryptText, decryptText, encryptBytes, decryptBytes } from "./crypto.mjs";
+import { createHash, hkdfSync } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { normalizeRecoverySnapshot } from "./recovery.mjs";
 import { defaultSettings as defaults, upgradeSettings } from "./settings.mjs";
@@ -35,6 +36,21 @@ const storedArray = (value, kind) => {
   return parsed;
 };
 
+const managedCodexGrant = value => {
+  if (!Buffer.isBuffer(value) || value.length === 0 || value.length > 64 * 1024) throw new Error("codex_grant_invalid");
+  let parsed;
+  try { parsed = JSON.parse(value.toString("utf8")); } catch { throw new Error("codex_grant_invalid"); }
+  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed) || parsed.auth_mode !== "chatgpt" ||
+    !parsed.tokens || typeof parsed.tokens !== "object" || Array.isArray(parsed.tokens) ||
+    typeof parsed.tokens.access_token !== "string" || !parsed.tokens.access_token ||
+    typeof parsed.tokens.refresh_token !== "string" || !parsed.tokens.refresh_token) throw new Error("codex_grant_invalid");
+  return value;
+};
+const grantFingerprint = value => {
+  const { tokens } = JSON.parse(managedCodexGrant(value).toString("utf8"));
+  return createHash("sha256").update("chatgpt\0").update(tokens.refresh_token).digest("hex");
+};
+
 export function createMemoryStore() {
   const conversations = new Map();
   const messages = new Map();
@@ -46,6 +62,7 @@ export function createMemoryStore() {
   let settings = { ...defaults };
   let runtimeInstructions;
   const runtimeInstructionHistory = new Map();
+  let codexGrant;
 
   const runtimeVersion = (contract, action, restoredFromId = null) => {
     const createdAt = now();
@@ -59,6 +76,20 @@ export function createMemoryStore() {
   return Object.freeze({
     kind: "memory",
     ...documents,
+    async seedCodexGrant(bytes) {
+      if (!bytes) return false;
+      const seed = Buffer.from(managedCodexGrant(Buffer.from(bytes)));
+      const fingerprint = grantFingerprint(seed);
+      if (!codexGrant || codexGrant.seedFingerprint !== fingerprint) codexGrant = { bytes: seed, seedFingerprint: fingerprint, generation: (codexGrant?.generation ?? 0) + 1 };
+      return true;
+    },
+    async codexGrant() { return codexGrant ? { bytes: Buffer.from(codexGrant.bytes), generation: codexGrant.generation } : undefined; },
+    async saveCodexGrant(bytes, generation) {
+      managedCodexGrant(bytes);
+      if (!codexGrant || codexGrant.generation !== generation) throw new Error("codex_grant_conflict");
+      codexGrant = { ...codexGrant, bytes: Buffer.from(bytes), generation: generation + 1 };
+      return codexGrant.generation;
+    },
     async createSession(input) { sessions.set(input.id, { ...input }); return { ...input }; },
     async session(id) { const item = sessions.get(id); return item ? { ...item } : undefined; },
     async updateSession(id, patch) { const item = sessions.get(id); if (!item || item.revokedAt) return undefined; Object.assign(item, patch); return { ...item }; },
@@ -221,6 +252,7 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
     : { rejectUnauthorized: true };
   const pool = createPool({ uri: databaseUrl, ssl, connectionLimit: 8, waitForConnections: true, queueLimit: 32, connectTimeout: 10_000 });
   const query = (statement, values = []) => pool.execute(statement, values);
+  const grantKey = Buffer.from(hkdfSync("sha256", dataKey, Buffer.alloc(0), "nanoduck/codex-grant/v1", 32));
   const runtimeDocument = row => Object.freeze({ markdown: decryptText({ iv: row.iv, ciphertext: row.ciphertext, tag: row.tag }, dataKey), revision: row.revision, contentHash: row.content_hash, updatedAt: row.updated_at });
   const runtimeHistorySummary = row => Object.freeze({ id: row.id, contentHash: row.content_hash, action: row.action, restoredFromId: row.restored_from_id, createdAt: row.created_at });
   const nextRuntimeRecord = (contract, action, restoredFromId = null) => {
@@ -249,6 +281,9 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
   let heartbeatPending = false;
   let leadershipFailed = false;
   let closed = false;
+  const requireGrantLeadership = () => {
+    if (!leadership || leadershipFailed || closed) throw new Error("codex_grant_leadership_required");
+  };
   const timers = driver?.leadershipTimers ?? { setTimeout, clearTimeout };
   const clearHeartbeat = () => {
     timers.clearTimeout(heartbeatTimer); timers.clearTimeout(heartbeatDeadline);
@@ -301,6 +336,43 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
     },
     kind: "mysql",
     ...createMySqlDocuments(pool, dataKey),
+    async seedCodexGrant(bytes) {
+      requireGrantLeadership();
+      if (!bytes) return false;
+      const seed = managedCodexGrant(Buffer.from(bytes));
+      const fingerprint = grantFingerprint(seed);
+      const connection = await pool.getConnection();
+      try {
+        await connection.beginTransaction();
+        const [rows] = await connection.execute("SELECT generation,seed_fingerprint FROM nanoduck_provider_grants WHERE provider_id='codex' FOR UPDATE");
+        if (!rows.length || rows[0].seed_fingerprint !== fingerprint) {
+          const encrypted = encryptBytes(seed, grantKey);
+          if (!rows.length) await connection.execute("INSERT INTO nanoduck_provider_grants (provider_id,ciphertext,iv,tag,seed_fingerprint,generation,updated_at) VALUES ('codex',?,?,?,?,1,?)", [encrypted.ciphertext, encrypted.iv, encrypted.tag, fingerprint, now()]);
+          else await connection.execute("UPDATE nanoduck_provider_grants SET ciphertext=?,iv=?,tag=?,seed_fingerprint=?,generation=generation+1,updated_at=? WHERE provider_id='codex'", [encrypted.ciphertext, encrypted.iv, encrypted.tag, fingerprint, now()]);
+        }
+        await connection.commit();
+        return true;
+      } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
+    },
+    async codexGrant() {
+      requireGrantLeadership();
+      const [rows] = await query("SELECT ciphertext,iv,tag,generation FROM nanoduck_provider_grants WHERE provider_id='codex' LIMIT 1");
+      if (!rows.length) return undefined;
+      const bytes = decryptBytes({ ciphertext: rows[0].ciphertext, iv: rows[0].iv, tag: rows[0].tag }, grantKey);
+      managedCodexGrant(bytes);
+      const generation = Number(rows[0].generation);
+      if (!Number.isSafeInteger(generation) || generation < 1) throw new Error("codex_grant_invalid");
+      return { bytes, generation };
+    },
+    async saveCodexGrant(bytes, generation) {
+      requireGrantLeadership();
+      managedCodexGrant(bytes);
+      if (!Number.isSafeInteger(generation) || generation < 1) throw new Error("codex_grant_conflict");
+      const encrypted = encryptBytes(bytes, grantKey);
+      const [result] = await query("UPDATE nanoduck_provider_grants SET ciphertext=?,iv=?,tag=?,generation=generation+1,updated_at=? WHERE provider_id='codex' AND generation=?", [encrypted.ciphertext, encrypted.iv, encrypted.tag, now(), generation]);
+      if (result.affectedRows !== 1) throw new Error("codex_grant_conflict");
+      return generation + 1;
+    },
     async createSession(input) { await query("INSERT INTO nanoduck_sessions (id,owner_subject,csrf_token,consented_at,issued_at,expires_at) VALUES (?,?,?,?,?,?)", [input.id,input.ownerSubject,input.csrfToken,input.consentedAt ?? null,input.issuedAt,input.expiresAt]); return { ...input, revokedAt: null }; },
     async session(id) { const [rows] = await query("SELECT id,owner_subject,csrf_token,consented_at,issued_at,expires_at,revoked_at FROM nanoduck_sessions WHERE id=? LIMIT 1", [id]); return rows.length ? { id: rows[0].id, ownerSubject: rows[0].owner_subject, csrfToken: rows[0].csrf_token, consentedAt: rows[0].consented_at, issuedAt: rows[0].issued_at, expiresAt: rows[0].expires_at, revokedAt: rows[0].revoked_at } : undefined; },
     async updateSession(id, patch) { const [result] = await query("UPDATE nanoduck_sessions SET consented_at=COALESCE(?, consented_at) WHERE id=? AND revoked_at IS NULL", [patch.consentedAt ?? null,id]); return result.affectedRows ? this.session(id) : undefined; },

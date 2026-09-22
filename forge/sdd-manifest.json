@@ -3758,13 +3758,13 @@
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "r23-critic-cache-architecture-2026-09-22T20:49:45.303Z",
+      "owner_invocation_id": "r24-managed-codex-architecture-2026-09-22T22:03:54.226Z",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r23-critic-cache-architecture-2026-09-22T20:49:45.303Z",
+      "source_version": "r24-managed-codex-architecture-2026-09-22T22:03:54.226Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3827,7 +3827,16 @@
         "src/server/codex-models.mjs": "full",
         "src/server/browser-assets.mjs": "full",
         "test/browser-assets.test.mjs": "full",
-        "package-lock.json": "full"
+        "package-lock.json": "full",
+        "docs/product-idea.md": "full",
+        "docs/development-plan.md": "full",
+        "src/server/preflight.mjs": "full",
+        "src/server/schema.sql": "full",
+        "src/server/settings-catalog.mjs": "full",
+        "test/codex-grant.test.mjs": "full",
+        "test/settings-catalog.test.mjs": "full",
+        "test/fixtures/rotating-auth-codex.mjs": "full",
+        "test/mysql.integration.test.mjs": "full"
       },
       "source_hashes": {
         "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
@@ -3842,20 +3851,20 @@
         "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
         "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
-        "src/server/config.mjs": "b3039bc097bcc657ad2c6c420904395f0832c8b9c0268bd33cc2cb1e97e87495",
-        "src/server/index.mjs": "23cc92260ab5ca3f11749095f4d23397404ac72aed0d21ad96943e0326be948b",
-        "src/server/store.mjs": "c05a7290046f90f7aca67e3bb73a32da4ff3cfd62109b29f9022144227c81db5",
+        "src/server/config.mjs": "47a1518ea1fb1842be51a5d362b9bd2f0c900a2f4c632c767ec9ae3e0c5958ca",
+        "src/server/index.mjs": "0ef39165c8e734c9e406020f0d7e52460e5b448e500d205c88e11bdfaa40401d",
+        "src/server/store.mjs": "5d2d659c4dc685da4ca0d88a4791cc7a20b733f0867fd48d24a5ce97c76e48f0",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
         "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
-        "src/server/codex-provider.mjs": "ccf55470ef499fe9375b4b3d3e6a5bec59c3ae0808597b8aae67ac4ae31e9604",
+        "src/server/codex-provider.mjs": "446ba7536e5eae03bf7f303ea2417f80e319c8c7053eb59255f54651f27d27a4",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
-        "test/codex-provider.test.mjs": "8e3f97c867459c414d3476476bff2fe76171118e030e1bcf804f44a3fde9bdaf",
+        "test/codex-provider.test.mjs": "c0f92638130f5f590ef811abaafbeed76ad935b1d49d9e194b432150c2f7779c",
         "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
-        "test/http.test.mjs": "fa2f37e5d93439946aaec1b7e6aa4e92a6a74818650a32573d0f2d780d1bded4",
+        "test/http.test.mjs": "c0b3113a1303ed4dfc4889207914d127ef7d058b9f776f945e69883a16aad30e",
         ".env.example": "71983a7601c502c44bddb0f1a6fb9c2a8ebe170dd7151395b9199e16da713d3d",
-        "test/fixtures/fake-codex.mjs": "253022fb119541d22e64e6a9b7968840b14ee82cd70a42f1d1ff465ea0f27855",
+        "test/fixtures/fake-codex.mjs": "c00c8a5666619a06256fc52e8c74a9a6b2e6095b32e5cf6eecc459c70d1bf05f",
         "src/server/prompt-contracts.mjs": "6ae5ab7c303bb1cf48d8eff524592e80287b03ce456c74a93c72a30ccd4a3652",
-        "src/client/app.js": "632608165853408b692d60d93d8deba23397f87252d40caecd1e16fdb6fe3564",
+        "src/client/app.js": "90478e3317346041b4788b5c4e64542cf26c16ff0fb8c466834b6c0200a6bc17",
         "test/consolidation.test.mjs": "c29cb6ecca6f28811b16370ae1e00d698a47e6e07cc02c36cc96a90cd7a77102",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -3891,7 +3900,16 @@
         "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
         "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
         "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
-        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06"
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06",
+        "docs/product-idea.md": "9a84b7444e963cb420b3293af085022f952b12a0d83b03a0805ecb0d7b35b5b6",
+        "docs/development-plan.md": "550188b891ec8a556d184fffffbbbc7ab0822372bf6efdabe556394e430c3d00",
+        "src/server/preflight.mjs": "12d319c73af28e4538991cb86acd700cc41571b73ea3fd9912a65350a010411f",
+        "src/server/schema.sql": "88e008ba94999351fb1ed752cf34d21a4087f0d6456dcfb3cf4e3ac88c990f94",
+        "src/server/settings-catalog.mjs": "f0cefd79aad578d6c21963bcece9fcc8445f02711ec723a3b61dc57b4e8965e7",
+        "test/codex-grant.test.mjs": "03d3768018cac00de2693022d6a3851505e4fa75a0be600f91ed35e0301e9667",
+        "test/settings-catalog.test.mjs": "0d8489ecfb1f9a6946ddf455193bca143fba3f5317fbf879a1e21eb09d91a4a5",
+        "test/fixtures/rotating-auth-codex.mjs": "4b4f3f119b2b8f84f0504a72b7ab9da9d9eb4f20128ee61391681abb9f921bb0",
+        "test/mysql.integration.test.mjs": "9a07688c3f05b0a46fc2062b68af23c20c918f21d32b253c97bac77d7afd8654"
       },
       "dependencies": [
         "prd",
@@ -3903,14 +3921,14 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "eb25c5b60ecf963fc716a1d5f83b64c0217651c9b67192f8682bda4609ac3065",
+      "content_hash": "4b0074dfa2c5db5020f7e8e77263707b285063740dc74f20e1b95e88e7d206dd",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r23-owner-directed-critic-visibility-and-cache",
-        "reviewed_at": "2026-09-22T20:49:45.303Z",
-        "executor": "Codex inline to-architecture",
-        "scope": "Bind exact Claude Code 2.1.280 Opus 5.5 ID, prior Low-only preference migration, current browser assets and honest port diagnosis to the existing architecture/security boundaries."
+        "kind": "r24-managed-codex-grant",
+        "reviewed_at": "2026-09-22T22:03:54.226Z",
+        "executor": "Codex to-architecture owner",
+        "scope": "Reconcile durable encrypted Codex grant, request-time active Settings catalog, saved-only fallback, leadership, fail-closed writeback and live evidence limits."
       },
       "open_questions": [],
       "security_coverage": {
@@ -3983,19 +4001,19 @@
           "heading": "## Security enforcement map"
         }
       },
-      "supersedes": "r23-critic-cache-architecture-2026-09-22T20:35:23.708Z",
+      "supersedes": "r23-critic-cache-architecture-2026-09-22T20:49:45.303Z",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "r23-critic-cache-dod-evals-2026-09-22T20:50:38.476Z",
+      "owner_invocation_id": "r24-managed-codex-dod-evals-2026-09-22T22:07:52.743Z",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r23-critic-cache-dod-evals-2026-09-22T20:50:38.476Z",
+      "source_version": "r24-managed-codex-dod-evals-2026-09-22T22:07:52.743Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4022,7 +4040,19 @@
         "src/server/browser-assets.mjs": "full",
         "test/browser-assets.test.mjs": "full",
         "package.json": "full",
-        "package-lock.json": "full"
+        "package-lock.json": "full",
+        "docs/product-idea.md": "full",
+        ".github/workflows/ci.yml": "full",
+        "src/server/codex-provider.mjs": "full",
+        "src/server/store.mjs": "full",
+        "src/server/settings-catalog.mjs": "full",
+        "src/server/index.mjs": "full",
+        "src/server/preflight.mjs": "full",
+        "src/server/schema.sql": "full",
+        "test/codex-provider.test.mjs": "full",
+        "test/codex-grant.test.mjs": "full",
+        "test/mysql.integration.test.mjs": "full",
+        "test/settings-catalog.test.mjs": "full"
       },
       "source_hashes": {
         "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
@@ -4033,7 +4063,7 @@
         "docs/screen-map.md": "40df920688609526f1b3d5a4082a341e15c0932e12192b75a4cf87409eb7b343",
         "docs/wireframes.md": "4f7378790527ef8c9e52de1fa799fd6f14bb343b484b15d06b719d4caaf1d976",
         "docs/design-brief.md": "4157aa753c472a0a9b96492f930d06598e7f3327e62ec16e2c6acd545e15e92d",
-        "docs/architecture.md": "eb25c5b60ecf963fc716a1d5f83b64c0217651c9b67192f8682bda4609ac3065",
+        "docs/architecture.md": "4b0074dfa2c5db5020f7e8e77263707b285063740dc74f20e1b95e88e7d206dd",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
         "src/server/claude-provider.mjs": "6fcff16b308d6d466c9ce93ebc24fd2ef319752322b7962fc592169e5024542d",
@@ -4050,7 +4080,19 @@
         "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
         "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
         "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
-        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06"
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06",
+        "docs/product-idea.md": "9a84b7444e963cb420b3293af085022f952b12a0d83b03a0805ecb0d7b35b5b6",
+        ".github/workflows/ci.yml": "e49aca94617f9bcef4d09e72319b03b7670d39d888967b55264b2e09d54ec1a5",
+        "src/server/codex-provider.mjs": "446ba7536e5eae03bf7f303ea2417f80e319c8c7053eb59255f54651f27d27a4",
+        "src/server/store.mjs": "5d2d659c4dc685da4ca0d88a4791cc7a20b733f0867fd48d24a5ce97c76e48f0",
+        "src/server/settings-catalog.mjs": "f0cefd79aad578d6c21963bcece9fcc8445f02711ec723a3b61dc57b4e8965e7",
+        "src/server/index.mjs": "0ef39165c8e734c9e406020f0d7e52460e5b448e500d205c88e11bdfaa40401d",
+        "src/server/preflight.mjs": "12d319c73af28e4538991cb86acd700cc41571b73ea3fd9912a65350a010411f",
+        "src/server/schema.sql": "88e008ba94999351fb1ed752cf34d21a4087f0d6456dcfb3cf4e3ac88c990f94",
+        "test/codex-provider.test.mjs": "c0f92638130f5f590ef811abaafbeed76ad935b1d49d9e194b432150c2f7779c",
+        "test/codex-grant.test.mjs": "03d3768018cac00de2693022d6a3851505e4fa75a0be600f91ed35e0301e9667",
+        "test/mysql.integration.test.mjs": "9a07688c3f05b0a46fc2062b68af23c20c918f21d32b253c97bac77d7afd8654",
+        "test/settings-catalog.test.mjs": "0d8489ecfb1f9a6946ddf455193bca143fba3f5317fbf879a1e21eb09d91a4a5"
       },
       "dependencies": [
         "prd",
@@ -4063,14 +4105,14 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "a21761977d4d453f724194118fd3eca89a28496162fad802d6c20ab9db44e77a",
+      "content_hash": "53e2f9d6f8339708cf80eb11180cb06d273872de4d759b8cb5d38231ea4d4fe6",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r23-owner-directed-critic-visibility-and-cache",
-        "reviewed_at": "2026-09-22T20:50:38.476Z",
-        "executor": "Codex inline to-dod-evals",
-        "scope": "Bind FR-05.1 and delivery gates to installed Claude CLI 2.1.280, exact Opus 5.5 ID, old Low-only migration and versioned browser assets; canonical checks remain prepared/not_run."
+        "kind": "r24-managed-codex-grant",
+        "reviewed_at": "2026-09-22T22:07:52.743Z",
+        "executor": "Codex to-dod-evals owner",
+        "scope": "Define existing release gates for encrypted Codex grant durability, active Settings save, safe failures and bounded host evidence; execution remains not_run."
       },
       "open_questions": [],
       "security_coverage": {
@@ -4143,19 +4185,19 @@
           "heading": "### Product security membership"
         }
       },
-      "supersedes": "r23-critic-cache-dod-evals-2026-09-22T20:36:16.202Z",
+      "supersedes": "r23-critic-cache-dod-evals-2026-09-22T20:50:38.476Z",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "r23-critic-cache-qa-checklist-2026-09-22T20:51:25.732Z",
+      "owner_invocation_id": "r24-managed-codex-qa-checklist-2026-09-22T22:11:22.653Z",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r23-critic-cache-qa-checklist-2026-09-22T20:51:25.732Z",
+      "source_version": "r24-managed-codex-qa-checklist-2026-09-22T22:11:22.653Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4220,7 +4262,14 @@
         "src/server/codex-models.mjs": "full",
         "src/server/browser-assets.mjs": "full",
         "test/browser-assets.test.mjs": "full",
-        "package-lock.json": "full"
+        "package-lock.json": "full",
+        "src/server/preflight.mjs": "full",
+        "src/server/settings-catalog.mjs": "full",
+        "src/server/schema.sql": "full",
+        "test/codex-grant.test.mjs": "full",
+        "test/mysql.integration.test.mjs": "full",
+        "test/settings-catalog.test.mjs": "full",
+        ".github/workflows/ci.yml": "full"
       },
       "source_hashes": {
         "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
@@ -4231,26 +4280,26 @@
         "docs/screen-map.md": "40df920688609526f1b3d5a4082a341e15c0932e12192b75a4cf87409eb7b343",
         "docs/wireframes.md": "4f7378790527ef8c9e52de1fa799fd6f14bb343b484b15d06b719d4caaf1d976",
         "docs/design-brief.md": "4157aa753c472a0a9b96492f930d06598e7f3327e62ec16e2c6acd545e15e92d",
-        "docs/architecture.md": "eb25c5b60ecf963fc716a1d5f83b64c0217651c9b67192f8682bda4609ac3065",
-        "docs/dod-evals.md": "a21761977d4d453f724194118fd3eca89a28496162fad802d6c20ab9db44e77a",
+        "docs/architecture.md": "4b0074dfa2c5db5020f7e8e77263707b285063740dc74f20e1b95e88e7d206dd",
+        "docs/dod-evals.md": "53e2f9d6f8339708cf80eb11180cb06d273872de4d759b8cb5d38231ea4d4fe6",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
         "forge/design/evidence/c-v1-visual-qa.json": "b5517ae544724b5ae54c60f63e328797b4788b4abda5828ceaea81f439c4ae83",
         "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
-        "src/server/config.mjs": "b3039bc097bcc657ad2c6c420904395f0832c8b9c0268bd33cc2cb1e97e87495",
-        "src/server/index.mjs": "23cc92260ab5ca3f11749095f4d23397404ac72aed0d21ad96943e0326be948b",
-        "src/server/store.mjs": "c05a7290046f90f7aca67e3bb73a32da4ff3cfd62109b29f9022144227c81db5",
+        "src/server/config.mjs": "47a1518ea1fb1842be51a5d362b9bd2f0c900a2f4c632c767ec9ae3e0c5958ca",
+        "src/server/index.mjs": "0ef39165c8e734c9e406020f0d7e52460e5b448e500d205c88e11bdfaa40401d",
+        "src/server/store.mjs": "5d2d659c4dc685da4ca0d88a4791cc7a20b733f0867fd48d24a5ce97c76e48f0",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
         "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
-        "src/server/codex-provider.mjs": "ccf55470ef499fe9375b4b3d3e6a5bec59c3ae0808597b8aae67ac4ae31e9604",
+        "src/server/codex-provider.mjs": "446ba7536e5eae03bf7f303ea2417f80e319c8c7053eb59255f54651f27d27a4",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
-        "test/codex-provider.test.mjs": "8e3f97c867459c414d3476476bff2fe76171118e030e1bcf804f44a3fde9bdaf",
+        "test/codex-provider.test.mjs": "c0f92638130f5f590ef811abaafbeed76ad935b1d49d9e194b432150c2f7779c",
         "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
-        "test/http.test.mjs": "fa2f37e5d93439946aaec1b7e6aa4e92a6a74818650a32573d0f2d780d1bded4",
-        "test/fixtures/fake-codex.mjs": "253022fb119541d22e64e6a9b7968840b14ee82cd70a42f1d1ff465ea0f27855",
+        "test/http.test.mjs": "c0b3113a1303ed4dfc4889207914d127ef7d058b9f776f945e69883a16aad30e",
+        "test/fixtures/fake-codex.mjs": "c00c8a5666619a06256fc52e8c74a9a6b2e6095b32e5cf6eecc459c70d1bf05f",
         "src/server/prompt-contracts.mjs": "6ae5ab7c303bb1cf48d8eff524592e80287b03ce456c74a93c72a30ccd4a3652",
-        "src/client/app.js": "632608165853408b692d60d93d8deba23397f87252d40caecd1e16fdb6fe3564",
+        "src/client/app.js": "90478e3317346041b4788b5c4e64542cf26c16ff0fb8c466834b6c0200a6bc17",
         "test/consolidation.test.mjs": "c29cb6ecca6f28811b16370ae1e00d698a47e6e07cc02c36cc96a90cd7a77102",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -4286,7 +4335,14 @@
         "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
         "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
         "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
-        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06"
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06",
+        "src/server/preflight.mjs": "12d319c73af28e4538991cb86acd700cc41571b73ea3fd9912a65350a010411f",
+        "src/server/settings-catalog.mjs": "f0cefd79aad578d6c21963bcece9fcc8445f02711ec723a3b61dc57b4e8965e7",
+        "src/server/schema.sql": "88e008ba94999351fb1ed752cf34d21a4087f0d6456dcfb3cf4e3ac88c990f94",
+        "test/codex-grant.test.mjs": "03d3768018cac00de2693022d6a3851505e4fa75a0be600f91ed35e0301e9667",
+        "test/mysql.integration.test.mjs": "9a07688c3f05b0a46fc2062b68af23c20c918f21d32b253c97bac77d7afd8654",
+        "test/settings-catalog.test.mjs": "0d8489ecfb1f9a6946ddf455193bca143fba3f5317fbf879a1e21eb09d91a4a5",
+        ".github/workflows/ci.yml": "e49aca94617f9bcef4d09e72319b03b7670d39d888967b55264b2e09d54ec1a5"
       },
       "dependencies": [
         "prd",
@@ -4300,14 +4356,14 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "ce5a868e7616c3f0e26f7a2d5ede4045bbcec4e8c5b10637289fbf3dd072e4f4",
+      "content_hash": "0c09a8d14a563b373c58e7aa95c057f19a0d89d1a450b8c69913e93b4547d51f",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r23-owner-directed-critic-visibility-and-cache",
-        "reviewed_at": "2026-09-22T20:51:25.732Z",
-        "executor": "Codex inline to-qa-checklist",
-        "scope": "Bind exact Claude CLI 2.1.280 Opus 5.5 routing, old Low-only migration, asset hash delivery and truthful port/release evidence across existing 83 prepared QA checks."
+        "kind": "r24-managed-codex-grant",
+        "reviewed_at": "2026-09-22T22:11:22.653Z",
+        "executor": "Codex to-qa-checklist owner",
+        "scope": "Bind existing QA IDs to encrypted grant, request-time busy Settings catalog, fail-closed recovery, real MySQL CI and separate host evidence; checks remain prepared and not_run."
       },
       "open_questions": [],
       "traceability": {
@@ -6069,19 +6125,19 @@
           "heading": "## Product acceptance"
         }
       },
-      "supersedes": "r23-critic-cache-qa-checklist-2026-09-22T20:37:50.058Z",
+      "supersedes": "r23-critic-cache-qa-checklist-2026-09-22T20:51:25.732Z",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "r23-critic-cache-development-plan-2026-09-22T20:52:46.601Z",
+      "owner_invocation_id": "codex-managed-grant-development-plan-2026-09-22T22:12:15Z",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r23-critic-cache-development-plan-2026-09-22T20:52:46.601Z",
+      "source_version": "codex-managed-grant-development-plan-2026-09-22T22:12:15Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -6151,7 +6207,16 @@
         "src/server/codex-models.mjs": "full",
         "package-lock.json": "full",
         "src/server/browser-assets.mjs": "full",
-        "test/browser-assets.test.mjs": "full"
+        "test/browser-assets.test.mjs": "full",
+        "src/server/settings-catalog.mjs": "full",
+        "src/server/schema.sql": "full",
+        "src/server/preflight.mjs": "full",
+        "src/server/providers.mjs": "full",
+        "test/codex-grant.test.mjs": "full",
+        "test/settings-catalog.test.mjs": "full",
+        "test/mysql.integration.test.mjs": "full",
+        "test/preflight.test.mjs": "full",
+        "test/fixtures/rotating-auth-codex.mjs": "full"
       },
       "source_hashes": {
         "docs/prd.md": "80255fbeb076a5c41c9153d35466e0ffc814a1b6b41c11c3aad64782c8b62e64",
@@ -6162,9 +6227,9 @@
         "docs/screen-map.md": "40df920688609526f1b3d5a4082a341e15c0932e12192b75a4cf87409eb7b343",
         "docs/wireframes.md": "4f7378790527ef8c9e52de1fa799fd6f14bb343b484b15d06b719d4caaf1d976",
         "docs/design-brief.md": "4157aa753c472a0a9b96492f930d06598e7f3327e62ec16e2c6acd545e15e92d",
-        "docs/architecture.md": "eb25c5b60ecf963fc716a1d5f83b64c0217651c9b67192f8682bda4609ac3065",
-        "docs/dod-evals.md": "a21761977d4d453f724194118fd3eca89a28496162fad802d6c20ab9db44e77a",
-        "docs/qa-checklist.md": "ce5a868e7616c3f0e26f7a2d5ede4045bbcec4e8c5b10637289fbf3dd072e4f4",
+        "docs/architecture.md": "4b0074dfa2c5db5020f7e8e77263707b285063740dc74f20e1b95e88e7d206dd",
+        "docs/dod-evals.md": "53e2f9d6f8339708cf80eb11180cb06d273872de4d759b8cb5d38231ea4d4fe6",
+        "docs/qa-checklist.md": "0c09a8d14a563b373c58e7aa95c057f19a0d89d1a450b8c69913e93b4547d51f",
         "docs/model-settings.md": "678d708c4222371cf065e407ac7780079a435a46518b7810fd93897974007df9",
         "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
@@ -6174,19 +6239,19 @@
         "forge/design/candidates/a/v8/nanoduck.svg": "723d3b4201c5fc6ffa3d30a1e5ed5151f616d436919d15f3642827a16ed7021d",
         "forge/design/candidates/a/v8/nanoduck-original.svg": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528",
         "forge/design/candidates/a/v8/app.js": "d7ac2287ce8496772592d42d134fc530affcb9147f0a7641655a56c6cf83775f",
-        "src/server/config.mjs": "b3039bc097bcc657ad2c6c420904395f0832c8b9c0268bd33cc2cb1e97e87495",
-        "src/server/index.mjs": "23cc92260ab5ca3f11749095f4d23397404ac72aed0d21ad96943e0326be948b",
-        "src/server/store.mjs": "c05a7290046f90f7aca67e3bb73a32da4ff3cfd62109b29f9022144227c81db5",
+        "src/server/config.mjs": "47a1518ea1fb1842be51a5d362b9bd2f0c900a2f4c632c767ec9ae3e0c5958ca",
+        "src/server/index.mjs": "0ef39165c8e734c9e406020f0d7e52460e5b448e500d205c88e11bdfaa40401d",
+        "src/server/store.mjs": "5d2d659c4dc685da4ca0d88a4791cc7a20b733f0867fd48d24a5ce97c76e48f0",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
         "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
-        "src/server/codex-provider.mjs": "ccf55470ef499fe9375b4b3d3e6a5bec59c3ae0808597b8aae67ac4ae31e9604",
+        "src/server/codex-provider.mjs": "446ba7536e5eae03bf7f303ea2417f80e319c8c7053eb59255f54651f27d27a4",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
-        "test/codex-provider.test.mjs": "8e3f97c867459c414d3476476bff2fe76171118e030e1bcf804f44a3fde9bdaf",
+        "test/codex-provider.test.mjs": "c0f92638130f5f590ef811abaafbeed76ad935b1d49d9e194b432150c2f7779c",
         "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
-        "test/http.test.mjs": "fa2f37e5d93439946aaec1b7e6aa4e92a6a74818650a32573d0f2d780d1bded4",
-        "test/fixtures/fake-codex.mjs": "253022fb119541d22e64e6a9b7968840b14ee82cd70a42f1d1ff465ea0f27855",
+        "test/http.test.mjs": "c0b3113a1303ed4dfc4889207914d127ef7d058b9f776f945e69883a16aad30e",
+        "test/fixtures/fake-codex.mjs": "c00c8a5666619a06256fc52e8c74a9a6b2e6095b32e5cf6eecc459c70d1bf05f",
         "src/server/prompt-contracts.mjs": "6ae5ab7c303bb1cf48d8eff524592e80287b03ce456c74a93c72a30ccd4a3652",
-        "src/client/app.js": "632608165853408b692d60d93d8deba23397f87252d40caecd1e16fdb6fe3564",
+        "src/client/app.js": "90478e3317346041b4788b5c4e64542cf26c16ff0fb8c466834b6c0200a6bc17",
         "test/consolidation.test.mjs": "c29cb6ecca6f28811b16370ae1e00d698a47e6e07cc02c36cc96a90cd7a77102",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -6222,7 +6287,16 @@
         "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
         "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06",
         "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
-        "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5"
+        "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
+        "src/server/settings-catalog.mjs": "f0cefd79aad578d6c21963bcece9fcc8445f02711ec723a3b61dc57b4e8965e7",
+        "src/server/schema.sql": "88e008ba94999351fb1ed752cf34d21a4087f0d6456dcfb3cf4e3ac88c990f94",
+        "src/server/preflight.mjs": "12d319c73af28e4538991cb86acd700cc41571b73ea3fd9912a65350a010411f",
+        "src/server/providers.mjs": "8bf8f11103b720490b7692be59af33e5e11b9f8415144a90de323d3baebaddeb",
+        "test/codex-grant.test.mjs": "03d3768018cac00de2693022d6a3851505e4fa75a0be600f91ed35e0301e9667",
+        "test/settings-catalog.test.mjs": "0d8489ecfb1f9a6946ddf455193bca143fba3f5317fbf879a1e21eb09d91a4a5",
+        "test/mysql.integration.test.mjs": "9a07688c3f05b0a46fc2062b68af23c20c918f21d32b253c97bac77d7afd8654",
+        "test/preflight.test.mjs": "48ffeb7617745035523f8abdf97a9575010ecf3d0e620abb61734c4fb16b1e9b",
+        "test/fixtures/rotating-auth-codex.mjs": "4b4f3f119b2b8f84f0504a72b7ab9da9d9eb4f20128ee61391681abb9f921bb0"
       },
       "dependencies": [
         "prd",
@@ -6241,12 +6315,12 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r23-owner-directed-critic-visibility-and-cache",
-        "reviewed_at": "2026-09-22T20:52:46.601Z",
-        "executor": "Codex inline to-development-plan",
-        "scope": "Bind U-01/U-03/U-08 and C-02 to pinned Claude Code 2.1.280, exact Opus 5.5 ID, old Low-only preference migration, current browser assets and honest live evidence gaps."
+        "kind": "r24-managed-codex-grant-no-change",
+        "reviewed_at": "2026-09-22T22:12:15Z",
+        "executor": "Codex to-development-plan owner",
+        "scope": "Revalidate existing U-01/02/03/04/08 and C-02/C-08 against durable Codex grant architecture, DoD and QA. Document bytes and authorized Phase 3 plan hash remain unchanged."
       },
-      "supersedes": "r22-gpt-6-sol-development-plan-2026-09-22T19:07:14.659Z",
+      "supersedes": "r23-critic-cache-development-plan-2026-09-22T20:52:46.601Z",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
       "traceability": {
         "definitions": [
@@ -9242,7 +9316,7 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "r23-critic-cache-architecture-2026-09-22T20:49:45.303Z",
+      "invocation_id": "r24-managed-codex-architecture-2026-09-22T22:03:54.226Z",
       "outputs": [
         "docs/architecture.md"
       ],
@@ -9259,20 +9333,20 @@
         "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
         "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
-        "src/server/config.mjs": "b3039bc097bcc657ad2c6c420904395f0832c8b9c0268bd33cc2cb1e97e87495",
-        "src/server/index.mjs": "23cc92260ab5ca3f11749095f4d23397404ac72aed0d21ad96943e0326be948b",
-        "src/server/store.mjs": "c05a7290046f90f7aca67e3bb73a32da4ff3cfd62109b29f9022144227c81db5",
+        "src/server/config.mjs": "47a1518ea1fb1842be51a5d362b9bd2f0c900a2f4c632c767ec9ae3e0c5958ca",
+        "src/server/index.mjs": "0ef39165c8e734c9e406020f0d7e52460e5b448e500d205c88e11bdfaa40401d",
+        "src/server/store.mjs": "5d2d659c4dc685da4ca0d88a4791cc7a20b733f0867fd48d24a5ce97c76e48f0",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
         "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
-        "src/server/codex-provider.mjs": "ccf55470ef499fe9375b4b3d3e6a5bec59c3ae0808597b8aae67ac4ae31e9604",
+        "src/server/codex-provider.mjs": "446ba7536e5eae03bf7f303ea2417f80e319c8c7053eb59255f54651f27d27a4",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
-        "test/codex-provider.test.mjs": "8e3f97c867459c414d3476476bff2fe76171118e030e1bcf804f44a3fde9bdaf",
+        "test/codex-provider.test.mjs": "c0f92638130f5f590ef811abaafbeed76ad935b1d49d9e194b432150c2f7779c",
         "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
-        "test/http.test.mjs": "fa2f37e5d93439946aaec1b7e6aa4e92a6a74818650a32573d0f2d780d1bded4",
+        "test/http.test.mjs": "c0b3113a1303ed4dfc4889207914d127ef7d058b9f776f945e69883a16aad30e",
         ".env.example": "71983a7601c502c44bddb0f1a6fb9c2a8ebe170dd7151395b9199e16da713d3d",
-        "test/fixtures/fake-codex.mjs": "253022fb119541d22e64e6a9b7968840b14ee82cd70a42f1d1ff465ea0f27855",
+        "test/fixtures/fake-codex.mjs": "c00c8a5666619a06256fc52e8c74a9a6b2e6095b32e5cf6eecc459c70d1bf05f",
         "src/server/prompt-contracts.mjs": "6ae5ab7c303bb1cf48d8eff524592e80287b03ce456c74a93c72a30ccd4a3652",
-        "src/client/app.js": "632608165853408b692d60d93d8deba23397f87252d40caecd1e16fdb6fe3564",
+        "src/client/app.js": "90478e3317346041b4788b5c4e64542cf26c16ff0fb8c466834b6c0200a6bc17",
         "test/consolidation.test.mjs": "c29cb6ecca6f28811b16370ae1e00d698a47e6e07cc02c36cc96a90cd7a77102",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -9308,12 +9382,21 @@
         "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
         "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
         "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
-        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06"
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06",
+        "docs/product-idea.md": "9a84b7444e963cb420b3293af085022f952b12a0d83b03a0805ecb0d7b35b5b6",
+        "docs/development-plan.md": "550188b891ec8a556d184fffffbbbc7ab0822372bf6efdabe556394e430c3d00",
+        "src/server/preflight.mjs": "12d319c73af28e4538991cb86acd700cc41571b73ea3fd9912a65350a010411f",
+        "src/server/schema.sql": "88e008ba94999351fb1ed752cf34d21a4087f0d6456dcfb3cf4e3ac88c990f94",
+        "src/server/settings-catalog.mjs": "f0cefd79aad578d6c21963bcece9fcc8445f02711ec723a3b61dc57b4e8965e7",
+        "test/codex-grant.test.mjs": "03d3768018cac00de2693022d6a3851505e4fa75a0be600f91ed35e0301e9667",
+        "test/settings-catalog.test.mjs": "0d8489ecfb1f9a6946ddf455193bca143fba3f5317fbf879a1e21eb09d91a4a5",
+        "test/fixtures/rotating-auth-codex.mjs": "4b4f3f119b2b8f84f0504a72b7ab9da9d9eb4f20128ee61391681abb9f921bb0",
+        "test/mysql.integration.test.mjs": "9a07688c3f05b0a46fc2062b68af23c20c918f21d32b253c97bac77d7afd8654"
       },
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "r23-critic-cache-dod-evals-2026-09-22T20:50:38.476Z",
+      "invocation_id": "r24-managed-codex-dod-evals-2026-09-22T22:07:52.743Z",
       "outputs": [
         "docs/dod-evals.md"
       ],
@@ -9326,7 +9409,7 @@
         "docs/screen-map.md": "40df920688609526f1b3d5a4082a341e15c0932e12192b75a4cf87409eb7b343",
         "docs/wireframes.md": "4f7378790527ef8c9e52de1fa799fd6f14bb343b484b15d06b719d4caaf1d976",
         "docs/design-brief.md": "4157aa753c472a0a9b96492f930d06598e7f3327e62ec16e2c6acd545e15e92d",
-        "docs/architecture.md": "eb25c5b60ecf963fc716a1d5f83b64c0217651c9b67192f8682bda4609ac3065",
+        "docs/architecture.md": "4b0074dfa2c5db5020f7e8e77263707b285063740dc74f20e1b95e88e7d206dd",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
         "src/server/claude-provider.mjs": "6fcff16b308d6d466c9ce93ebc24fd2ef319752322b7962fc592169e5024542d",
@@ -9343,12 +9426,24 @@
         "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
         "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
         "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
-        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06"
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06",
+        "docs/product-idea.md": "9a84b7444e963cb420b3293af085022f952b12a0d83b03a0805ecb0d7b35b5b6",
+        ".github/workflows/ci.yml": "e49aca94617f9bcef4d09e72319b03b7670d39d888967b55264b2e09d54ec1a5",
+        "src/server/codex-provider.mjs": "446ba7536e5eae03bf7f303ea2417f80e319c8c7053eb59255f54651f27d27a4",
+        "src/server/store.mjs": "5d2d659c4dc685da4ca0d88a4791cc7a20b733f0867fd48d24a5ce97c76e48f0",
+        "src/server/settings-catalog.mjs": "f0cefd79aad578d6c21963bcece9fcc8445f02711ec723a3b61dc57b4e8965e7",
+        "src/server/index.mjs": "0ef39165c8e734c9e406020f0d7e52460e5b448e500d205c88e11bdfaa40401d",
+        "src/server/preflight.mjs": "12d319c73af28e4538991cb86acd700cc41571b73ea3fd9912a65350a010411f",
+        "src/server/schema.sql": "88e008ba94999351fb1ed752cf34d21a4087f0d6456dcfb3cf4e3ac88c990f94",
+        "test/codex-provider.test.mjs": "c0f92638130f5f590ef811abaafbeed76ad935b1d49d9e194b432150c2f7779c",
+        "test/codex-grant.test.mjs": "03d3768018cac00de2693022d6a3851505e4fa75a0be600f91ed35e0301e9667",
+        "test/mysql.integration.test.mjs": "9a07688c3f05b0a46fc2062b68af23c20c918f21d32b253c97bac77d7afd8654",
+        "test/settings-catalog.test.mjs": "0d8489ecfb1f9a6946ddf455193bca143fba3f5317fbf879a1e21eb09d91a4a5"
       },
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "r23-critic-cache-qa-checklist-2026-09-22T20:51:25.732Z",
+      "invocation_id": "r24-managed-codex-qa-checklist-2026-09-22T22:11:22.653Z",
       "outputs": [
         "docs/qa-checklist.md"
       ],
@@ -9361,26 +9456,26 @@
         "docs/screen-map.md": "40df920688609526f1b3d5a4082a341e15c0932e12192b75a4cf87409eb7b343",
         "docs/wireframes.md": "4f7378790527ef8c9e52de1fa799fd6f14bb343b484b15d06b719d4caaf1d976",
         "docs/design-brief.md": "4157aa753c472a0a9b96492f930d06598e7f3327e62ec16e2c6acd545e15e92d",
-        "docs/architecture.md": "eb25c5b60ecf963fc716a1d5f83b64c0217651c9b67192f8682bda4609ac3065",
-        "docs/dod-evals.md": "a21761977d4d453f724194118fd3eca89a28496162fad802d6c20ab9db44e77a",
+        "docs/architecture.md": "4b0074dfa2c5db5020f7e8e77263707b285063740dc74f20e1b95e88e7d206dd",
+        "docs/dod-evals.md": "53e2f9d6f8339708cf80eb11180cb06d273872de4d759b8cb5d38231ea4d4fe6",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
         "forge/design/evidence/c-v1-visual-qa.json": "b5517ae544724b5ae54c60f63e328797b4788b4abda5828ceaea81f439c4ae83",
         "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
-        "src/server/config.mjs": "b3039bc097bcc657ad2c6c420904395f0832c8b9c0268bd33cc2cb1e97e87495",
-        "src/server/index.mjs": "23cc92260ab5ca3f11749095f4d23397404ac72aed0d21ad96943e0326be948b",
-        "src/server/store.mjs": "c05a7290046f90f7aca67e3bb73a32da4ff3cfd62109b29f9022144227c81db5",
+        "src/server/config.mjs": "47a1518ea1fb1842be51a5d362b9bd2f0c900a2f4c632c767ec9ae3e0c5958ca",
+        "src/server/index.mjs": "0ef39165c8e734c9e406020f0d7e52460e5b448e500d205c88e11bdfaa40401d",
+        "src/server/store.mjs": "5d2d659c4dc685da4ca0d88a4791cc7a20b733f0867fd48d24a5ce97c76e48f0",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
         "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
-        "src/server/codex-provider.mjs": "ccf55470ef499fe9375b4b3d3e6a5bec59c3ae0808597b8aae67ac4ae31e9604",
+        "src/server/codex-provider.mjs": "446ba7536e5eae03bf7f303ea2417f80e319c8c7053eb59255f54651f27d27a4",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
-        "test/codex-provider.test.mjs": "8e3f97c867459c414d3476476bff2fe76171118e030e1bcf804f44a3fde9bdaf",
+        "test/codex-provider.test.mjs": "c0f92638130f5f590ef811abaafbeed76ad935b1d49d9e194b432150c2f7779c",
         "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
-        "test/http.test.mjs": "fa2f37e5d93439946aaec1b7e6aa4e92a6a74818650a32573d0f2d780d1bded4",
-        "test/fixtures/fake-codex.mjs": "253022fb119541d22e64e6a9b7968840b14ee82cd70a42f1d1ff465ea0f27855",
+        "test/http.test.mjs": "c0b3113a1303ed4dfc4889207914d127ef7d058b9f776f945e69883a16aad30e",
+        "test/fixtures/fake-codex.mjs": "c00c8a5666619a06256fc52e8c74a9a6b2e6095b32e5cf6eecc459c70d1bf05f",
         "src/server/prompt-contracts.mjs": "6ae5ab7c303bb1cf48d8eff524592e80287b03ce456c74a93c72a30ccd4a3652",
-        "src/client/app.js": "632608165853408b692d60d93d8deba23397f87252d40caecd1e16fdb6fe3564",
+        "src/client/app.js": "90478e3317346041b4788b5c4e64542cf26c16ff0fb8c466834b6c0200a6bc17",
         "test/consolidation.test.mjs": "c29cb6ecca6f28811b16370ae1e00d698a47e6e07cc02c36cc96a90cd7a77102",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -9416,12 +9511,19 @@
         "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
         "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
         "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
-        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06"
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06",
+        "src/server/preflight.mjs": "12d319c73af28e4538991cb86acd700cc41571b73ea3fd9912a65350a010411f",
+        "src/server/settings-catalog.mjs": "f0cefd79aad578d6c21963bcece9fcc8445f02711ec723a3b61dc57b4e8965e7",
+        "src/server/schema.sql": "88e008ba94999351fb1ed752cf34d21a4087f0d6456dcfb3cf4e3ac88c990f94",
+        "test/codex-grant.test.mjs": "03d3768018cac00de2693022d6a3851505e4fa75a0be600f91ed35e0301e9667",
+        "test/mysql.integration.test.mjs": "9a07688c3f05b0a46fc2062b68af23c20c918f21d32b253c97bac77d7afd8654",
+        "test/settings-catalog.test.mjs": "0d8489ecfb1f9a6946ddf455193bca143fba3f5317fbf879a1e21eb09d91a4a5",
+        ".github/workflows/ci.yml": "e49aca94617f9bcef4d09e72319b03b7670d39d888967b55264b2e09d54ec1a5"
       },
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "r23-critic-cache-development-plan-2026-09-22T20:52:46.601Z",
+      "invocation_id": "codex-managed-grant-development-plan-2026-09-22T22:12:15Z",
       "outputs": [
         "docs/development-plan.md"
       ],
@@ -9434,9 +9536,9 @@
         "docs/screen-map.md": "40df920688609526f1b3d5a4082a341e15c0932e12192b75a4cf87409eb7b343",
         "docs/wireframes.md": "4f7378790527ef8c9e52de1fa799fd6f14bb343b484b15d06b719d4caaf1d976",
         "docs/design-brief.md": "4157aa753c472a0a9b96492f930d06598e7f3327e62ec16e2c6acd545e15e92d",
-        "docs/architecture.md": "eb25c5b60ecf963fc716a1d5f83b64c0217651c9b67192f8682bda4609ac3065",
-        "docs/dod-evals.md": "a21761977d4d453f724194118fd3eca89a28496162fad802d6c20ab9db44e77a",
-        "docs/qa-checklist.md": "ce5a868e7616c3f0e26f7a2d5ede4045bbcec4e8c5b10637289fbf3dd072e4f4",
+        "docs/architecture.md": "4b0074dfa2c5db5020f7e8e77263707b285063740dc74f20e1b95e88e7d206dd",
+        "docs/dod-evals.md": "53e2f9d6f8339708cf80eb11180cb06d273872de4d759b8cb5d38231ea4d4fe6",
+        "docs/qa-checklist.md": "0c09a8d14a563b373c58e7aa95c057f19a0d89d1a450b8c69913e93b4547d51f",
         "docs/model-settings.md": "678d708c4222371cf065e407ac7780079a435a46518b7810fd93897974007df9",
         "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
@@ -9446,19 +9548,19 @@
         "forge/design/candidates/a/v8/nanoduck.svg": "723d3b4201c5fc6ffa3d30a1e5ed5151f616d436919d15f3642827a16ed7021d",
         "forge/design/candidates/a/v8/nanoduck-original.svg": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528",
         "forge/design/candidates/a/v8/app.js": "d7ac2287ce8496772592d42d134fc530affcb9147f0a7641655a56c6cf83775f",
-        "src/server/config.mjs": "b3039bc097bcc657ad2c6c420904395f0832c8b9c0268bd33cc2cb1e97e87495",
-        "src/server/index.mjs": "23cc92260ab5ca3f11749095f4d23397404ac72aed0d21ad96943e0326be948b",
-        "src/server/store.mjs": "c05a7290046f90f7aca67e3bb73a32da4ff3cfd62109b29f9022144227c81db5",
+        "src/server/config.mjs": "47a1518ea1fb1842be51a5d362b9bd2f0c900a2f4c632c767ec9ae3e0c5958ca",
+        "src/server/index.mjs": "0ef39165c8e734c9e406020f0d7e52460e5b448e500d205c88e11bdfaa40401d",
+        "src/server/store.mjs": "5d2d659c4dc685da4ca0d88a4791cc7a20b733f0867fd48d24a5ce97c76e48f0",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
         "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
-        "src/server/codex-provider.mjs": "ccf55470ef499fe9375b4b3d3e6a5bec59c3ae0808597b8aae67ac4ae31e9604",
+        "src/server/codex-provider.mjs": "446ba7536e5eae03bf7f303ea2417f80e319c8c7053eb59255f54651f27d27a4",
         "src/server/consultation.mjs": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583",
-        "test/codex-provider.test.mjs": "8e3f97c867459c414d3476476bff2fe76171118e030e1bcf804f44a3fde9bdaf",
+        "test/codex-provider.test.mjs": "c0f92638130f5f590ef811abaafbeed76ad935b1d49d9e194b432150c2f7779c",
         "test/consultation.test.mjs": "416ce41e046d2a18bb26a9ead4e696270ddc564ac3fc416a8138920eb5587206",
-        "test/http.test.mjs": "fa2f37e5d93439946aaec1b7e6aa4e92a6a74818650a32573d0f2d780d1bded4",
-        "test/fixtures/fake-codex.mjs": "253022fb119541d22e64e6a9b7968840b14ee82cd70a42f1d1ff465ea0f27855",
+        "test/http.test.mjs": "c0b3113a1303ed4dfc4889207914d127ef7d058b9f776f945e69883a16aad30e",
+        "test/fixtures/fake-codex.mjs": "c00c8a5666619a06256fc52e8c74a9a6b2e6095b32e5cf6eecc459c70d1bf05f",
         "src/server/prompt-contracts.mjs": "6ae5ab7c303bb1cf48d8eff524592e80287b03ce456c74a93c72a30ccd4a3652",
-        "src/client/app.js": "632608165853408b692d60d93d8deba23397f87252d40caecd1e16fdb6fe3564",
+        "src/client/app.js": "90478e3317346041b4788b5c4e64542cf26c16ff0fb8c466834b6c0200a6bc17",
         "test/consolidation.test.mjs": "c29cb6ecca6f28811b16370ae1e00d698a47e6e07cc02c36cc96a90cd7a77102",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -9494,7 +9596,16 @@
         "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
         "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06",
         "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
-        "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5"
+        "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
+        "src/server/settings-catalog.mjs": "f0cefd79aad578d6c21963bcece9fcc8445f02711ec723a3b61dc57b4e8965e7",
+        "src/server/schema.sql": "88e008ba94999351fb1ed752cf34d21a4087f0d6456dcfb3cf4e3ac88c990f94",
+        "src/server/preflight.mjs": "12d319c73af28e4538991cb86acd700cc41571b73ea3fd9912a65350a010411f",
+        "src/server/providers.mjs": "8bf8f11103b720490b7692be59af33e5e11b9f8415144a90de323d3baebaddeb",
+        "test/codex-grant.test.mjs": "03d3768018cac00de2693022d6a3851505e4fa75a0be600f91ed35e0301e9667",
+        "test/settings-catalog.test.mjs": "0d8489ecfb1f9a6946ddf455193bca143fba3f5317fbf879a1e21eb09d91a4a5",
+        "test/mysql.integration.test.mjs": "9a07688c3f05b0a46fc2062b68af23c20c918f21d32b253c97bac77d7afd8654",
+        "test/preflight.test.mjs": "48ffeb7617745035523f8abdf97a9575010ecf3d0e620abb61734c4fb16b1e9b",
+        "test/fixtures/rotating-auth-codex.mjs": "4b4f3f119b2b8f84f0504a72b7ab9da9d9eb4f20128ee61391681abb9f921bb0"
       },
       "consumed_source_fragments": {}
     }
@@ -67824,8 +67935,8 @@
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "a21761977d4d453f724194118fd3eca89a28496162fad802d6c20ab9db44e77a",
-      "docs/qa-checklist.md": "ce5a868e7616c3f0e26f7a2d5ede4045bbcec4e8c5b10637289fbf3dd072e4f4"
+      "docs/dod-evals.md": "53e2f9d6f8339708cf80eb11180cb06d273872de4d759b8cb5d38231ea4d4fe6",
+      "docs/qa-checklist.md": "0c09a8d14a563b373c58e7aa95c057f19a0d89d1a450b8c69913e93b4547d51f"
     },
     "gates": [
       {

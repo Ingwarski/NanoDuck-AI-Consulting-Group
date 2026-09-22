@@ -5,12 +5,61 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
 import { createCodexProvider } from "../src/server/codex-provider.mjs";
+import { createMemoryStore } from "../src/server/store.mjs";
 import { testRuntimeInstructions as initialRuntimeInstructions } from "./fixtures/runtime-instructions.mjs";
 
 const codexModels = [
   { id: "gpt-6-astra", efforts: ["xhigh", "ultra"] },
   { id: "gpt-6-sol", efforts: ["low", "medium", "high", "xhigh", "max", "ultra"] }
 ];
+const syntheticGrant = refreshToken => Buffer.from(JSON.stringify({ auth_mode: "chatgpt", tokens: { access_token: "synthetic-access", refresh_token: refreshToken } }));
+
+test("a refreshed managed grant is saved before its private app-server home is removed", async () => {
+  const store = createMemoryStore();
+  await store.seedCodexGrant(syntheticGrant("synthetic-initial"));
+  const command = fileURLToPath(new URL("./fixtures/rotating-auth-codex.mjs", import.meta.url));
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: command }, store);
+  assert.equal((await provider.inspect()).status, "ready");
+  const current = await store.codexGrant();
+  assert.equal(JSON.parse(current.bytes.toString()).tokens.refresh_token, "synthetic-rotated");
+  assert.equal(current.generation, 2);
+  assert.equal((await provider.inspect()).status, "ready");
+  assert.equal((await store.codexGrant()).generation, 2);
+});
+
+test("a failed grant write-back cannot report Codex ready", async () => {
+  const command = fileURLToPath(new URL("./fixtures/rotating-auth-codex.mjs", import.meta.url));
+  const store = { codexGrant: async () => ({ bytes: syntheticGrant("synthetic-initial"), generation: 1 }), saveCodexGrant: async () => { throw new Error("database_unavailable"); } };
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: command }, store);
+  assert.equal((await provider.inspect()).status, "unavailable");
+});
+
+test("close retries a rotated grant after an earlier write-back exhausted retries", async () => {
+  const command = fileURLToPath(new URL("./fixtures/rotating-auth-codex.mjs", import.meta.url));
+  let attempts = 0;
+  let saved;
+  const store = {
+    codexGrant: async () => ({ bytes: syntheticGrant("synthetic-initial"), generation: 1 }),
+    saveCodexGrant: async bytes => {
+      attempts += 1;
+      if (attempts <= 3) throw new Error("database_unavailable");
+      saved = Buffer.from(bytes);
+      return 2;
+    }
+  };
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: command }, store);
+  assert.equal((await provider.inspect()).status, "unavailable");
+  assert.equal(attempts, 4);
+  assert.equal(JSON.parse(saved.toString()).tokens.refresh_token, "synthetic-rotated");
+});
+
+test("Settings inspection returns busy promptly while a Codex turn holds the grant", async () => {
+  const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: command });
+  const turn = provider.invoke({ assignment: "Wait for a slow ephemeral turn.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: new AbortController().signal });
+  assert.deepEqual(await provider.inspect(), { status: "busy", models: [], catalogCurrent: false });
+  assert.equal((await turn).ok, true);
+});
 
 test("Codex turns use an owned workspace and deny local tool channels", async () => {
   const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
@@ -109,6 +158,56 @@ test("Stop cancels an unresolved ephemeral turn", { timeout: 3_000 }, async () =
     const result = await provider.invoke({ assignment: "Wait until cancelled.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: controller.signal });
     assert.deepEqual(result, { ok: false, code: "cancelled" });
   } finally { clearTimeout(timer); }
+});
+
+test("provider shutdown aborts an active Codex session before leadership can move", { timeout: 3_000 }, async () => {
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url)) });
+  const turn = provider.invoke({ assignment: "Wait until cancelled.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions });
+  await new Promise(resolve => setTimeout(resolve, 100));
+  await provider.close();
+  assert.deepEqual(await turn, { ok: false, code: "cancelled" });
+  assert.equal((await provider.inspect()).status, "unavailable");
+});
+
+test("an active Codex grant stream exposes its freshly inspected catalog without opening another child", { timeout: 3_000 }, async () => {
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url)) });
+  const turn = provider.invoke({ assignment: "Wait until cancelled.", model: "gpt-6-sol", effort: "high", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions });
+  let capability;
+  for (let attempt = 0; attempt < 40; attempt += 1) {
+    capability = await provider.inspect();
+    if (capability.catalogCurrent) break;
+    await new Promise(resolve => setTimeout(resolve, 25));
+  }
+  assert.equal(capability?.status, "busy");
+  assert.equal(capability?.catalogCurrent, true);
+  assert.ok(capability.models.some(item => item.id === "gpt-6-sol" && item.efforts.includes("max")));
+  await provider.close();
+  assert.equal((await turn).code, "cancelled");
+});
+
+test("busy Settings checks the active child again and falls back when that catalog fails", { timeout: 3_000 }, async () => {
+  const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
+  for (const [assignment, secondStatus] of [["Wait with catalog changes.", "changed"], ["Wait with catalog failure.", "fallback"]]) {
+    const provider = createCodexProvider({ readyForProvider: true, codexCommand: command });
+    const turn = provider.invoke({ assignment, model: "gpt-6-sol", effort: "high", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions });
+    let first;
+    for (let attempt = 0; attempt < 40; attempt += 1) {
+      first = await provider.inspect();
+      if (first.catalogCurrent) break;
+      await new Promise(resolve => setTimeout(resolve, 25));
+    }
+    assert.equal(first?.catalogCurrent, true);
+    assert.ok(first.models.some(item => item.id === "gpt-6-sol"));
+    const second = await provider.inspect();
+    if (secondStatus === "changed") {
+      assert.equal(second.catalogCurrent, true);
+      assert.deepEqual(second.models.map(item => item.id), ["gpt-6-astra"]);
+    } else {
+      assert.deepEqual(second, { status: "busy", models: [], catalogCurrent: false });
+    }
+    await provider.close();
+    assert.equal((await turn).code, "cancelled");
+  }
 });
 
 test("provider RPC failures retain a safe category and failed operation without logging the raw response", async () => {

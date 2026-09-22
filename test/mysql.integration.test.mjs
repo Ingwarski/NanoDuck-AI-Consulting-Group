@@ -10,6 +10,46 @@ import { initializeInstructions } from "../src/server/instruction-bootstrap.mjs"
 import { sealRecoverySnapshot, openRecoveryEnvelope } from "../src/server/recovery.mjs";
 
 const testUrl = process.env.NANODUCK_MYSQL_TEST_URL;
+test("real MySQL: encrypted Codex grant survives restart and stale writes are fenced", { skip: !testUrl, timeout: 20_000 }, async () => {
+  const target = new URL(testUrl);
+  assert.equal(target.hostname, "127.0.0.1", "Only a disposable loopback test service is allowed");
+  assert.ok(target.pathname === "" || target.pathname === "/", "Tests create their own databases; never pass an application DB");
+  const admin = await mysql.createConnection(testUrl);
+  const name = `nanoduck_grant_test_${randomBytes(8).toString("hex")}`;
+  const url = new URL(testUrl); url.pathname = `/${name}`;
+  const driver = { createPool: options => mysql.createPool({ ...options, ssl: undefined }) };
+  const stores = [];
+  const grant = refresh => Buffer.from(JSON.stringify({ auth_mode: "chatgpt", tokens: { access_token: "synthetic-access", refresh_token: refresh } }));
+  try {
+    await admin.query(`CREATE DATABASE ${name}`);
+    await admin.query(`USE ${name}`);
+    const schema = await readFile(new URL("../src/server/schema.sql", import.meta.url), "utf8");
+    for (const statement of schema.split(/;\s*$/mu).map(value => value.trim()).filter(Boolean)) await admin.query(statement);
+    const first = await createMySqlStore(url.toString(), Buffer.alloc(32, 8), undefined, driver); stores.push(first);
+    assert.equal(await first.acquireLeadership(), true);
+    await first.seedCodexGrant(grant("synthetic-initial"));
+    const initial = await first.codexGrant();
+    const rotated = grant("synthetic-rotated");
+    assert.equal(await first.saveCodexGrant(rotated, initial.generation), 2);
+    const [rows] = await admin.query("SELECT ciphertext FROM nanoduck_provider_grants WHERE provider_id='codex'");
+    assert.equal(rows.length, 1);
+    assert.equal(rows[0].ciphertext.includes(Buffer.from("synthetic-rotated")), false);
+    await first.close();
+    const second = await createMySqlStore(url.toString(), Buffer.alloc(32, 8), undefined, driver); stores.push(second);
+    assert.equal(await second.acquireLeadership(), true);
+    await second.seedCodexGrant(grant("synthetic-initial"));
+    const current = await second.codexGrant();
+    assert.equal(current.generation, 2);
+    assert.deepEqual(current.bytes, rotated);
+    await assert.rejects(second.saveCodexGrant(grant("synthetic-stale"), 1), /codex_grant_conflict/u);
+    const duplicate = await createMySqlStore(url.toString(), Buffer.alloc(32, 8), undefined, driver); stores.push(duplicate);
+    await assert.rejects(duplicate.codexGrant(), /codex_grant_leadership_required/u);
+  } finally {
+    await Promise.allSettled(stores.map(store => store.close()));
+    await admin.query(`DROP DATABASE IF EXISTS ${name}`);
+    await admin.end();
+  }
+});
 test("real MySQL: idle leadership survives the session timeout and remains exclusive until close", { skip: !testUrl, timeout: 20_000 }, async () => {
   const target = new URL(testUrl);
   assert.equal(target.hostname, "127.0.0.1", "Only a disposable loopback test service is allowed");

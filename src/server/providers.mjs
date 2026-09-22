@@ -1,9 +1,10 @@
 import { createClaudeProvider } from "./claude-provider.mjs";
 import { createCodexProvider } from "./codex-provider.mjs";
 
-export function createProviders(config) {
-  const codex = createCodexProvider(config); const claude = createClaudeProvider(config);
+export function createProviders(config, store = undefined) {
+  const codex = createCodexProvider(config, store); const claude = createClaudeProvider(config);
   return Object.freeze({
+    close: () => codex.close(),
     async inspect() {
       const [codexCapability, claudeCapability] = await Promise.all([codex.inspect(), claude.inspect()]);
       return Object.freeze({ codex: codexCapability, claude_code: claudeCapability });

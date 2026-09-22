@@ -5,6 +5,9 @@ const send = value => process.stdout.write(`${JSON.stringify({ jsonrpc: "2.0", .
 const expectedFeatures = ["shell_tool", "unified_exec", "view_image", "shell_snapshot", "apps", "plugins", "hooks", "memories", "browser_use", "browser_use_external", "browser_use_full_cdp_access", "computer_use", "image_generation", "workspace_dependencies", "code_mode", "code_mode_host", "multi_agent", "multi_agent_v2", "skill_search", "tool_suggest", "request_permissions_tool"];
 const modelEfforts = Object.freeze({ "gpt-6-astra": ["xhigh", "ultra"], "gpt-6-sol": ["low", "medium", "high", "xhigh", "max", "ultra"] });
 let activeModel;
+let changingCatalog = false;
+let failingCatalog = false;
+let catalogReads = 0;
 const replyFor = prompt => {
   let answer = "A bounded answer.";
   if (prompt.includes("Return a Ukrainian relative-pronoun example")) return 'Уточніть, які умови потрібно виконати.\n<nanoduck-source>{"title":"Курси, які доступні","url":"https://example.com/courses","claim":"Вимоги, які підтверджує програма."}</nanoduck-source>';
@@ -33,11 +36,18 @@ createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line =
     return safe ? send({ id: request.id, result: { model: request.params.model, thread: { id: "isolated-thread", model: request.params.model } } }) : send({ id: request.id, error: { message: "unsafe_thread" } });
   }
   if (request.method === "account/read") return send({ id: request.id, result: { account: { type: "chatgpt" } } });
-  if (request.method === "model/list") return send({ id: request.id, result: { data: Object.entries(modelEfforts).map(([model, efforts]) => ({ id: model, model, supportedReasoningEfforts: efforts.map(reasoningEffort => ({ reasoningEffort })) })), nextCursor: null } });
+  if (request.method === "model/list") {
+    catalogReads += 1;
+    if (failingCatalog && catalogReads > 1) return send({ id: request.id, error: { code: -32603, message: "catalog temporarily unavailable" } });
+    const entries = changingCatalog && catalogReads > 1 ? [["gpt-6-astra", modelEfforts["gpt-6-astra"]]] : Object.entries(modelEfforts);
+    return send({ id: request.id, result: { data: entries.map(([model, efforts]) => ({ id: model, model, supportedReasoningEfforts: efforts.map(reasoningEffort => ({ reasoningEffort })) })), nextCursor: null } });
+  }
   if (request.method === "account/rateLimits/read") return send({ id: request.id, result: { rateLimits: { rateLimitReachedType: null } } });
   if (request.method === "turn/start") {
     if (request.params?.model !== activeModel || !modelEfforts[activeModel]?.includes(request.params?.effort)) return send({ id: request.id, error: { message: "unsupported model or reasoning effort" } });
     const prompt = request.params?.input?.[0]?.text ?? "";
+    changingCatalog = prompt.includes("Wait with catalog changes");
+    failingCatalog = prompt.includes("Wait with catalog failure");
     if (prompt.includes("Wait for the notification")) {
       send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
       return setTimeout(() => send({ method: "turn/completed", params: { threadId: "isolated-thread", turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: replyFor(prompt) }] } } }), 10);
@@ -66,7 +76,7 @@ createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line =
       send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
       return setTimeout(() => process.exit(0), 10);
     }
-    if (prompt.includes("Wait until cancelled")) return send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
+    if (prompt.includes("Wait until cancelled") || changingCatalog || failingCatalog) return send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
     return send({ id: request.id, result: { turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: replyFor(prompt) }] } } });
   }
   if (request.method === "thread/read") {

@@ -14,15 +14,17 @@ import { attachmentExtension, readImageAttachment } from "./attachments.mjs";
 import { exportConversationRtf } from "./conversation-export.mjs";
 import { messageError, parseConversationId, parseConversationIds, parseMessage, parseSettings } from "./validation.mjs";
 import { loadBrowserAssets } from "./browser-assets.mjs";
+import { capabilitiesForSettings, changesSavedCodexTuple } from "./settings-catalog.mjs";
 
 const config = loadConfig();
 const store = config.databaseUrl ? await createMySqlStore(config.databaseUrl, config.dataKey, config.databaseSslCaPath) : createMemoryStore();
 let leadershipWasLost = false;
 let stopAfterLeadershipLoss;
+let stopProviderAfterLeadershipLoss;
 store.onLeadershipLost?.((code, errno) => {
   leadershipWasLost = true;
   process.stderr.write(`NanoDuck database leadership lost (${code}${errno === undefined ? "" : `, errno=${errno}`}); shutting down.\n`);
-  process.exitCode = 1; stopAfterLeadershipLoss?.();
+  process.exitCode = 1; stopProviderAfterLeadershipLoss?.(); stopAfterLeadershipLoss?.();
 });
 store.onLeadershipAcquired?.(({ idleTimeoutSeconds, heartbeatIntervalMs }) => {
   process.stdout.write(`NanoDuck database leadership acquired (session idle timeout=${idleTimeoutSeconds}s, heartbeat=${heartbeatIntervalMs}ms).\n`);
@@ -34,9 +36,17 @@ try {
     const upgraded = upgradeRuntimeInstructionMarkdown(markdown);
     return upgraded === markdown ? undefined : parseRuntimeInstructions(upgraded);
   });
+  if (config.readyForProvider) {
+    try { await store.seedCodexGrant(config.codexAuthPath ? await readFile(config.codexAuthPath) : config.codexAuthBytes); }
+    catch (error) {
+      if (error?.message !== "codex_grant_invalid") throw error;
+      process.stderr.write("NanoDuck Codex bootstrap grant is invalid; any previously stored managed grant remains in use.\n");
+    }
+  }
 } catch (error) { await store.close?.(); throw error; }
 const auth = createAuth({ config, store });
-const providers = createProviders(config);
+const providers = createProviders(config, store);
+stopProviderAfterLeadershipLoss = () => { void providers.close(); };
 const consultation = createConsultationService({ store, provider: providers });
 const publicDirectory = fileURLToPath(new URL("../../public/", import.meta.url));
 const clientDirectory = fileURLToPath(new URL("../client/", import.meta.url));
@@ -108,8 +118,8 @@ const handler = async (request, response) => {
       const session = await auth.consent(request); return session ? send(response, 200, { consented: true }) : send(response, 403, { error: "consent_denied" });
     }
     if (request.method === "POST" && url.pathname === "/api/logout") { if (!await auth.signOut(request)) return send(response, 403, { error: "logout_denied" }); return empty(response, 204, { "set-cookie": auth.clearSessionCookie() }); }
-    if (request.method === "GET" && url.pathname === "/api/settings") { if (!await protectedSession(request, response)) return; const [capabilities, runtimeInstructions] = await Promise.all([providers.inspect(), activeRuntimeInstructions()]); return send(response, 200, { settings: await store.settings(), runtimeInstructions, provider: capabilities.codex.status, catalog: capabilities.codex.models, criticProviders: capabilities }); }
-    if (request.method === "PUT" && url.pathname === "/api/settings") { if (!await protectedSession(request, response, { csrf: true })) return; const capabilities = await providers.inspect(); const next = parseSettings(await json(request), capabilities); return next ? send(response, 200, { settings: await store.saveSettings(next) }) : send(response, 422, { error: "invalid_settings" }); }
+    if (request.method === "GET" && url.pathname === "/api/settings") { if (!await protectedSession(request, response)) return; const [inspected, runtimeInstructions, settings] = await Promise.all([providers.inspect(), activeRuntimeInstructions(), store.settings()]); const capabilities = capabilitiesForSettings(inspected, settings); return send(response, 200, { settings, runtimeInstructions, provider: capabilities.codex.status, catalog: capabilities.codex.models, criticProviders: capabilities }); }
+    if (request.method === "PUT" && url.pathname === "/api/settings") { if (!await protectedSession(request, response, { csrf: true })) return; const [inspected, current] = await Promise.all([providers.inspect(), store.settings()]); const capabilities = capabilitiesForSettings(inspected, current); const next = parseSettings(await json(request), capabilities); return next && !(capabilities.codex.savedOnly && changesSavedCodexTuple(next, current)) ? send(response, 200, { settings: await store.saveSettings(next) }) : send(response, 422, { error: "invalid_settings" }); }
     if (request.method === "GET" && url.pathname === "/api/runtime-instructions") {
       if (!await protectedSession(request, response)) return;
       const [runtimeInstructions, history] = await Promise.all([activeRuntimeInstructions(), store.listRuntimeInstructionHistory()]);
@@ -225,6 +235,7 @@ const close = () => shutdown ??= (async () => {
   server.closeIdleConnections();
   const deadline = setTimeout(() => server.closeAllConnections(), 10_000); deadline.unref();
   try {
+    await providers.close();
     await consultation.close();
     await drained;
     await Promise.allSettled([...requests]);

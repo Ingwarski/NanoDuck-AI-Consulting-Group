@@ -301,6 +301,7 @@ const criticProviderStatus = provider => {
   if (status === "ready") return `${criticProviderName(provider)} is ready for this runtime.`;
   if (status === "auth_required") return `${criticProviderName(provider)} needs its managed sign-in renewed.`;
   if (status === "quota_blocked") return `${criticProviderName(provider)} has reached its current limit.`;
+  if (status === "busy") return `${criticProviderName(provider)} is in use; available model choices may be limited until this turn finishes.`;
   return `${criticProviderName(provider)} is unavailable on this runtime.`;
 };
 const replaceOptions = (select, options, selected, preserveMissing = false) => {
@@ -327,8 +328,8 @@ function renderHeadControls(model, effort) {
   const models = state.criticProviders?.codex?.models ?? [];
   replaceOptions($("#head-model"), models.map(codexModelOption), model, true);
   renderHeadReasoning(effort);
-  $("#head-model").disabled = models.length === 0;
-  $("#head-reasoning").disabled = models.length === 0;
+  $("#head-model").disabled = models.length === 0 || state.criticProviders?.codex?.savedOnly === true;
+  $("#head-reasoning").disabled = models.length === 0 || state.criticProviders?.codex?.savedOnly === true;
 }
 function ensureCriticProviderControl() {
   let select = $("#critic-provider");
@@ -364,13 +365,14 @@ function renderCriticControls(modelChanged = false) {
   const effortLabel = id => provider === "claude_code" ? ({ low: "Low", medium: "Medium (Default)", high: "High", extra: "Extra", max: "Max" }[id] ?? id) : id;
   replaceReasoningOptions($("#critic-reasoning"), current?.efforts ?? [], selectedEffort, modelChanged, effortLabel);
   const preview = claudeUnavailable && !capability.models?.length;
-  $("#critic-model").disabled = models.length === 0; $("#critic-reasoning").disabled = models.length === 0;
+  $("#critic-model").disabled = models.length === 0 || provider === "codex" && capability.savedOnly === true;
+  $("#critic-reasoning").disabled = models.length === 0 || provider === "codex" && capability.savedOnly === true;
   const availability = $("#critic-availability");
   if (availability) {
     availability.hidden = !claudeUnavailable;
     availability.textContent = claudeUnavailable ? `Claude Code is not ready on this runtime. ${preview ? "Opus 5.5 and its effort choices are a preview. " : ""}A working Claude Code installation and managed sign-in are required before saving or using it for Critic.` : "";
   }
-  $("#settings-form button[type=submit]").disabled = models.length === 0 || claudeUnavailable;
+  $("#settings-form button[type=submit]").disabled = (state.criticProviders?.codex?.models?.length ?? 0) === 0 || claudeUnavailable || models.length === 0;
   $("#settings-status").textContent = `${criticProviderStatus("codex")} ${criticProviderStatus("claude_code")}`;
 }
 async function loadSettings() {
