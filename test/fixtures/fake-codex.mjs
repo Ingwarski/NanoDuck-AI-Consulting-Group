@@ -16,7 +16,7 @@ const replyFor = prompt => {
   if (prompt.includes("Return only a prohibited body URL")) return "https://example.su/claim";
   if (prompt.includes("List each distinct requested deliverable")) answer = "1. Recommend a positioning test. 2. Cite relevant current evidence.";
   else if (prompt.includes("Return only [TEAM: Role, Role]")) answer = "[TEAM: Strategy Consultant, Finance Consultant]";
-  else if (prompt.includes("return [RESEARCH: NONE]")) answer = prompt.includes("current market evidence") ? "buyer evidence for offer positioning" : "[RESEARCH: NONE]";
+  else if (prompt.includes("return [RESEARCH: NONE]")) answer = prompt.includes("synthetic delayed public evidence") ? "synthetic delayed public evidence" : prompt.includes("current market evidence") ? "buyer evidence for offer positioning" : "[RESEARCH: NONE]";
   else if (prompt.includes("Give this recipient a distinct, considered assignment")) answer = "Assess the buyer evidence and name the one test that would change the decision.";
   else if (prompt.includes("Return exactly [REVIEW: CONTINUE] or [REVIEW: CLOSE]")) answer = "[REVIEW: CLOSE]";
   else if (prompt.includes("Answer the Head's task")) answer = "The position is viable only if a defined buyer has an urgent problem; test that through targeted interviews before committing.";
@@ -71,6 +71,10 @@ createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line =
     if (prompt.includes("Complete before the start response")) {
       send({ method: "turn/completed", params: { threadId: "isolated-thread", turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: replyFor(prompt) }] } } });
       return setTimeout(() => send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } }), 10);
+    }
+    if (prompt.includes("synthetic delayed public evidence") && prompt.includes("Use live public web research")) {
+      send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
+      return setTimeout(() => send({ method: "turn/completed", params: { threadId: "isolated-thread", turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: replyFor(prompt) }] } } }), 1_000);
     }
     if (prompt.includes("Fail the turn RPC")) return send({ id: request.id, error: { code: -32601, message: "Method is unsupported; do not expose authentication material." } });
     if (prompt.includes("Fail after a completed item")) {

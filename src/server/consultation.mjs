@@ -16,6 +16,8 @@ const roleSettings = snapshot => Object.freeze({
 });
 
 const providerName = provider => provider === "claude_code" ? "Claude Code" : "Codex";
+const safeProviderCodes = new Set(["auth_required", "quota_blocked", "incompatible", "context_too_large", "subscription_unavailable", "method_unavailable", "provider_unavailable", "provider_timeout", "provider_contract", "language_policy", "output_policy", "empty_response", "cancelled"]);
+const safeProviderCode = code => safeProviderCodes.has(code) ? code : "provider_unavailable";
 const providerFailureMessage = (code, provider) => ({
   auth_required: `The selected ${providerName(provider)} route needs its subscription sign-in renewed. Your question remains saved.`,
   quota_blocked: `The selected ${providerName(provider)} route has reached its current usage limit. Your question remains saved.`,
@@ -90,6 +92,19 @@ export function createConsultationService({ store, provider }) {
   let closing = false;
   const run = async (conversationId, runState) => {
     const controller = new AbortController(); controllers.set(conversationId, controller);
+    const timedProviderCall = async input => {
+      const started = performance.now();
+      const outputKind = input.outputKind;
+      process.stdout.write(`${JSON.stringify({ event: "nanoduck.consultation.provider_started", outputKind, timestamp: new Date().toISOString() })}\n`);
+      try {
+        const result = await provider.invoke(input);
+        process.stdout.write(`${JSON.stringify({ event: "nanoduck.consultation.provider_finished", outputKind, timestamp: new Date().toISOString(), durationMs: Math.round(performance.now() - started), outcome: result?.ok ? "completed" : safeProviderCode(result?.code) })}\n`);
+        return result;
+      } catch (error) {
+        process.stdout.write(`${JSON.stringify({ event: "nanoduck.consultation.provider_finished", outputKind, timestamp: new Date().toISOString(), durationMs: Math.round(performance.now() - started), outcome: controller.signal.aborted ? "cancelled" : safeProviderCode(error?.message) })}\n`);
+        throw error;
+      }
+    };
     const current = () => store.events(conversationId).then(events => {
       // Recovery notices stay in the saved transcript, but never count as a
       // completed consultant step or become evidence on a resumed attempt.
@@ -97,7 +112,12 @@ export function createConsultationService({ store, provider }) {
       const ownerMessages = confirmed.filter(event => event.role === "owner");
       const researchEntries = [...new Map([snapshot?.publicResearch, ...(snapshot?.followupResearch ?? [])].filter(item => item?.query).map(item => [item.query, item])).values()];
       const researchContext = researchEntries.map(item => `Public research query: ${item.query}\n${item.body}\n${item.sources.map(source => `${source.title}: ${source.url}\nSupported claim: ${source.claim}`).join("\n\n")}`).join("\n\n");
-      return { events: confirmed, owner: ownerMessages.map(event => event.body).join("\n\n"), sessionLanguage: responseLanguage(ownerMessages[0]?.body ?? ""), discussion: `${discussion(confirmed)}${snapshot?.ownerDeliverables ? `\n\nHead's requested-output ledger:\n${snapshot.ownerDeliverables}` : ""}${researchContext ? `\n\n${researchContext}` : ""}${snapshot?.researchUnavailable ? "\n\nPublic research was unavailable because no safe public query could be formed; do not claim it was performed." : ""}` };
+      const attempts = [snapshot?.researchUnavailable ? { status: snapshot.researchUnavailableReason === "unsafe_query" ? "unsafe" : snapshot.researchUnavailableReason ? "unavailable" : "unknown" } : undefined, ...(snapshot?.followupResearch ?? [])].filter(Boolean);
+      const unsafe = attempts.some(item => item.status === "unsafe");
+      const failed = attempts.some(item => item.status === "unavailable");
+      const unknown = attempts.some(item => item.status === "unknown");
+      const researchLimit = `${unsafe ? "\n\nA public research attempt was withheld because its proposed query was unsafe; do not claim that attempt was performed or invent sources." : ""}${failed ? "\n\nA public research attempt did not complete on the selected provider; earlier valid sources remain available, but this attempt verified nothing new. Do not claim it was performed or invent sources." : ""}${unknown ? "\n\nA prior public research attempt was unavailable or withheld; its cause was not recorded. Do not claim that attempt verified a source." : ""}`;
+      return { events: confirmed, owner: ownerMessages.map(event => event.body).join("\n\n"), sessionLanguage: responseLanguage(ownerMessages[0]?.body ?? ""), discussion: `${discussion(confirmed)}${snapshot?.ownerDeliverables ? `\n\nHead's requested-output ledger:\n${snapshot.ownerDeliverables}` : ""}${researchContext ? `\n\n${researchContext}` : ""}${researchLimit}` };
     });
     const isCurrent = async () => {
       const stored = await store.run(conversationId);
@@ -113,8 +133,8 @@ export function createConsultationService({ store, provider }) {
       const evidence = await current();
       const input = { provider: step.provider, role: step.role, recipient: step.recipient, assignment: step.assignment, model: step.model, effort: step.effort, evidence, research: step.provider !== "claude_code" && step.research, outputKind: step.outputKind, runtimeInstructions: step.runtimeInstructions, signal: controller.signal };
       failedProvider = input.provider ?? "codex";
-      let result = await provider.invoke(input);
-      if (!result.ok && (result.code === "language_policy" || result.code === "output_policy") && await isCurrent()) result = await provider.invoke({ ...input, assignment: policyCorrection(step.assignment), evidence: await current() });
+      let result = await timedProviderCall(input);
+      if (!result.ok && (result.code === "language_policy" || result.code === "output_policy") && await isCurrent()) result = await timedProviderCall({ ...input, assignment: policyCorrection(step.assignment), evidence: await current() });
       return result;
     };
     const invoke = async (step, transform = undefined) => {
@@ -150,7 +170,7 @@ export function createConsultationService({ store, provider }) {
       if (new Set(committedTaskRoles).size !== committedTaskRoles.length || committedTaskRoles.length > 5 || (savedCount && committedTaskRoles.length > savedCount)) throw new Error("invalid_run_state");
       const selectTeam = async prefix => {
         if (!await isCurrent()) return undefined;
-        const result = await provider.invoke({
+        const result = await timedProviderCall({
           provider: settings.head.provider,
           assignment: `${prompts.autoTeam({ candidates: specialistRoles, language, count: snapshot.specialistCount })}${prefix.length ? `\nResume the already confirmed roster prefix exactly in this order: ${prefix.join(", ")}. Select only the remaining roles; do not repeat or replace a committed task.` : ""}`,
           model: settings.head.model,
@@ -175,29 +195,49 @@ export function createConsultationService({ store, provider }) {
         await persistSnapshot({ resolvedTeam: team, resolvedSpecialistCount: team.length });
       }
       const researchStep = async (followupRound = undefined) => {
-        const queryResult = await invokeProvider({ provider: settings.head.provider, model: settings.head.model, effort: settings.head.effort, research: false, outputKind: "research_query", runtimeInstructions: instructions, assignment: `You are Head Consultant. ${followupRound === undefined ? "Decide whether the owner's requested outputs require current public facts or direct external sources." : "Review the Critic's specific evidence gap after this team round and decide whether a new public source is needed for the next review."} If not, return [RESEARCH: NONE]. Otherwise return only a minimal English or Ukrainian public web query that can find the needed source. Do not include private contacts, personal identifiers, credentials, private business details or the full owner request. Public article URLs without query parameters may be included.` });
-        if (!queryResult.ok) throw new Error(queryResult.code ?? "provider_unavailable");
-        if (containsInternalToolTrace(queryResult.body)) throw new Error("provider_contract");
-        const query = queryResult.body.trim() === "[RESEARCH: NONE]" ? undefined : publicQuery(queryResult.body);
-        let item = { status: queryResult.body.trim() === "[RESEARCH: NONE]" ? "none" : "unsafe" };
+        if (!await isCurrent()) return false;
+        const researchCall = async (input, isolated = false) => {
+          try { return await (isolated ? timedProviderCall(input) : invokeProvider(input)); }
+          catch (error) {
+            if (error?.message === "provider_contract" || error?.message === "invalid_run_state") throw error;
+            return { ok: false, code: controller.signal.aborted ? "cancelled" : safeProviderCode(error?.message) };
+          }
+        };
+        const queryResult = await researchCall({ provider: settings.head.provider, model: settings.head.model, effort: settings.head.effort, research: false, outputKind: "research_query", runtimeInstructions: instructions, assignment: `You are Head Consultant. ${followupRound === undefined ? "Decide whether the owner's requested outputs require current public facts or direct external sources." : "Review the Critic's specific evidence gap after this team round and decide whether a new public source is needed for the next review."} If not, return [RESEARCH: NONE]. Otherwise return only a minimal English or Ukrainian public web query that can find the needed source. Do not include private contacts, personal identifiers, credentials, private business details or the full owner request. Public article URLs without query parameters may be included.` });
+        if (!await isCurrent()) return false;
+        if (queryResult.code === "cancelled") throw new Error("cancelled");
+        if (queryResult.code === "provider_contract") throw new Error("provider_contract");
+        if (queryResult.ok && (typeof queryResult.body !== "string" || !queryResult.body.trim() || containsInternalToolTrace(queryResult.body))) throw new Error("provider_contract");
+        const noResearch = queryResult.ok && queryResult.body.trim() === "[RESEARCH: NONE]";
+        const query = queryResult.ok && !noResearch ? publicQuery(queryResult.body) : undefined;
+        let item = !queryResult.ok
+          ? { status: "unavailable", reason: safeProviderCode(queryResult.code) }
+          : { status: noResearch ? "none" : "unsafe" };
         if (query) {
-          const prior = [snapshot.publicResearch, ...(snapshot.followupResearch ?? [])].find(entry => entry?.query === query);
+          const prior = [snapshot.publicResearch, ...(snapshot.followupResearch ?? [])].find(entry => entry?.query === query && !entry.status);
           if (prior) item = prior;
           else {
-            const publicResult = await provider.invoke({ provider: settings.head.provider, model: settings.head.model, effort: settings.head.effort, research: true, outputKind: "public_research", runtimeInstructions: publicInstructions, assignment: "Research this public topic using live web search. Report concrete findings with direct source URLs and dates when available. If you cannot verify a claim, say so. Do not infer private owner context.", evidence: { owner: query, discussion: "" }, signal: controller.signal });
-            if (!publicResult.ok) throw new Error(publicResult.code ?? "provider_unavailable");
-            if (containsInternalToolTrace(publicResult.body)) throw new Error("provider_contract");
-            item = { query, body: publicResult.body, sources: publicResult.sources ?? [] };
+            const publicResult = await researchCall({ provider: settings.head.provider, model: settings.head.model, effort: settings.head.effort, research: true, outputKind: "public_research", runtimeInstructions: publicInstructions, assignment: "Research this public topic using live web search. Report concrete findings with direct source URLs and dates when available. If you cannot verify a claim, say so. Do not infer private owner context.", evidence: { owner: query, discussion: "" }, signal: controller.signal }, true);
+            if (!await isCurrent()) return false;
+            if (publicResult.code === "cancelled") throw new Error("cancelled");
+            if (publicResult.code === "provider_contract") throw new Error("provider_contract");
+            if (!publicResult.ok) item = { status: "unavailable", reason: safeProviderCode(publicResult.code) };
+            else {
+              if (typeof publicResult.body !== "string" || !publicResult.body.trim() || containsInternalToolTrace(publicResult.body) || containsSecretLikeContent(publicResult.body)) throw new Error("provider_contract");
+              item = { query, body: publicResult.body, sources: publicResult.sources ?? [] };
+            }
           }
         }
-        if (followupRound === undefined) await persistSnapshot({ researchAttempted: true, ...(item.query ? { publicResearch: item } : { researchUnavailable: item.status === "unsafe" }) });
+        const unavailable = item.status === "unsafe" || item.status === "unavailable";
+        const limitation = unavailable ? { researchUnavailableReason: item.status === "unsafe" ? "unsafe_query" : item.reason } : {};
+        if (followupRound === undefined) await persistSnapshot({ researchAttempted: true, ...(item.query ? { publicResearch: item } : { researchUnavailable: unavailable, ...limitation }) });
         else {
           const followupResearch = [...(snapshot.followupResearch ?? [])];
           followupResearch[followupRound - 1] = item;
-          await persistSnapshot({ followupResearch, researchUnavailable: snapshot.researchUnavailable || item.status === "unsafe" });
+          await persistSnapshot({ followupResearch, researchUnavailable: snapshot.researchUnavailable || unavailable, ...limitation });
         }
+        return true;
       };
-      if (!snapshot.researchAttempted) await researchStep();
       const headTasks = team.map(specialist => ({
           role: "Head Consultant",
           recipient: specialist,
@@ -212,9 +252,13 @@ export function createConsultationService({ store, provider }) {
       for (let index = 0; index < headTasks.length; index += 1) {
         const existing = confirmed[index];
         if (existing) { if (!matches(existing, headTasks[index])) throw new Error("invalid_run_state"); }
-        else await invoke(headTasks[index], body => ({ body, ...(index === 0 && snapshot.publicResearch?.sources?.length ? { sources: snapshot.publicResearch.sources } : {}) }));
+        else await invoke(headTasks[index]);
       }
+      if (!await isCurrent()) return;
+      if (!snapshot.researchAttempted && !await researchStep()) return;
       confirmed = (await current()).events.slice(ownerIndex + 1);
+      const taskSourceUrls = new Set(confirmed.slice(0, headTasks.length).flatMap(event => (event.sources ?? []).map(source => source.url)));
+      const initialSources = (snapshot.publicResearch?.sources ?? []).filter(source => !taskSourceUrls.has(source.url));
       const positions = team.map((specialist, index) => {
         const assignedTask = confirmed[index]?.body;
         if (!assignedTask) throw new Error("invalid_run_state");
@@ -235,7 +279,7 @@ export function createConsultationService({ store, provider }) {
         const positionIndex = headTasks.length + index;
         const existing = confirmed[positionIndex];
         if (existing) { if (!matches(existing, positions[index])) throw new Error("invalid_run_state"); }
-        else await invoke(positions[index]);
+        else await invoke(positions[index], body => ({ body, ...(index === 0 && initialSources.length ? { sources: initialSources } : {}) }));
       }
       confirmed = (await current()).events.slice(ownerIndex + 1);
       let cursor = initial.length;
@@ -271,7 +315,7 @@ export function createConsultationService({ store, provider }) {
           await persistSnapshot({ headReviewDecisions: decisions, autoDepthCompleted: exchange });
         }
         if (decision === "CONTINUE" && exchange < maximumDepth && !closingStarted) {
-          if (!nextRoundStarted && !snapshot.followupResearch?.[exchange - 1]) await researchStep(exchange);
+          if (!nextRoundStarted && !snapshot.followupResearch?.[exchange - 1] && !await researchStep(exchange)) return;
           continue;
         }
         {

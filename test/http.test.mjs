@@ -268,8 +268,11 @@ test("the authenticated discussion preserves a Critic exchange with both special
       CLAUDE_CODE_COMMAND: claudeCommand,
       CLAUDE_CODE_OAUTH_TOKEN: "managed-test-token"
     },
-    stdio: "ignore"
+    stdio: ["ignore", "pipe", "pipe"]
   });
+  let safeStepLog = "";
+  child.stdout.on("data", chunk => { safeStepLog += chunk.toString(); });
+  child.stderr.on("data", () => {});
   const origin = `http://127.0.0.1:${port}`;
   try {
     await waitFor(async () => {
@@ -294,9 +297,14 @@ test("the authenticated discussion preserves a Critic exchange with both special
     const accepted = await fetch(`${origin}/api/conversations/${conversationId}/messages`, {
       method: "POST",
       headers,
-      body: JSON.stringify({ body: "What is the current market evidence for positioning this offer?", clientRequestId: "provider-exchange-0001" })
+      body: JSON.stringify({ body: "What is the current market evidence for positioning this offer? Use synthetic delayed public evidence.", clientRequestId: "provider-exchange-0001" })
     });
     assert.equal(accepted.status, 202);
+    await waitFor(() => safeStepLog.includes('"event":"nanoduck.consultation.provider_started","outputKind":"public_research"'));
+    const duringResearch = await (await fetch(`${origin}/api/conversations/${conversationId}`, { headers: { cookie } })).json();
+    assert.equal(duringResearch.run.status, "active");
+    assert.deepEqual(duringResearch.events.map(event => [event.role, event.recipient]), [["owner", null], ["Head Consultant", "Strategy Consultant"], ["Head Consultant", "Finance Consultant"]]);
+    assert.equal(duringResearch.events[1].sources.length, 0);
     const detail = await waitFor(async () => {
       const response = await fetch(`${origin}/api/conversations/${conversationId}`, { headers: { cookie } });
       const value = await response.json();
@@ -318,8 +326,8 @@ test("the authenticated discussion preserves a Critic exchange with both special
     assert.match(detail.events.at(-1).body, /^## Consolidated advice\n\n/u);
     assert.match(detail.events.at(-1).body, /measure interview acceptance/u);
     assert.equal(detail.events.every(event => !event.body.includes("nanoduck-source")), true);
-    assert.deepEqual(detail.events[1].sources.map(source => ({ title: source.title, url: source.url, claim: source.claim, publishedAt: source.publishedAt })), [{ title: "Buyer evidence", url: "https://example.com/buyer-evidence", claim: "Buyer willingness must be measured before positioning.", publishedAt: "2026-09-01" }]);
-    assert.match(detail.events[1].sources[0].retrievedAt, /^\d{4}-\d{2}-\d{2}T/u);
+    assert.deepEqual(detail.events[3].sources.map(source => ({ title: source.title, url: source.url, claim: source.claim, publishedAt: source.publishedAt })), [{ title: "Buyer evidence", url: "https://example.com/buyer-evidence", claim: "Buyer willingness must be measured before positioning.", publishedAt: "2026-09-01" }]);
+    assert.match(detail.events[3].sources[0].retrievedAt, /^\d{4}-\d{2}-\d{2}T/u);
     assert.equal(detail.events.some(event => event.role === "System"), false);
     assert.equal((await fetch(`${origin}/api/conversations/${conversationId}/export`)).status, 401);
     const exported = await fetch(`${origin}/api/conversations/${conversationId}/export?timeZone=Europe%2FKyiv`, { headers: { cookie } });

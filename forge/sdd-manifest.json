@@ -3758,13 +3758,13 @@
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "orchestration-port-architecture-2026-09-23T08:59:43.493Z",
+      "owner_invocation_id": "orchestration-port-architecture-2026-09-23T09:18:02.809Z",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "orchestration-port-architecture-2026-09-23T08:59:43.493Z",
+      "source_version": "orchestration-port-architecture-2026-09-23T09:18:02.809Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3857,12 +3857,12 @@
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
         "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
         "src/server/codex-provider.mjs": "cd06546cf491bd3e40686f2ba80d2d521a0fdb04db4b787776881109fa0e8e8b",
-        "src/server/consultation.mjs": "10880d7ff0cfdbe1d0a98c4ce6fbfbc0172889103a88eb3ee43eb7690a231260",
+        "src/server/consultation.mjs": "44c86fbc15c71b6b44d4fe273f29875876c37b5fe5dcaf7e91ca10ba03490473",
         "test/codex-provider.test.mjs": "aa6347714d9112487afd51ee7f3b0b38a1cabd2c08015c385b51add8fdbbeee7",
-        "test/consultation.test.mjs": "5aa5727a37ed6d97ca460295ebd1f28a416ad2b21d3b6e82f23a6528fc05fabd",
-        "test/http.test.mjs": "e7b32075047b61035b70f38e07ff1dbb50a1f844490882c5a3928c603b68074f",
+        "test/consultation.test.mjs": "4afb3963ff51804a43156a43c4a17f70304be1646dce2e3c3b28ef0abcee756a",
+        "test/http.test.mjs": "6a8a912660c96bebb6aa64f7a775ed7ed64ebd710838a2f9e7652cc2ef2ebac7",
         ".env.example": "71983a7601c502c44bddb0f1a6fb9c2a8ebe170dd7151395b9199e16da713d3d",
-        "test/fixtures/fake-codex.mjs": "1d15508dc3412168cf9f00660b451fb3524fabf9f4a2ec4608858149660a3e6c",
+        "test/fixtures/fake-codex.mjs": "b800e4bd9695b61dd8fc2306451645ace89ba8de350e00bff12ad65bd3edf48b",
         "src/server/prompt-contracts.mjs": "9f8e5a613b9b29aa22eaf91b9b24474c8efea2d74de40efd8b9a4c516feb124f",
         "src/client/app.js": "90478e3317346041b4788b5c4e64542cf26c16ff0fb8c466834b6c0200a6bc17",
         "test/consolidation.test.mjs": "3184b7d1ecc4b62577becfa7cac7834aa568a51ae3d0ec3de4bf1f0a0ffb77f9",
@@ -3902,7 +3902,7 @@
         "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
         "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06",
         "docs/product-idea.md": "0ced9b92ecc0891a4fb162ef4deb3f7f2c59151d26da456a9ca5169868583957",
-        "docs/development-plan.md": "dfb75fcb6ab6780c322d581b86677308b22579fd9c198dee813cc5a170a0a30e",
+        "docs/development-plan.md": "780a0574536c8b55556dc98778e90000b5e1cf3d8b500bb4aadadcdd74544760",
         "src/server/preflight.mjs": "12d319c73af28e4538991cb86acd700cc41571b73ea3fd9912a65350a010411f",
         "src/server/schema.sql": "88e008ba94999351fb1ed752cf34d21a4087f0d6456dcfb3cf4e3ac88c990f94",
         "src/server/settings-catalog.mjs": "f0cefd79aad578d6c21963bcece9fcc8445f02711ec723a3b61dc57b4e8965e7",
@@ -3921,12 +3921,12 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "ee3004bde4905e7e39c81fd347cf1ed94da213e583b5ecb8234ef23402cc0b8a",
+      "content_hash": "9c0b10154a982e478c202504fecc6b0dafd553f066c2cecfc5fc7cef0f25c74a",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "owner-directed-consultation-orchestration-port",
-        "reviewed_at": "2026-09-23T08:59:43.493Z",
+        "reviewed_at": "2026-09-23T09:18:02.809Z",
         "executor": "Codex inline to-architecture",
         "scope": "Reconcile the 23 September Head-led consultation, Critic evidence review, safe public research, full outputs and truthful recovery while preserving the approved visual baseline and original host."
       },
@@ -4001,19 +4001,19 @@
           "heading": "## Security enforcement map"
         }
       },
-      "supersedes": "orchestration-port-architecture-2026-09-23T08:57:34.646Z",
+      "supersedes": "orchestration-port-architecture-2026-09-23T08:59:43.493Z",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "orchestration-port-dod-evals-2026-09-23T08:59:44.161Z",
+      "owner_invocation_id": "orchestration-port-dod-evals-2026-09-23T09:18:03.447Z",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "orchestration-port-dod-evals-2026-09-23T08:59:44.161Z",
+      "source_version": "orchestration-port-dod-evals-2026-09-23T09:18:03.447Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4063,14 +4063,14 @@
         "docs/screen-map.md": "f1158ef84d8f2c391ab6c728182c1d86ff2a97815d8c0e9dc368e17c53739034",
         "docs/wireframes.md": "2620fe584ea0d7073f0149813d15c22097d75ad33f65f8a2f6d5c2653fa7877d",
         "docs/design-brief.md": "f076a47ba9cfb7a196393ca6a96ffe6422963d4ed708b5a3ab8d6fa9a7313906",
-        "docs/architecture.md": "ee3004bde4905e7e39c81fd347cf1ed94da213e583b5ecb8234ef23402cc0b8a",
+        "docs/architecture.md": "9c0b10154a982e478c202504fecc6b0dafd553f066c2cecfc5fc7cef0f25c74a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
         "src/server/claude-provider.mjs": "7f566f8997702892d4749347dd01b378228a1fe362022c7702f1efcae47ac22d",
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
-        "src/server/consultation.mjs": "10880d7ff0cfdbe1d0a98c4ce6fbfbc0172889103a88eb3ee43eb7690a231260",
+        "src/server/consultation.mjs": "44c86fbc15c71b6b44d4fe273f29875876c37b5fe5dcaf7e91ca10ba03490473",
         "test/claude-provider.test.mjs": "e13dd0cde01265625ada30ac30a1cab4759dc207dad16790efba97ec593044db",
-        "test/consultation.test.mjs": "5aa5727a37ed6d97ca460295ebd1f28a416ad2b21d3b6e82f23a6528fc05fabd",
+        "test/consultation.test.mjs": "4afb3963ff51804a43156a43c4a17f70304be1646dce2e3c3b28ef0abcee756a",
         "src/server/settings.mjs": "d18f32fbc90a991324b0f1ef0056be0830e02817f648e0c2148dd82fccbff3e9",
         "src/server/settings-migration.mjs": "962a06c2aca26fe19654d7a05b7aefff1e7986b53d966cba59c5a212d3bd9db5",
         "src/server/migrate.mjs": "e2d2eb82f43470c9e71693545692844d3ef34ab7c0ee9f24d375256e291a2a57",
@@ -4105,12 +4105,12 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "c660064a313e3a6d7894d79d4e48587e952a5299adcc86836f70e2494562b10d",
+      "content_hash": "c6357ade3c689a9fa362e4c73d832b2475ea5ca1981de5e99a9f0be6e2ee5b7e",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "owner-directed-consultation-orchestration-port",
-        "reviewed_at": "2026-09-23T08:59:44.161Z",
+        "reviewed_at": "2026-09-23T09:18:03.447Z",
         "executor": "Codex inline to-dod-evals",
         "scope": "Reconcile the 23 September Head-led consultation, Critic evidence review, safe public research, full outputs and truthful recovery while preserving the approved visual baseline and original host."
       },
@@ -4185,19 +4185,19 @@
           "heading": "### Product security membership"
         }
       },
-      "supersedes": "orchestration-port-dod-evals-2026-09-23T08:57:35.295Z",
+      "supersedes": "orchestration-port-dod-evals-2026-09-23T08:59:44.161Z",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "orchestration-port-qa-checklist-2026-09-23T08:59:44.839Z",
+      "owner_invocation_id": "orchestration-port-qa-checklist-2026-09-23T09:18:04.116Z",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "orchestration-port-qa-checklist-2026-09-23T08:59:44.839Z",
+      "source_version": "orchestration-port-qa-checklist-2026-09-23T09:18:04.116Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4280,8 +4280,8 @@
         "docs/screen-map.md": "f1158ef84d8f2c391ab6c728182c1d86ff2a97815d8c0e9dc368e17c53739034",
         "docs/wireframes.md": "2620fe584ea0d7073f0149813d15c22097d75ad33f65f8a2f6d5c2653fa7877d",
         "docs/design-brief.md": "f076a47ba9cfb7a196393ca6a96ffe6422963d4ed708b5a3ab8d6fa9a7313906",
-        "docs/architecture.md": "ee3004bde4905e7e39c81fd347cf1ed94da213e583b5ecb8234ef23402cc0b8a",
-        "docs/dod-evals.md": "c660064a313e3a6d7894d79d4e48587e952a5299adcc86836f70e2494562b10d",
+        "docs/architecture.md": "9c0b10154a982e478c202504fecc6b0dafd553f066c2cecfc5fc7cef0f25c74a",
+        "docs/dod-evals.md": "c6357ade3c689a9fa362e4c73d832b2475ea5ca1981de5e99a9f0be6e2ee5b7e",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -4293,11 +4293,11 @@
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
         "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
         "src/server/codex-provider.mjs": "cd06546cf491bd3e40686f2ba80d2d521a0fdb04db4b787776881109fa0e8e8b",
-        "src/server/consultation.mjs": "10880d7ff0cfdbe1d0a98c4ce6fbfbc0172889103a88eb3ee43eb7690a231260",
+        "src/server/consultation.mjs": "44c86fbc15c71b6b44d4fe273f29875876c37b5fe5dcaf7e91ca10ba03490473",
         "test/codex-provider.test.mjs": "aa6347714d9112487afd51ee7f3b0b38a1cabd2c08015c385b51add8fdbbeee7",
-        "test/consultation.test.mjs": "5aa5727a37ed6d97ca460295ebd1f28a416ad2b21d3b6e82f23a6528fc05fabd",
-        "test/http.test.mjs": "e7b32075047b61035b70f38e07ff1dbb50a1f844490882c5a3928c603b68074f",
-        "test/fixtures/fake-codex.mjs": "1d15508dc3412168cf9f00660b451fb3524fabf9f4a2ec4608858149660a3e6c",
+        "test/consultation.test.mjs": "4afb3963ff51804a43156a43c4a17f70304be1646dce2e3c3b28ef0abcee756a",
+        "test/http.test.mjs": "6a8a912660c96bebb6aa64f7a775ed7ed64ebd710838a2f9e7652cc2ef2ebac7",
+        "test/fixtures/fake-codex.mjs": "b800e4bd9695b61dd8fc2306451645ace89ba8de350e00bff12ad65bd3edf48b",
         "src/server/prompt-contracts.mjs": "9f8e5a613b9b29aa22eaf91b9b24474c8efea2d74de40efd8b9a4c516feb124f",
         "src/client/app.js": "90478e3317346041b4788b5c4e64542cf26c16ff0fb8c466834b6c0200a6bc17",
         "test/consolidation.test.mjs": "3184b7d1ecc4b62577becfa7cac7834aa568a51ae3d0ec3de4bf1f0a0ffb77f9",
@@ -4356,12 +4356,12 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "f38f0f2b22cb9ec39271e0cb3defb47be85d682e3f5b5069110a8fee324adeaa",
+      "content_hash": "32c76a195d7d1ca4eac9a9b24b2c2f12426d58996939e37b77582f1028d74a72",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "owner-directed-consultation-orchestration-port",
-        "reviewed_at": "2026-09-23T08:59:44.839Z",
+        "reviewed_at": "2026-09-23T09:18:04.116Z",
         "executor": "Codex inline to-qa-checklist",
         "scope": "Reconcile the 23 September Head-led consultation, Critic evidence review, safe public research, full outputs and truthful recovery while preserving the approved visual baseline and original host."
       },
@@ -6125,19 +6125,19 @@
           "heading": "## Product acceptance"
         }
       },
-      "supersedes": "orchestration-port-qa-checklist-2026-09-23T08:57:36.012Z",
+      "supersedes": "orchestration-port-qa-checklist-2026-09-23T08:59:44.839Z",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "orchestration-port-development-plan-2026-09-23T08:59:45.818Z",
+      "owner_invocation_id": "orchestration-port-development-plan-2026-09-23T09:18:05.093Z",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "orchestration-port-development-plan-2026-09-23T08:59:45.818Z",
+      "source_version": "orchestration-port-development-plan-2026-09-23T09:18:05.093Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -6227,9 +6227,9 @@
         "docs/screen-map.md": "f1158ef84d8f2c391ab6c728182c1d86ff2a97815d8c0e9dc368e17c53739034",
         "docs/wireframes.md": "2620fe584ea0d7073f0149813d15c22097d75ad33f65f8a2f6d5c2653fa7877d",
         "docs/design-brief.md": "f076a47ba9cfb7a196393ca6a96ffe6422963d4ed708b5a3ab8d6fa9a7313906",
-        "docs/architecture.md": "ee3004bde4905e7e39c81fd347cf1ed94da213e583b5ecb8234ef23402cc0b8a",
-        "docs/dod-evals.md": "c660064a313e3a6d7894d79d4e48587e952a5299adcc86836f70e2494562b10d",
-        "docs/qa-checklist.md": "f38f0f2b22cb9ec39271e0cb3defb47be85d682e3f5b5069110a8fee324adeaa",
+        "docs/architecture.md": "9c0b10154a982e478c202504fecc6b0dafd553f066c2cecfc5fc7cef0f25c74a",
+        "docs/dod-evals.md": "c6357ade3c689a9fa362e4c73d832b2475ea5ca1981de5e99a9f0be6e2ee5b7e",
+        "docs/qa-checklist.md": "32c76a195d7d1ca4eac9a9b24b2c2f12426d58996939e37b77582f1028d74a72",
         "docs/model-settings.md": "678d708c4222371cf065e407ac7780079a435a46518b7810fd93897974007df9",
         "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
@@ -6245,11 +6245,11 @@
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
         "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
         "src/server/codex-provider.mjs": "cd06546cf491bd3e40686f2ba80d2d521a0fdb04db4b787776881109fa0e8e8b",
-        "src/server/consultation.mjs": "10880d7ff0cfdbe1d0a98c4ce6fbfbc0172889103a88eb3ee43eb7690a231260",
+        "src/server/consultation.mjs": "44c86fbc15c71b6b44d4fe273f29875876c37b5fe5dcaf7e91ca10ba03490473",
         "test/codex-provider.test.mjs": "aa6347714d9112487afd51ee7f3b0b38a1cabd2c08015c385b51add8fdbbeee7",
-        "test/consultation.test.mjs": "5aa5727a37ed6d97ca460295ebd1f28a416ad2b21d3b6e82f23a6528fc05fabd",
-        "test/http.test.mjs": "e7b32075047b61035b70f38e07ff1dbb50a1f844490882c5a3928c603b68074f",
-        "test/fixtures/fake-codex.mjs": "1d15508dc3412168cf9f00660b451fb3524fabf9f4a2ec4608858149660a3e6c",
+        "test/consultation.test.mjs": "4afb3963ff51804a43156a43c4a17f70304be1646dce2e3c3b28ef0abcee756a",
+        "test/http.test.mjs": "6a8a912660c96bebb6aa64f7a775ed7ed64ebd710838a2f9e7652cc2ef2ebac7",
+        "test/fixtures/fake-codex.mjs": "b800e4bd9695b61dd8fc2306451645ace89ba8de350e00bff12ad65bd3edf48b",
         "src/server/prompt-contracts.mjs": "9f8e5a613b9b29aa22eaf91b9b24474c8efea2d74de40efd8b9a4c516feb124f",
         "src/client/app.js": "90478e3317346041b4788b5c4e64542cf26c16ff0fb8c466834b6c0200a6bc17",
         "test/consolidation.test.mjs": "3184b7d1ecc4b62577becfa7cac7834aa568a51ae3d0ec3de4bf1f0a0ffb77f9",
@@ -6311,16 +6311,16 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "dfb75fcb6ab6780c322d581b86677308b22579fd9c198dee813cc5a170a0a30e",
+      "content_hash": "780a0574536c8b55556dc98778e90000b5e1cf3d8b500bb4aadadcdd74544760",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "owner-directed-consultation-orchestration-port",
-        "reviewed_at": "2026-09-23T08:59:45.818Z",
+        "reviewed_at": "2026-09-23T09:18:05.093Z",
         "executor": "Codex inline to-development-plan",
         "scope": "Reconcile the 23 September Head-led consultation, Critic evidence review, safe public research, full outputs and truthful recovery while preserving the approved visual baseline and original host."
       },
-      "supersedes": "orchestration-port-development-plan-2026-09-23T08:57:37.026Z",
+      "supersedes": "orchestration-port-development-plan-2026-09-23T08:59:45.818Z",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
       "traceability": {
         "definitions": [
@@ -9316,7 +9316,7 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "orchestration-port-architecture-2026-09-23T08:59:43.493Z",
+      "invocation_id": "orchestration-port-architecture-2026-09-23T09:18:02.809Z",
       "outputs": [
         "docs/architecture.md"
       ],
@@ -9339,12 +9339,12 @@
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
         "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
         "src/server/codex-provider.mjs": "cd06546cf491bd3e40686f2ba80d2d521a0fdb04db4b787776881109fa0e8e8b",
-        "src/server/consultation.mjs": "10880d7ff0cfdbe1d0a98c4ce6fbfbc0172889103a88eb3ee43eb7690a231260",
+        "src/server/consultation.mjs": "44c86fbc15c71b6b44d4fe273f29875876c37b5fe5dcaf7e91ca10ba03490473",
         "test/codex-provider.test.mjs": "aa6347714d9112487afd51ee7f3b0b38a1cabd2c08015c385b51add8fdbbeee7",
-        "test/consultation.test.mjs": "5aa5727a37ed6d97ca460295ebd1f28a416ad2b21d3b6e82f23a6528fc05fabd",
-        "test/http.test.mjs": "e7b32075047b61035b70f38e07ff1dbb50a1f844490882c5a3928c603b68074f",
+        "test/consultation.test.mjs": "4afb3963ff51804a43156a43c4a17f70304be1646dce2e3c3b28ef0abcee756a",
+        "test/http.test.mjs": "6a8a912660c96bebb6aa64f7a775ed7ed64ebd710838a2f9e7652cc2ef2ebac7",
         ".env.example": "71983a7601c502c44bddb0f1a6fb9c2a8ebe170dd7151395b9199e16da713d3d",
-        "test/fixtures/fake-codex.mjs": "1d15508dc3412168cf9f00660b451fb3524fabf9f4a2ec4608858149660a3e6c",
+        "test/fixtures/fake-codex.mjs": "b800e4bd9695b61dd8fc2306451645ace89ba8de350e00bff12ad65bd3edf48b",
         "src/server/prompt-contracts.mjs": "9f8e5a613b9b29aa22eaf91b9b24474c8efea2d74de40efd8b9a4c516feb124f",
         "src/client/app.js": "90478e3317346041b4788b5c4e64542cf26c16ff0fb8c466834b6c0200a6bc17",
         "test/consolidation.test.mjs": "3184b7d1ecc4b62577becfa7cac7834aa568a51ae3d0ec3de4bf1f0a0ffb77f9",
@@ -9384,7 +9384,7 @@
         "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
         "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06",
         "docs/product-idea.md": "0ced9b92ecc0891a4fb162ef4deb3f7f2c59151d26da456a9ca5169868583957",
-        "docs/development-plan.md": "dfb75fcb6ab6780c322d581b86677308b22579fd9c198dee813cc5a170a0a30e",
+        "docs/development-plan.md": "780a0574536c8b55556dc98778e90000b5e1cf3d8b500bb4aadadcdd74544760",
         "src/server/preflight.mjs": "12d319c73af28e4538991cb86acd700cc41571b73ea3fd9912a65350a010411f",
         "src/server/schema.sql": "88e008ba94999351fb1ed752cf34d21a4087f0d6456dcfb3cf4e3ac88c990f94",
         "src/server/settings-catalog.mjs": "f0cefd79aad578d6c21963bcece9fcc8445f02711ec723a3b61dc57b4e8965e7",
@@ -9396,7 +9396,7 @@
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "orchestration-port-dod-evals-2026-09-23T08:59:44.161Z",
+      "invocation_id": "orchestration-port-dod-evals-2026-09-23T09:18:03.447Z",
       "outputs": [
         "docs/dod-evals.md"
       ],
@@ -9409,14 +9409,14 @@
         "docs/screen-map.md": "f1158ef84d8f2c391ab6c728182c1d86ff2a97815d8c0e9dc368e17c53739034",
         "docs/wireframes.md": "2620fe584ea0d7073f0149813d15c22097d75ad33f65f8a2f6d5c2653fa7877d",
         "docs/design-brief.md": "f076a47ba9cfb7a196393ca6a96ffe6422963d4ed708b5a3ab8d6fa9a7313906",
-        "docs/architecture.md": "ee3004bde4905e7e39c81fd347cf1ed94da213e583b5ecb8234ef23402cc0b8a",
+        "docs/architecture.md": "9c0b10154a982e478c202504fecc6b0dafd553f066c2cecfc5fc7cef0f25c74a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
         "src/server/claude-provider.mjs": "7f566f8997702892d4749347dd01b378228a1fe362022c7702f1efcae47ac22d",
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
-        "src/server/consultation.mjs": "10880d7ff0cfdbe1d0a98c4ce6fbfbc0172889103a88eb3ee43eb7690a231260",
+        "src/server/consultation.mjs": "44c86fbc15c71b6b44d4fe273f29875876c37b5fe5dcaf7e91ca10ba03490473",
         "test/claude-provider.test.mjs": "e13dd0cde01265625ada30ac30a1cab4759dc207dad16790efba97ec593044db",
-        "test/consultation.test.mjs": "5aa5727a37ed6d97ca460295ebd1f28a416ad2b21d3b6e82f23a6528fc05fabd",
+        "test/consultation.test.mjs": "4afb3963ff51804a43156a43c4a17f70304be1646dce2e3c3b28ef0abcee756a",
         "src/server/settings.mjs": "d18f32fbc90a991324b0f1ef0056be0830e02817f648e0c2148dd82fccbff3e9",
         "src/server/settings-migration.mjs": "962a06c2aca26fe19654d7a05b7aefff1e7986b53d966cba59c5a212d3bd9db5",
         "src/server/migrate.mjs": "e2d2eb82f43470c9e71693545692844d3ef34ab7c0ee9f24d375256e291a2a57",
@@ -9443,7 +9443,7 @@
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "orchestration-port-qa-checklist-2026-09-23T08:59:44.839Z",
+      "invocation_id": "orchestration-port-qa-checklist-2026-09-23T09:18:04.116Z",
       "outputs": [
         "docs/qa-checklist.md"
       ],
@@ -9456,8 +9456,8 @@
         "docs/screen-map.md": "f1158ef84d8f2c391ab6c728182c1d86ff2a97815d8c0e9dc368e17c53739034",
         "docs/wireframes.md": "2620fe584ea0d7073f0149813d15c22097d75ad33f65f8a2f6d5c2653fa7877d",
         "docs/design-brief.md": "f076a47ba9cfb7a196393ca6a96ffe6422963d4ed708b5a3ab8d6fa9a7313906",
-        "docs/architecture.md": "ee3004bde4905e7e39c81fd347cf1ed94da213e583b5ecb8234ef23402cc0b8a",
-        "docs/dod-evals.md": "c660064a313e3a6d7894d79d4e48587e952a5299adcc86836f70e2494562b10d",
+        "docs/architecture.md": "9c0b10154a982e478c202504fecc6b0dafd553f066c2cecfc5fc7cef0f25c74a",
+        "docs/dod-evals.md": "c6357ade3c689a9fa362e4c73d832b2475ea5ca1981de5e99a9f0be6e2ee5b7e",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -9469,11 +9469,11 @@
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
         "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
         "src/server/codex-provider.mjs": "cd06546cf491bd3e40686f2ba80d2d521a0fdb04db4b787776881109fa0e8e8b",
-        "src/server/consultation.mjs": "10880d7ff0cfdbe1d0a98c4ce6fbfbc0172889103a88eb3ee43eb7690a231260",
+        "src/server/consultation.mjs": "44c86fbc15c71b6b44d4fe273f29875876c37b5fe5dcaf7e91ca10ba03490473",
         "test/codex-provider.test.mjs": "aa6347714d9112487afd51ee7f3b0b38a1cabd2c08015c385b51add8fdbbeee7",
-        "test/consultation.test.mjs": "5aa5727a37ed6d97ca460295ebd1f28a416ad2b21d3b6e82f23a6528fc05fabd",
-        "test/http.test.mjs": "e7b32075047b61035b70f38e07ff1dbb50a1f844490882c5a3928c603b68074f",
-        "test/fixtures/fake-codex.mjs": "1d15508dc3412168cf9f00660b451fb3524fabf9f4a2ec4608858149660a3e6c",
+        "test/consultation.test.mjs": "4afb3963ff51804a43156a43c4a17f70304be1646dce2e3c3b28ef0abcee756a",
+        "test/http.test.mjs": "6a8a912660c96bebb6aa64f7a775ed7ed64ebd710838a2f9e7652cc2ef2ebac7",
+        "test/fixtures/fake-codex.mjs": "b800e4bd9695b61dd8fc2306451645ace89ba8de350e00bff12ad65bd3edf48b",
         "src/server/prompt-contracts.mjs": "9f8e5a613b9b29aa22eaf91b9b24474c8efea2d74de40efd8b9a4c516feb124f",
         "src/client/app.js": "90478e3317346041b4788b5c4e64542cf26c16ff0fb8c466834b6c0200a6bc17",
         "test/consolidation.test.mjs": "3184b7d1ecc4b62577becfa7cac7834aa568a51ae3d0ec3de4bf1f0a0ffb77f9",
@@ -9523,7 +9523,7 @@
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "orchestration-port-development-plan-2026-09-23T08:59:45.818Z",
+      "invocation_id": "orchestration-port-development-plan-2026-09-23T09:18:05.093Z",
       "outputs": [
         "docs/development-plan.md"
       ],
@@ -9536,9 +9536,9 @@
         "docs/screen-map.md": "f1158ef84d8f2c391ab6c728182c1d86ff2a97815d8c0e9dc368e17c53739034",
         "docs/wireframes.md": "2620fe584ea0d7073f0149813d15c22097d75ad33f65f8a2f6d5c2653fa7877d",
         "docs/design-brief.md": "f076a47ba9cfb7a196393ca6a96ffe6422963d4ed708b5a3ab8d6fa9a7313906",
-        "docs/architecture.md": "ee3004bde4905e7e39c81fd347cf1ed94da213e583b5ecb8234ef23402cc0b8a",
-        "docs/dod-evals.md": "c660064a313e3a6d7894d79d4e48587e952a5299adcc86836f70e2494562b10d",
-        "docs/qa-checklist.md": "f38f0f2b22cb9ec39271e0cb3defb47be85d682e3f5b5069110a8fee324adeaa",
+        "docs/architecture.md": "9c0b10154a982e478c202504fecc6b0dafd553f066c2cecfc5fc7cef0f25c74a",
+        "docs/dod-evals.md": "c6357ade3c689a9fa362e4c73d832b2475ea5ca1981de5e99a9f0be6e2ee5b7e",
+        "docs/qa-checklist.md": "32c76a195d7d1ca4eac9a9b24b2c2f12426d58996939e37b77582f1028d74a72",
         "docs/model-settings.md": "678d708c4222371cf065e407ac7780079a435a46518b7810fd93897974007df9",
         "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
@@ -9554,11 +9554,11 @@
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
         "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
         "src/server/codex-provider.mjs": "cd06546cf491bd3e40686f2ba80d2d521a0fdb04db4b787776881109fa0e8e8b",
-        "src/server/consultation.mjs": "10880d7ff0cfdbe1d0a98c4ce6fbfbc0172889103a88eb3ee43eb7690a231260",
+        "src/server/consultation.mjs": "44c86fbc15c71b6b44d4fe273f29875876c37b5fe5dcaf7e91ca10ba03490473",
         "test/codex-provider.test.mjs": "aa6347714d9112487afd51ee7f3b0b38a1cabd2c08015c385b51add8fdbbeee7",
-        "test/consultation.test.mjs": "5aa5727a37ed6d97ca460295ebd1f28a416ad2b21d3b6e82f23a6528fc05fabd",
-        "test/http.test.mjs": "e7b32075047b61035b70f38e07ff1dbb50a1f844490882c5a3928c603b68074f",
-        "test/fixtures/fake-codex.mjs": "1d15508dc3412168cf9f00660b451fb3524fabf9f4a2ec4608858149660a3e6c",
+        "test/consultation.test.mjs": "4afb3963ff51804a43156a43c4a17f70304be1646dce2e3c3b28ef0abcee756a",
+        "test/http.test.mjs": "6a8a912660c96bebb6aa64f7a775ed7ed64ebd710838a2f9e7652cc2ef2ebac7",
+        "test/fixtures/fake-codex.mjs": "b800e4bd9695b61dd8fc2306451645ace89ba8de350e00bff12ad65bd3edf48b",
         "src/server/prompt-contracts.mjs": "9f8e5a613b9b29aa22eaf91b9b24474c8efea2d74de40efd8b9a4c516feb124f",
         "src/client/app.js": "90478e3317346041b4788b5c4e64542cf26c16ff0fb8c466834b6c0200a6bc17",
         "test/consolidation.test.mjs": "3184b7d1ecc4b62577becfa7cac7834aa568a51ae3d0ec3de4bf1f0a0ffb77f9",
@@ -93844,14 +93844,3666 @@
           "heading": "## Clause coverage"
         }
       }
+    },
+    {
+      "path": "docs/architecture.md",
+      "owner_skill": "to-architecture",
+      "owner_invocation_id": "orchestration-port-architecture-2026-09-23T08:59:43.493Z",
+      "declared_output_set": [
+        "docs/architecture.md"
+      ],
+      "status": "validated",
+      "mission_control_status": "Done",
+      "source_version": "orchestration-port-architecture-2026-09-23T08:59:43.493Z",
+      "source_usage": {
+        "docs/prd.md": "full",
+        "docs/project-context.md": "full",
+        "docs/canonical-terms.md": "full",
+        "docs/guardrails.md": "full",
+        "docs/user-journey.md": "full",
+        "docs/screen-map.md": "full",
+        "docs/wireframes.md": "full",
+        "docs/design-brief.md": "full",
+        "docs/model-settings.md": "full",
+        "docs/deployment-boundary.md": "full",
+        "forge/runs/U-06/browser-speech-uk-20260914/README.md": "full",
+        "package.json": "full",
+        "src/server/config.mjs": "full",
+        "src/server/index.mjs": "full",
+        "src/server/store.mjs": "full",
+        "scripts/check-artifacts.mjs": "full",
+        "test/core.test.mjs": "full",
+        "src/server/codex-provider.mjs": "full",
+        "src/server/consultation.mjs": "full",
+        "test/codex-provider.test.mjs": "full",
+        "test/consultation.test.mjs": "full",
+        "test/http.test.mjs": "full",
+        ".env.example": "full",
+        "test/fixtures/fake-codex.mjs": "full",
+        "src/server/prompt-contracts.mjs": "full",
+        "src/client/app.js": "full",
+        "test/consolidation.test.mjs": "full",
+        "test/prompt-contracts.test.mjs": "full",
+        "test/fixtures/runtime-instructions.mjs": "full",
+        "public/index.html": "full",
+        "public/styles.css": "full",
+        "src/server/conversation-export.mjs": "full",
+        "src/client/markdown.js": "full",
+        "test/conversation-export.test.mjs": "full",
+        "src/server/validation.mjs": "full",
+        "src/server/conversation-title.mjs": "full",
+        "test/conversation-title.test.mjs": "full",
+        "src/client/refresh-state.js": "full",
+        "test/refresh-state.test.mjs": "full",
+        "src/server/claude-provider.mjs": "full",
+        "src/server/output-safety.mjs": "full",
+        "test/claude-provider.test.mjs": "full",
+        "public/sounds/nokia-three-knocks-quick.wav": "full",
+        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "full",
+        "public/sounds/table-taps-250ms.wav": "full",
+        "forge/exploration/message-sound-table-250ms-v3/source.json": "full",
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "full",
+        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "full",
+        "public/sounds/table-taps-250ms-v5.wav": "full",
+        "forge/exploration/message-sound-table-250ms-v5/source.json": "full",
+        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "full",
+        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "full",
+        "src/server/settings.mjs": "full",
+        "src/server/settings-migration.mjs": "full",
+        "src/server/migrate.mjs": "full",
+        "src/server/configuration-recovery.mjs": "full",
+        "test/settings-migration.test.mjs": "full",
+        "test/fixtures/fake-claude.mjs": "full",
+        "src/server/codex-models.mjs": "full",
+        "src/server/browser-assets.mjs": "full",
+        "test/browser-assets.test.mjs": "full",
+        "package-lock.json": "full",
+        "docs/product-idea.md": "full",
+        "docs/development-plan.md": "full",
+        "src/server/preflight.mjs": "full",
+        "src/server/schema.sql": "full",
+        "src/server/settings-catalog.mjs": "full",
+        "test/codex-grant.test.mjs": "full",
+        "test/settings-catalog.test.mjs": "full",
+        "test/fixtures/rotating-auth-codex.mjs": "full",
+        "test/mysql.integration.test.mjs": "full"
+      },
+      "source_hashes": {
+        "docs/prd.md": "4a5b565b3e2e6e5f352c739855504deefc059562d39f5029c5c6500034d71edb",
+        "docs/project-context.md": "6698b94d8c060a2161de2c5c9dd40c1942a2b90e9b9beecfc07ae2baa5823369",
+        "docs/canonical-terms.md": "18bb51b7241b6e9aa0a774ecce4e0f1fae95f66cc19b9f14650d59cf6a7a56af",
+        "docs/guardrails.md": "6b180b0a4ac3f6bea05a74599c4b80712c1593fd49614b6d3a8be42867368174",
+        "docs/user-journey.md": "9a3d1c49e6933d7947458dd9a25d16fb3c1a2acdf3971c58dbe12a5e62bf7c55",
+        "docs/screen-map.md": "f1158ef84d8f2c391ab6c728182c1d86ff2a97815d8c0e9dc368e17c53739034",
+        "docs/wireframes.md": "2620fe584ea0d7073f0149813d15c22097d75ad33f65f8a2f6d5c2653fa7877d",
+        "docs/design-brief.md": "f076a47ba9cfb7a196393ca6a96ffe6422963d4ed708b5a3ab8d6fa9a7313906",
+        "docs/model-settings.md": "678d708c4222371cf065e407ac7780079a435a46518b7810fd93897974007df9",
+        "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
+        "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
+        "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
+        "src/server/config.mjs": "47a1518ea1fb1842be51a5d362b9bd2f0c900a2f4c632c767ec9ae3e0c5958ca",
+        "src/server/index.mjs": "ca425a2fab992d53a7ac458d4be3af42535517554494826844ddb20072e05868",
+        "src/server/store.mjs": "5d2d659c4dc685da4ca0d88a4791cc7a20b733f0867fd48d24a5ce97c76e48f0",
+        "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
+        "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
+        "src/server/codex-provider.mjs": "cd06546cf491bd3e40686f2ba80d2d521a0fdb04db4b787776881109fa0e8e8b",
+        "src/server/consultation.mjs": "10880d7ff0cfdbe1d0a98c4ce6fbfbc0172889103a88eb3ee43eb7690a231260",
+        "test/codex-provider.test.mjs": "aa6347714d9112487afd51ee7f3b0b38a1cabd2c08015c385b51add8fdbbeee7",
+        "test/consultation.test.mjs": "5aa5727a37ed6d97ca460295ebd1f28a416ad2b21d3b6e82f23a6528fc05fabd",
+        "test/http.test.mjs": "e7b32075047b61035b70f38e07ff1dbb50a1f844490882c5a3928c603b68074f",
+        ".env.example": "71983a7601c502c44bddb0f1a6fb9c2a8ebe170dd7151395b9199e16da713d3d",
+        "test/fixtures/fake-codex.mjs": "1d15508dc3412168cf9f00660b451fb3524fabf9f4a2ec4608858149660a3e6c",
+        "src/server/prompt-contracts.mjs": "9f8e5a613b9b29aa22eaf91b9b24474c8efea2d74de40efd8b9a4c516feb124f",
+        "src/client/app.js": "90478e3317346041b4788b5c4e64542cf26c16ff0fb8c466834b6c0200a6bc17",
+        "test/consolidation.test.mjs": "3184b7d1ecc4b62577becfa7cac7834aa568a51ae3d0ec3de4bf1f0a0ffb77f9",
+        "test/prompt-contracts.test.mjs": "15c6ac0686447b15637d689c078d09fc09125533c052e3fa1a1e936b83b09ba0",
+        "test/fixtures/runtime-instructions.mjs": "bbbbbad81efb9ce46718d43c37f3117b0ab03b8b2976319f2c9fc88854f0a4ec",
+        "public/index.html": "bc89c90570533624ba823199b175cfcd38e6c2a7c80e2b053cf5912e37cd8d23",
+        "public/styles.css": "d92ee023de308477be95fd67d261dbf97bfcebf276209c9c2b578387f465081a",
+        "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
+        "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
+        "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
+        "src/server/validation.mjs": "d8d813c53f5f9313c496e33fe37615258a324bb4eaf2fafc50073c5fe6ee9e3a",
+        "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
+        "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
+        "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
+        "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
+        "src/server/claude-provider.mjs": "7f566f8997702892d4749347dd01b378228a1fe362022c7702f1efcae47ac22d",
+        "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
+        "test/claude-provider.test.mjs": "e13dd0cde01265625ada30ac30a1cab4759dc207dad16790efba97ec593044db",
+        "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
+        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
+        "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
+        "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719",
+        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "public/sounds/table-taps-250ms-v5.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
+        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
+        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22",
+        "src/server/settings.mjs": "d18f32fbc90a991324b0f1ef0056be0830e02817f648e0c2148dd82fccbff3e9",
+        "src/server/settings-migration.mjs": "962a06c2aca26fe19654d7a05b7aefff1e7986b53d966cba59c5a212d3bd9db5",
+        "src/server/migrate.mjs": "e2d2eb82f43470c9e71693545692844d3ef34ab7c0ee9f24d375256e291a2a57",
+        "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
+        "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
+        "test/fixtures/fake-claude.mjs": "fb35e857b023657c1730792e6d154133f43e4321675b68648161c65ae297ab83",
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
+        "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06",
+        "docs/product-idea.md": "0ced9b92ecc0891a4fb162ef4deb3f7f2c59151d26da456a9ca5169868583957",
+        "docs/development-plan.md": "dfb75fcb6ab6780c322d581b86677308b22579fd9c198dee813cc5a170a0a30e",
+        "src/server/preflight.mjs": "12d319c73af28e4538991cb86acd700cc41571b73ea3fd9912a65350a010411f",
+        "src/server/schema.sql": "88e008ba94999351fb1ed752cf34d21a4087f0d6456dcfb3cf4e3ac88c990f94",
+        "src/server/settings-catalog.mjs": "f0cefd79aad578d6c21963bcece9fcc8445f02711ec723a3b61dc57b4e8965e7",
+        "test/codex-grant.test.mjs": "03d3768018cac00de2693022d6a3851505e4fa75a0be600f91ed35e0301e9667",
+        "test/settings-catalog.test.mjs": "0d8489ecfb1f9a6946ddf455193bca143fba3f5317fbf879a1e21eb09d91a4a5",
+        "test/fixtures/rotating-auth-codex.mjs": "4b4f3f119b2b8f84f0504a72b7ab9da9d9eb4f20128ee61391681abb9f921bb0",
+        "test/mysql.integration.test.mjs": "9a07688c3f05b0a46fc2062b68af23c20c918f21d32b253c97bac77d7afd8654"
+      },
+      "dependencies": [
+        "prd",
+        "project-context",
+        "canonical-terms",
+        "guardrails",
+        "user-journey",
+        "screen-map",
+        "wireframes",
+        "design-brief"
+      ],
+      "content_hash": "ee3004bde4905e7e39c81fd347cf1ed94da213e583b5ecb8234ef23402cc0b8a",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "owner-directed-consultation-orchestration-port",
+        "reviewed_at": "2026-09-23T08:59:43.493Z",
+        "executor": "Codex inline to-architecture",
+        "scope": "Reconcile the 23 September Head-led consultation, Critic evidence review, safe public research, full outputs and truthful recovery while preserving the approved visual baseline and original host."
+      },
+      "open_questions": [],
+      "security_coverage": {
+        "NFR-10.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-10.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-10.3": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-11.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-11.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-11.3": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-12.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-12.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-12.3": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-13.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-13.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-14.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-14.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-14.3": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-15.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-16.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-16.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        }
+      },
+      "supersedes": "orchestration-port-architecture-2026-09-23T08:57:34.646Z",
+      "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
+    },
+    {
+      "path": "docs/dod-evals.md",
+      "owner_skill": "to-dod-evals",
+      "owner_invocation_id": "orchestration-port-dod-evals-2026-09-23T08:59:44.161Z",
+      "declared_output_set": [
+        "docs/dod-evals.md"
+      ],
+      "status": "validated",
+      "mission_control_status": "Done",
+      "source_version": "orchestration-port-dod-evals-2026-09-23T08:59:44.161Z",
+      "source_usage": {
+        "docs/prd.md": "full",
+        "docs/project-context.md": "full",
+        "docs/canonical-terms.md": "full",
+        "docs/guardrails.md": "full",
+        "docs/user-journey.md": "full",
+        "docs/screen-map.md": "full",
+        "docs/wireframes.md": "full",
+        "docs/design-brief.md": "full",
+        "docs/architecture.md": "full",
+        "src/client/refresh-state.js": "full",
+        "test/refresh-state.test.mjs": "full",
+        "src/server/claude-provider.mjs": "full",
+        "src/server/output-safety.mjs": "full",
+        "src/server/consultation.mjs": "full",
+        "test/claude-provider.test.mjs": "full",
+        "test/consultation.test.mjs": "full",
+        "src/server/settings.mjs": "full",
+        "src/server/settings-migration.mjs": "full",
+        "src/server/migrate.mjs": "full",
+        "src/server/configuration-recovery.mjs": "full",
+        "test/settings-migration.test.mjs": "full",
+        "src/server/codex-models.mjs": "full",
+        "src/server/browser-assets.mjs": "full",
+        "test/browser-assets.test.mjs": "full",
+        "package.json": "full",
+        "package-lock.json": "full",
+        "docs/product-idea.md": "full",
+        ".github/workflows/ci.yml": "full",
+        "src/server/codex-provider.mjs": "full",
+        "src/server/store.mjs": "full",
+        "src/server/settings-catalog.mjs": "full",
+        "src/server/index.mjs": "full",
+        "src/server/preflight.mjs": "full",
+        "src/server/schema.sql": "full",
+        "test/codex-provider.test.mjs": "full",
+        "test/codex-grant.test.mjs": "full",
+        "test/mysql.integration.test.mjs": "full",
+        "test/settings-catalog.test.mjs": "full"
+      },
+      "source_hashes": {
+        "docs/prd.md": "4a5b565b3e2e6e5f352c739855504deefc059562d39f5029c5c6500034d71edb",
+        "docs/project-context.md": "6698b94d8c060a2161de2c5c9dd40c1942a2b90e9b9beecfc07ae2baa5823369",
+        "docs/canonical-terms.md": "18bb51b7241b6e9aa0a774ecce4e0f1fae95f66cc19b9f14650d59cf6a7a56af",
+        "docs/guardrails.md": "6b180b0a4ac3f6bea05a74599c4b80712c1593fd49614b6d3a8be42867368174",
+        "docs/user-journey.md": "9a3d1c49e6933d7947458dd9a25d16fb3c1a2acdf3971c58dbe12a5e62bf7c55",
+        "docs/screen-map.md": "f1158ef84d8f2c391ab6c728182c1d86ff2a97815d8c0e9dc368e17c53739034",
+        "docs/wireframes.md": "2620fe584ea0d7073f0149813d15c22097d75ad33f65f8a2f6d5c2653fa7877d",
+        "docs/design-brief.md": "f076a47ba9cfb7a196393ca6a96ffe6422963d4ed708b5a3ab8d6fa9a7313906",
+        "docs/architecture.md": "ee3004bde4905e7e39c81fd347cf1ed94da213e583b5ecb8234ef23402cc0b8a",
+        "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
+        "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
+        "src/server/claude-provider.mjs": "7f566f8997702892d4749347dd01b378228a1fe362022c7702f1efcae47ac22d",
+        "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
+        "src/server/consultation.mjs": "10880d7ff0cfdbe1d0a98c4ce6fbfbc0172889103a88eb3ee43eb7690a231260",
+        "test/claude-provider.test.mjs": "e13dd0cde01265625ada30ac30a1cab4759dc207dad16790efba97ec593044db",
+        "test/consultation.test.mjs": "5aa5727a37ed6d97ca460295ebd1f28a416ad2b21d3b6e82f23a6528fc05fabd",
+        "src/server/settings.mjs": "d18f32fbc90a991324b0f1ef0056be0830e02817f648e0c2148dd82fccbff3e9",
+        "src/server/settings-migration.mjs": "962a06c2aca26fe19654d7a05b7aefff1e7986b53d966cba59c5a212d3bd9db5",
+        "src/server/migrate.mjs": "e2d2eb82f43470c9e71693545692844d3ef34ab7c0ee9f24d375256e291a2a57",
+        "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
+        "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
+        "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
+        "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06",
+        "docs/product-idea.md": "0ced9b92ecc0891a4fb162ef4deb3f7f2c59151d26da456a9ca5169868583957",
+        ".github/workflows/ci.yml": "e49aca94617f9bcef4d09e72319b03b7670d39d888967b55264b2e09d54ec1a5",
+        "src/server/codex-provider.mjs": "cd06546cf491bd3e40686f2ba80d2d521a0fdb04db4b787776881109fa0e8e8b",
+        "src/server/store.mjs": "5d2d659c4dc685da4ca0d88a4791cc7a20b733f0867fd48d24a5ce97c76e48f0",
+        "src/server/settings-catalog.mjs": "f0cefd79aad578d6c21963bcece9fcc8445f02711ec723a3b61dc57b4e8965e7",
+        "src/server/index.mjs": "ca425a2fab992d53a7ac458d4be3af42535517554494826844ddb20072e05868",
+        "src/server/preflight.mjs": "12d319c73af28e4538991cb86acd700cc41571b73ea3fd9912a65350a010411f",
+        "src/server/schema.sql": "88e008ba94999351fb1ed752cf34d21a4087f0d6456dcfb3cf4e3ac88c990f94",
+        "test/codex-provider.test.mjs": "aa6347714d9112487afd51ee7f3b0b38a1cabd2c08015c385b51add8fdbbeee7",
+        "test/codex-grant.test.mjs": "03d3768018cac00de2693022d6a3851505e4fa75a0be600f91ed35e0301e9667",
+        "test/mysql.integration.test.mjs": "9a07688c3f05b0a46fc2062b68af23c20c918f21d32b253c97bac77d7afd8654",
+        "test/settings-catalog.test.mjs": "0d8489ecfb1f9a6946ddf455193bca143fba3f5317fbf879a1e21eb09d91a4a5"
+      },
+      "dependencies": [
+        "prd",
+        "project-context",
+        "canonical-terms",
+        "guardrails",
+        "user-journey",
+        "screen-map",
+        "wireframes",
+        "design-brief",
+        "architecture"
+      ],
+      "content_hash": "c660064a313e3a6d7894d79d4e48587e952a5299adcc86836f70e2494562b10d",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "owner-directed-consultation-orchestration-port",
+        "reviewed_at": "2026-09-23T08:59:44.161Z",
+        "executor": "Codex inline to-dod-evals",
+        "scope": "Reconcile the 23 September Head-led consultation, Critic evidence review, safe public research, full outputs and truthful recovery while preserving the approved visual baseline and original host."
+      },
+      "open_questions": [],
+      "security_coverage": {
+        "NFR-10.1": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-10.2": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-10.3": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-11.1": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-11.2": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-11.3": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-12.1": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-12.2": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-12.3": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-13.1": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-13.2": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-14.1": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-14.2": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-14.3": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-15.1": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-16.1": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-16.2": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        }
+      },
+      "supersedes": "orchestration-port-dod-evals-2026-09-23T08:57:35.295Z",
+      "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
+    },
+    {
+      "path": "docs/qa-checklist.md",
+      "owner_skill": "to-qa-checklist",
+      "owner_invocation_id": "orchestration-port-qa-checklist-2026-09-23T08:59:44.839Z",
+      "declared_output_set": [
+        "docs/qa-checklist.md"
+      ],
+      "status": "validated",
+      "mission_control_status": "Done",
+      "source_version": "orchestration-port-qa-checklist-2026-09-23T08:59:44.839Z",
+      "source_usage": {
+        "docs/prd.md": "full",
+        "docs/project-context.md": "full",
+        "docs/canonical-terms.md": "full",
+        "docs/guardrails.md": "full",
+        "docs/user-journey.md": "full",
+        "docs/screen-map.md": "full",
+        "docs/wireframes.md": "full",
+        "docs/design-brief.md": "full",
+        "docs/architecture.md": "full",
+        "docs/dod-evals.md": "full",
+        "forge/design/evidence/heuristic-review.json": "full",
+        "forge/design/evidence/a-v1-visual-qa.json": "full",
+        "forge/design/evidence/b-v1-visual-qa.json": "full",
+        "forge/design/evidence/c-v1-visual-qa.json": "full",
+        "package.json": "full",
+        "src/server/config.mjs": "full",
+        "src/server/index.mjs": "full",
+        "src/server/store.mjs": "full",
+        "scripts/check-artifacts.mjs": "full",
+        "test/core.test.mjs": "full",
+        "src/server/codex-provider.mjs": "full",
+        "src/server/consultation.mjs": "full",
+        "test/codex-provider.test.mjs": "full",
+        "test/consultation.test.mjs": "full",
+        "test/http.test.mjs": "full",
+        "test/fixtures/fake-codex.mjs": "full",
+        "src/server/prompt-contracts.mjs": "full",
+        "src/client/app.js": "full",
+        "test/consolidation.test.mjs": "full",
+        "test/prompt-contracts.test.mjs": "full",
+        "test/fixtures/runtime-instructions.mjs": "full",
+        "public/index.html": "full",
+        "public/styles.css": "full",
+        "src/server/conversation-export.mjs": "full",
+        "src/client/markdown.js": "full",
+        "test/conversation-export.test.mjs": "full",
+        "src/server/validation.mjs": "full",
+        "src/server/conversation-title.mjs": "full",
+        "test/conversation-title.test.mjs": "full",
+        "src/client/refresh-state.js": "full",
+        "test/refresh-state.test.mjs": "full",
+        "src/server/claude-provider.mjs": "full",
+        "src/server/output-safety.mjs": "full",
+        "test/claude-provider.test.mjs": "full",
+        "public/sounds/nokia-three-knocks-quick.wav": "full",
+        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "full",
+        "public/sounds/table-taps-250ms.wav": "full",
+        "forge/exploration/message-sound-table-250ms-v3/source.json": "full",
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "full",
+        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "full",
+        "public/sounds/table-taps-250ms-v5.wav": "full",
+        "forge/exploration/message-sound-table-250ms-v5/source.json": "full",
+        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "full",
+        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "full",
+        "src/server/settings.mjs": "full",
+        "src/server/settings-migration.mjs": "full",
+        "src/server/migrate.mjs": "full",
+        "src/server/configuration-recovery.mjs": "full",
+        "test/settings-migration.test.mjs": "full",
+        "test/fixtures/fake-claude.mjs": "full",
+        "src/server/codex-models.mjs": "full",
+        "src/server/browser-assets.mjs": "full",
+        "test/browser-assets.test.mjs": "full",
+        "package-lock.json": "full",
+        "src/server/preflight.mjs": "full",
+        "src/server/settings-catalog.mjs": "full",
+        "src/server/schema.sql": "full",
+        "test/codex-grant.test.mjs": "full",
+        "test/mysql.integration.test.mjs": "full",
+        "test/settings-catalog.test.mjs": "full",
+        ".github/workflows/ci.yml": "full"
+      },
+      "source_hashes": {
+        "docs/prd.md": "4a5b565b3e2e6e5f352c739855504deefc059562d39f5029c5c6500034d71edb",
+        "docs/project-context.md": "6698b94d8c060a2161de2c5c9dd40c1942a2b90e9b9beecfc07ae2baa5823369",
+        "docs/canonical-terms.md": "18bb51b7241b6e9aa0a774ecce4e0f1fae95f66cc19b9f14650d59cf6a7a56af",
+        "docs/guardrails.md": "6b180b0a4ac3f6bea05a74599c4b80712c1593fd49614b6d3a8be42867368174",
+        "docs/user-journey.md": "9a3d1c49e6933d7947458dd9a25d16fb3c1a2acdf3971c58dbe12a5e62bf7c55",
+        "docs/screen-map.md": "f1158ef84d8f2c391ab6c728182c1d86ff2a97815d8c0e9dc368e17c53739034",
+        "docs/wireframes.md": "2620fe584ea0d7073f0149813d15c22097d75ad33f65f8a2f6d5c2653fa7877d",
+        "docs/design-brief.md": "f076a47ba9cfb7a196393ca6a96ffe6422963d4ed708b5a3ab8d6fa9a7313906",
+        "docs/architecture.md": "ee3004bde4905e7e39c81fd347cf1ed94da213e583b5ecb8234ef23402cc0b8a",
+        "docs/dod-evals.md": "c660064a313e3a6d7894d79d4e48587e952a5299adcc86836f70e2494562b10d",
+        "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
+        "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
+        "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
+        "forge/design/evidence/c-v1-visual-qa.json": "b5517ae544724b5ae54c60f63e328797b4788b4abda5828ceaea81f439c4ae83",
+        "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
+        "src/server/config.mjs": "47a1518ea1fb1842be51a5d362b9bd2f0c900a2f4c632c767ec9ae3e0c5958ca",
+        "src/server/index.mjs": "ca425a2fab992d53a7ac458d4be3af42535517554494826844ddb20072e05868",
+        "src/server/store.mjs": "5d2d659c4dc685da4ca0d88a4791cc7a20b733f0867fd48d24a5ce97c76e48f0",
+        "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
+        "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
+        "src/server/codex-provider.mjs": "cd06546cf491bd3e40686f2ba80d2d521a0fdb04db4b787776881109fa0e8e8b",
+        "src/server/consultation.mjs": "10880d7ff0cfdbe1d0a98c4ce6fbfbc0172889103a88eb3ee43eb7690a231260",
+        "test/codex-provider.test.mjs": "aa6347714d9112487afd51ee7f3b0b38a1cabd2c08015c385b51add8fdbbeee7",
+        "test/consultation.test.mjs": "5aa5727a37ed6d97ca460295ebd1f28a416ad2b21d3b6e82f23a6528fc05fabd",
+        "test/http.test.mjs": "e7b32075047b61035b70f38e07ff1dbb50a1f844490882c5a3928c603b68074f",
+        "test/fixtures/fake-codex.mjs": "1d15508dc3412168cf9f00660b451fb3524fabf9f4a2ec4608858149660a3e6c",
+        "src/server/prompt-contracts.mjs": "9f8e5a613b9b29aa22eaf91b9b24474c8efea2d74de40efd8b9a4c516feb124f",
+        "src/client/app.js": "90478e3317346041b4788b5c4e64542cf26c16ff0fb8c466834b6c0200a6bc17",
+        "test/consolidation.test.mjs": "3184b7d1ecc4b62577becfa7cac7834aa568a51ae3d0ec3de4bf1f0a0ffb77f9",
+        "test/prompt-contracts.test.mjs": "15c6ac0686447b15637d689c078d09fc09125533c052e3fa1a1e936b83b09ba0",
+        "test/fixtures/runtime-instructions.mjs": "bbbbbad81efb9ce46718d43c37f3117b0ab03b8b2976319f2c9fc88854f0a4ec",
+        "public/index.html": "bc89c90570533624ba823199b175cfcd38e6c2a7c80e2b053cf5912e37cd8d23",
+        "public/styles.css": "d92ee023de308477be95fd67d261dbf97bfcebf276209c9c2b578387f465081a",
+        "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
+        "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
+        "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
+        "src/server/validation.mjs": "d8d813c53f5f9313c496e33fe37615258a324bb4eaf2fafc50073c5fe6ee9e3a",
+        "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
+        "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
+        "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
+        "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
+        "src/server/claude-provider.mjs": "7f566f8997702892d4749347dd01b378228a1fe362022c7702f1efcae47ac22d",
+        "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
+        "test/claude-provider.test.mjs": "e13dd0cde01265625ada30ac30a1cab4759dc207dad16790efba97ec593044db",
+        "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
+        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
+        "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
+        "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719",
+        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "public/sounds/table-taps-250ms-v5.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
+        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
+        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22",
+        "src/server/settings.mjs": "d18f32fbc90a991324b0f1ef0056be0830e02817f648e0c2148dd82fccbff3e9",
+        "src/server/settings-migration.mjs": "962a06c2aca26fe19654d7a05b7aefff1e7986b53d966cba59c5a212d3bd9db5",
+        "src/server/migrate.mjs": "e2d2eb82f43470c9e71693545692844d3ef34ab7c0ee9f24d375256e291a2a57",
+        "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
+        "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
+        "test/fixtures/fake-claude.mjs": "fb35e857b023657c1730792e6d154133f43e4321675b68648161c65ae297ab83",
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
+        "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06",
+        "src/server/preflight.mjs": "12d319c73af28e4538991cb86acd700cc41571b73ea3fd9912a65350a010411f",
+        "src/server/settings-catalog.mjs": "f0cefd79aad578d6c21963bcece9fcc8445f02711ec723a3b61dc57b4e8965e7",
+        "src/server/schema.sql": "88e008ba94999351fb1ed752cf34d21a4087f0d6456dcfb3cf4e3ac88c990f94",
+        "test/codex-grant.test.mjs": "03d3768018cac00de2693022d6a3851505e4fa75a0be600f91ed35e0301e9667",
+        "test/mysql.integration.test.mjs": "9a07688c3f05b0a46fc2062b68af23c20c918f21d32b253c97bac77d7afd8654",
+        "test/settings-catalog.test.mjs": "0d8489ecfb1f9a6946ddf455193bca143fba3f5317fbf879a1e21eb09d91a4a5",
+        ".github/workflows/ci.yml": "e49aca94617f9bcef4d09e72319b03b7670d39d888967b55264b2e09d54ec1a5"
+      },
+      "dependencies": [
+        "prd",
+        "project-context",
+        "canonical-terms",
+        "guardrails",
+        "user-journey",
+        "screen-map",
+        "wireframes",
+        "design-brief",
+        "architecture",
+        "dod-evals"
+      ],
+      "content_hash": "f38f0f2b22cb9ec39271e0cb3defb47be85d682e3f5b5069110a8fee324adeaa",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "owner-directed-consultation-orchestration-port",
+        "reviewed_at": "2026-09-23T08:59:44.839Z",
+        "executor": "Codex inline to-qa-checklist",
+        "scope": "Reconcile the 23 September Head-led consultation, Critic evidence review, safe public research, full outputs and truthful recovery while preserving the approved visual baseline and original host."
+      },
+      "open_questions": [],
+      "traceability": {
+        "definitions": [
+          {
+            "id": "QA-R01",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R02",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R03",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R04",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R05",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R06",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R07",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R08",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R09",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R10",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R11",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R12",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R13",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R14",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R15",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R16",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R17",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R18",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R19",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R20",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R21",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R22",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R23",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R24",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R25",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R26",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R27",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R28",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R29",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R30",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R31",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R32",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R33",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R34",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R35",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R36",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R37",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R38",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R39",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R40",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R41",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R42",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R43",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R44",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R45",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R46",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R47",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R48",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R49",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R50",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R51",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R52",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R53",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R54",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R55",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R56",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R57",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R58",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R59",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-S01",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "id": "QA-S02",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "id": "QA-S03",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "id": "QA-S04",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "id": "QA-S05",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "id": "QA-S06",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "id": "QA-S07",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "id": "QA-S08",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "id": "QA-S09",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "id": "QA-H01",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Heuristic usability checks"
+            }
+          },
+          {
+            "id": "QA-H02",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Heuristic usability checks"
+            }
+          },
+          {
+            "id": "QA-H03",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Heuristic usability checks"
+            }
+          },
+          {
+            "id": "QA-H04",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Heuristic usability checks"
+            }
+          },
+          {
+            "id": "QA-H05",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Heuristic usability checks"
+            }
+          },
+          {
+            "id": "QA-H06",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Heuristic usability checks"
+            }
+          },
+          {
+            "id": "QA-H07",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Heuristic usability checks"
+            }
+          },
+          {
+            "id": "QA-H08",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Heuristic usability checks"
+            }
+          },
+          {
+            "id": "QA-H09",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Heuristic usability checks"
+            }
+          },
+          {
+            "id": "QA-H10",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Heuristic usability checks"
+            }
+          },
+          {
+            "id": "QA-U01",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Usability validation checks"
+            }
+          },
+          {
+            "id": "QA-U02",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Usability validation checks"
+            }
+          },
+          {
+            "id": "QA-U03",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Usability validation checks"
+            }
+          },
+          {
+            "id": "QA-U04",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Usability validation checks"
+            }
+          },
+          {
+            "id": "QA-R60",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          }
+        ],
+        "links": [
+          {
+            "from": "QA-R01",
+            "to": "FR-01.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R02",
+            "to": "FR-01.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R03",
+            "to": "FR-02.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R04",
+            "to": "FR-02.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R05",
+            "to": "FR-02.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R06",
+            "to": "FR-02.4",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R07",
+            "to": "FR-02.5",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R08",
+            "to": "FR-02.6",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R09",
+            "to": "FR-02.7",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R10",
+            "to": "FR-02.8",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R11",
+            "to": "FR-03.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R12",
+            "to": "FR-03.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R13",
+            "to": "FR-03.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R14",
+            "to": "FR-03.4",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R15",
+            "to": "FR-03.5",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R16",
+            "to": "FR-03.6",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R17",
+            "to": "FR-04.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R18",
+            "to": "FR-04.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R19",
+            "to": "FR-04.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R20",
+            "to": "FR-05.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R21",
+            "to": "FR-05.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R22",
+            "to": "FR-05.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R23",
+            "to": "FR-05.4",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R24",
+            "to": "FR-05.5",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R25",
+            "to": "FR-06.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R26",
+            "to": "FR-06.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R27",
+            "to": "FR-06.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R28",
+            "to": "FR-07.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R29",
+            "to": "FR-07.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R30",
+            "to": "FR-07.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R31",
+            "to": "FR-07.4",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R32",
+            "to": "FR-07.5",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R33",
+            "to": "FR-08.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R34",
+            "to": "FR-08.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R35",
+            "to": "FR-08.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R36",
+            "to": "NFR-01.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R37",
+            "to": "NFR-01.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R38",
+            "to": "NFR-01.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R39",
+            "to": "NFR-01.4",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R40",
+            "to": "NFR-02.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R41",
+            "to": "NFR-02.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R42",
+            "to": "NFR-02.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R43",
+            "to": "NFR-10.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R44",
+            "to": "NFR-10.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R45",
+            "to": "NFR-10.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R46",
+            "to": "NFR-11.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R47",
+            "to": "NFR-11.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R48",
+            "to": "NFR-11.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R49",
+            "to": "NFR-12.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R50",
+            "to": "NFR-12.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R51",
+            "to": "NFR-12.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R52",
+            "to": "NFR-13.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R53",
+            "to": "NFR-13.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R54",
+            "to": "NFR-14.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R55",
+            "to": "NFR-14.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R56",
+            "to": "NFR-14.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R57",
+            "to": "NFR-15.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R58",
+            "to": "NFR-16.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R59",
+            "to": "NFR-16.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-S01",
+            "to": "ST-01",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S01",
+            "to": "ST-02",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S01",
+            "to": "ST-03",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S01",
+            "to": "ST-04",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-05",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-06",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-07",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-08",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-09",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-10",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-11",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-12",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-13",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-14",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-15",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-16",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-17",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S03",
+            "to": "ST-18",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S03",
+            "to": "ST-19",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S03",
+            "to": "ST-20",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S04",
+            "to": "ST-21",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S04",
+            "to": "ST-22",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S04",
+            "to": "ST-23",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S04",
+            "to": "ST-24",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S04",
+            "to": "ST-25",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S05",
+            "to": "ST-26",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S05",
+            "to": "ST-27",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S05",
+            "to": "ST-28",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S05",
+            "to": "ST-29",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S05",
+            "to": "ST-30",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S05",
+            "to": "ST-31",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S05",
+            "to": "ST-32",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S05",
+            "to": "ST-33",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S06",
+            "to": "ST-34",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S06",
+            "to": "ST-35",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S06",
+            "to": "ST-36",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S07",
+            "to": "ST-37",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S07",
+            "to": "ST-38",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S08",
+            "to": "ST-39",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S08",
+            "to": "ST-40",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S08",
+            "to": "ST-41",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S08",
+            "to": "ST-42",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S09",
+            "to": "ST-43",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S09",
+            "to": "ST-44",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-R60",
+            "to": "FR-05.6",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          }
+        ]
+      },
+      "security_coverage": {
+        "NFR-10.1": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-10.2": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-10.3": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-11.1": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-11.2": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-11.3": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-12.1": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-12.2": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-12.3": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-13.1": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-13.2": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-14.1": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-14.2": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-14.3": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-15.1": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-16.1": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-16.2": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        }
+      },
+      "supersedes": "orchestration-port-qa-checklist-2026-09-23T08:57:36.012Z",
+      "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
+    },
+    {
+      "path": "docs/development-plan.md",
+      "owner_skill": "to-development-plan",
+      "owner_invocation_id": "orchestration-port-development-plan-2026-09-23T08:59:45.818Z",
+      "declared_output_set": [
+        "docs/development-plan.md"
+      ],
+      "status": "validated",
+      "mission_control_status": "Done",
+      "source_version": "orchestration-port-development-plan-2026-09-23T08:59:45.818Z",
+      "source_usage": {
+        "docs/prd.md": "full",
+        "docs/project-context.md": "full",
+        "docs/canonical-terms.md": "full",
+        "docs/guardrails.md": "full",
+        "docs/user-journey.md": "full",
+        "docs/screen-map.md": "full",
+        "docs/wireframes.md": "full",
+        "docs/design-brief.md": "full",
+        "docs/architecture.md": "full",
+        "docs/dod-evals.md": "full",
+        "docs/qa-checklist.md": "full",
+        "docs/model-settings.md": "full",
+        "docs/deployment-boundary.md": "full",
+        "package.json": "full",
+        "scripts/serve-prototype.mjs": "full",
+        "forge/design/candidates/a/v8/index.html": "full",
+        "forge/design/candidates/a/v8/styles.css": "full",
+        "forge/design/candidates/a/v8/nanoduck.svg": "full",
+        "forge/design/candidates/a/v8/nanoduck-original.svg": "full",
+        "forge/design/candidates/a/v8/app.js": "full",
+        "src/server/config.mjs": "full",
+        "src/server/index.mjs": "full",
+        "src/server/store.mjs": "full",
+        "scripts/check-artifacts.mjs": "full",
+        "test/core.test.mjs": "full",
+        "src/server/codex-provider.mjs": "full",
+        "src/server/consultation.mjs": "full",
+        "test/codex-provider.test.mjs": "full",
+        "test/consultation.test.mjs": "full",
+        "test/http.test.mjs": "full",
+        "test/fixtures/fake-codex.mjs": "full",
+        "src/server/prompt-contracts.mjs": "full",
+        "src/client/app.js": "full",
+        "test/consolidation.test.mjs": "full",
+        "test/prompt-contracts.test.mjs": "full",
+        "test/fixtures/runtime-instructions.mjs": "full",
+        "public/index.html": "full",
+        "public/styles.css": "full",
+        "src/server/conversation-export.mjs": "full",
+        "src/client/markdown.js": "full",
+        "test/conversation-export.test.mjs": "full",
+        "src/server/validation.mjs": "full",
+        "src/server/conversation-title.mjs": "full",
+        "test/conversation-title.test.mjs": "full",
+        "src/client/refresh-state.js": "full",
+        "test/refresh-state.test.mjs": "full",
+        "src/server/claude-provider.mjs": "full",
+        "src/server/output-safety.mjs": "full",
+        "test/claude-provider.test.mjs": "full",
+        "public/sounds/nokia-three-knocks-quick.wav": "full",
+        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "full",
+        "public/sounds/table-taps-250ms.wav": "full",
+        "forge/exploration/message-sound-table-250ms-v3/source.json": "full",
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "full",
+        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "full",
+        "public/sounds/table-taps-250ms-v5.wav": "full",
+        "forge/exploration/message-sound-table-250ms-v5/source.json": "full",
+        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "full",
+        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "full",
+        "src/server/settings.mjs": "full",
+        "src/server/settings-migration.mjs": "full",
+        "src/server/migrate.mjs": "full",
+        "src/server/configuration-recovery.mjs": "full",
+        "test/settings-migration.test.mjs": "full",
+        "test/fixtures/fake-claude.mjs": "full",
+        "src/server/codex-models.mjs": "full",
+        "package-lock.json": "full",
+        "src/server/browser-assets.mjs": "full",
+        "test/browser-assets.test.mjs": "full",
+        "src/server/settings-catalog.mjs": "full",
+        "src/server/schema.sql": "full",
+        "src/server/preflight.mjs": "full",
+        "src/server/providers.mjs": "full",
+        "test/codex-grant.test.mjs": "full",
+        "test/settings-catalog.test.mjs": "full",
+        "test/mysql.integration.test.mjs": "full",
+        "test/preflight.test.mjs": "full",
+        "test/fixtures/rotating-auth-codex.mjs": "full"
+      },
+      "source_hashes": {
+        "docs/prd.md": "4a5b565b3e2e6e5f352c739855504deefc059562d39f5029c5c6500034d71edb",
+        "docs/project-context.md": "6698b94d8c060a2161de2c5c9dd40c1942a2b90e9b9beecfc07ae2baa5823369",
+        "docs/canonical-terms.md": "18bb51b7241b6e9aa0a774ecce4e0f1fae95f66cc19b9f14650d59cf6a7a56af",
+        "docs/guardrails.md": "6b180b0a4ac3f6bea05a74599c4b80712c1593fd49614b6d3a8be42867368174",
+        "docs/user-journey.md": "9a3d1c49e6933d7947458dd9a25d16fb3c1a2acdf3971c58dbe12a5e62bf7c55",
+        "docs/screen-map.md": "f1158ef84d8f2c391ab6c728182c1d86ff2a97815d8c0e9dc368e17c53739034",
+        "docs/wireframes.md": "2620fe584ea0d7073f0149813d15c22097d75ad33f65f8a2f6d5c2653fa7877d",
+        "docs/design-brief.md": "f076a47ba9cfb7a196393ca6a96ffe6422963d4ed708b5a3ab8d6fa9a7313906",
+        "docs/architecture.md": "ee3004bde4905e7e39c81fd347cf1ed94da213e583b5ecb8234ef23402cc0b8a",
+        "docs/dod-evals.md": "c660064a313e3a6d7894d79d4e48587e952a5299adcc86836f70e2494562b10d",
+        "docs/qa-checklist.md": "f38f0f2b22cb9ec39271e0cb3defb47be85d682e3f5b5069110a8fee324adeaa",
+        "docs/model-settings.md": "678d708c4222371cf065e407ac7780079a435a46518b7810fd93897974007df9",
+        "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
+        "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
+        "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
+        "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
+        "forge/design/candidates/a/v8/styles.css": "f8fd6e8832671b05dc8b7a2a034ee41fb2aad4f085468965feaf1c34a3b57d43",
+        "forge/design/candidates/a/v8/nanoduck.svg": "723d3b4201c5fc6ffa3d30a1e5ed5151f616d436919d15f3642827a16ed7021d",
+        "forge/design/candidates/a/v8/nanoduck-original.svg": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528",
+        "forge/design/candidates/a/v8/app.js": "d7ac2287ce8496772592d42d134fc530affcb9147f0a7641655a56c6cf83775f",
+        "src/server/config.mjs": "47a1518ea1fb1842be51a5d362b9bd2f0c900a2f4c632c767ec9ae3e0c5958ca",
+        "src/server/index.mjs": "ca425a2fab992d53a7ac458d4be3af42535517554494826844ddb20072e05868",
+        "src/server/store.mjs": "5d2d659c4dc685da4ca0d88a4791cc7a20b733f0867fd48d24a5ce97c76e48f0",
+        "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
+        "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
+        "src/server/codex-provider.mjs": "cd06546cf491bd3e40686f2ba80d2d521a0fdb04db4b787776881109fa0e8e8b",
+        "src/server/consultation.mjs": "10880d7ff0cfdbe1d0a98c4ce6fbfbc0172889103a88eb3ee43eb7690a231260",
+        "test/codex-provider.test.mjs": "aa6347714d9112487afd51ee7f3b0b38a1cabd2c08015c385b51add8fdbbeee7",
+        "test/consultation.test.mjs": "5aa5727a37ed6d97ca460295ebd1f28a416ad2b21d3b6e82f23a6528fc05fabd",
+        "test/http.test.mjs": "e7b32075047b61035b70f38e07ff1dbb50a1f844490882c5a3928c603b68074f",
+        "test/fixtures/fake-codex.mjs": "1d15508dc3412168cf9f00660b451fb3524fabf9f4a2ec4608858149660a3e6c",
+        "src/server/prompt-contracts.mjs": "9f8e5a613b9b29aa22eaf91b9b24474c8efea2d74de40efd8b9a4c516feb124f",
+        "src/client/app.js": "90478e3317346041b4788b5c4e64542cf26c16ff0fb8c466834b6c0200a6bc17",
+        "test/consolidation.test.mjs": "3184b7d1ecc4b62577becfa7cac7834aa568a51ae3d0ec3de4bf1f0a0ffb77f9",
+        "test/prompt-contracts.test.mjs": "15c6ac0686447b15637d689c078d09fc09125533c052e3fa1a1e936b83b09ba0",
+        "test/fixtures/runtime-instructions.mjs": "bbbbbad81efb9ce46718d43c37f3117b0ab03b8b2976319f2c9fc88854f0a4ec",
+        "public/index.html": "bc89c90570533624ba823199b175cfcd38e6c2a7c80e2b053cf5912e37cd8d23",
+        "public/styles.css": "d92ee023de308477be95fd67d261dbf97bfcebf276209c9c2b578387f465081a",
+        "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
+        "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
+        "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
+        "src/server/validation.mjs": "d8d813c53f5f9313c496e33fe37615258a324bb4eaf2fafc50073c5fe6ee9e3a",
+        "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
+        "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
+        "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
+        "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
+        "src/server/claude-provider.mjs": "7f566f8997702892d4749347dd01b378228a1fe362022c7702f1efcae47ac22d",
+        "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
+        "test/claude-provider.test.mjs": "e13dd0cde01265625ada30ac30a1cab4759dc207dad16790efba97ec593044db",
+        "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
+        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
+        "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
+        "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719",
+        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "public/sounds/table-taps-250ms-v5.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
+        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
+        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22",
+        "src/server/settings.mjs": "d18f32fbc90a991324b0f1ef0056be0830e02817f648e0c2148dd82fccbff3e9",
+        "src/server/settings-migration.mjs": "962a06c2aca26fe19654d7a05b7aefff1e7986b53d966cba59c5a212d3bd9db5",
+        "src/server/migrate.mjs": "e2d2eb82f43470c9e71693545692844d3ef34ab7c0ee9f24d375256e291a2a57",
+        "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
+        "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
+        "test/fixtures/fake-claude.mjs": "fb35e857b023657c1730792e6d154133f43e4321675b68648161c65ae297ab83",
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06",
+        "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
+        "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
+        "src/server/settings-catalog.mjs": "f0cefd79aad578d6c21963bcece9fcc8445f02711ec723a3b61dc57b4e8965e7",
+        "src/server/schema.sql": "88e008ba94999351fb1ed752cf34d21a4087f0d6456dcfb3cf4e3ac88c990f94",
+        "src/server/preflight.mjs": "12d319c73af28e4538991cb86acd700cc41571b73ea3fd9912a65350a010411f",
+        "src/server/providers.mjs": "8bf8f11103b720490b7692be59af33e5e11b9f8415144a90de323d3baebaddeb",
+        "test/codex-grant.test.mjs": "03d3768018cac00de2693022d6a3851505e4fa75a0be600f91ed35e0301e9667",
+        "test/settings-catalog.test.mjs": "0d8489ecfb1f9a6946ddf455193bca143fba3f5317fbf879a1e21eb09d91a4a5",
+        "test/mysql.integration.test.mjs": "9a07688c3f05b0a46fc2062b68af23c20c918f21d32b253c97bac77d7afd8654",
+        "test/preflight.test.mjs": "48ffeb7617745035523f8abdf97a9575010ecf3d0e620abb61734c4fb16b1e9b",
+        "test/fixtures/rotating-auth-codex.mjs": "4b4f3f119b2b8f84f0504a72b7ab9da9d9eb4f20128ee61391681abb9f921bb0"
+      },
+      "dependencies": [
+        "prd",
+        "project-context",
+        "canonical-terms",
+        "guardrails",
+        "user-journey",
+        "screen-map",
+        "wireframes",
+        "design-brief",
+        "architecture",
+        "dod-evals",
+        "qa-checklist"
+      ],
+      "content_hash": "dfb75fcb6ab6780c322d581b86677308b22579fd9c198dee813cc5a170a0a30e",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "owner-directed-consultation-orchestration-port",
+        "reviewed_at": "2026-09-23T08:59:45.818Z",
+        "executor": "Codex inline to-development-plan",
+        "scope": "Reconcile the 23 September Head-led consultation, Critic evidence review, safe public research, full outputs and truthful recovery while preserving the approved visual baseline and original host."
+      },
+      "supersedes": "orchestration-port-development-plan-2026-09-23T08:57:37.026Z",
+      "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
+      "traceability": {
+        "definitions": [
+          {
+            "id": "U-01",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-01 — Verify the runtime and preserved provider capabilities"
+            }
+          },
+          {
+            "id": "U-02",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-02 — Build the private application and durable data foundation"
+            }
+          },
+          {
+            "id": "U-03",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-03 — Promote the approved presentation and connect Settings"
+            }
+          },
+          {
+            "id": "U-04",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-04 — Implement real discussion, control and recovery"
+            }
+          },
+          {
+            "id": "U-05",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-05 — Connect live research and inspectable sources"
+            }
+          },
+          {
+            "id": "U-06",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-06 — Implement voice and safe attachments"
+            }
+          },
+          {
+            "id": "U-07",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-07 — Finish record ownership, export, deletion and restore"
+            }
+          },
+          {
+            "id": "U-08",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-08 — Verify the integrated app and prepare the scoped release"
+            }
+          }
+        ],
+        "links": [
+          {
+            "from": "U-02",
+            "to": "FR-01.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "FR-01.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-02.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "FR-02.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-02.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-02.4",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-02.5",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-02.6",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-02.7",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-02.8",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-03.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-03.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-03.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-03.4",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-03.5",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-03.6",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "FR-04.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "FR-04.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "FR-04.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-05.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-05.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-05.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-05.4",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-05.5",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "FR-06.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "FR-06.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "FR-06.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "FR-07.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "FR-07.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "FR-07.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "FR-07.4",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "FR-07.5",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-08.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-08.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-08.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "NFR-01.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "NFR-01.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "NFR-01.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "NFR-01.4",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "NFR-02.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "NFR-02.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "NFR-02.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-10.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-10.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-10.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-11.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "NFR-11.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-11.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "NFR-12.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "NFR-12.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "NFR-12.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-13.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-13.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "NFR-14.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "NFR-14.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "NFR-14.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-08",
+            "to": "NFR-15.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-16.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "NFR-16.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "ST-01",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "ST-02",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "ST-03",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "ST-04",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-05",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-06",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-07",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-08",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-09",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-10",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-11",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-12",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-13",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-14",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-15",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-16",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-17",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-18",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-19",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-20",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-21",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-22",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-23",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-24",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-25",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-26",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-27",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-28",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-29",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-30",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-31",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-32",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-33",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "ST-34",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "ST-35",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "ST-36",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-37",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-38",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-39",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-40",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-41",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-42",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-43",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-44",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-05.6",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          }
+        ]
+      },
+      "security_coverage": {
+        "NFR-10.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-10.2": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-10.3": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-11.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-11.2": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-11.3": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-12.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-12.2": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-12.3": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-13.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-13.2": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-14.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-14.2": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-14.3": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-15.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-16.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-16.2": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        }
+      }
     }
   ],
   "verification": {
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "c660064a313e3a6d7894d79d4e48587e952a5299adcc86836f70e2494562b10d",
-      "docs/qa-checklist.md": "f38f0f2b22cb9ec39271e0cb3defb47be85d682e3f5b5069110a8fee324adeaa"
+      "docs/dod-evals.md": "c6357ade3c689a9fa362e4c73d832b2475ea5ca1981de5e99a9f0be6e2ee5b7e",
+      "docs/qa-checklist.md": "32c76a195d7d1ca4eac9a9b24b2c2f12426d58996939e37b77582f1028d74a72"
     },
     "gates": [
       {
@@ -100737,6 +104389,304 @@
         "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
         "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
         "src/server/validation.mjs": "bd1da58c662cace6d2a7b7cda18e7a11782275d93904f35ec999119f4ae11afd",
+        "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
+        "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
+        "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
+        "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
+        "src/server/claude-provider.mjs": "7f566f8997702892d4749347dd01b378228a1fe362022c7702f1efcae47ac22d",
+        "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
+        "test/claude-provider.test.mjs": "e13dd0cde01265625ada30ac30a1cab4759dc207dad16790efba97ec593044db",
+        "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
+        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
+        "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
+        "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719",
+        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "public/sounds/table-taps-250ms-v5.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
+        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
+        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22",
+        "src/server/settings.mjs": "d18f32fbc90a991324b0f1ef0056be0830e02817f648e0c2148dd82fccbff3e9",
+        "src/server/settings-migration.mjs": "962a06c2aca26fe19654d7a05b7aefff1e7986b53d966cba59c5a212d3bd9db5",
+        "src/server/migrate.mjs": "e2d2eb82f43470c9e71693545692844d3ef34ab7c0ee9f24d375256e291a2a57",
+        "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
+        "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
+        "test/fixtures/fake-claude.mjs": "fb35e857b023657c1730792e6d154133f43e4321675b68648161c65ae297ab83",
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06",
+        "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
+        "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
+        "src/server/settings-catalog.mjs": "f0cefd79aad578d6c21963bcece9fcc8445f02711ec723a3b61dc57b4e8965e7",
+        "src/server/schema.sql": "88e008ba94999351fb1ed752cf34d21a4087f0d6456dcfb3cf4e3ac88c990f94",
+        "src/server/preflight.mjs": "12d319c73af28e4538991cb86acd700cc41571b73ea3fd9912a65350a010411f",
+        "src/server/providers.mjs": "8bf8f11103b720490b7692be59af33e5e11b9f8415144a90de323d3baebaddeb",
+        "test/codex-grant.test.mjs": "03d3768018cac00de2693022d6a3851505e4fa75a0be600f91ed35e0301e9667",
+        "test/settings-catalog.test.mjs": "0d8489ecfb1f9a6946ddf455193bca143fba3f5317fbf879a1e21eb09d91a4a5",
+        "test/mysql.integration.test.mjs": "9a07688c3f05b0a46fc2062b68af23c20c918f21d32b253c97bac77d7afd8654",
+        "test/preflight.test.mjs": "48ffeb7617745035523f8abdf97a9575010ecf3d0e620abb61734c4fb16b1e9b",
+        "test/fixtures/rotating-auth-codex.mjs": "4b4f3f119b2b8f84f0504a72b7ab9da9d9eb4f20128ee61391681abb9f921bb0"
+      },
+      "consumed_source_fragments": {}
+    },
+    {
+      "artifact_id": "architecture",
+      "invocation_id": "orchestration-port-architecture-2026-09-23T08:59:43.493Z",
+      "outputs": [
+        "docs/architecture.md"
+      ],
+      "source_hashes": {
+        "docs/prd.md": "4a5b565b3e2e6e5f352c739855504deefc059562d39f5029c5c6500034d71edb",
+        "docs/project-context.md": "6698b94d8c060a2161de2c5c9dd40c1942a2b90e9b9beecfc07ae2baa5823369",
+        "docs/canonical-terms.md": "18bb51b7241b6e9aa0a774ecce4e0f1fae95f66cc19b9f14650d59cf6a7a56af",
+        "docs/guardrails.md": "6b180b0a4ac3f6bea05a74599c4b80712c1593fd49614b6d3a8be42867368174",
+        "docs/user-journey.md": "9a3d1c49e6933d7947458dd9a25d16fb3c1a2acdf3971c58dbe12a5e62bf7c55",
+        "docs/screen-map.md": "f1158ef84d8f2c391ab6c728182c1d86ff2a97815d8c0e9dc368e17c53739034",
+        "docs/wireframes.md": "2620fe584ea0d7073f0149813d15c22097d75ad33f65f8a2f6d5c2653fa7877d",
+        "docs/design-brief.md": "f076a47ba9cfb7a196393ca6a96ffe6422963d4ed708b5a3ab8d6fa9a7313906",
+        "docs/model-settings.md": "678d708c4222371cf065e407ac7780079a435a46518b7810fd93897974007df9",
+        "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
+        "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
+        "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
+        "src/server/config.mjs": "47a1518ea1fb1842be51a5d362b9bd2f0c900a2f4c632c767ec9ae3e0c5958ca",
+        "src/server/index.mjs": "ca425a2fab992d53a7ac458d4be3af42535517554494826844ddb20072e05868",
+        "src/server/store.mjs": "5d2d659c4dc685da4ca0d88a4791cc7a20b733f0867fd48d24a5ce97c76e48f0",
+        "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
+        "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
+        "src/server/codex-provider.mjs": "cd06546cf491bd3e40686f2ba80d2d521a0fdb04db4b787776881109fa0e8e8b",
+        "src/server/consultation.mjs": "10880d7ff0cfdbe1d0a98c4ce6fbfbc0172889103a88eb3ee43eb7690a231260",
+        "test/codex-provider.test.mjs": "aa6347714d9112487afd51ee7f3b0b38a1cabd2c08015c385b51add8fdbbeee7",
+        "test/consultation.test.mjs": "5aa5727a37ed6d97ca460295ebd1f28a416ad2b21d3b6e82f23a6528fc05fabd",
+        "test/http.test.mjs": "e7b32075047b61035b70f38e07ff1dbb50a1f844490882c5a3928c603b68074f",
+        ".env.example": "71983a7601c502c44bddb0f1a6fb9c2a8ebe170dd7151395b9199e16da713d3d",
+        "test/fixtures/fake-codex.mjs": "1d15508dc3412168cf9f00660b451fb3524fabf9f4a2ec4608858149660a3e6c",
+        "src/server/prompt-contracts.mjs": "9f8e5a613b9b29aa22eaf91b9b24474c8efea2d74de40efd8b9a4c516feb124f",
+        "src/client/app.js": "90478e3317346041b4788b5c4e64542cf26c16ff0fb8c466834b6c0200a6bc17",
+        "test/consolidation.test.mjs": "3184b7d1ecc4b62577becfa7cac7834aa568a51ae3d0ec3de4bf1f0a0ffb77f9",
+        "test/prompt-contracts.test.mjs": "15c6ac0686447b15637d689c078d09fc09125533c052e3fa1a1e936b83b09ba0",
+        "test/fixtures/runtime-instructions.mjs": "bbbbbad81efb9ce46718d43c37f3117b0ab03b8b2976319f2c9fc88854f0a4ec",
+        "public/index.html": "bc89c90570533624ba823199b175cfcd38e6c2a7c80e2b053cf5912e37cd8d23",
+        "public/styles.css": "d92ee023de308477be95fd67d261dbf97bfcebf276209c9c2b578387f465081a",
+        "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
+        "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
+        "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
+        "src/server/validation.mjs": "d8d813c53f5f9313c496e33fe37615258a324bb4eaf2fafc50073c5fe6ee9e3a",
+        "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
+        "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
+        "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
+        "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
+        "src/server/claude-provider.mjs": "7f566f8997702892d4749347dd01b378228a1fe362022c7702f1efcae47ac22d",
+        "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
+        "test/claude-provider.test.mjs": "e13dd0cde01265625ada30ac30a1cab4759dc207dad16790efba97ec593044db",
+        "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
+        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
+        "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
+        "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719",
+        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "public/sounds/table-taps-250ms-v5.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
+        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
+        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22",
+        "src/server/settings.mjs": "d18f32fbc90a991324b0f1ef0056be0830e02817f648e0c2148dd82fccbff3e9",
+        "src/server/settings-migration.mjs": "962a06c2aca26fe19654d7a05b7aefff1e7986b53d966cba59c5a212d3bd9db5",
+        "src/server/migrate.mjs": "e2d2eb82f43470c9e71693545692844d3ef34ab7c0ee9f24d375256e291a2a57",
+        "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
+        "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
+        "test/fixtures/fake-claude.mjs": "fb35e857b023657c1730792e6d154133f43e4321675b68648161c65ae297ab83",
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
+        "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06",
+        "docs/product-idea.md": "0ced9b92ecc0891a4fb162ef4deb3f7f2c59151d26da456a9ca5169868583957",
+        "docs/development-plan.md": "dfb75fcb6ab6780c322d581b86677308b22579fd9c198dee813cc5a170a0a30e",
+        "src/server/preflight.mjs": "12d319c73af28e4538991cb86acd700cc41571b73ea3fd9912a65350a010411f",
+        "src/server/schema.sql": "88e008ba94999351fb1ed752cf34d21a4087f0d6456dcfb3cf4e3ac88c990f94",
+        "src/server/settings-catalog.mjs": "f0cefd79aad578d6c21963bcece9fcc8445f02711ec723a3b61dc57b4e8965e7",
+        "test/codex-grant.test.mjs": "03d3768018cac00de2693022d6a3851505e4fa75a0be600f91ed35e0301e9667",
+        "test/settings-catalog.test.mjs": "0d8489ecfb1f9a6946ddf455193bca143fba3f5317fbf879a1e21eb09d91a4a5",
+        "test/fixtures/rotating-auth-codex.mjs": "4b4f3f119b2b8f84f0504a72b7ab9da9d9eb4f20128ee61391681abb9f921bb0",
+        "test/mysql.integration.test.mjs": "9a07688c3f05b0a46fc2062b68af23c20c918f21d32b253c97bac77d7afd8654"
+      },
+      "consumed_source_fragments": {}
+    },
+    {
+      "artifact_id": "dod-evals",
+      "invocation_id": "orchestration-port-dod-evals-2026-09-23T08:59:44.161Z",
+      "outputs": [
+        "docs/dod-evals.md"
+      ],
+      "source_hashes": {
+        "docs/prd.md": "4a5b565b3e2e6e5f352c739855504deefc059562d39f5029c5c6500034d71edb",
+        "docs/project-context.md": "6698b94d8c060a2161de2c5c9dd40c1942a2b90e9b9beecfc07ae2baa5823369",
+        "docs/canonical-terms.md": "18bb51b7241b6e9aa0a774ecce4e0f1fae95f66cc19b9f14650d59cf6a7a56af",
+        "docs/guardrails.md": "6b180b0a4ac3f6bea05a74599c4b80712c1593fd49614b6d3a8be42867368174",
+        "docs/user-journey.md": "9a3d1c49e6933d7947458dd9a25d16fb3c1a2acdf3971c58dbe12a5e62bf7c55",
+        "docs/screen-map.md": "f1158ef84d8f2c391ab6c728182c1d86ff2a97815d8c0e9dc368e17c53739034",
+        "docs/wireframes.md": "2620fe584ea0d7073f0149813d15c22097d75ad33f65f8a2f6d5c2653fa7877d",
+        "docs/design-brief.md": "f076a47ba9cfb7a196393ca6a96ffe6422963d4ed708b5a3ab8d6fa9a7313906",
+        "docs/architecture.md": "ee3004bde4905e7e39c81fd347cf1ed94da213e583b5ecb8234ef23402cc0b8a",
+        "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
+        "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
+        "src/server/claude-provider.mjs": "7f566f8997702892d4749347dd01b378228a1fe362022c7702f1efcae47ac22d",
+        "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
+        "src/server/consultation.mjs": "10880d7ff0cfdbe1d0a98c4ce6fbfbc0172889103a88eb3ee43eb7690a231260",
+        "test/claude-provider.test.mjs": "e13dd0cde01265625ada30ac30a1cab4759dc207dad16790efba97ec593044db",
+        "test/consultation.test.mjs": "5aa5727a37ed6d97ca460295ebd1f28a416ad2b21d3b6e82f23a6528fc05fabd",
+        "src/server/settings.mjs": "d18f32fbc90a991324b0f1ef0056be0830e02817f648e0c2148dd82fccbff3e9",
+        "src/server/settings-migration.mjs": "962a06c2aca26fe19654d7a05b7aefff1e7986b53d966cba59c5a212d3bd9db5",
+        "src/server/migrate.mjs": "e2d2eb82f43470c9e71693545692844d3ef34ab7c0ee9f24d375256e291a2a57",
+        "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
+        "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
+        "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
+        "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06",
+        "docs/product-idea.md": "0ced9b92ecc0891a4fb162ef4deb3f7f2c59151d26da456a9ca5169868583957",
+        ".github/workflows/ci.yml": "e49aca94617f9bcef4d09e72319b03b7670d39d888967b55264b2e09d54ec1a5",
+        "src/server/codex-provider.mjs": "cd06546cf491bd3e40686f2ba80d2d521a0fdb04db4b787776881109fa0e8e8b",
+        "src/server/store.mjs": "5d2d659c4dc685da4ca0d88a4791cc7a20b733f0867fd48d24a5ce97c76e48f0",
+        "src/server/settings-catalog.mjs": "f0cefd79aad578d6c21963bcece9fcc8445f02711ec723a3b61dc57b4e8965e7",
+        "src/server/index.mjs": "ca425a2fab992d53a7ac458d4be3af42535517554494826844ddb20072e05868",
+        "src/server/preflight.mjs": "12d319c73af28e4538991cb86acd700cc41571b73ea3fd9912a65350a010411f",
+        "src/server/schema.sql": "88e008ba94999351fb1ed752cf34d21a4087f0d6456dcfb3cf4e3ac88c990f94",
+        "test/codex-provider.test.mjs": "aa6347714d9112487afd51ee7f3b0b38a1cabd2c08015c385b51add8fdbbeee7",
+        "test/codex-grant.test.mjs": "03d3768018cac00de2693022d6a3851505e4fa75a0be600f91ed35e0301e9667",
+        "test/mysql.integration.test.mjs": "9a07688c3f05b0a46fc2062b68af23c20c918f21d32b253c97bac77d7afd8654",
+        "test/settings-catalog.test.mjs": "0d8489ecfb1f9a6946ddf455193bca143fba3f5317fbf879a1e21eb09d91a4a5"
+      },
+      "consumed_source_fragments": {}
+    },
+    {
+      "artifact_id": "qa-checklist",
+      "invocation_id": "orchestration-port-qa-checklist-2026-09-23T08:59:44.839Z",
+      "outputs": [
+        "docs/qa-checklist.md"
+      ],
+      "source_hashes": {
+        "docs/prd.md": "4a5b565b3e2e6e5f352c739855504deefc059562d39f5029c5c6500034d71edb",
+        "docs/project-context.md": "6698b94d8c060a2161de2c5c9dd40c1942a2b90e9b9beecfc07ae2baa5823369",
+        "docs/canonical-terms.md": "18bb51b7241b6e9aa0a774ecce4e0f1fae95f66cc19b9f14650d59cf6a7a56af",
+        "docs/guardrails.md": "6b180b0a4ac3f6bea05a74599c4b80712c1593fd49614b6d3a8be42867368174",
+        "docs/user-journey.md": "9a3d1c49e6933d7947458dd9a25d16fb3c1a2acdf3971c58dbe12a5e62bf7c55",
+        "docs/screen-map.md": "f1158ef84d8f2c391ab6c728182c1d86ff2a97815d8c0e9dc368e17c53739034",
+        "docs/wireframes.md": "2620fe584ea0d7073f0149813d15c22097d75ad33f65f8a2f6d5c2653fa7877d",
+        "docs/design-brief.md": "f076a47ba9cfb7a196393ca6a96ffe6422963d4ed708b5a3ab8d6fa9a7313906",
+        "docs/architecture.md": "ee3004bde4905e7e39c81fd347cf1ed94da213e583b5ecb8234ef23402cc0b8a",
+        "docs/dod-evals.md": "c660064a313e3a6d7894d79d4e48587e952a5299adcc86836f70e2494562b10d",
+        "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
+        "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
+        "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
+        "forge/design/evidence/c-v1-visual-qa.json": "b5517ae544724b5ae54c60f63e328797b4788b4abda5828ceaea81f439c4ae83",
+        "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
+        "src/server/config.mjs": "47a1518ea1fb1842be51a5d362b9bd2f0c900a2f4c632c767ec9ae3e0c5958ca",
+        "src/server/index.mjs": "ca425a2fab992d53a7ac458d4be3af42535517554494826844ddb20072e05868",
+        "src/server/store.mjs": "5d2d659c4dc685da4ca0d88a4791cc7a20b733f0867fd48d24a5ce97c76e48f0",
+        "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
+        "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
+        "src/server/codex-provider.mjs": "cd06546cf491bd3e40686f2ba80d2d521a0fdb04db4b787776881109fa0e8e8b",
+        "src/server/consultation.mjs": "10880d7ff0cfdbe1d0a98c4ce6fbfbc0172889103a88eb3ee43eb7690a231260",
+        "test/codex-provider.test.mjs": "aa6347714d9112487afd51ee7f3b0b38a1cabd2c08015c385b51add8fdbbeee7",
+        "test/consultation.test.mjs": "5aa5727a37ed6d97ca460295ebd1f28a416ad2b21d3b6e82f23a6528fc05fabd",
+        "test/http.test.mjs": "e7b32075047b61035b70f38e07ff1dbb50a1f844490882c5a3928c603b68074f",
+        "test/fixtures/fake-codex.mjs": "1d15508dc3412168cf9f00660b451fb3524fabf9f4a2ec4608858149660a3e6c",
+        "src/server/prompt-contracts.mjs": "9f8e5a613b9b29aa22eaf91b9b24474c8efea2d74de40efd8b9a4c516feb124f",
+        "src/client/app.js": "90478e3317346041b4788b5c4e64542cf26c16ff0fb8c466834b6c0200a6bc17",
+        "test/consolidation.test.mjs": "3184b7d1ecc4b62577becfa7cac7834aa568a51ae3d0ec3de4bf1f0a0ffb77f9",
+        "test/prompt-contracts.test.mjs": "15c6ac0686447b15637d689c078d09fc09125533c052e3fa1a1e936b83b09ba0",
+        "test/fixtures/runtime-instructions.mjs": "bbbbbad81efb9ce46718d43c37f3117b0ab03b8b2976319f2c9fc88854f0a4ec",
+        "public/index.html": "bc89c90570533624ba823199b175cfcd38e6c2a7c80e2b053cf5912e37cd8d23",
+        "public/styles.css": "d92ee023de308477be95fd67d261dbf97bfcebf276209c9c2b578387f465081a",
+        "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
+        "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
+        "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
+        "src/server/validation.mjs": "d8d813c53f5f9313c496e33fe37615258a324bb4eaf2fafc50073c5fe6ee9e3a",
+        "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
+        "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
+        "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
+        "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
+        "src/server/claude-provider.mjs": "7f566f8997702892d4749347dd01b378228a1fe362022c7702f1efcae47ac22d",
+        "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
+        "test/claude-provider.test.mjs": "e13dd0cde01265625ada30ac30a1cab4759dc207dad16790efba97ec593044db",
+        "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
+        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
+        "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
+        "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719",
+        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "public/sounds/table-taps-250ms-v5.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
+        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
+        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22",
+        "src/server/settings.mjs": "d18f32fbc90a991324b0f1ef0056be0830e02817f648e0c2148dd82fccbff3e9",
+        "src/server/settings-migration.mjs": "962a06c2aca26fe19654d7a05b7aefff1e7986b53d966cba59c5a212d3bd9db5",
+        "src/server/migrate.mjs": "e2d2eb82f43470c9e71693545692844d3ef34ab7c0ee9f24d375256e291a2a57",
+        "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
+        "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
+        "test/fixtures/fake-claude.mjs": "fb35e857b023657c1730792e6d154133f43e4321675b68648161c65ae297ab83",
+        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
+        "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
+        "package-lock.json": "e10cb9d7eec1dba08273b87693117d0c3699daf39bebf3aba4cee2418b42be06",
+        "src/server/preflight.mjs": "12d319c73af28e4538991cb86acd700cc41571b73ea3fd9912a65350a010411f",
+        "src/server/settings-catalog.mjs": "f0cefd79aad578d6c21963bcece9fcc8445f02711ec723a3b61dc57b4e8965e7",
+        "src/server/schema.sql": "88e008ba94999351fb1ed752cf34d21a4087f0d6456dcfb3cf4e3ac88c990f94",
+        "test/codex-grant.test.mjs": "03d3768018cac00de2693022d6a3851505e4fa75a0be600f91ed35e0301e9667",
+        "test/mysql.integration.test.mjs": "9a07688c3f05b0a46fc2062b68af23c20c918f21d32b253c97bac77d7afd8654",
+        "test/settings-catalog.test.mjs": "0d8489ecfb1f9a6946ddf455193bca143fba3f5317fbf879a1e21eb09d91a4a5",
+        ".github/workflows/ci.yml": "e49aca94617f9bcef4d09e72319b03b7670d39d888967b55264b2e09d54ec1a5"
+      },
+      "consumed_source_fragments": {}
+    },
+    {
+      "artifact_id": "development-plan",
+      "invocation_id": "orchestration-port-development-plan-2026-09-23T08:59:45.818Z",
+      "outputs": [
+        "docs/development-plan.md"
+      ],
+      "source_hashes": {
+        "docs/prd.md": "4a5b565b3e2e6e5f352c739855504deefc059562d39f5029c5c6500034d71edb",
+        "docs/project-context.md": "6698b94d8c060a2161de2c5c9dd40c1942a2b90e9b9beecfc07ae2baa5823369",
+        "docs/canonical-terms.md": "18bb51b7241b6e9aa0a774ecce4e0f1fae95f66cc19b9f14650d59cf6a7a56af",
+        "docs/guardrails.md": "6b180b0a4ac3f6bea05a74599c4b80712c1593fd49614b6d3a8be42867368174",
+        "docs/user-journey.md": "9a3d1c49e6933d7947458dd9a25d16fb3c1a2acdf3971c58dbe12a5e62bf7c55",
+        "docs/screen-map.md": "f1158ef84d8f2c391ab6c728182c1d86ff2a97815d8c0e9dc368e17c53739034",
+        "docs/wireframes.md": "2620fe584ea0d7073f0149813d15c22097d75ad33f65f8a2f6d5c2653fa7877d",
+        "docs/design-brief.md": "f076a47ba9cfb7a196393ca6a96ffe6422963d4ed708b5a3ab8d6fa9a7313906",
+        "docs/architecture.md": "ee3004bde4905e7e39c81fd347cf1ed94da213e583b5ecb8234ef23402cc0b8a",
+        "docs/dod-evals.md": "c660064a313e3a6d7894d79d4e48587e952a5299adcc86836f70e2494562b10d",
+        "docs/qa-checklist.md": "f38f0f2b22cb9ec39271e0cb3defb47be85d682e3f5b5069110a8fee324adeaa",
+        "docs/model-settings.md": "678d708c4222371cf065e407ac7780079a435a46518b7810fd93897974007df9",
+        "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
+        "package.json": "c6fa7a7834fe70eb8e095abb4aad37e164d3826b600c6738640d111313f68b4a",
+        "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
+        "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
+        "forge/design/candidates/a/v8/styles.css": "f8fd6e8832671b05dc8b7a2a034ee41fb2aad4f085468965feaf1c34a3b57d43",
+        "forge/design/candidates/a/v8/nanoduck.svg": "723d3b4201c5fc6ffa3d30a1e5ed5151f616d436919d15f3642827a16ed7021d",
+        "forge/design/candidates/a/v8/nanoduck-original.svg": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528",
+        "forge/design/candidates/a/v8/app.js": "d7ac2287ce8496772592d42d134fc530affcb9147f0a7641655a56c6cf83775f",
+        "src/server/config.mjs": "47a1518ea1fb1842be51a5d362b9bd2f0c900a2f4c632c767ec9ae3e0c5958ca",
+        "src/server/index.mjs": "ca425a2fab992d53a7ac458d4be3af42535517554494826844ddb20072e05868",
+        "src/server/store.mjs": "5d2d659c4dc685da4ca0d88a4791cc7a20b733f0867fd48d24a5ce97c76e48f0",
+        "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
+        "test/core.test.mjs": "a368006719a499175da7607cd3fb2bfcaf1a6b8cb32ed94f9b8870eb90292c7b",
+        "src/server/codex-provider.mjs": "cd06546cf491bd3e40686f2ba80d2d521a0fdb04db4b787776881109fa0e8e8b",
+        "src/server/consultation.mjs": "10880d7ff0cfdbe1d0a98c4ce6fbfbc0172889103a88eb3ee43eb7690a231260",
+        "test/codex-provider.test.mjs": "aa6347714d9112487afd51ee7f3b0b38a1cabd2c08015c385b51add8fdbbeee7",
+        "test/consultation.test.mjs": "5aa5727a37ed6d97ca460295ebd1f28a416ad2b21d3b6e82f23a6528fc05fabd",
+        "test/http.test.mjs": "e7b32075047b61035b70f38e07ff1dbb50a1f844490882c5a3928c603b68074f",
+        "test/fixtures/fake-codex.mjs": "1d15508dc3412168cf9f00660b451fb3524fabf9f4a2ec4608858149660a3e6c",
+        "src/server/prompt-contracts.mjs": "9f8e5a613b9b29aa22eaf91b9b24474c8efea2d74de40efd8b9a4c516feb124f",
+        "src/client/app.js": "90478e3317346041b4788b5c4e64542cf26c16ff0fb8c466834b6c0200a6bc17",
+        "test/consolidation.test.mjs": "3184b7d1ecc4b62577becfa7cac7834aa568a51ae3d0ec3de4bf1f0a0ffb77f9",
+        "test/prompt-contracts.test.mjs": "15c6ac0686447b15637d689c078d09fc09125533c052e3fa1a1e936b83b09ba0",
+        "test/fixtures/runtime-instructions.mjs": "bbbbbad81efb9ce46718d43c37f3117b0ab03b8b2976319f2c9fc88854f0a4ec",
+        "public/index.html": "bc89c90570533624ba823199b175cfcd38e6c2a7c80e2b053cf5912e37cd8d23",
+        "public/styles.css": "d92ee023de308477be95fd67d261dbf97bfcebf276209c9c2b578387f465081a",
+        "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
+        "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
+        "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
+        "src/server/validation.mjs": "d8d813c53f5f9313c496e33fe37615258a324bb4eaf2fafc50073c5fe6ee9e3a",
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",

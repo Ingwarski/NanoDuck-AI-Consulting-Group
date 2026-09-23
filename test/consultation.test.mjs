@@ -72,13 +72,21 @@ test("Head can select permitted specialist roles beyond the former keyword choic
 test("Continue recovers a former run's committed roster without replacing confirmed Head tasks", async () => {
   const fixture = await makeRun(undefined, { specialistCount: "2", discussionDepth: "1" });
   const priorTask = "Assess the original finance evidence for this owner request.";
-  await fixture.store.appendAgentMessage(fixture.id, fixture.run.generation, { role: "Head Consultant", recipient: "Finance Consultant", body: priorTask, sources: [] });
+  const source = { title: "Legacy public source", url: "https://example.org/legacy", claim: "A public claim.", retrievedAt: "2026-09-23T00:00:00.000Z" };
+  await fixture.store.appendAgentMessage(fixture.id, fixture.run.generation, { role: "Head Consultant", recipient: "Finance Consultant", body: priorTask, sources: [source] });
   await fixture.store.updateRunSnapshot(fixture.id, fixture.run.generation, { ...fixture.run.snapshot, resolvedSpecialistCount: 2 });
   const calls = [];
-  await runToStatus({ ...fixture, run: await fixture.store.run(fixture.id) }, fakeProvider(calls, undefined, ["Finance Consultant", "Risk Consultant"]));
-  const tasks = (await fixture.store.events(fixture.id)).filter(event => event.role === "Head Consultant" && event.recipient);
+  await runToStatus({ ...fixture, run: await fixture.store.run(fixture.id) }, fakeProvider(calls, input => {
+    if (input.outputKind === "research_query") return { ok: true, body: "public legacy source", sources: [] };
+    if (input.outputKind === "public_research") return { ok: true, body: "One public claim.", sources: [source] };
+    return undefined;
+  }, ["Finance Consultant", "Risk Consultant"]));
+  const events = await fixture.store.events(fixture.id);
+  const tasks = events.filter(event => event.role === "Head Consultant" && event.recipient);
   assert.deepEqual(tasks.map(event => event.recipient), ["Finance Consultant", "Risk Consultant"]);
   assert.equal(tasks[0].body, priorTask);
+  assert.equal(tasks[0].sources[0].url, source.url);
+  assert.equal(events.find(event => event.role === "Finance Consultant" && event.recipient === "Critic").sources.length, 0);
   assert.equal(calls.filter(call => call.outputKind === "head_task").length, 1);
   assert.match(calls.find(call => call.outputKind === "auto_team").assignment, /Resume the already confirmed roster prefix exactly/u);
 });
@@ -145,9 +153,106 @@ test("phone numbers in private context do not suppress isolated public research 
   assert.equal(researchCall.evidence.owner.includes(privateNumber), false);
   assert.equal(researchCall.evidence.discussion, "");
   assert.equal(researchCall.runtimeInstructions.documents, undefined);
-  const headTask = (await fixture.store.events(fixture.id)).find(event => event.role === "Head Consultant" && event.recipient);
-  assert.equal(headTask.sources.length, 12);
+  const events = await fixture.store.events(fixture.id);
+  const headTask = events.find(event => event.role === "Head Consultant" && event.recipient);
+  const firstPosition = events.find(event => event.role === "Strategy Consultant" && event.recipient === "Critic");
+  assert.equal(headTask.sources.length, 0);
+  assert.equal(firstPosition.sources.length, 12);
+  assert.ok(events.indexOf(headTask) < events.indexOf(firstPosition));
   assert.ok(calls.find(call => call.outputKind === "head_final").evidence.discussion.includes("https://example.org/page-11"));
+});
+
+test("a deferred public search begins after a durable Head assignment and failure stays an evidence limitation", async () => {
+  const fixture = await makeRun("Find public evidence for a fictional bakery.", { specialistCount: "1", discussionDepth: "1" });
+  const calls = []; let release;
+  const provider = fakeProvider(calls, input => {
+    if (input.outputKind === "research_query") return { ok: true, body: "public bakery demand evidence", sources: [] };
+    if (input.outputKind === "public_research") return new Promise(resolve => { release = () => resolve({ ok: false, code: "provider_unavailable" }); });
+    return undefined;
+  }, ["Strategy Consultant"]);
+  const service = createConsultationService({ store: fixture.store, provider });
+  await service.start(fixture.id, fixture.run);
+  await waitFor(() => Boolean(release));
+  const pending = await fixture.store.events(fixture.id);
+  assert.deepEqual(pending.map(event => [event.role, event.recipient]), [["owner", null], ["Head Consultant", "Strategy Consultant"]]);
+  assert.equal((await fixture.store.run(fixture.id)).status, "active");
+  assert.equal(pending[1].sources.length, 0);
+  release();
+  await waitFor(async () => (await fixture.store.run(fixture.id)).status === "complete");
+  const run = await fixture.store.run(fixture.id);
+  assert.equal(run.snapshot.researchAttempted, true);
+  assert.equal(run.snapshot.researchUnavailable, true);
+  assert.equal(run.snapshot.researchUnavailableReason, "provider_unavailable");
+  assert.equal((await fixture.store.events(fixture.id)).some(event => event.role === "System"), false);
+  const position = calls.find(call => call.outputKind === "specialist_position");
+  const final = calls.find(call => call.outputKind === "head_final");
+  assert.match(position.evidence.discussion, /research attempt did not complete on the selected provider/u);
+  assert.match(final.evidence.discussion, /this attempt verified nothing new/u);
+  assert.equal(calls.filter(call => call.outputKind === "head_task").length, 1);
+});
+
+test("failed non-web research planning does not erase Head work or invoke web research", async () => {
+  const fixture = await makeRun(undefined, { specialistCount: "1", discussionDepth: "1" }); const calls = [];
+  await runToStatus(fixture, fakeProvider(calls, input => input.outputKind === "research_query" ? { ok: false, code: "provider_unavailable" } : undefined, ["Strategy Consultant"]));
+  assert.equal(calls.some(call => call.outputKind === "public_research"), false);
+  assert.equal((await fixture.store.run(fixture.id)).snapshot.researchUnavailableReason, "provider_unavailable");
+  assert.equal((await fixture.store.events(fixture.id)).some(event => event.role === "System"), false);
+  assert.equal((await fixture.store.events(fixture.id)).filter(event => event.role === "Head Consultant" && event.recipient).length, 1);
+});
+
+test("research provider-contract failures and tool traces remain rejected", async t => {
+  for (const failingKind of ["research_query", "public_research"]) await t.test(failingKind, async () => {
+    const fixture = await makeRun(undefined, { specialistCount: "1", discussionDepth: "1" }); const calls = [];
+    await runToStatus(fixture, fakeProvider(calls, input => {
+      if (input.outputKind === "research_query") return failingKind === "research_query"
+        ? { ok: false, code: "provider_contract" }
+        : { ok: true, body: "public bakery demand evidence", sources: [] };
+      if (input.outputKind === "public_research") return { ok: true, body: '<invoke name="Bash">unsafe</invoke>', sources: [] };
+      return undefined;
+    }, ["Strategy Consultant"]), "failed");
+    const events = await fixture.store.events(fixture.id);
+    assert.equal(events.filter(event => event.role === "Head Consultant" && event.recipient).length, 1);
+    assert.equal(events.at(-1).role, "System");
+    assert.equal(events.some(event => event.body.includes("<invoke")), false);
+    assert.equal((await fixture.store.run(fixture.id)).snapshot.researchAttempted, undefined);
+  });
+});
+
+test("Stop during research preserves Head work and Continue does not repeat its assignment", async () => {
+  const fixture = await makeRun(undefined, { specialistCount: "1", discussionDepth: "1" }); const calls = []; let started = false;
+  const provider = fakeProvider(calls, input => {
+    if (input.outputKind === "research_query") return { ok: true, body: "public bakery demand evidence", sources: [] };
+    if (input.outputKind === "public_research" && !started) {
+      started = true;
+      return new Promise(resolve => input.signal.addEventListener("abort", () => resolve({ ok: false, code: "cancelled" }), { once: true }));
+    }
+    return undefined;
+  }, ["Strategy Consultant"]);
+  const service = createConsultationService({ store: fixture.store, provider });
+  await service.start(fixture.id, fixture.run);
+  await waitFor(() => started);
+  assert.ok(await service.stop(fixture.id));
+  assert.equal((await fixture.store.run(fixture.id)).status, "stopped");
+  assert.equal((await fixture.store.events(fixture.id)).some(event => event.role === "System"), false);
+  assert.ok(await service.continue(fixture.id));
+  await waitFor(async () => (await fixture.store.run(fixture.id)).status === "complete");
+  assert.equal(calls.filter(call => call.outputKind === "head_task").length, 1);
+  assert.equal((await fixture.store.events(fixture.id)).filter(event => event.role === "Head Consultant" && event.recipient).length, 1);
+});
+
+test("Retry after a later provider failure does not replay Head tasks or research", async () => {
+  const fixture = await makeRun(undefined, { specialistCount: "1", discussionDepth: "1" }); const calls = []; let fail = true;
+  const provider = fakeProvider(calls, input => {
+    if (input.outputKind === "research_query") return { ok: true, body: "public bakery demand evidence", sources: [] };
+    if (input.outputKind === "specialist_position" && fail) return { ok: false, code: "provider_unavailable" };
+    return undefined;
+  }, ["Strategy Consultant"]);
+  const service = await runToStatus(fixture, provider, "failed");
+  fail = false;
+  assert.ok(await service.continue(fixture.id));
+  await waitFor(async () => (await fixture.store.run(fixture.id)).status === "complete");
+  assert.equal(calls.filter(call => call.outputKind === "head_task").length, 1);
+  assert.equal(calls.filter(call => call.outputKind === "public_research").length, 1);
 });
 
 test("unsafe public query is withheld without blocking the consultation", async () => {
@@ -155,7 +260,7 @@ test("unsafe public query is withheld without blocking the consultation", async 
   await runToStatus(fixture, fakeProvider(calls, input => input.outputKind === "research_query" ? { ok: true, body: "Call +1 415 555 0199 for the rule", sources: [] } : undefined, ["Strategy Consultant"]));
   assert.equal(calls.some(call => call.outputKind === "public_research"), false);
   assert.equal((await fixture.store.run(fixture.id)).snapshot.researchUnavailable, true);
-  assert.ok(calls.find(call => call.outputKind === "head_final").evidence.discussion.includes("Public research was unavailable"));
+  assert.ok(calls.find(call => call.outputKind === "head_final").evidence.discussion.includes("research attempt was withheld"));
 });
 
 test("a local-file public query is withheld before any web-enabled call", async () => {
@@ -182,6 +287,27 @@ test("a tool-free Claude Critic's evidence gap can trigger isolated Codex follow
   const secondChallenge = (await fixture.store.events(fixture.id)).filter(event => event.role === "Critic" && event.recipient === "Strategy Consultant")[1];
   assert.equal(secondChallenge.sources[0].url, source.url);
   assert.ok(calls.find(call => call.outputKind === "head_final").evidence.discussion.includes(source.url));
+});
+
+test("a failed follow-up search keeps earlier valid sources and names the later limitation", async () => {
+  const fixture = await makeRun("Check public bakery evidence, then revisit a gap.", { specialistCount: "1", discussionDepth: "3" }); const calls = [];
+  const source = { title: "Public survey", url: "https://example.org/survey", claim: "The survey reports a testable signal.", retrievedAt: "2026-09-23T00:00:00.000Z" };
+  await runToStatus(fixture, fakeProvider(calls, input => {
+    if (input.outputKind === "research_query") return { ok: true, body: calls.filter(call => call.outputKind === "research_query").length === 1 ? "public bakery demand survey" : "new public market evidence", sources: [] };
+    if (input.outputKind === "public_research") return calls.filter(call => call.outputKind === "public_research").length === 1
+      ? { ok: true, body: "A public survey gives one testable signal.", sources: [source] }
+      : { ok: false, code: "provider_unavailable" };
+    if (input.outputKind === "head_review") return { ok: true, body: calls.filter(call => call.outputKind === "head_review").length === 1 ? "[REVIEW: CONTINUE]" : "[REVIEW: CLOSE]", sources: [] };
+    return undefined;
+  }, ["Strategy Consultant"]));
+  const run = await fixture.store.run(fixture.id);
+  assert.equal(run.snapshot.followupResearch[0].status, "unavailable");
+  assert.equal(run.snapshot.researchUnavailableReason, "provider_unavailable");
+  const firstPosition = (await fixture.store.events(fixture.id)).find(event => event.role === "Strategy Consultant" && event.recipient === "Critic");
+  assert.equal(firstPosition.sources[0].url, source.url);
+  const finalContext = calls.find(call => call.outputKind === "head_final").evidence.discussion;
+  assert.match(finalContext, /https:\/\/example\.org\/survey/u);
+  assert.match(finalContext, /research attempt did not complete on the selected provider/u);
 });
 
 test("complete long final is saved without an arbitrary character trim", async () => {
