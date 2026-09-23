@@ -11,11 +11,17 @@ let catalogReads = 0;
 const replyFor = prompt => {
   let answer = "A bounded answer.";
   if (prompt.includes("Return a Ukrainian relative-pronoun example")) return 'Уточніть, які умови потрібно виконати.\n<nanoduck-source>{"title":"Курси, які доступні","url":"https://example.com/courses","claim":"Вимоги, які підтверджує програма."}</nanoduck-source>';
-  if (prompt.includes("Return exactly [TEAM: N]")) answer = "[TEAM: 3]";
-  else if (prompt.includes("Give only a concise, concrete task")) answer = "Assess the buyer evidence and name the one test that would change the decision.";
+  if (prompt.includes("Return twelve direct sources")) return `A bounded answer.\n${Array.from({ length: 12 }, (_, index) => `<nanoduck-source>${JSON.stringify({ title: `Public source ${index}`, url: `https://example.com/article/${index}`, claim: `Evidence item ${index}.` })}</nanoduck-source>`).join("\n")}`;
+  if (prompt.includes("Return mixed-language prose")) return "The buyer test should run for two weeks. Как это работает? Measure qualified replies and conversion.";
+  if (prompt.includes("Return only a prohibited body URL")) return "https://example.su/claim";
+  if (prompt.includes("List each distinct requested deliverable")) answer = "1. Recommend a positioning test. 2. Cite relevant current evidence.";
+  else if (prompt.includes("Return only [TEAM: Role, Role]")) answer = "[TEAM: Strategy Consultant, Finance Consultant]";
+  else if (prompt.includes("return [RESEARCH: NONE]")) answer = prompt.includes("current market evidence") ? "buyer evidence for offer positioning" : "[RESEARCH: NONE]";
+  else if (prompt.includes("Give this recipient a distinct, considered assignment")) answer = "Assess the buyer evidence and name the one test that would change the decision.";
+  else if (prompt.includes("Return exactly [REVIEW: CONTINUE] or [REVIEW: CLOSE]")) answer = "[REVIEW: CLOSE]";
   else if (prompt.includes("Answer the Head's task")) answer = "The position is viable only if a defined buyer has an urgent problem; test that through targeted interviews before committing.";
-  else if (prompt.includes("challenge one material gap")) answer = "That recommendation assumes those buyers will take calls; test their willingness before treating the interviews as evidence.";
-  else if (prompt.includes("respond directly to the Critic")) answer = "I accept the gap: recruit calls from a defined prospect list and record acceptance rate before drawing the conclusion.";
+  else if (prompt.includes("You are the Critic. Check the actual assignment")) answer = "That recommendation assumes those buyers will take calls; test their willingness before treating the interviews as evidence.";
+  else if (prompt.includes("Respond directly to the Critic")) answer = "I accept the gap: recruit calls from a defined prospect list and record acceptance rate before drawing the conclusion.";
   else if (prompt.includes("your final position after reading")) answer = "My final position is to test buyer willingness before scaling, using confirmed interview acceptance as the condition.";
   else if (prompt.includes("reviewing every selected specialist's final position")) answer = "The final positions support the same bounded buyer test, with no remaining conflict. [CONSILIUM: REACHED]";
   else if (prompt.includes("only owner-facing synthesis")) answer = "Start with a narrow buyer list, measure interview acceptance, then decide whether the position has evidence.";
@@ -76,6 +82,7 @@ createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line =
       send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
       return setTimeout(() => process.exit(0), 10);
     }
+    if (prompt.includes("Return an empty completed answer")) return send({ id: request.id, result: { turn: { id: "turn-1", status: "completed", items: [] } } });
     if (prompt.includes("Wait until cancelled") || changingCatalog || failingCatalog) return send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
     return send({ id: request.id, result: { turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: replyFor(prompt) }] } } });
   }

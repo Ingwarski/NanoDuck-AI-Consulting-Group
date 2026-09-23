@@ -318,8 +318,8 @@ test("the authenticated discussion preserves a Critic exchange with both special
     assert.match(detail.events.at(-1).body, /^## Consolidated advice\n\n/u);
     assert.match(detail.events.at(-1).body, /measure interview acceptance/u);
     assert.equal(detail.events.every(event => !event.body.includes("nanoduck-source")), true);
-    assert.deepEqual(detail.events[3].sources.map(source => ({ title: source.title, url: source.url, claim: source.claim, publishedAt: source.publishedAt })), [{ title: "Buyer evidence", url: "https://example.com/buyer-evidence", claim: "Buyer willingness must be measured before positioning.", publishedAt: "2026-09-01" }]);
-    assert.match(detail.events[3].sources[0].retrievedAt, /^\d{4}-\d{2}-\d{2}T/u);
+    assert.deepEqual(detail.events[1].sources.map(source => ({ title: source.title, url: source.url, claim: source.claim, publishedAt: source.publishedAt })), [{ title: "Buyer evidence", url: "https://example.com/buyer-evidence", claim: "Buyer willingness must be measured before positioning.", publishedAt: "2026-09-01" }]);
+    assert.match(detail.events[1].sources[0].retrievedAt, /^\d{4}-\d{2}-\d{2}T/u);
     assert.equal(detail.events.some(event => event.role === "System"), false);
     assert.equal((await fetch(`${origin}/api/conversations/${conversationId}/export`)).status, 401);
     const exported = await fetch(`${origin}/api/conversations/${conversationId}/export?timeZone=Europe%2FKyiv`, { headers: { cookie } });

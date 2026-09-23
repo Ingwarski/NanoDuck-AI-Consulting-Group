@@ -46,10 +46,10 @@ test("Claude Code exposes only authenticated configured models and returns safe 
   assert.equal(primaryCall.args.includes("--system-prompt"), true);
   assert.equal(primaryCall.args.includes("--tools"), false);
   assert.equal(primaryCall.environment.CLAUDE_CODE_OAUTH_TOKEN, "managed-token");
-  const prompt = primaryCall.args.at(-1);
+  const prompt = primaryCall.stdinText;
   assert.match(prompt, /Owner question:\nShould we fund the expansion\?/u);
   assert.match(prompt, /Prior confirmed discussion:\nFinance Consultant → Critic: The cash buffer is only two months\./u);
-  assert.match(prompt, /Write a critic challenge under 1000 characters\./u);
+  assert.match(prompt, /Write a complete critic challenge/u);
   assert.match(prompt, /Do not claim research that was not performed\./u);
   assert.equal((await provider.invoke({ ...criticInput, effort: "extra" })).ok, true);
   assert.equal(calls.at(-1).args.includes("xhigh"), true);
@@ -96,4 +96,33 @@ test("valid Ukrainian Critic prose survives Claude output validation", async () 
       : { exitCode: 0, stdout: JSON.stringify({ subtype: "success", result: "Назвіть умови, які змінять рекомендацію." }), stderr: "" }
   });
   assert.deepEqual(await provider.invoke(criticInput), { ok: true, body: "Назвіть умови, які змінять рекомендацію.", sources: [] });
+});
+
+test("Claude preserves safe Critic text while omitting prohibited prose and links", async () => {
+  const replies = [
+    "The numeric claim needs evidence. Как это работает? Recalculate from the stated costs.",
+    "The Russian market claim needs [a source](https://example.su/report). Verify it independently.",
+    "https://example.su/report"
+  ];
+  const provider = createClaudeProvider({ claudeCommand: "claude", claudeOAuthToken: "managed-token" }, {
+    run: async () => ({ exitCode: 0, stdout: JSON.stringify({ subtype: "success", result: replies.shift() }), stderr: "" })
+  });
+  const first = await provider.invoke(criticInput);
+  assert.equal(first.ok, true);
+  assert.match(first.body, /numeric claim needs evidence/u);
+  assert.match(first.body, /Recalculate from the stated costs/u);
+  assert.doesNotMatch(first.body, /Как|это/u);
+  const second = await provider.invoke(criticInput);
+  assert.equal(second.ok, true);
+  assert.match(second.body, /Russian market claim/u);
+  assert.match(second.body, /source link omitted: unapproved URL/u);
+  assert.deepEqual(second.sources, []);
+  assert.deepEqual(await provider.invoke(criticInput), { ok: false, code: "output_policy" });
+});
+
+test("an empty successful Claude completion is distinct from an unusable link", async () => {
+  const provider = createClaudeProvider({ claudeCommand: "claude", claudeOAuthToken: "managed-token" }, {
+    run: async () => ({ exitCode: 0, stdout: JSON.stringify({ subtype: "success", result: "  " }), stderr: "" })
+  });
+  assert.deepEqual(await provider.invoke(criticInput), { ok: false, code: "empty_response" });
 });

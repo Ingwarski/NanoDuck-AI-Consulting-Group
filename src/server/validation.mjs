@@ -6,9 +6,31 @@ const identifier = value => typeof value === "string" && /^[A-Za-z0-9_-]{16,128}
 const forbiddenHostSuffixes = Object.freeze([".ru", ".by", ".su", ".xn--p1ai", ".xn--90ais"]);
 // Shared vocabulary such as Ukrainian "які" cannot identify a prohibited
 // language by itself. Match distinctive letters/words, including in mixed prose.
-const forbiddenLanguage = /[ЁёЫыЪъЭэЎў]|(?:^|[^\p{L}])(?:russian|belarusian|россия|русск(?:ий|ая|ие|ого|им|их)?|беларус(?:ь|ский|кая|кие|кого|ким|ких)?|как|это|какой|какая|какие|котор(?:ый|ая|ые|ого|ому|ых|ыми)?|сегодня|сейчас|только|может|нужно|должен|будет|время|деньги|рынок|решение|вопрос|источник|исследование|данные|продажи|цена|цены|гэта|якая|якія|крыніца|даследаванне|рашэнне|пытанне|сёння|цяпер|толькі|можа|павінен|будзе|рынак)(?=$|[^\p{L}])/iu;
+const forbiddenLanguage = /[\p{L}]*[ЁёЫыЪъЭэЎў][\p{L}]*|(?<!\p{L})(?:россия|русск(?:ий|ая|ие|ого|им|их)?|беларус(?:ь|ский|кая|кие|кого|ким|ких)?|как|это|какой|какая|какие|котор(?:ый|ая|ые|ого|ому|ых|ыми)?|сегодня|сейчас|только|может|нужно|должен|будет|время|деньги|рынок|решение|вопрос|источник|исследование|данные|продажи|цена|цены|гэта|якая|якія|крыніца|даследаванне|рашэнне|пытанне|сёння|цяпер|толькі|можа|павінен|будзе|рынак)(?!\p{L})/iu;
+const sentenceSegmenter = new Intl.Segmenter("en", { granularity: "sentence" });
 
 export const hasProhibitedLanguage = value => typeof value === "string" && forbiddenLanguage.test(value);
+export function omitProhibitedLanguage(value) {
+  if (typeof value !== "string") return { body: value, omittedCount: 0, substantive: false };
+  let omittedCount = 0;
+  const urls = [];
+  const protectedUrls = value.replace(/\bhttps?:\/\/[^\s<>"']+/gu, url => {
+    const terminal = /[.!?]$/u.test(url) ? url.at(-1) : "";
+    const index = urls.push(terminal ? url.slice(0, -1) : url) - 1;
+    return `\uE000${index}\uE001${terminal}`;
+  });
+  // Remove the sentence containing a distinctive prohibited-language signal.
+  // Replacing just that signal would leak the remainder of a Russian sentence.
+  const body = [...sentenceSegmenter.segment(protectedUrls)].map(({ segment }) => {
+    if (!hasProhibitedLanguage(segment)) return segment;
+    omittedCount += 1;
+    return `[prohibited-language fragment omitted]${segment.match(/\s*$/u)?.[0] ?? ""}`;
+  }).join("").replace(/\uE000(\d+)\uE001/gu, (_, index) => urls[Number(index)] ?? "");
+  const remaining = body.replaceAll("[prohibited-language fragment omitted]", "")
+    .replaceAll("[unapproved URL omitted]", "")
+    .replaceAll("(source link omitted: unapproved URL)", "");
+  return { body, omittedCount, substantive: /[\p{L}\p{N}]/u.test(remaining) };
+}
 export const hasProhibitedSourceHost = hostname => hostname === "ru" || hostname === "by" || hostname === "su" || hostname === "xn--p1ai" || hostname === "xn--90ais" || forbiddenHostSuffixes.some(suffix => hostname.endsWith(suffix));
 
 export function parseJson(value) {
@@ -17,12 +39,42 @@ export function parseJson(value) {
 }
 
 const externalUrlMatch = /\bhttps?:\/\/[^\s<>"']+/gu;
+const unsafeSchemeMatch = /\b(?:file|ftp|data|javascript|ws|wss):(?:\/\/)?[^\s<>"']+/giu;
 const trimUrlPunctuation = value => value.replace(/[),.;:!?]+$/gu, "");
-export const hasUnsafeExternalUrl = value => typeof value === "string" && [...value.matchAll(externalUrlMatch)].some(match => !safeExternalUrl(trimUrlPunctuation(match[0])));
+export const hasUnsafeExternalUrl = value => typeof value === "string" && ([...value.matchAll(unsafeSchemeMatch)].length > 0 || [...value.matchAll(externalUrlMatch)].some(match => !safeExternalUrl(trimUrlPunctuation(match[0]))));
+
+// Model prose may include one unsuitable citation even when its advice is
+// otherwise usable. Remove that link explicitly instead of discarding the
+// whole answer; source metadata is validated separately.
+export function omitUnsafeExternalUrls(value) {
+  if (typeof value !== "string") return { body: value, omittedCount: 0 };
+  let omittedCount = 0;
+  const contentWithoutUnsafeLinks = value
+    .replace(/\[([^\]\n]{1,280})\]\(((?:https?|file|ftp|data|javascript|ws|wss):[^\s)]+)\)/giu, (whole, _label, url) => safeExternalUrl(url) ? whole : "")
+    .replace(externalUrlMatch, raw => safeExternalUrl(trimUrlPunctuation(raw)) ? raw : "")
+    .replace(unsafeSchemeMatch, "");
+  const onlyUnsafeLinks = !/[\p{L}\p{N}]/u.test(contentWithoutUnsafeLinks);
+  const withoutBadMarkdownLinks = value.replace(/\[([^\]\n]{1,280})\]\(((?:https?|file|ftp|data|javascript|ws|wss):[^\s)]+)\)/giu, (whole, label, url) => {
+    if (safeExternalUrl(url)) return whole;
+    omittedCount += 1;
+    return onlyUnsafeLinks ? "[unapproved URL omitted]" : `${label} (source link omitted: unapproved URL)`;
+  });
+  const body = withoutBadMarkdownLinks.replace(externalUrlMatch, raw => {
+    const candidate = trimUrlPunctuation(raw);
+    if (safeExternalUrl(candidate)) return raw;
+    omittedCount += 1;
+    return `[unapproved URL omitted]${raw.slice(candidate.length)}`;
+  });
+  const withoutUnsafeSchemes = body.replace(unsafeSchemeMatch, raw => {
+    omittedCount += 1;
+    return `[unapproved URL omitted]${raw.slice(trimUrlPunctuation(raw).length)}`;
+  });
+  return { body: withoutUnsafeSchemes, omittedCount };
+}
 
 export function parseMessage(value) {
   const body = parseJson(value);
-  if (!body || !text(body.body, 32_000) || !identifier(body.clientRequestId) || hasProhibitedLanguage(body.body) || hasUnsafeExternalUrl(body.body) || containsSecretLikeContent(body.body)) return undefined;
+  if (!body || typeof body.body !== "string" || !body.body.trim() || !identifier(body.clientRequestId) || hasProhibitedLanguage(body.body) || hasUnsafeExternalUrl(body.body) || containsSecretLikeContent(body.body)) return undefined;
   const attachmentIds = body.attachmentIds === undefined ? [] : body.attachmentIds;
   if (!Array.isArray(attachmentIds) || attachmentIds.length > maxAttachmentsPerMessage || attachmentIds.some(item => !identifier(item)) || new Set(attachmentIds).size !== attachmentIds.length) return undefined;
   return Object.freeze({ body: body.body.trim(), clientRequestId: body.clientRequestId, attachmentIds: Object.freeze([...attachmentIds]) });
@@ -95,10 +147,8 @@ export function safeExternalUrl(value) {
   try {
     const url = new URL(value);
     const hostname = url.hostname.toLowerCase().replace(/^\[|\]$/gu, "");
-    const ipv4 = hostname.match(/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/u)?.slice(1).map(Number);
-    const privateIpv4 = ipv4 && (ipv4.some(part => part > 255) || ipv4[0] === 0 || ipv4[0] === 10 || ipv4[0] === 127 || (ipv4[0] === 169 && ipv4[1] === 254) || (ipv4[0] === 172 && ipv4[1] >= 16 && ipv4[1] <= 31) || (ipv4[0] === 192 && ipv4[1] === 168));
-    const privateIpv6 = hostname === "::1" || hostname.startsWith("fc") || hostname.startsWith("fd") || hostname.startsWith("fe80:");
-    if (url.protocol !== "https:" || url.username || url.password || hostname === "localhost" || hostname.endsWith(".local") || hostname.endsWith(".internal") || hasProhibitedSourceHost(hostname) || privateIpv4 || privateIpv6) return undefined;
+    const ipv4 = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/u.test(hostname);
+    if (url.protocol !== "https:" || url.username || url.password || !hostname.includes(".") || hostname.includes(":") || hostname === "localhost" || hostname.endsWith(".local") || hostname.endsWith(".internal") || hasProhibitedSourceHost(hostname) || ipv4) return undefined;
     return url.toString();
   } catch {
     return undefined;

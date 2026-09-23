@@ -106,7 +106,26 @@ test("prohibited source hosts, language and provider prose never reach a consult
   const prose = await provider.invoke({ assignment: "Return prohibited prose.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: new AbortController().signal });
   assert.deepEqual(prose, { ok: false, code: "language_policy" });
   const bodyUrl = await provider.invoke({ assignment: "Return prohibited body URL.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: new AbortController().signal });
-  assert.deepEqual(bodyUrl, { ok: false, code: "language_policy" });
+  assert.deepEqual(bodyUrl, { ok: true, body: "Read blocked (source link omitted: unapproved URL).", sources: [] });
+});
+
+test("Codex keeps useful prose around an omitted sentence and retains all valid direct sources", async () => {
+  const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: command });
+  const base = { model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Public synthetic question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions };
+  const mixed = await provider.invoke({ ...base, assignment: "Return mixed-language prose." });
+  assert.deepEqual(mixed, { ok: true, body: "The buyer test should run for two weeks. [prohibited-language fragment omitted] Measure qualified replies and conversion.", sources: [] });
+  const onlyUrl = await provider.invoke({ ...base, assignment: "Return only a prohibited body URL." });
+  assert.deepEqual(onlyUrl, { ok: false, code: "output_policy" });
+  const many = await provider.invoke({ ...base, assignment: "Return twelve direct sources." });
+  assert.equal(many.ok, true);
+  assert.equal(many.sources.length, 12);
+});
+
+test("a completed Codex turn without a message is distinct from filtered output", async () => {
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url)) });
+  const result = await provider.invoke({ assignment: "Return an empty completed answer.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions });
+  assert.deepEqual(result, { ok: false, code: "empty_response" });
 });
 
 test("a completed provider notification clears its deadline waiter", async () => {
