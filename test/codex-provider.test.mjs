@@ -14,6 +14,22 @@ const codexModels = [
 ];
 const syntheticGrant = refreshToken => Buffer.from(JSON.stringify({ auth_mode: "chatgpt", tokens: { access_token: "synthetic-access", refresh_token: refreshToken } }));
 
+test("Codex allows a progressing answer past its idle budget, but bounds silence and total duration", async () => {
+  for (const [suffix, expected] of [["", { ok: true, body: "A bounded answer.", sources: [] }], [" wrong turn", { ok: false, code: "provider_idle_timeout" }], [" never completes", { ok: false, code: "provider_timeout" }]]) {
+    const provider = createCodexProvider({ readyForProvider: true, codexCommand: fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url)) }, undefined, { idleMs: 300, maximumMs: suffix.includes("never") ? 550 : 2_000 });
+    assert.deepEqual(await provider.invoke({ assignment: `Exercise progress deadline${suffix}`, model: "gpt-6-sol", effort: "max", evidence: { owner: "Synthetic question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions }), expected);
+  }
+});
+
+test("independent Codex turns run concurrently", { timeout: 5_000 }, async () => {
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url)) });
+  const input = { assignment: "Wait for a slow ephemeral turn.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions };
+  const started = Date.now();
+  const results = await Promise.all([provider.invoke(input), provider.invoke(input)]);
+  assert.equal(results.every(result => result.ok), true);
+  assert.ok(Date.now() - started < 4_500, "two 2.8 second calls must overlap");
+});
+
 test("a refreshed managed grant is saved before its private app-server home is removed", async () => {
   const store = createMemoryStore();
   await store.seedCodexGrant(syntheticGrant("synthetic-initial"));

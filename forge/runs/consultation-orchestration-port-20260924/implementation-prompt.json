@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "event": "implementation_prompt",
+  "role": "user",
+  "intent": "start_production_implementation",
+  "prompt_id": "consultation-orchestration-port-20260924",
+  "message": "implement docs/consultation-orchestration-port.md from the reference checkout",
+  "message_redaction": "The user supplied a local absolute path; the public receipt retains the repository-relative source without the machine path.",
+  "received_at": "2026-09-24T20:45:03Z",
+  "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+  "scope_note": "Port the Head-led parallel consultation contract, tracked Critic orders, progress-aware Codex deadlines and P5 Porcelain Stop into this GoDaddy/MySQL repository. Preserve its own authentication, encrypted MySQL storage, managed Codex grant and deployment boundary. This prompt does not authorize a live provider turn, secret change, destructive database operation, deployment or another repository change.",
+  "development_plan_hash": "0de7d7479d59b512a5a1e86a0213715f1e8989068570f79ba953bc356e2f7b88",
+  "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
+  "source_prompt": {
+    "repository": "Ingwarski/NanoDuck-AI-Consulting",
+    "revision": "7978da8e9eac3c6c49354f6f5e1dd5732ca96719",
+    "path": "docs/consultation-orchestration-port.md",
+    "sha256": "7f9b7b547358ab59eba7ff405ba207688a8f80f57fae46d9939e19ee3e4b6091"
+  }
+}

@@ -2,6 +2,7 @@ import { readConfiguration, replaceConfiguration } from "./configuration-recover
 import { databaseLockName } from "./database-lock.mjs";
 import { createMemoryDocuments, createMySqlDocuments } from "./instruction-documents.mjs";
 import { sealRunSnapshot, openRunSnapshot } from "./run-snapshot.mjs";
+import { validateParallelTransition } from "./parallel-contract.mjs";
 import { randomId, encryptText, decryptText, encryptBytes, decryptBytes } from "./crypto.mjs";
 import { createHash, hkdfSync } from "node:crypto";
 import { readFile } from "node:fs/promises";
@@ -9,6 +10,7 @@ import { normalizeRecoverySnapshot } from "./recovery.mjs";
 import { defaultSettings as defaults, upgradeSettings } from "./settings.mjs";
 
 const now = () => new Date().toISOString();
+const idForMessage = value => typeof value === "string" && /^[A-Za-z0-9_-]{16,128}$/u.test(value);
 const databaseConnectionErrorCodes = new Set(["PROTOCOL_CONNECTION_LOST", "PROTOCOL_SEQUENCE_TIMEOUT", "PROTOCOL_PACKETS_OUT_OF_ORDER", "ECONNRESET", "ECONNREFUSED", "EPIPE", "ETIMEDOUT", "ER_CLIENT_INTERACTION_TIMEOUT", "ER_SERVER_SHUTDOWN", "ER_CONNECTION_KILLED", "ER_UNKNOWN_ERROR", "LEADERSHIP_HEARTBEAT_TIMEOUT", "LEADERSHIP_OWNERSHIP_LOST"]);
 const safeDatabaseErrorCode = error => error?.code === 4031 ? "ER_CLIENT_INTERACTION_TIMEOUT" : databaseConnectionErrorCodes.has(error?.code) ? error.code : "UNKNOWN_DATABASE_ERROR";
 const safeDatabaseErrorNumber = error => error?.code === 4031 ? 4031 : Number.isInteger(error?.errno) && error.errno >= 0 && error.errno <= 65_535 ? error.errno : undefined;
@@ -186,6 +188,21 @@ export function createMemoryStore() {
       const run = runs.get(conversationId);
       if (!run || run.status !== "active" || run.generation !== generation) return undefined;
       run.snapshot = Object.freeze({ ...snapshot }); run.updatedAt = now(); return { ...run };
+    },
+    async commitParallelWork(conversationId, generation, expectedRevision, work, additions = []) {
+      const run = runs.get(conversationId); const conversation = conversations.get(conversationId);
+      if (!run || run.status !== "active" || run.generation !== generation || run.snapshot?.contractVersion !== "parallel-v1" || !conversation || conversation.deletedAt) return undefined;
+      const before = run.snapshot.parallelWork;
+      if ((before?.revision ?? -1) !== expectedRevision || !Array.isArray(additions)) return undefined;
+      const stream = messages.get(conversationId) ?? [];
+      const ids = new Set(stream.map(item => item.id));
+      if (additions.some(item => !item || !idForMessage(item.id) || ids.has(item.id) || typeof item.role !== "string" || !item.role || typeof item.body !== "string" || !item.body.trim() || !Array.isArray(item.sources ?? []))) return undefined;
+      for (const item of additions) ids.add(item.id);
+      if (ids.size !== stream.length + additions.length || !validateParallelTransition(before, work, additions, stream)) return undefined;
+      const committed = additions.map((item, index) => ({ id: item.id, role: item.role, recipient: item.recipient, body: item.body, sources: item.sources ?? [], sequence: stream.length + index + 1, createdAt: now() }));
+      stream.push(...committed); messages.set(conversationId, stream);
+      run.snapshot = { ...run.snapshot, parallelWork: structuredClone(work) }; run.updatedAt = now(); conversation.updatedAt = now();
+      return { revision: work.revision, messages: committed.map(publicMessage) };
     },
     async finishRun(conversationId, generation, status, completedTitle = undefined) {
       const run = runs.get(conversationId); if (!run || run.generation !== generation || run.status !== "active") return false;
@@ -535,6 +552,36 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
     async updateRunSnapshot(id, generation, snapshot) {
       const [result] = await query("UPDATE nanoduck_runs SET snapshot_json=?, updated_at=? WHERE conversation_id=? AND generation=? AND status='active'", [JSON.stringify(sealRunSnapshot(snapshot, dataKey)), now(), id, generation]);
       return result.affectedRows === 1 ? { ...snapshot } : undefined;
+    },
+    async commitParallelWork(id, generation, expectedRevision, work, additions = []) {
+      const connection = await pool.getConnection();
+      try {
+        await connection.beginTransaction(); await lockOwner(connection);
+        const [conversationRows] = await connection.execute("SELECT id FROM nanoduck_conversations WHERE id=? AND deleted_at IS NULL FOR UPDATE", [id]);
+        if (!conversationRows.length || !Array.isArray(additions)) { await connection.rollback(); return undefined; }
+        const [runRows] = await connection.execute("SELECT id,status,generation,snapshot_json FROM nanoduck_runs WHERE conversation_id=? ORDER BY created_at DESC LIMIT 1 FOR UPDATE", [id]);
+        const run = runRows[0];
+        if (!run || run.status !== "active" || Number(run.generation) !== generation) { await connection.rollback(); return undefined; }
+        const snapshot = openRunSnapshot(run.snapshot_json, dataKey); const before = snapshot.parallelWork;
+        if (snapshot.contractVersion !== "parallel-v1" || (before?.revision ?? -1) !== expectedRevision) { await connection.rollback(); return undefined; }
+        const [messageRows] = await connection.execute("SELECT id,role,recipient,ciphertext,iv,tag,sequence,created_at,sources_json FROM nanoduck_messages WHERE conversation_id=? ORDER BY sequence FOR UPDATE", [id]);
+        const stream = messageRows.map(row => decode(row)); const ids = new Set(stream.map(item => item.id));
+        if (additions.some(item => !item || !idForMessage(item.id) || ids.has(item.id) || typeof item.role !== "string" || !item.role || typeof item.body !== "string" || !item.body.trim() || !Array.isArray(item.sources ?? []))) { await connection.rollback(); return undefined; }
+        for (const item of additions) ids.add(item.id);
+        if (ids.size !== stream.length + additions.length || !validateParallelTransition(before, work, additions, stream)) { await connection.rollback(); return undefined; }
+        const committed = [];
+        for (const [index, item] of additions.entries()) {
+          const createdAt = now(); const encrypted = encryptText(item.body, dataKey);
+          const message = { id: item.id, role: item.role, recipient: item.recipient, body: item.body, sources: item.sources ?? [], sequence: stream.length + index + 1, createdAt };
+          await connection.execute("INSERT INTO nanoduck_messages (id,conversation_id,role,recipient,ciphertext,iv,tag,sequence,created_at,sources_json) VALUES (?,?,?,?,?,?,?,?,?,?)", [message.id,id,message.role,message.recipient ?? null,encrypted.ciphertext,encrypted.iv,encrypted.tag,message.sequence,message.createdAt,JSON.stringify(message.sources)]);
+          committed.push(message);
+        }
+        const updatedAt = now(); const nextSnapshot = { ...snapshot, parallelWork: structuredClone(work) };
+        const [result] = await connection.execute("UPDATE nanoduck_runs SET snapshot_json=?,updated_at=? WHERE id=? AND generation=? AND status='active'", [JSON.stringify(sealRunSnapshot(nextSnapshot, dataKey)),updatedAt,run.id,generation]);
+        if (result.affectedRows !== 1) { await connection.rollback(); return undefined; }
+        await connection.execute("UPDATE nanoduck_conversations SET updated_at=? WHERE id=? AND deleted_at IS NULL", [updatedAt,id]);
+        await connection.commit(); return { revision: work.revision, messages: committed.map(publicMessage) };
+      } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
     },
     async finishRun(id, generation, status, completedTitle = undefined) {
       const connection = await pool.getConnection();

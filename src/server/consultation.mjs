@@ -4,6 +4,7 @@ import { deriveConversationTitle } from "./conversation-title.mjs";
 import { containsInternalToolTrace } from "./output-safety.mjs";
 import { hasProhibitedLanguage, hasUnsafeExternalUrl, safeExternalUrl } from "./validation.mjs";
 import { readFileSync } from "node:fs";
+import { runParallelConsultation } from "./consultation-parallel.mjs";
 
 const publicInstructions = parseRuntimeInstructions(readFileSync(new URL("../../instructions/RUNTIME_PROMPTS.md", import.meta.url), "utf8"));
 
@@ -16,7 +17,7 @@ const roleSettings = snapshot => Object.freeze({
 });
 
 const providerName = provider => provider === "claude_code" ? "Claude Code" : "Codex";
-const safeProviderCodes = new Set(["auth_required", "quota_blocked", "incompatible", "context_too_large", "subscription_unavailable", "method_unavailable", "provider_unavailable", "provider_timeout", "provider_contract", "language_policy", "output_policy", "empty_response", "cancelled"]);
+const safeProviderCodes = new Set(["auth_required", "quota_blocked", "incompatible", "context_too_large", "subscription_unavailable", "method_unavailable", "provider_unavailable", "provider_idle_timeout", "provider_timeout", "provider_contract", "language_policy", "output_policy", "empty_response", "cancelled"]);
 const safeProviderCode = code => safeProviderCodes.has(code) ? code : "provider_unavailable";
 const providerFailureMessage = (code, provider) => ({
   auth_required: `The selected ${providerName(provider)} route needs its subscription sign-in renewed. Your question remains saved.`,
@@ -26,6 +27,8 @@ const providerFailureMessage = (code, provider) => ({
   subscription_unavailable: `The selected ${providerName(provider)} subscription is unavailable. Your question remains saved.`,
   method_unavailable: `The selected ${providerName(provider)} runtime cannot complete a required consultation step. Your question remains saved.`,
   provider_unavailable: `The selected ${providerName(provider)} route could not complete this request. Your question remains saved.`,
+  provider_idle_timeout: `The selected ${providerName(provider)} route produced no matching turn activity for nine minutes. The provider process was stopped. Your question is saved; Retry resumes only the missing step.`,
+  provider_timeout: `The selected ${providerName(provider)} route did not finish within thirty minutes. The provider process was stopped. Your question is saved; Retry resumes only the missing step.`,
   empty_response: `The selected ${providerName(provider)} route completed without an answer. Your question is saved; Retry resumes the missing step.`
 }[code]);
 
@@ -150,6 +153,11 @@ export function createConsultationService({ store, provider }) {
     };
     try {
       if (!await isCurrent()) return;
+      if (snapshot.contractVersion === "parallel-v1") {
+        await runParallelConsultation({ store, provider, conversationId, runState, signal: controller.signal, onProvider: value => { failedProvider = value; } });
+        return;
+      }
+      if (snapshot.contractVersion) throw new Error("invalid_run_state");
       const first = await current();
       const settings = roleSettings(snapshot); const instructions = Object.freeze({ ...runtimeInstructionsFor(snapshot), documents: snapshot.instructionDocuments ?? [] }); const prompts = createRuntimePrompts(instructions); const language = first.sessionLanguage;
       const ownerIndex = first.events.map(event => event.role).lastIndexOf("owner");

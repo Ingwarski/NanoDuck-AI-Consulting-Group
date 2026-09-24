@@ -5,6 +5,7 @@ import { createInterface } from "node:readline";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { randomId } from "./crypto.mjs";
+import { createTurnDeadline, isTurnProgress } from "./turn-deadline.mjs";
 import { createRuntimePrompts, RuntimeInstructionError } from "./prompt-contracts.mjs";
 import { hasProhibitedLanguage, omitProhibitedLanguage, omitUnsafeExternalUrls, safeExternalUrl } from "./validation.mjs";
 import { codexModelEfforts } from "./codex-models.mjs";
@@ -17,7 +18,7 @@ const waitFor = (promise, milliseconds, label, signal = undefined) => new Promis
     settled = true; clearTimeout(timer); signal?.removeEventListener("abort", abort); callback(value);
   };
   const abort = () => finish(reject, new Error("cancelled"));
-  const timer = setTimeout(() => finish(reject, new Error(label)), milliseconds);
+  const timer = milliseconds === undefined ? undefined : setTimeout(() => finish(reject, new Error(label)), milliseconds);
   if (signal?.aborted) return abort();
   signal?.addEventListener("abort", abort, { once: true });
   Promise.resolve(promise).then(value => finish(resolve, value), error => finish(reject, error));
@@ -52,8 +53,8 @@ const providerFailureDetails = error => {
     category: error.category,
     request: error.requestMethod
   });
-  const code = ["cancelled", "provider_timeout", "app_server_timeout", "app_server_closed"].includes(error?.message) ? error.message : "provider_error";
-  return Object.freeze({ code, category: error?.message === "cancelled" ? "cancelled" : error?.message === "codex_grant_missing" ? "auth_required" : "provider_unavailable" });
+  const code = ["cancelled", "provider_timeout", "provider_idle_timeout", "app_server_timeout", "app_server_closed"].includes(error?.message) ? error.message : "provider_error";
+  return Object.freeze({ code, category: ["cancelled", "provider_timeout", "provider_idle_timeout"].includes(code) ? code : error?.message === "codex_grant_missing" ? "auth_required" : "provider_unavailable" });
 };
 const providerFailureCategory = error => providerFailureDetails(error).category;
 const providerStatus = error => {
@@ -126,7 +127,7 @@ class AppServerConnection {
   }
 }
 
-async function startConnection(config, signal, store) {
+async function startConnection(config, signal, store, persistSerialized = task => task()) {
   if (signal?.aborted) throw new Error("cancelled");
   const grant = store?.codexGrant ? await store.codexGrant() : undefined;
   if (store?.codexGrant && !grant && config.readyForProvider) throw new Error("codex_grant_missing");
@@ -143,18 +144,23 @@ async function startConnection(config, signal, store) {
     let savedDigest = grant ? grantDigest(grant.bytes) : undefined;
     let savedGeneration = grant?.generation;
     grant?.bytes.fill(0);
-    let pendingPersist = Promise.resolve();
+    let pendingPersist = Promise.resolve(); let grantWriteDisabled = false;
     const persistGrant = () => {
       const current = pendingPersist.then(async () => {
-        if (!grant) return;
+        if (!grant || grantWriteDisabled) return;
         const bytes = await readFile(authDestination);
         try {
           const currentDigest = grantDigest(bytes);
           if (currentDigest.equals(savedDigest)) return;
           for (let attempt = 0; ; attempt += 1) {
-            try { savedGeneration = await store.saveCodexGrant(bytes, savedGeneration); break; }
+            try { savedGeneration = await persistSerialized(() => store.saveCodexGrant(bytes, savedGeneration)); break; }
             catch (error) {
-              if (attempt >= 2 || ["codex_grant_conflict", "codex_grant_invalid"].includes(error?.message)) throw error;
+              if (error?.message === "codex_grant_conflict") {
+                const latest = await store.codexGrant();
+                if (!latest) throw error;
+                savedGeneration = latest.generation; savedDigest = grantDigest(latest.bytes); latest.bytes.fill(0); grantWriteDisabled = true; return;
+              }
+              if (attempt >= 2 || error?.message === "codex_grant_invalid") throw error;
               await new Promise(resolve => setTimeout(resolve, 100 * (attempt + 1)));
             }
           }
@@ -247,26 +253,28 @@ async function supportedCatalog(connection, rpcTimeout = 20_000) {
   return supported.length ? Object.freeze(supported) : undefined;
 }
 
-export function createCodexProvider(config, store = undefined) {
+export function createCodexProvider(config, store = undefined, deadlineOptions = undefined) {
   const exclusive = serialized();
-  let activeConnection;
-  let activeTurnConnection;
+  const persistSerialized = serialized();
+  const activeConnections = new Set();
+  const activeTurnConnections = new Set();
+  let activeInvocations = 0;
   const shutdown = new AbortController();
   const close = async () => {
     shutdown.abort();
-    await activeConnection?.close().catch(() => {});
+    await Promise.allSettled([...activeConnections].map(connection => connection.close()));
   };
   const inspect = async () => {
     if (shutdown.signal.aborted) return Object.freeze({ status: "unavailable", models: Object.freeze([]) });
     if (!config.readyForProvider) return Object.freeze({ status: "unavailable", models: Object.freeze([]) });
-    if (exclusive.busy()) {
-      const connection = activeTurnConnection;
+    if (activeInvocations || activeConnections.size || exclusive.busy()) {
+      const connection = activeTurnConnections.values().next().value;
       const savedOnly = Object.freeze({ status: "busy", models: Object.freeze([]), catalogCurrent: false });
       if (!connection) return savedOnly;
       try {
         const models = await waitFor(supportedCatalog(connection, 1_500), 2_000, "app_server_timeout", shutdown.signal);
         await connection.persistGrant();
-        return models && activeTurnConnection === connection && !shutdown.signal.aborted
+        return models && activeTurnConnections.has(connection) && !shutdown.signal.aborted
           ? Object.freeze({ status: "busy", models, catalogCurrent: true }) : savedOnly;
       } catch {
         try { await connection.persistGrant(); }
@@ -278,8 +286,8 @@ export function createCodexProvider(config, store = undefined) {
       const capability = await exclusive(async () => {
         let connection;
         try {
-          connection = await startConnection(config, shutdown.signal, store);
-          activeConnection = connection;
+          connection = await startConnection(config, shutdown.signal, store, persistSerialized);
+          activeConnections.add(connection);
           const account = await connection.request("account/read", { refreshToken: false });
           await connection.persistGrant();
           if (!record(account) || !record(account.account) || account.account.type !== "chatgpt") return Object.freeze({ status: "auth_required", models: Object.freeze([]) });
@@ -292,7 +300,7 @@ export function createCodexProvider(config, store = undefined) {
           return Object.freeze({ status: providerStatus(error), models: Object.freeze([]) });
         } finally {
           try { await connection?.close(); }
-          finally { if (activeConnection === connection) activeConnection = undefined; }
+          finally { activeConnections.delete(connection); }
         }
       });
       return capability;
@@ -303,11 +311,13 @@ export function createCodexProvider(config, store = undefined) {
     if (!config.readyForProvider) return { ok: false, code: "provider_unavailable" };
     if (!runtimeInstructions) throw new RuntimeInstructionError("Provider invocation is missing its runtime-instructions contract.");
     const runSignal = signal ? AbortSignal.any([signal, shutdown.signal]) : shutdown.signal;
-    try { return await exclusive(async () => {
-    let connection; let threadId; let unsubscribe = () => {};
+    activeInvocations += 1;
+    let connection; let threadId; let unsubscribe = () => {}; let deadline;
+    let startedAt; let lastProgressAt; let progressCount = 0;
     try {
-      connection = await startConnection(config, runSignal, store);
-      activeConnection = connection;
+    try {
+      connection = await startConnection(config, runSignal, store, persistSerialized);
+      activeConnections.add(connection);
       if (runSignal.aborted) throw new Error("cancelled");
       const started = await connection.request("thread/start", { model, ephemeral: true, cwd: connection.workspace, sandbox: "read-only", approvalPolicy: "never", environments: [], config: { web_search: research ? "live" : "disabled", features: { shell_tool: false, unified_exec: false, view_image: false, shell_snapshot: false, apps: false, plugins: false, hooks: false, memories: false, browser_use: false, browser_use_external: false, browser_use_full_cdp_access: false, computer_use: false, image_generation: false, workspace_dependencies: false, code_mode: false, code_mode_host: false, multi_agent: false, multi_agent_v2: false, skill_search: false, tool_suggest: false, request_permissions_tool: false } } });
       await connection.persistGrant();
@@ -319,11 +329,15 @@ export function createCodexProvider(config, store = undefined) {
       if (Buffer.byteLength(prompt, "utf8") > 8 * 1024 * 1024) return { ok: false, code: "context_too_large" };
       let resolveTurn; const turnDone = new Promise(resolve => { resolveTurn = resolve; });
       let expectedTurnId;
+      deadline = createTurnDeadline(deadlineOptions);
       const completedTurns = new Map();
       const completedBodies = new Map();
       unsubscribe = connection.on(notification => {
         const params = notification.params;
         if (!record(params) || params.threadId !== threadId) return;
+        if (isTurnProgress(notification, threadId, expectedTurnId)) {
+          lastProgressAt = Date.now(); progressCount += 1; deadline.progress();
+        }
         if (notification.method === "item/completed" && typeof params.turnId === "string") {
           const body = bodyFrom({ items: [params.item] });
           if (body) completedBodies.set(params.turnId, body);
@@ -337,17 +351,18 @@ export function createCodexProvider(config, store = undefined) {
       if (runSignal.aborted) throw new Error("cancelled");
       const turn = await waitFor(connection.request("turn/start", { threadId, input: [{ type: "text", text: prompt, text_elements: [] }], model, approvalPolicy: "never", sandboxPolicy: { type: "readOnly", networkAccess: research }, environments: [], effort }), 20_000, "app_server_timeout", runSignal);
       await connection.persistGrant();
-      activeTurnConnection = connection;
+      activeTurnConnections.add(connection);
       const startedTurn = record(turn) && record(turn.turn) ? turn.turn : undefined;
       if (!record(startedTurn) || typeof startedTurn.id !== "string") throw new Error("provider_error");
       expectedTurnId = startedTurn.id;
-      const startedAt = Date.now();
+      startedAt = Date.now(); lastProgressAt ??= startedAt;
+      deadline.start();
       providerLog("nanoduck.provider.turn_started", { outputKind, research, effort });
       // Ephemeral threads have no saved turn history. Consume the subscribed event
       // stream; thread/read(includeTurns:true) is rejected by the pinned app server.
       const resolvedTurn = terminalTurn(startedTurn) ?? completedTurns.get(expectedTurnId) ?? await waitFor(
-        Promise.race([turnDone, connection.closed.then(error => { throw error; })]),
-        540_000, "provider_timeout", runSignal
+        Promise.race([turnDone, deadline.promise, connection.closed.then(error => { throw error; })]),
+        undefined, "provider_timeout", runSignal
       );
       if (resolvedTurn.status !== "completed") throw new AppServerRequestError("turn/completed", resolvedTurn.error);
       const resultBody = bodyFrom(resolvedTurn) ?? completedBodies.get(expectedTurnId);
@@ -360,19 +375,20 @@ export function createCodexProvider(config, store = undefined) {
       if (output?.failureReason) providerLog("nanoduck.provider.output_policy", { outputKind, reason: output.failureReason });
       return output?.body ? { ok: true, body: output.body, sources: output.sources } : output ? { ok: false, code: output.failureReason === "prohibited_language" ? "language_policy" : output.failureReason === "no_usable_content" ? "output_policy" : "empty_response" } : { ok: false, code: "empty_response" };
     } finally {
+      deadline?.stop();
       unsubscribe();
       if (connection && threadId && !runSignal.aborted) await connection.request("thread/unsubscribe", { threadId }, 1_000).catch(() => {});
       try { await connection?.close(); }
       finally {
-        if (activeTurnConnection === connection) activeTurnConnection = undefined;
-        if (activeConnection === connection) activeConnection = undefined;
+        activeTurnConnections.delete(connection);
+        activeConnections.delete(connection);
       }
     }
-    }); } catch (error) {
+    } catch (error) {
       const details = providerFailureDetails(error);
-      providerLog("nanoduck.provider.turn_failed", { outputKind, ...details });
+      providerLog("nanoduck.provider.turn_failed", { outputKind, ...details, ...(startedAt ? { durationMs: Date.now() - startedAt, idleMs: Date.now() - lastProgressAt, progressCount } : {}) });
       return { ok: false, code: runSignal.aborted || error?.message === "cancelled" ? "cancelled" : details.category };
-    }
+    } finally { activeInvocations -= 1; }
   };
   return Object.freeze({ inspect, invoke, close, id: () => randomId() });
 }

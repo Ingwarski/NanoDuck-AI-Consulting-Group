@@ -6,7 +6,7 @@ Consume [PRD](prd.md), [project context](project-context.md) and [canonical term
 
 ## AI autonomy and allowed changes
 
-Complete reversible specification, the three equivalent-scope design simulations, including the owner-requested combined-layout palette revision, local browser checks and the authorized Phase 3 implementation in this repository. Use fictional examples for design evidence. Preserve the first rejected prototype as history while presenting the new candidate set. Resolve ordinary layout choices without repeated permission questions.
+Complete the authorized Phase 3 implementation and the 25 September consultation-orchestration port in this repository. Preserve Electric A v8 and the P5 Porcelain Stop correction. Head alone authors substantive roles, tasks and dependencies; the app validates, schedules and persists them. Fixed review depth belongs to the owner and Auto closure belongs to Head. Critic owns order-resolution judgments. Use fictional examples for public evidence and resolve routine implementation choices without repeated permission questions.
 
 ## Forbidden changes and stops
 
@@ -35,3 +35,7 @@ Representative-owner validation is planned for critical decision, privacy and vo
 ## Open questions
 
 No new authorization question blocks the browser-native voice implementation. Current provider/host evidence, mobile Safari/Chrome validation and runtime assurance remain the named release limits in the PRD. The Electric A v8 visual baseline is selected.
+
+## Parallel execution authority
+
+The owner's explicit implementation request authorizes FR-02.9–FR-02.15 and its required local runtime, test and SDD changes in this canonical repository. It does not authorize deployment, a live provider turn, GoDaddy migration execution, publication or a sister-repository change. The app may enforce schemas, ownership, dependencies, generation and permission boundaries but cannot invent or rewrite valid assignments, reject unfamiliar professions, judge compliance with a keyword heuristic or mark an order resolved because a consultant replied. Dynamic role guidance cannot override security, saved model choices or selected depth. Preserve exact owner context while minimizing unrelated discussion; efficiency work cannot omit deliverables or evidence.

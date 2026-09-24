@@ -11,6 +11,20 @@ let catalogReads = 0;
 const replyFor = prompt => {
   let answer = "A bounded answer.";
   if (prompt.includes("Return a Ukrainian relative-pronoun example")) return 'Уточніть, які умови потрібно виконати.\n<nanoduck-source>{"title":"Курси, які доступні","url":"https://example.com/courses","claim":"Вимоги, які підтверджує програма."}</nanoduck-source>';
+  if (prompt.includes("In one coordinated plan") && /Synthetic \w+ browser decision/u.test(prompt)) return JSON.stringify({ assignments: [
+    { role: "Buyer Demand Analyst", guidance: "Evaluate buyer need.", task: "Find a reversible buyer-demand test.", dependsOn: [] },
+    { role: "Capacity Planner", guidance: "Evaluate delivery capacity.", task: "Set a capacity threshold for that test.", dependsOn: [] }
+  ], researchQuery: null });
+  if (prompt.includes("In one coordinated plan")) return JSON.stringify({ assignments: [
+    { role: "Strategy Consultant", guidance: "Assess buyer evidence and a reversible positioning test.", task: "Assess buyer evidence and name the positioning test that changes the decision.", dependsOn: [] },
+    { role: "Finance Consultant", guidance: "Assess the cost and measurement of the buyer test.", task: "Assess the test cost and the threshold for proceeding.", dependsOn: [] }
+  ], researchQuery: "buyer positioning evidence" });
+  if (prompt.includes('Return only JSON: {"summary"') && /Synthetic \w+ browser decision/u.test(prompt)) return JSON.stringify({ summary: "Both answers support a bounded buyer test.", findings: [] });
+  if (prompt.includes('Return only JSON: {"summary"')) return JSON.stringify({ summary: "The strategy answer assumes prospects will accept interviews; finance gives a bounded test cost.", findings: [{ assignment: 1, issue: "The strategy answer assumes those buyers will take calls without evidence.", correction: "Recruit calls from a defined prospect list and measure interview acceptance." }] });
+  if (prompt.includes('Return only JSON: {"assessments"')) return JSON.stringify({ assessments: [{ orderId: prompt.match(/order ([A-Za-z0-9_-]{32})/u)?.[1], state: "resolved_corrected", reason: "The revision now measures interview acceptance from a defined prospect list." }] });
+  if (prompt.includes("The Critic has ordered you to stop going in circles")) return "I accept the gap: recruit calls from a defined prospect list and record interview acceptance before drawing the conclusion.";
+  if (prompt.includes("Private role guidance:") && prompt.includes("Head assignment:")) return "The position is viable only if a defined buyer has an urgent problem; test targeted interviews before committing.\n<nanoduck-source>{\"title\":\"Buyer evidence\",\"url\":\"https://example.com/buyer-evidence\",\"claim\":\"Buyer willingness must be measured before positioning.\",\"publishedAt\":\"2026-09-01\"}</nanoduck-source>";
+  if (prompt.includes("There are no separate compulsory final speeches")) return "Start with a narrow buyer list, measure interview acceptance, then decide whether the position has evidence.";
   if (prompt.includes("Return twelve direct sources")) return `A bounded answer.\n${Array.from({ length: 12 }, (_, index) => `<nanoduck-source>${JSON.stringify({ title: `Public source ${index}`, url: `https://example.com/article/${index}`, claim: `Evidence item ${index}.` })}</nanoduck-source>`).join("\n")}`;
   if (prompt.includes("Return mixed-language prose")) return "The buyer test should run for two weeks. Как это работает? Measure qualified replies and conversion.";
   if (prompt.includes("Return only a prohibited body URL")) return "https://example.su/claim";
@@ -52,6 +66,15 @@ createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line =
   if (request.method === "turn/start") {
     if (request.params?.model !== activeModel || !modelEfforts[activeModel]?.includes(request.params?.effort)) return send({ id: request.id, error: { message: "unsupported model or reasoning effort" } });
     const prompt = request.params?.input?.[0]?.text ?? "";
+    if (prompt.includes("Exercise progress deadline")) {
+      send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
+      const interval = setInterval(() => send({ method: "item/reasoning/summaryTextDelta", params: { threadId: "isolated-thread", turnId: prompt.includes("wrong turn") ? "other-turn" : "turn-1", delta: "private-reasoning-must-not-be-logged" } }), 40);
+      if (!prompt.includes("never completes")) setTimeout(() => {
+        clearInterval(interval);
+        send({ method: "turn/completed", params: { threadId: "isolated-thread", turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: "A bounded answer." }] } } });
+      }, 650);
+      return;
+    }
     changingCatalog = prompt.includes("Wait with catalog changes");
     failingCatalog = prompt.includes("Wait with catalog failure");
     if (prompt.includes("Wait for the notification")) {

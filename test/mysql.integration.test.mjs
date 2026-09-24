@@ -8,6 +8,7 @@ import { createMySqlStore, defaultSettings } from "../src/server/store.mjs";
 import { databaseLockName } from "../src/server/database-lock.mjs";
 import { initializeInstructions } from "../src/server/instruction-bootstrap.mjs";
 import { sealRecoverySnapshot, openRecoveryEnvelope } from "../src/server/recovery.mjs";
+import { randomId } from "../src/server/crypto.mjs";
 
 const testUrl = process.env.NANODUCK_MYSQL_TEST_URL;
 test("real MySQL: encrypted Codex grant survives restart and stale writes are fenced", { skip: !testUrl, timeout: 20_000 }, async () => {
@@ -137,7 +138,7 @@ test("real MySQL: isolation, encrypted snapshots, revision conflicts, deletion a
     await source.saveSettings({ ...defaultSettings, specialistCount: "3" });
     const conversation = await source.createConversation();
     const message = { body: "Should the fictional bakery test preorders?", clientRequestId: "mysql-duplicate-request-0001" };
-    const snapshot = { ...defaultSettings, instructionDocuments: await source.instructionDocuments(), runtimeInstructions: await source.runtimeInstructions() };
+    const snapshot = { ...defaultSettings, contractVersion: "parallel-v1", instructionDocuments: await source.instructionDocuments(), runtimeInstructions: await source.runtimeInstructions() };
     const [first, repeated] = await Promise.all([source.acceptMessage(conversation.id, message, snapshot), duplicate.acceptMessage(conversation.id, message, snapshot)]);
     assert.equal(first.message.id, repeated.message.id);
     assert.equal([first,repeated].filter(item => item.replayed).length, 1);
@@ -149,6 +150,19 @@ test("real MySQL: isolation, encrypted snapshots, revision conflicts, deletion a
     const [docs] = await admin.query("SELECT ciphertext FROM nanoduck_instruction_documents");
     assert.equal(JSON.stringify(docs).includes(selected.markdown), false);
     assert.deepEqual((await source.run(conversation.id)).snapshot, snapshot);
+    const assignmentIds = [randomId(), randomId()];
+    const tasks = assignmentIds.map((id, index) => ({ id: randomId(), role: "Head Consultant", recipient: `Specialist ${index + 1}`, body: `Task ${index + 1}`, sources: [] }));
+    const work0 = { version: 1, revision: 0, ownerMessageIds: [first.message.id], assignments: assignmentIds.map((id, index) => ({ id, role: `Specialist ${index + 1}`, guidance: `Guidance ${index + 1}`, task: `Task ${index + 1}`, dependsOn: [], taskMessageId: tasks[index].id })), results: {}, orders: [], rounds: [] };
+    assert.equal((await source.commitParallelWork(conversation.id, first.run.generation, -1, work0, tasks)).revision, 0);
+    const resultMessages = assignmentIds.map((id, index) => ({ id: randomId(), role: `Specialist ${index + 1}`, recipient: "Critic", body: `Answer ${index + 1}`, sources: [] }));
+    const candidates = assignmentIds.map((id, index) => ({ ...work0, revision: 1, results: { [id]: { messageId: resultMessages[index].id, body: resultMessages[index].body, version: 1 } } }));
+    const raced = await Promise.all(candidates.map((work, index) => source.commitParallelWork(conversation.id, first.run.generation, 0, work, [resultMessages[index]])));
+    assert.equal(raced.filter(Boolean).length, 1, "MySQL compare-and-swap accepts exactly one concurrent revision");
+    const afterRace = (await source.run(conversation.id)).snapshot.parallelWork;
+    const missingIndex = assignmentIds.findIndex(id => !afterRace.results[id]);
+    const merged = { ...afterRace, revision: 2, results: { ...afterRace.results, [assignmentIds[missingIndex]]: { messageId: resultMessages[missingIndex].id, body: resultMessages[missingIndex].body, version: 1 } } };
+    assert.equal((await source.commitParallelWork(conversation.id, first.run.generation, 1, merged, [resultMessages[missingIndex]])).revision, 2);
+    assert.equal(Object.keys((await source.run(conversation.id)).snapshot.parallelWork.results).length, 2);
     await source.finishRun(conversation.id, first.run.generation, "complete", "Fictional bakery launch");
     const envelope = sealRecoverySnapshot(await source.recoverySnapshot(), Buffer.alloc(32,9));
     await restored.restoreRecovery(openRecoveryEnvelope(envelope, Buffer.alloc(32,9)), { restoreConfiguration: true });

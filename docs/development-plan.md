@@ -1,10 +1,10 @@
 # Development plan
 
-22 September 2026 · Status: **implementation and scoped cutover in progress**. Phase 3 and replacement deployment are authorized only for Personal AI Consulting Group (`wy2v0putg6`) and its verified application tables. The GitHub source switch is complete; live Opus 5.5 execution, hosted settings migration, preview/publish acceptance and any authorized database deletion remain evidence-gated.
+25 September 2026 · Status: **Phase 3 and U-09 source implementation in progress**. The prior scoped GoDaddy actions remain historical; this orchestration port does not authorize deployment, a live provider turn, target migration, publication or database deletion. Those actions remain evidence-gated for Personal AI Consulting Group (`wy2v0putg6`) and its verified application tables only.
 
 ## Source References
 
-Product behavior: [PRD](prd.md), including all 60 distinct FR/NFR clauses, UC-001–UC-007 and AC-001–AC-010. [Context](project-context.md) and [terms](canonical-terms.md) are applied: single owner, browser-first use, literal Settings, separate AI roles and established vocabulary constrain local UI/API decisions. No context conflicts remain. [Guardrails](guardrails.md) supply authority and phase boundaries. [Journey](user-journey.md), [screen map](screen-map.md) and [wireframes](wireframes.md) supply all jobs, transitions, 9 surfaces and 44 states.
+Product behavior: [PRD](prd.md), including FR-01.1–FR-08.3, NFR-01.1–NFR-16.2, UC-001–UC-007 and AC-001–AC-010. [Context](project-context.md) and [terms](canonical-terms.md) are applied: single owner, browser-first use, literal Settings, separate AI roles and established vocabulary constrain local UI/API decisions. No context conflicts remain. [Guardrails](guardrails.md) supply authority and phase boundaries. [Journey](user-journey.md), [screen map](screen-map.md) and [wireframes](wireframes.md) supply all jobs, transitions, 9 surfaces and 44 states.
 
 [Design brief](design-brief.md#approved-visual-baseline) is the sole visual authority: `nanoduck-electric-a-v8-20260914`, Electric A v8. [Architecture](architecture.md), [DoD](dod-evals.md) and [QA checklist](qa-checklist.md) have been reconciled in that order against this baseline. The plan consumes their full definitions, including shared evidence/scope/severity conventions, H1–H10 and representative-user tasks. [Model settings](model-settings.md) and [deployment boundary](deployment-boundary.md) provide qualified preserved settings and dated host observations, not fresh runtime proof. Exact consumed hashes are recorded by the orchestrator in the manifest.
 
@@ -36,7 +36,7 @@ Replace fictional content, remove inspection/version scaffolding, wire real serv
 
 **Source trace:** All JOB-001–JOB-006, UC-001–UC-007, J-01–J-07 indirectly; enables every runtime surface. Exact clause allocation appears below; architecture's corresponding boundary controls the mechanism.
 
-**Work:** Preserve Head/specialists Codex `gpt-6-astra` / `xhigh` and select Critic Claude Code `claude-opus-5-5` / `medium`, retaining Codex `gpt-6-astra` / `xhigh` as the independent Critic branch. Include optional GPT-6 Sol (`gpt-6-sol`) for both Codex branches only when the current inspected catalog returns the model and a supported effort; leave those saved selections unchanged. Preserve defaults of 2 specialists and a review-depth ceiling of 1 Critic ↔ specialist exchange. Never substitute, downgrade, buy credits or enable a paid fallback. Verify the selected Claude managed grant, catalog, quota/renewal state and a short bounded allowed turn. At the isolated process seam, prove the installed Claude Code CLI matches the pinned `2.1.280`, Opus 5.5 passes the exact `--model claude-opus-5-5` ID, Medium passes unchanged, Extra maps to `xhigh`, and a legacy `claude-opus-5` snapshot uses its exact ID and fails visibly if unsupported. Record the installed revision and actual model result; never rely on the moving `opus` alias. Verify restricted Codex research separately without giving Claude tools. Verify standard and WebKit browser recognition constructors in Safari and Chrome and a real Ukrainian `uk-UA` result, with no NanoDuck audio endpoint or subscription transcription adapter. Inspect the exact GoDaddy app runtime/subprocess, idle/background lifecycle, restart/redeploy storage, stream buffering, TLS, environment and logs only when later authorized, without resetting data. Resolve upload/research limits, the owner-only JPEG/PNG/WebP byte/type policy, session concurrency/federated termination, separated key handling with exact existing 32-byte key encodings or the exact same-name `.env` envelope accepted by architecture, backup retention/RPO/RTO and operator procedures through architecture before dependent release tests. Use isolated fixtures and keep secrets/content out of Git.
+**Work:** Preserve Head/specialists Codex `gpt-6-astra` / `xhigh` and select Critic Claude Code `claude-opus-5-5` / `medium`, retaining Codex `gpt-6-astra` / `xhigh` as the independent Critic branch. Include optional GPT-6 Sol (`gpt-6-sol`) for both Codex branches only when the current inspected catalog returns the model and a supported effort; leave those saved selections unchanged. Preserve defaults of 2 specialists and discussion depth 1; allow only the validated 1/3/5/Auto controls and their U-09 semantics. Never substitute, downgrade, buy credits or enable a paid fallback. Verify the selected Claude managed grant, catalog, quota/renewal state and a short bounded allowed turn. At the isolated process seam, prove the installed Claude Code CLI matches the pinned `2.1.280`, Opus 5.5 passes the exact `--model claude-opus-5-5` ID, Medium passes unchanged, Extra maps to `xhigh`, and a legacy `claude-opus-5` snapshot uses its exact ID and fails visibly if unsupported. Record the installed revision and actual model result; never rely on the moving `opus` alias. Verify restricted Codex research separately without giving Claude tools. Verify standard and WebKit browser recognition constructors in Safari and Chrome and a real Ukrainian `uk-UA` result, with no NanoDuck audio endpoint or subscription transcription adapter. Inspect the exact GoDaddy app runtime/subprocess, idle/background lifecycle, restart/redeploy storage, stream buffering, TLS, environment and logs only when later authorized, without resetting data. Resolve upload/research limits, the owner-only JPEG/PNG/WebP byte/type policy, session concurrency/federated termination, separated key handling with exact existing 32-byte key encodings or the exact same-name `.env` envelope accepted by architecture, backup retention/RPO/RTO and operator procedures through architecture before dependent release tests. Use isolated fixtures and keep secrets/content out of Git.
 
 **Acceptance:** A dated capability matrix identifies actual supported and unavailable tuples, formats and host mechanisms, with source/runtime evidence. It records whether GPT-6 Sol is advertised with each supported effort in the current Codex catalog, without treating catalog presence as a successful turn. It records the installed Claude Code revision, exact Opus 5.5 model argument and result, and distinguishes a successful bounded turn from picker/catalog evidence. Choose SSE or the already permitted incremental polling using measured host behavior. No missing voice or security capability is labelled optional. An incompatible essential capability returns to architecture/product ownership; it does not authorize another host/provider or weakened requirement.
 
@@ -142,17 +142,35 @@ Consume completed message items and their matching successful terminal events fr
 
 **Source trace:** All JOB-001–JOB-006 → UC-001–UC-007 → J-01–J-07 → S-01–S-09/ST-01–ST-44; cross-cutting release integration. Exact clause allocation appears below; architecture's corresponding boundary controls the mechanism.
 
-**Work:** Execute all 83 canonical QA checks at their required actual seams and all six DoD gates, retaining prior prototype observations as limited history. Cover real supported browsers/devices, keyboard, 320px reflow, 200% text sizing, relevant assistive technology, forced colors and long English/Ukrainian content. Run H1–H10 expert review and actual representative-owner tasks; classify findings and close blocking ones. Record dependency inventory and risk-based update/incident/backup ownership and deadlines. Prepare a production-only artifact, exact configuration inventory, compatible migration and rollback trigger. Before a Preview update, verify the GoDaddy package contract in the Git source: root name/version/main, `build` and `start`, entry-point existence, `process.env.PORT`, `0.0.0.0` binding, runtime imports in `dependencies`, and no tracked or uploaded `node_modules`. Verify the exact Personal AI Consulting Group app and exclusively owned database/table inventory, rehearse isolated restore, then present a concrete cutover package under the later implementation authorization. On an environment-secret-only host, provision the pinned Codex app-server package, exactly one supported auth secret and `NANODUCK_RUNTIME_MODE=production` where GoDaddy reserves `NODE_ENV`; GoDaddy uses `CODEX_APP_SERVER_AUTH_GZIP_B64`. Verify preflight sees Head/specialists `gpt-6-astra` / `xhigh` and Critic Claude Code Opus 5.5 / Medium, the settings revision is idempotent without touching accepted runs, and the installed Claude Code package matches the lockfile pin `2.1.280` and passes the exact `claude-opus-5-5` model ID for a bounded allowed turn; the only materialized `auth.json` exists in its removed-after-use private app-server home. Re-check scope and evidence before any reset. After an authorized cutover, inspect the live artifact, sign-in, actual provider tuples, research, voice, restart recovery and protected logs; rollback on required-gate failure. Feed observed incidents and task findings to the owning PRD/architecture/QA documents.
+**Work:** Execute all 90 canonical QA checks at their required actual seams and all six DoD gates, retaining prior prototype observations as limited history. Cover real supported browsers/devices, keyboard, 320px reflow, 200% text sizing, relevant assistive technology, forced colors and long English/Ukrainian content. Run H1–H10 expert review and actual representative-owner tasks; classify findings and close blocking ones. Record dependency inventory and risk-based update/incident/backup ownership and deadlines. Prepare a production-only artifact, exact configuration inventory, compatible migration and rollback trigger. Before a Preview update, verify the GoDaddy package contract in the Git source: root name/version/main, `build` and `start`, entry-point existence, `process.env.PORT`, `0.0.0.0` binding, runtime imports in `dependencies`, and no tracked or uploaded `node_modules`. Verify the exact Personal AI Consulting Group app and exclusively owned database/table inventory, rehearse isolated restore, then present a concrete cutover package under the later implementation authorization. On an environment-secret-only host, provision the pinned Codex app-server package, exactly one supported auth secret and `NANODUCK_RUNTIME_MODE=production` where GoDaddy reserves `NODE_ENV`; GoDaddy uses `CODEX_APP_SERVER_AUTH_GZIP_B64`. Verify preflight sees Head/specialists `gpt-6-astra` / `xhigh` and Critic Claude Code Opus 5.5 / Medium, the settings revision is idempotent without touching accepted runs, and the installed Claude Code package matches the lockfile pin `2.1.280` and passes the exact `claude-opus-5-5` model ID for a bounded allowed turn; the only materialized `auth.json` exists in its removed-after-use private app-server home. Re-check scope and evidence before any reset. After an authorized cutover, inspect the live artifact, sign-in, actual provider tuples, research, voice, restart recovery and protected logs; rollback on required-gate failure. Feed observed incidents and task findings to the owning PRD/architecture/QA documents.
 
 **Acceptance:** Release can be claimed only when required actual results pass, the scoped target/rollback evidence exists and representative-user tasks are observed. A build, health endpoint, pushed repository or owner design acceptance cannot replace release evidence. No other GoDaddy app, table, domain, shared credential or data is changed.
 
-**Verification:** QA-R01–QA-R60, QA-S01–QA-S09, QA-H01–QA-H10, QA-U01–QA-U04; all six DoD gates. Tests remain not_run. Evidence lives under `forge/runs/U-08/{run_id}/` and records actual revision, sources, executor, time and scope.
+**Verification:** QA-R01–QA-R67, QA-S01–QA-S09, QA-H01–QA-H10, QA-U01–QA-U04; all six DoD gates. Automated isolated evidence can pass its declared seams while real provider, GoDaddy, physical-device, assistive-technology and representative-owner observations remain pending. Evidence lives under `forge/runs/U-08/{run_id}/` and records actual revision, sources, executor, time and scope.
 
 **Risk/stop condition:** Unknown database ownership or host behavior blocks destructive cutover. Preserve unrelated resources and stop at the exact unresolved scope rather than widening access.
 
+### U-09 — Parallel Head-led consultation and verified Critic orders
+
+**Status/owner/layer:** authorized and implemented in the local source; full-stack with provider integration. Activation on GoDaddy remains a separate deployment gate.
+
+**Source trace:** JOB-001/JOB-002/JOB-003 → UC-002/UC-003/UC-005 → J-03/J-05/J-07 → S-02/ST-09–ST-17, S-04/ST-21–ST-24 and S-07/ST-37–ST-38. FR-02.3–FR-02.7, FR-02.9–FR-02.15, FR-03.1, FR-03.3–FR-03.5, FR-05.2–FR-05.3, NFR-01.1–NFR-01.4 and affected security clauses. Dependencies: existing GoDaddy provider seam, MySQL/memory stores, Electric A v8/P5 UI, legacy coordinator and research boundary.
+
+**Work:** Version new runs as `parallel-v1`. Head creates or reuses roles and returns one structured plan containing requested outputs, concise verbatim assignments and acyclic dependencies. Persist that private plan and expose ordinary Head assignment messages. Build each invocation from exact ordered owner messages once, its own role guidance and task, and referenced evidence/current results. Schedule independent ready work concurrently. Persist assignment, result, Critic order, correction and assessment transitions through store compare-and-swap with run/generation/contract/revision validation. Critic reviews the team together; fixed 1/3/5 depth completes the chosen number of assessments, Auto permits Head closure within ten, and only affected specialists reply. A final correction gets a focused resolution assessment. Synthesis carries every unresolved or evidence-blocked order into provisional advice and omits compulsory closing speeches.
+
+Preserve the one-app/one-MySQL GoDaddy topology, Preview backend-free role, exact models and managed subscription grant. Give each concurrent Codex call an isolated app-server connection and temporary home; serialize durable grant write-back and reject stale sibling overwrites. Renew Codex inactivity only on matching-turn work for 540,000 ms and retain a 1,800,000 ms absolute ceiling; Claude keeps its existing deadline. Stop aborts all workers and generation-fences late results. Retry only failed or missing work while successful siblings, exact settings and unresolved orders survive. The public API reports only aggregate progress; private work state and role guidance never leave the server.
+
+**Visual binding:** Existing transcript, status, Settings and Outcome surfaces only. Dynamic names render safely. The P5 Porcelain Stop is 88px wide, shares avatar height (38px desktop/32px mobile) and 7px radius, and retains a transparent 44px hit area. No orchestration dashboard or role-instruction panel.
+
+**Acceptance:** An unlisted role receives its exact Head assignment; independent workers overlap and a faster result commits first; exact owner intent is nonduplicated; only a current Critic assessment resolves a matching correction; fixed and Auto depth follow the saved contract; partial failure, Stop and Retry preserve completed siblings and directive state; synthesis never hides unresolved work or requested deliverables; MySQL concurrent commits cannot lose a sibling result; measured efficiency reports calls and context bytes without claiming unavailable token or subscription savings.
+
+**Verification:** QA-R05–QA-R09, QA-R15, QA-R20–QA-R22, QA-R36–QA-R39, QA-R45/QA-R47/QA-R51/QA-R54/QA-R56/QA-R58 and QA-R61–QA-R67, plus QA-S02/QA-S04/QA-S07, QA-H01–QA-H10 and QA-U02/QA-U04. Automated Node and MySQL checks, workload measurement and real-browser inspection are required for this source change. Live provider, GoDaddy deployment and representative-owner evidence remain separate.
+
+**Risk/stop condition:** Existing accepted legacy runs retain their original contract until terminal. Do not deploy, migrate a target, invoke a live provider or interrupt an owner run under this unit. No native provider subagents, paid fallback, new hosting or unrelated UI change.
+
 ## Dependency Order
 
-U-01 → U-02 → U-03 → U-04 → U-05/U-06 → U-07 → U-08. U-05 and U-06 are independent after U-04 once their U-01 capability evidence is settled. U-03 may prepare static presentation while U-01 runs, but cannot claim working login/settings before U-02 and verified catalogs. A unit is complete only with its source-bound acceptance evidence; a pending capability blocks the affected seam, not unrelated documentation. No calendar duration is invented before the preflight resolves provider/host limits.
+U-01 → U-02 → U-03 → U-04 → U-05/U-06 → U-07 → U-09 → U-08. U-09 consumes the existing provider, store, UI and research boundaries and supersedes legacy orchestration semantics for new runs. A unit is complete only with its source-bound acceptance evidence; a pending live-provider or GoDaddy capability blocks that seam, not local source verification. No calendar duration is invented before preflight resolves provider/host limits.
 
 ## Cross-layer interfaces
 
@@ -162,8 +180,8 @@ These implementation seams instantiate architecture's existing boundaries, not n
 |---|---|---|
 | C-01 owner session, U-02 → U-03–U-08 | Owner-only principal, consent scope, server-issued absolute expiry and revocation; cookies never expose provider grants. All private HTTP/upload/export/run operations use the same authorization seam. | QA-R01–QA-R02, QA-R43–QA-R45, QA-R48, QA-R55; real denied reads/writes and 24-hour boundary. |
 | C-02 preferences/catalog, U-03 → U-04 | Revisioned provider/model/reasoning, specialist-count and discussion-depth tuple, selected message-sound preference, compatible catalog choices including optional GPT-6 Sol in either Codex branch, saved runtime-instructions Markdown/revision and preference version. The fresh/pre-Opus preference transition and previous-revision Opus 5.5 / Low-only effort correction preserve unrelated values and later saves; U-04 copies an immutable snapshot on acceptance and never re-normalizes it. Auto runtime decisions are recorded with that snapshot. Real quota/reset or unavailable, categorized selected-provider authorization failure. | FR-05.1–FR-05.6 exact QA mappings below; migrate fresh/pre-Opus/previous/current rows, save while active, restart, and compare next/current run. |
-| C-03 canonical work/events, U-04 → U-03/U-05/U-07 | Conversation/run IDs, client request ID, ordered event cursor, committed step, generation/lease, complete role/recipient/body/time and snapshot; transactional acceptance/step commits. U-03 renders an allowed Markdown subset through DOM nodes and never executes raw event markup. Same cursor semantics for SSE or polling. | QA-R03, QA-R11–QA-R16, QA-R36–QA-R39, QA-R47, QA-R59; restart/Stop/replay races. |
-| C-04 role execution, U-04 → U-05 provider operations | Separate permitted role context and assignment, exact tuple, immutable validated runtime-instructions document/revision, scoped operation/tool permissions, English/Ukrainian output policy, one code-owned replacement after a policy-rejected draft, bounded cancellation and categorized failure. Research does not acquire general shell/filesystem/computer permissions. | QA-R05–QA-R10, QA-R12, QA-R17–QA-R19, QA-R51; compare to exact clause mapping below. |
+| C-03 canonical work/events, U-04/U-09 → U-03/U-05/U-07 | Conversation/run IDs, contract version, context and ledger revisions, assignment/attempt/dependency/result/order identities, ordered event cursor and complete role/recipient/body/time; transactional acceptance and compare-and-swap work commits. Public consumers receive aggregate progress and business messages only. | QA-R03, QA-R11–QA-R16, QA-R36–QA-R39, QA-R47, QA-R59, QA-R61–QA-R67; concurrent commit/restart/Stop/replay races. |
+| C-04 role execution, U-09 → U-05 provider operations | Head-authored role guidance/task/dependencies, exact tuple, immutable instructions, minimum referenced context, scoped permissions, English/Ukrainian output policy, explicit Critic assessment authority, bounded cancellation and categorized failure. Independent ready work overlaps; research does not acquire general shell/filesystem/computer permissions. | QA-R05–QA-R10, QA-R12, QA-R15, QA-R17–QA-R19, QA-R51, QA-R61–QA-R67. |
 | C-05 evidence, U-05 → U-04/U-03/U-07 | Conversation-bound direct URL/title/claim/retrieval/publication/limitations; source text is data. Accept English/Ukrainian evidence only and reject Russian/Belarusian metadata or `.ru`/`.by`/`.su`/Cyrillic-equivalent hosts before it reaches a conversation. No citation is promoted without actual source evidence. | QA-R17–QA-R19, QA-R49, QA-R54, QA-S06, QA-U02. |
 | C-06 inputs, U-06 → U-04/U-03/U-07 | Owned, bounded JPEG/PNG/WebP attachment references and an editable unsent browser-recognized transcript; NanoDuck receives no audio. Explicit Send alone creates an accepted event. | FR-02.2/FR-07.1–FR-07.5 exact QA mappings below, QA-R50, QA-R55, QA-U01. |
 | C-07 records/restore, U-07 → U-03/U-08 | Complete confirmed record and safe export; owner-scoped delete plus durable deletion decision; isolated restore applies tombstones before records become readable. | FR-06.1–FR-06.3 exact QA mappings below, QA-R52, QA-R56, QA-U04. |
@@ -179,17 +197,24 @@ One primary implementation owner is assigned per distinct clause. Shared control
 | FR-01.2 | U-02 | QA-R02 |
 | FR-02.1 | U-04 | QA-R03 |
 | FR-02.2 | U-06 | QA-R04 |
-| FR-02.3 | U-04 | QA-R05 |
-| FR-02.4 | U-04 | QA-R06 |
-| FR-02.5 | U-04 | QA-R07 |
-| FR-02.6 | U-04 | QA-R08 |
-| FR-02.7 | U-04 | QA-R09 |
+| FR-02.3 | U-09 | QA-R05 |
+| FR-02.4 | U-09 | QA-R06 |
+| FR-02.5 | U-09 | QA-R07 |
+| FR-02.6 | U-09 | QA-R08 |
+| FR-02.7 | U-09 | QA-R09 |
 | FR-02.8 | U-04 | QA-R10 |
+| FR-02.9 | U-09 | QA-R61 |
+| FR-02.10 | U-09 | QA-R61 |
+| FR-02.11 | U-09 | QA-R62 |
+| FR-02.12 | U-09 | QA-R63 |
+| FR-02.13 | U-09 | QA-R64, QA-R67 |
+| FR-02.14 | U-09 | QA-R65 |
+| FR-02.15 | U-09 | QA-R66 |
 | FR-03.1 | U-04 | QA-R11 |
 | FR-03.2 | U-04 | QA-R12 |
 | FR-03.3 | U-04 | QA-R13 |
 | FR-03.4 | U-04 | QA-R14 |
-| FR-03.5 | U-04 | QA-R15 |
+| FR-03.5 | U-09 | QA-R15 |
 | FR-03.6 | U-04 | QA-R16 |
 | FR-04.1 | U-05 | QA-R17 |
 | FR-04.2 | U-05 | QA-R18 |
@@ -212,8 +237,8 @@ One primary implementation owner is assigned per distinct clause. Shared control
 | FR-08.2 | U-03 | QA-R34 |
 | FR-08.3 | U-03 | QA-R35 |
 | NFR-01.1 | U-04 | QA-R36 |
-| NFR-01.2 | U-04 | QA-R37 |
-| NFR-01.3 | U-04 | QA-R38 |
+| NFR-01.2 | U-09 | QA-R37, QA-R67 |
+| NFR-01.3 | U-09 | QA-R38, QA-R65 |
 | NFR-01.4 | U-04 | QA-R39 |
 | NFR-02.1 | U-03 | QA-R40 |
 | NFR-02.2 | U-03 | QA-R41 |
@@ -243,12 +268,12 @@ U-03 owns the approved presentation for every row; the runtime owner below conne
 | Surface | State IDs | Runtime unit(s) | QA / journey / use case |
 |---|---|---|---|
 | S-01 | ST-01, ST-02, ST-03, ST-04 | U-02 | QA-S01; J-01; UC-001 |
-| S-02 | ST-05, ST-06, ST-07, ST-08, ST-09, ST-10, ST-11, ST-12, ST-13, ST-14, ST-15, ST-16, ST-17 | U-04, U-05, U-06 | QA-S02; J-02/J-03/J-05; UC-002/UC-003 |
+| S-02 | ST-05, ST-06, ST-07, ST-08, ST-09, ST-10, ST-11, ST-12, ST-13, ST-14, ST-15, ST-16, ST-17 | U-04, U-05, U-06, U-09 | QA-S02; J-02/J-03/J-05; UC-002/UC-003 |
 | S-03 | ST-18, ST-19, ST-20 | U-07 | QA-S03; J-06; UC-004 |
-| S-04 | ST-21, ST-22, ST-23, ST-24, ST-25 | U-03, U-02 | QA-S04; J-07; UC-005 |
+| S-04 | ST-21, ST-22, ST-23, ST-24, ST-25 | U-03, U-02, U-09 | QA-S04; J-07; UC-005 |
 | S-05 | ST-26, ST-27, ST-28, ST-29, ST-30, ST-31, ST-32, ST-33 | U-06 | QA-S05; J-02; UC-006 |
 | S-06 | ST-34, ST-35, ST-36 | U-05, U-07 | QA-S06; J-04/J-06; UC-007/UC-004 |
-| S-07 | ST-37, ST-38 | U-04, U-07 | QA-S07; J-06; UC-002/UC-004 |
+| S-07 | ST-37, ST-38 | U-04, U-07, U-09 | QA-S07; J-06; UC-002/UC-004 |
 | S-08 | ST-39, ST-40, ST-41, ST-42 | U-07 | QA-S08; J-06; UC-004 |
 | S-09 | ST-43, ST-44 | U-03 | QA-S09; J-01/J-05/J-07; UC-001/UC-003/UC-005 |
 
@@ -270,15 +295,15 @@ Required future receipt: `forge/runs/U-03/{run_id}/prototype-promotion.json`. On
 
 ## Verification Plan
 
-All 83 formal checks remain **prepared / not_run**; six gates remain unevaluated. Run exact acceptance clauses from the QA checklist and AC-001–AC-010, then collect the additional visual, heuristic and representative-owner evidence. Preserve positive and negative security paths for all 17 security clauses in the Clause coverage table. Dependency maintenance, operational diagnosis, deletion propagation and isolated recovery belong to U-01/U-07/U-08 as allocated; they are not a separate service or optional checklist.
+All 90 formal checks are defined; executions must retain their actual status and seam. Run exact acceptance clauses from the QA checklist and AC-001–AC-010, then collect the additional visual, heuristic and representative-owner evidence. Preserve positive and negative security paths for all 17 security clauses in the Clause coverage table. Dependency maintenance, operational diagnosis, deletion propagation and isolated recovery belong to U-01/U-07/U-08/U-09 as allocated; they are not a separate service or optional checklist.
 
 Unit evidence must distinguish local fixtures, actual provider results and live host results. Keep credentials, account identifiers and private business content out of public receipts; no NanoDuck audio artifact exists to retain. Use fictional/minimized fixtures with protected detailed logs when necessary. Record check, gate, revision, baseline/target/tree, source hashes, executor/time, route/state/device/viewport, expected/observed outcome and evidence hash, with classified findings. Use PRD severity/release-effect definitions exactly. Missing representative-user or assistive-technology evidence stays missing; a design approval is not that evidence.
 
-Required gates: `product_functional_requirements`, `product_security_requirements`, `approved_visual_baseline_fidelity`, `heuristic_usability_review`, `representative_user_task_validation`, `lifecycle_and_continuity`. Run targeted checks per unit, then integrated cross-boundary checks and actual U-08 release evidence. Re-run only affected checks when source/runtime/baseline changes or findings justify it. `npm run check` remains an artifact/link/JavaScript syntax check and cannot pass production gates.
+Required gates: `product_functional_requirements`, `product_security_requirements`, `approved_visual_baseline_fidelity`, `heuristic_usability_review`, `representative_user_task_validation`, `lifecycle_and_continuity`. Run targeted checks per unit, then integrated cross-boundary checks and actual U-08 release evidence. Re-run only affected checks when source/runtime/baseline changes or findings justify it. `npm run check` runs artifact checks and the automated Node suite; its passing result supports only those tested seams and cannot pass production gates.
 
 ## Out Of Scope
 
-This document authorizes deployment only to Personal AI Consulting Group (`wy2v0putg6`) and its verified application data; it does not authorize provider credential transfer, publication, database reset or any promotion outside that target. The product excludes messengers, public/multiuser SaaS, payments, extra hosts, paid fallback, automatic external business actions, required notifications, native apps, PDF/SVG/video/audio/archive uploads and arbitrary uploads. Unchosen palette alternatives are historical design references. Do not alter any unrelated GoDaddy resource. Any database reset remains conditional on proven exclusive ownership and recovery/cutover evidence.
+This document authorizes the U-09 source implementation only. It does not authorize deployment, a live provider call, provider credential transfer, publication, target migration, database reset or promotion outside this repository. Any later GoDaddy action remains limited to Personal AI Consulting Group (`wy2v0putg6`) and verified application-owned data under its separate gate. The product excludes messengers, public/multiuser SaaS, payments, extra hosts, paid fallback, automatic external business actions, required notifications, native apps and arbitrary uploads. Do not alter any unrelated GoDaddy resource.
 
 ## Open Questions
 
@@ -286,4 +311,4 @@ No further aesthetic or product-intent choice is needed to continue this plan. U
 
 ## Handoff and implementation boundary
 
-The approved design, reconciled architecture/DoD/QA and this plan govern the authorized Phase 3 implementation and scoped source cutover. Orchestrator state: `implementation-in-progress`. The gate binds this plan's current hash and `nanoduck-electric-a-v8-20260914`; it does not expand the named GoDaddy boundary or replace production-provider, hosted-data and release evidence. The next release decision requires completed QA and operational evidence.
+The approved design, reconciled architecture, DoD, QA and this plan govern the authorized Phase 3 and U-09 source implementation. Orchestrator state: `implementation-in-progress`. The gate binds this plan's current hash and `nanoduck-electric-a-v8-20260914`; it does not authorize deployment or replace live-provider, hosted-data and release evidence. The next release decision requires the remaining actual QA and operational evidence.
