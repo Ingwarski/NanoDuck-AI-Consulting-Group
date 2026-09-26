@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "run_id": "review-fixes-port-20260926",
+  "status": "passed_scoped",
+  "executed_at": "2026-09-26T13:31:00Z",
+  "executor": "Codex",
+  "environment": {
+    "platform": "macOS",
+    "node": "v24.16.0",
+    "repository": "Ingwarski/NanoDuck-AI-Consulting-Group",
+    "branch": "main",
+    "base_commit": "800f7e6ded0ec9a957189375c15179d650f305ec"
+  },
+  "source_handoff_sha256": "005d14b2a6828dc5ab0ea45610a1a79580e5c8eeafd411fe4325e837cfe56cdc",
+  "changed_file_sha256": {
+    "docs/architecture.md": "4a968a3b15bd6e99170e8bdda9612fb4b8643aaa118157f53c91560563620494",
+    "docs/development-plan.md": "183676eaf9a42c69a66e26db3c92f2b9f40ff9ddcab795513761fa8649ebe7f8",
+    "docs/dod-evals.md": "242e92bf59aa67e95a1ac4bb8bdab232785081705a3daaa7f97be2658f14ce86",
+    "docs/qa-checklist.md": "b65c3779b62614ee3f96d840360f9a2e5175a5bbcfd1bfb202f313ac0e8945a8",
+    "package-lock.json": "da3063bb5b48fed7e548ce7e5f6781e9867070887d40cb3bd6c0146f887e92b0",
+    "package.json": "f924ba585917c1fa44cdad96cf58e5e08fc38f2442f0b0802a3050a7ea790f21",
+    "public/index.html": "527ce56fafdf6f1e44ff5204f0ada0cea87a7700f760e575c04574186f34e674",
+    "public/styles.css": "a3e801e72e9426338c897d876126c6e8f74dcebca5b48a65544fe8fb22ef6cfb",
+    "scripts/browser-progress-recovery.mjs": "ddc4ec97b61a7bc05daa4475dfd24f72df06bbc5268c1e9b3feaffd6b55374a4",
+    "scripts/browser-review-fixes.mjs": "d61fdfa6f2bf528a361392d6cb66662a1baf7b303abc320a44f2606c6b00be55",
+    "src/client/app.js": "54139a43336e67ff442d3927ba59972945557ccf81028ee8052d817ffaa3c174",
+    "src/client/refresh-state.js": "809077228b374cd38a4affe7c2831d674c981259b1d975082f64df3bbb298e95",
+    "src/server/claude-provider.mjs": "bcaf78e4e357a54dc4d3b1a7dfa599cf348e23c4cbf3b7d03badb228f66db271",
+    "src/server/codex-provider.mjs": "228bb4e050a1f290e0955f8ffd878e25a649a91ca0ab836dfae9a1aca9ce2dec",
+    "src/server/consultation-parallel.mjs": "ef8ee082210243a66e9fd2755469dbe13bb2f32ec0cbd05d8b43495f2ec99986",
+    "src/server/consultation.mjs": "e8c57da7aaa82691f1241d5a27395ea63c6be793a6150ddad3e736cccff4069c",
+    "src/server/index.mjs": "feb43bcb1af8ea131d126b047b72289c307e3932e982f9120b86cde8fabd0be9",
+    "src/server/parallel-contract.mjs": "6ed57e8ce9a6f1bc17739a48de0627baa0a14a083901f0136bae430cd62d2c15",
+    "src/server/recovery.mjs": "d32421f1d96b8769c49b86cc7deee1b443168e0591372591c2f786392a79ecc9",
+    "src/server/schema.sql": "f2ebb2a6e92b33921ed0c8174a25a9ac8f55ceef56cdc44352fabf6d5b6da7a7",
+    "src/server/store.mjs": "ed15356255d92f740161746e471bdf6fcb92eb72fe2cf11f28f7933e74a30068",
+    "src/server/usage.mjs": "c53f9ac81837eaaf43e53b62dd9fe0d1a99dbceac0c6d61cc0d8b4ec184bcc60",
+    "test/core.test.mjs": "688900d328093c1071068c54b2b410f972785f6bb8603e0b1928e553ee9cefe0",
+    "test/review-fixes.test.mjs": "fdb6db7db2deecebd55d0ad550c6b38c0db42a4ef114f293a37df2111d08a1d3",
+    "test/usage.test.mjs": "3458c552f73307e46c98bbfa4abec4320ddd63ae47ac57ebae05e453d298dd18"
+  },
+  "commands": [
+    {
+      "command": "node --test test/review-fixes.test.mjs test/usage.test.mjs test/parallel-consultation.test.mjs test/codex-provider.test.mjs test/claude-provider.test.mjs",
+      "result": "passed",
+      "observed": "57 passed, 0 failed"
+    },
+    {
+      "command": "npm run check",
+      "result": "passed",
+      "observed": "artifact check passed; 176 tests, 173 passed, 0 failed, 3 optional MySQL tests skipped"
+    },
+    {
+      "command": "npm run test:browsers",
+      "result": "passed",
+      "observed": "Chromium, Firefox and WebKit passed progress recovery, Usage coalescing and final refresh, URL-plus-claim Sources, Stop fencing and 320px reflow"
+    },
+    {
+      "command": "sdd_check.py --before/--after architecture-approved, dod-evals-approved, qa-checklist-approved and development-plan",
+      "result": "passed",
+      "observed": "every required owner boundary passed after target-local manifest reconciliation"
+    },
+    {
+      "command": "sdd_check.py --audit",
+      "result": "passed",
+      "observed": "all thirteen SDD artifacts, current implementation authorization and manifest bindings passed"
+    },
+    {
+      "command": "git diff --check and public absolute-path scan",
+      "result": "passed",
+      "observed": "no whitespace errors or local absolute paths in changed files"
+    }
+  ],
+  "security_and_privacy": {
+    "production_records_used": false,
+    "live_provider_calls_used": false,
+    "credentials_used": false,
+    "paid_provider_calls_used": false
+  },
+  "limitations": [
+    "The three real-MySQL integration cases were skipped because NANODUCK_TEST_MYSQL_URL was not configured.",
+    "The local run used Node 24.16.0; the GoDaddy package contract remains Node 22.x.",
+    "No GoDaddy process, schema migration, Preview/Published route or live provider was exercised.",
+    "Physical-device, assistive-technology and representative-user validation were not run."
+  ],
+  "runtime_activation_needed": [
+    "Pull the committed main revision into the named GoDaddy app.",
+    "Apply the owned idempotent nanoduck_usage_attempts schema migration.",
+    "Restart or publish only under a separate authorized deployment operation, then verify PORT/0.0.0.0, database leadership, health, protected Usage and consultation behavior."
+  ],
+  "release_readiness": "not_evaluated"
+}

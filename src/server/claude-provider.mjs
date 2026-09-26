@@ -7,6 +7,7 @@ import { createRuntimePrompts } from "./prompt-contracts.mjs";
 import { containsInternalToolTrace } from "./output-safety.mjs";
 import { currentClaudeCritic, currentClaudeCriticEfforts } from "./settings.mjs";
 import { containsSecretLikeContent } from "./content-policy.mjs";
+import { beginUsage, claudeTokens } from "./usage.mjs";
 
 const maxOutputBytes = 8 * 1024 * 1024;
 const maxPromptBytes = 8 * 1024 * 1024;
@@ -145,7 +146,11 @@ export function createClaudeProvider(config, { run = runClaudeCommand } = {}) {
       const runOnce = async assignment => {
         if (Buffer.byteLength(assignment, "utf8") > maxPromptBytes) return { kind: "failure", code: "context_too_large" };
         const args = ["--print", "--output-format", "json", "--no-session-persistence", "--strict-mcp-config", "--permission-mode", "dontAsk", "--disallowedTools", blockedTools, "--max-turns", "1", "--system-prompt", textOnlySystemPrompt, "--model", input.model, "--effort", cliEffort(input.effort)];
-        const result = await execute(args, input.signal, assignment);
+        const finishUsage = await beginUsage(input.onUsage, "claude_code", input.model);
+        let result;
+        try { result = await execute(args, input.signal, assignment); }
+        catch { await finishUsage(input.signal?.aborted ? "cancelled" : "failed"); throw new Error("provider_unavailable"); }
+        await finishUsage(input.signal?.aborted || result.aborted ? "cancelled" : result.exitCode === 0 && !result.timedOut ? "completed" : "failed", claudeTokens(result.stdout));
         if (input.signal?.aborted || result.aborted) return { kind: "cancelled" };
         const body = result.exitCode === 0 ? parseCompletion(result.stdout) : undefined;
         if (!body) return { kind: "failure", code: result.exitCode === 0 && emptySuccessfulCompletion(result.stdout) ? "empty_response" : classifyFailure(result) };

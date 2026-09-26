@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "event": "implementation_prompt",
+  "role": "user",
+  "intent": "start_production_implementation",
+  "prompt_id": "review-fixes-port-20260926",
+  "received_at": "2026-09-26T12:55:00Z",
+  "message": "Implement the supplied review-fixes port in main so it works on GoDaddy.",
+  "message_redaction": "The user supplied a local absolute source path; this public receipt retains the repository-neutral intent and source digest.",
+  "repository": "Ingwarski/NanoDuck-AI-Consulting-Group",
+  "branch": "main",
+  "base_commit": "800f7e6ded0ec9a957189375c15179d650f305ec",
+  "authorization": "production source implementation, target-local SDD reconciliation, synthetic verification, commit and push",
+  "excluded_authority": [
+    "GoDaddy deployment or restart",
+    "live provider calls",
+    "target database migration",
+    "production-record access or deletion"
+  ],
+  "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+  "development_plan_hash": "183676eaf9a42c69a66e26db3c92f2b9f40ff9ddcab795513761fa8649ebe7f8",
+  "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
+  "source_handoff_sha256": "005d14b2a6828dc5ab0ea45610a1a79580e5c8eeafd411fe4325e837cfe56cdc"
+}

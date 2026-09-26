@@ -12,6 +12,7 @@
     "preflight": "node src/server/preflight.mjs",
     "check": "node scripts/check-artifacts.mjs && node --test test/*.test.mjs",
     "test": "node --test test/*.test.mjs",
+    "test:browsers": "node scripts/browser-review-fixes.mjs",
     "migrate": "node src/server/migrate.mjs",
     "recovery": "node src/server/recovery-cli.mjs"
   },
@@ -23,5 +24,8 @@
     "@openai/codex": "0.153.1",
     "google-auth-library": "11.0.2",
     "mysql2": "3.24.2"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
   }
 }

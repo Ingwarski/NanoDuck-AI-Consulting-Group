@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "run_id": "review-fixes-port-20260926",
+  "repository": "Ingwarski/NanoDuck-AI-Consulting-Group",
+  "branch": "main",
+  "base_commit": "800f7e6ded0ec9a957189375c15179d650f305ec",
+  "objective": "Port the authorized consultation review, evidence, browser-continuity and Usage repairs while retaining the target's GoDaddy, authentication, encrypted MySQL and visual-baseline boundaries.",
+  "in_scope": [
+    "linked Critic correction attempts and active-order validation",
+    "dependency-ready scheduling and Stop/failure fencing",
+    "accepted specialist and role prompt rendering",
+    "role identity, sensitive-output and owner-context enforcement",
+    "Critic summary, structured source and bounded follow-up research propagation",
+    "provider-native Usage normalization, encrypted MySQL persistence, recovery, deletion and protected aggregation",
+    "reconnecting progress polling, coalesced Usage reads and cross-browser fixtures",
+    "architecture, DoD, QA, development-plan and manifest reconciliation"
+  ],
+  "out_of_scope": [
+    "deployment, process restart or publication",
+    "live provider or production data access",
+    "database migration against a target",
+    "model, effort, provider or visual-baseline changes",
+    "formal whole-product release evaluation"
+  ],
+  "release_readiness": "not_evaluated",
+  "limitations": [
+    "Real MySQL integration requires an isolated NANODUCK_TEST_MYSQL_URL.",
+    "GoDaddy runtime activation and schema migration require a separate authorized operation.",
+    "Physical-device, assistive-technology and representative-user checks remain separate."
+  ]
+}

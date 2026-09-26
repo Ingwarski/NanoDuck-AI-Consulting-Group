@@ -8,14 +8,20 @@ const displayRole = role => role === "owner" ? "You" : role;
 const initialsFor = role => roleInitials[role] ?? role.split(/\s+/u).filter(Boolean).slice(0, 2).map(word => word[0].toLocaleUpperCase()).join("").slice(0, 2);
 
 const request = async (path, options = {}) => {
+  const timeoutMs = options.timeoutMs;
+  const controller = timeoutMs ? new AbortController() : undefined;
   const headers = new Headers(options.headers);
   if (state.csrf && !["GET", "HEAD"].includes(options.method ?? "GET")) headers.set("x-csrf-token", state.csrf);
   if (options.body && typeof options.body !== "string" && !(options.body instanceof FormData) && !(options.body instanceof Blob)) { headers.set("content-type", "application/json"); options.body = JSON.stringify(options.body); }
-  const response = await fetch(path, { ...options, headers, credentials: "same-origin" });
-  if (response.status === 204) return { response, data: undefined };
-  const data = await response.json().catch(() => undefined);
-  if (!response.ok) throw Object.assign(new Error(data?.error ?? "request_failed"), { response, data });
-  return { response, data };
+  const { timeoutMs: ignoredTimeout, ...fetchOptions } = options;
+  const deadline = controller ? setTimeout(() => controller.abort(), timeoutMs) : undefined;
+  try {
+    const response = await fetch(path, { ...fetchOptions, headers, ...(controller ? { signal: controller.signal } : {}), credentials: "same-origin" });
+    if (response.status === 204) return { response, data: undefined };
+    const data = await response.json().catch(() => undefined);
+    if (!response.ok) throw Object.assign(new Error(data?.error ?? "request_failed"), { response, data });
+    return { response, data };
+  } finally { clearTimeout(deadline); }
 };
 
 const toast = message => { const item = $("#toast"); item.textContent = message; item.hidden = false; clearTimeout(toast.timer); toast.timer = setTimeout(() => { item.hidden = true; }, 4_000); };
@@ -231,7 +237,7 @@ function focusRunTransition(previousRunStatus, runStatus) {
 }
 
 function renderOutcome() { const target = clear($("#outcome")); const ownerIndex = state.events.map(event => event.role).lastIndexOf("owner"); const outcome = state.events.slice(ownerIndex + 1).find(event => event.role === "Head Consultant" && !event.recipient); if (outcome) { const body = node("div", { class: "message-body outcome-body" }); renderMarkdown(body, outcome.body); target.append(body); } else target.append(node("div", { class: "empty" }, "Consolidated advice appears after every specialist's final position and the Critic's closing review.")); }
-function renderSources() { const target = clear($("#sources")); const sources = [...new Map(state.events.flatMap(event => event.sources ?? []).map(source => [source.url, source])).values()]; if (!sources.length) { target.append(node("div", { class: "empty" }, "Sources appear here when live research materially informs the discussion.")); return; } for (const source of sources) { const dates = [`Retrieved ${formatDate(source.retrievedAt)}`]; if (source.publishedAt) dates.push(`Published ${formatDate(source.publishedAt)}`); const card = node("article", { class: "source-card" }); card.append(node("a", { href: source.url, target: "_blank", rel: "noopener noreferrer" }, source.title), node("p", {}, source.claim), node("p", { class: "hint" }, dates.join(" · "))); target.append(card); } }
+function renderSources() { const target = clear($("#sources")); const sources = [...new Map(state.events.flatMap(event => event.sources ?? []).map(source => [JSON.stringify([source.url, source.claim]), source])).values()]; if (!sources.length) { target.append(node("div", { class: "empty" }, "Sources appear here when live research materially informs the discussion.")); return; } for (const source of sources) { const dates = [`Retrieved ${formatDate(source.retrievedAt)}`]; if (source.publishedAt) dates.push(`Published ${formatDate(source.publishedAt)}`); const card = node("article", { class: "source-card" }); card.append(node("a", { href: source.url, target: "_blank", rel: "noopener noreferrer" }, source.title), node("p", {}, source.claim), node("p", { class: "hint" }, dates.join(" · "))); target.append(card); } }
 
 async function loadConversation(conversationId, { preserveAttachmentDraft = false } = {}) {
   const { data } = await request(`/api/conversations/${encodeURIComponent(conversationId)}`); state.conversation = data.conversation; state.events = data.events; state.run = data.run; renderEvents(); await nav("discussion"); setTab("discussion"); startPolling();
@@ -561,26 +567,75 @@ async function continueRun() {
 function startPolling() {
   stopPolling();
   if (state.run?.status !== "active" || !state.conversation) return;
-  const epoch = state.pollEpoch;
-  const conversationId = state.conversation.id;
+  const epoch = state.pollEpoch; const conversationId = state.conversation.id; const session = state.session; let failures = 0;
+  const current = () => state.pollEpoch === epoch && state.conversation?.id === conversationId && state.session === session && state.session?.authenticated;
   const poll = async () => {
+    if (!current()) return;
     try {
-      const { data } = await request(`/api/conversations/${conversationId}`);
-      if (state.pollEpoch !== epoch || state.conversation?.id !== conversationId) return;
+      const { data } = await request(`/api/conversations/${conversationId}`, { timeoutMs: 15_000 });
+      if (!current()) return;
+      failures = 0; $("#connection-status").hidden = true;
       const previous = state.events;
       state.conversation = data.conversation; state.events = data.events; state.run = data.run;
       announceIncomingMessages(previous, state.events); renderEvents();
-      if (state.run?.status !== "active") return stopPolling();
-      state.poll = setTimeout(poll, 2_000);
-    } catch {
-      if (state.pollEpoch === epoch) stopPolling();
+      if (state.tab === "usage" && state.page === "discussion") void loadUsage({ quiet: true });
+      if (state.run?.status !== "active") { stopPolling(); return; }
+    } catch (error) {
+      if (!current()) return;
+      const status = error.response?.status; const notice = $("#connection-status"); notice.hidden = false;
+      if (status && status < 500 && ![408, 429].includes(status)) { notice.textContent = "This conversation could not be refreshed. Reopen it from Conversations."; return; }
+      failures += 1; notice.textContent = "Connection interrupted. Reconnecting automatically; saved messages are preserved.";
     }
+    if (current()) state.poll = setTimeout(poll, Math.min(30_000, 2_000 * 2 ** Math.min(failures, 4)));
   };
   state.poll = setTimeout(poll, 2_000);
 }
-function stopPolling() { state.pollEpoch += 1; if (state.poll) clearTimeout(state.poll); state.poll = null; }
+function stopPolling() { state.pollEpoch += 1; if (state.poll) clearTimeout(state.poll); state.poll = null; $("#connection-status").hidden = true; }
 
-function setTab(tab) { state.tab = tab; document.querySelectorAll("[data-tab]").forEach(button => button.setAttribute("aria-selected", String(button.dataset.tab === tab))); $("#thread").hidden = tab !== "discussion"; syncDiscussionControls(); $("#outcome").hidden = tab !== "outcome"; $("#sources").hidden = tab !== "sources"; }
+let usageRequest = 0;
+let usageFlight;
+let panelUsageSignature;
+const tokenNumber = value => value === null ? "Unavailable" : new Intl.NumberFormat().format(value);
+function renderUsage(usage) {
+  const panel = clear($("#usage-content"));
+  panel.append(node("p", { class: "usage-total" }, tokenNumber(usage.total)), node("p", { class: "hint" }, "Reported tokens · input + output"));
+  const note = usage.attempts ? `${usage.attempts} call attempts · ${usage.incomplete} running or interrupted · ${usage.unavailable} without complete usage. First recorded call: ${formatDate(usage.startedAt)}.` : "No model calls have been recorded in this view yet.";
+  panel.append(node("p", { class: "usage-coverage" }, note), node("p", { class: "hint" }, "Calls made before tracking was added are not included. Missing counts are unavailable, never estimated. These are NanoDuck conversation totals, not your account’s subscription allowance."));
+  for (const model of usage.models) {
+    const row = node("article", { class: "usage-model" });
+    row.append(node("h3", {}, model.model), node("p", { class: "hint" }, `${model.provider === "claude_code" ? "Claude Code" : "Codex"} · ${model.calls} call attempts`));
+    const metric = (label, field) => { const value = model.tokens[field]; const group = node("div"); group.append(node("dt", {}, label), node("dd", {}, tokenNumber(value.value))); if (value.unavailable && value.value !== null) group.append(node("small", { class: "hint" }, `${value.unavailable} call(s) unreported`)); return group; };
+    const main = node("dl", { class: "usage-metrics" }); main.append(metric("Input", "input"), metric("Output", "output"), metric("Total", "total")); row.append(main);
+    const details = node("details"); details.append(node("summary", {}, "Cache and reasoning breakdown")); const breakdown = node("dl", { class: "usage-metrics" }); breakdown.append(metric("Cache read", "cachedInput"), metric("Cache write", "cacheWriteInput"), metric("Reasoning output", "reasoningOutput")); details.append(breakdown, node("p", { class: "hint" }, "These are included in input or output totals. They are not added again.")); row.append(details); panel.append(row);
+  }
+}
+async function loadUsage({ quiet = false } = {}) {
+  const conversationId = state.conversation?.id; const session = state.session;
+  const select = $("#usage-scope"); select.options[0].disabled = !conversationId; if (!conversationId) select.value = "all";
+  const scope = select.value; const key = JSON.stringify([state.csrf, conversationId, scope]);
+  if (usageFlight?.key === key && usageFlight.id === usageRequest) { usageFlight.refreshRequested = true; return; }
+  const requestId = ++usageRequest; usageFlight = { key, id: requestId };
+  if (!quiet) { clear($("#usage-content")); $("#usage-status").textContent = "Loading usage…"; }
+  try {
+    const { data } = await request(`/api/usage${scope === "conversation" ? `?conversationId=${encodeURIComponent(conversationId)}` : ""}`, { timeoutMs: 15_000 });
+    if (requestId !== usageRequest || state.tab !== "usage" || conversationId !== state.conversation?.id || scope !== select.value || state.session !== session || !state.session?.authenticated) return;
+    const signature = JSON.stringify(data.usage); if (panelUsageSignature !== signature || !$("#usage-content").childNodes.length) { renderUsage(data.usage); panelUsageSignature = signature; }
+    $("#usage-status").textContent = "Usage updates as provider calls finish.";
+  } catch {
+    if (requestId === usageRequest && state.session === session && state.session?.authenticated) $("#usage-status").textContent = "Usage could not refresh. Any shown counts may be out of date. Choose Refresh usage to try again.";
+  } finally {
+    if (usageFlight?.id === requestId) { const refreshRequested = usageFlight.refreshRequested; usageFlight = undefined; if (refreshRequested && requestId === usageRequest && state.tab === "usage" && conversationId === state.conversation?.id && scope === select.value && state.session === session && state.session?.authenticated) void loadUsage({ quiet: true }); }
+  }
+}
+document.querySelector(".tabs").addEventListener("keydown", event => {
+  if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+  const tabs = [...document.querySelectorAll("[data-tab]")]; const index = tabs.indexOf(event.target); if (index < 0) return;
+  event.preventDefault(); const next = event.key === "Home" ? 0 : event.key === "End" ? tabs.length - 1 : (index + (event.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length; setTab(tabs[next].dataset.tab); tabs[next].focus();
+});
+$("#usage-scope").addEventListener("change", () => void loadUsage());
+$("#usage-refresh").addEventListener("click", () => void loadUsage());
+
+function setTab(tab) { state.tab = tab; document.querySelectorAll("[data-tab]").forEach(button => { button.setAttribute("aria-selected", String(button.dataset.tab === tab)); button.tabIndex = button.dataset.tab === tab ? 0 : -1; }); $("#thread").hidden = tab !== "discussion"; syncDiscussionControls(); $("#outcome").hidden = tab !== "outcome"; $("#sources").hidden = tab !== "sources"; $("#usage").hidden = tab !== "usage"; if (tab === "usage") void loadUsage(); }
 
 const recognitionConstructor = () => window.SpeechRecognition ?? window.webkitSpeechRecognition;
 const browserLanguage = () => {

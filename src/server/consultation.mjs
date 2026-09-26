@@ -26,6 +26,8 @@ const providerFailureMessage = (code, provider) => ({
   context_too_large: `The complete saved context exceeds the ${providerName(provider)} request capacity. Nothing was shortened or lost. Your question and discussion remain saved.`,
   subscription_unavailable: `The selected ${providerName(provider)} subscription is unavailable. Your question remains saved.`,
   method_unavailable: `The selected ${providerName(provider)} runtime cannot complete a required consultation step. Your question remains saved.`,
+  team_review_contract: "The Critic review could not be read after one format repair. Your question and consultant replies remain saved. Choose Retry to resume this review.",
+  provider_contract: "An agent returned an unreadable response format. Your question and confirmed replies remain saved. Choose Retry to resume the unfinished step.",
   provider_unavailable: `The selected ${providerName(provider)} route could not complete this request. Your question remains saved.`,
   provider_idle_timeout: `The selected ${providerName(provider)} route produced no matching turn activity for nine minutes. The provider process was stopped. Your question is saved; Retry resumes only the missing step.`,
   provider_timeout: `The selected ${providerName(provider)} route did not finish within thirty minutes. The provider process was stopped. Your question is saved; Retry resumes only the missing step.`,
@@ -89,7 +91,7 @@ const consensusMarker = body => {
 };
 const matches = (event, step) => event?.role === step.role && (event.recipient ?? null) === (step.recipient ?? null);
 
-export function createConsultationService({ store, provider }) {
+export function createConsultationService({ store, provider: baseProvider }) {
   const controllers = new Map();
   const executions = new Map();
   let closing = false;
@@ -100,7 +102,7 @@ export function createConsultationService({ store, provider }) {
       const outputKind = input.outputKind;
       process.stdout.write(`${JSON.stringify({ event: "nanoduck.consultation.provider_started", outputKind, timestamp: new Date().toISOString() })}\n`);
       try {
-        const result = await provider.invoke(input);
+        const result = await baseProvider.invoke({ ...input, onUsage: attempt => store.recordUsage(conversationId, attempt) });
         process.stdout.write(`${JSON.stringify({ event: "nanoduck.consultation.provider_finished", outputKind, timestamp: new Date().toISOString(), durationMs: Math.round(performance.now() - started), outcome: result?.ok ? "completed" : safeProviderCode(result?.code) })}\n`);
         return result;
       } catch (error) {
@@ -108,6 +110,7 @@ export function createConsultationService({ store, provider }) {
         throw error;
       }
     };
+    const provider = { invoke: timedProviderCall };
     const current = () => store.events(conversationId).then(events => {
       // Recovery notices stay in the saved transcript, but never count as a
       // completed consultant step or become evidence on a resumed attempt.

@@ -8,6 +8,7 @@ import { createHash, hkdfSync } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { normalizeRecoverySnapshot } from "./recovery.mjs";
 import { defaultSettings as defaults, upgradeSettings } from "./settings.mjs";
+import { normalizeUsageAttempt, summarizeUsage } from "./usage.mjs";
 
 const now = () => new Date().toISOString();
 const idForMessage = value => typeof value === "string" && /^[A-Za-z0-9_-]{16,128}$/u.test(value);
@@ -55,6 +56,7 @@ const grantFingerprint = value => {
 
 export function createMemoryStore() {
   const conversations = new Map();
+  const usage = new Map();
   const messages = new Map();
   const attachments = new Map();
   const runs = new Map();
@@ -78,6 +80,28 @@ export function createMemoryStore() {
   return Object.freeze({
     kind: "memory",
     ...documents,
+    async recordUsage(conversationId, input) {
+      const conversation = conversations.get(conversationId);
+      if (!conversation || conversation.deletedAt) return false;
+      const attempt = normalizeUsageAttempt(input);
+      if (!attempt) throw new Error("invalid_usage");
+      const entries = usage.get(conversationId) ?? [];
+      const index = entries.findIndex(item => item.id === attempt.id);
+      if (index >= 0) {
+        const prior = entries[index];
+        if (["provider", "model", "startedAt"].some(key => prior[key] !== attempt[key])) throw new Error("invalid_usage");
+        if (!["running", "interrupted"].includes(prior.status)) return false;
+        entries[index] = attempt;
+      } else entries.push(attempt);
+      usage.set(conversationId, entries); return true;
+    },
+    async interruptUsage() {
+      for (const entries of usage.values()) for (const attempt of entries) if (attempt.status === "running") attempt.status = "interrupted";
+    },
+    async usageSummary(conversationId = undefined) {
+      if (conversationId && (!conversations.has(conversationId) || conversations.get(conversationId).deletedAt)) return undefined;
+      return summarizeUsage([...conversations.values()].filter(item => !item.deletedAt && (!conversationId || item.id === conversationId)).map(item => ({ usage: usage.get(item.id) ?? [] })));
+    },
     async seedCodexGrant(bytes) {
       if (!bytes) return false;
       const seed = Buffer.from(managedCodexGrant(Buffer.from(bytes)));
@@ -225,7 +249,7 @@ export function createMemoryStore() {
       return Object.freeze({ conversation: { ...conversation }, messages: (messages.get(conversationId) ?? []).map(publicMessage) });
     },
     async recoverySnapshot() {
-      return recoverySnapshot([...conversations.values()].map(conversation => ({ conversation: { ...conversation }, messages: conversation.deletedAt ? [] : (messages.get(conversation.id) ?? []).map(publicMessage), attachments: conversation.deletedAt ? [] : [...attachments.values()].filter(attachment => attachment.conversationId === conversation.id && attachment.messageId).map(attachment => ({ ...publicAttachment(attachment), messageId: attachment.messageId, content: attachment.content.toString("base64url") })) })), { settings, runtimeInstructions, runtimeHistory: [...runtimeInstructionHistory.values()], documents: documents.exportDocuments() });
+      return recoverySnapshot([...conversations.values()].map(conversation => ({ conversation: { ...conversation }, usage: conversation.deletedAt ? [] : structuredClone(usage.get(conversation.id) ?? []), messages: conversation.deletedAt ? [] : (messages.get(conversation.id) ?? []).map(publicMessage), attachments: conversation.deletedAt ? [] : [...attachments.values()].filter(attachment => attachment.conversationId === conversation.id && attachment.messageId).map(attachment => ({ ...publicAttachment(attachment), messageId: attachment.messageId, content: attachment.content.toString("base64url") })) })), { settings, runtimeInstructions, runtimeHistory: [...runtimeInstructionHistory.values()], documents: documents.exportDocuments() });
     },
     async restoreRecovery(snapshot, { restoreConfiguration = false } = {}) {
       const recovered = normalizeRecoverySnapshot(snapshot); if (!recovered) return undefined;
@@ -242,17 +266,17 @@ export function createMemoryStore() {
         const id = record.conversation.id; const existing = conversations.get(id);
         if (existing?.deletedAt) { preservedTombstones += 1; continue; }
         if (record.conversation.deletedAt) {
-          conversations.set(id, { ...record.conversation, title: "Deleted consultation" }); messages.set(id, []); for (const attachment of [...attachments.values()].filter(item => item.conversationId === id)) attachments.delete(attachment.id); const run = runs.get(id); if (run) { run.generation += 1; run.status = "deleted"; run.snapshot = {}; run.updatedAt = record.conversation.deletedAt; }
+          conversations.set(id, { ...record.conversation, title: "Deleted consultation" }); messages.set(id, []); usage.delete(id); for (const attachment of [...attachments.values()].filter(item => item.conversationId === id)) attachments.delete(attachment.id); const run = runs.get(id); if (run) { run.generation += 1; run.status = "deleted"; run.snapshot = {}; run.updatedAt = record.conversation.deletedAt; }
           tombstones += 1; continue;
         }
         if (existing) continue;
-        conversations.set(id, { ...record.conversation }); messages.set(id, record.messages.map(item => ({ ...item, sources: [...item.sources], attachments: [...item.attachments] }))); for (const attachment of record.attachments) attachments.set(attachment.id, { ...attachment, conversationId: id, content: Buffer.from(attachment.content, "base64url") }); restored += 1;
+        conversations.set(id, { ...record.conversation }); usage.set(id, structuredClone(record.usage)); messages.set(id, record.messages.map(item => ({ ...item, sources: [...item.sources], attachments: [...item.attachments] }))); for (const attachment of record.attachments) attachments.set(attachment.id, { ...attachment, conversationId: id, content: Buffer.from(attachment.content, "base64url") }); restored += 1;
       }
       return Object.freeze({ restored, tombstones, preservedTombstones });
     },
     async deleteConversation(conversationId) {
       const conversation = conversations.get(conversationId); if (!conversation || conversation.deletedAt) return false;
-      conversation.title = "Deleted consultation"; conversation.deletedAt = now(); conversation.updatedAt = conversation.deletedAt; messages.set(conversationId, []); for (const attachment of [...attachments.values()].filter(item => item.conversationId === conversationId)) attachments.delete(attachment.id); const run = runs.get(conversationId); if (run) { run.generation += 1; run.status = "deleted"; run.snapshot = {}; } return true;
+      conversation.title = "Deleted consultation"; conversation.deletedAt = now(); conversation.updatedAt = conversation.deletedAt; messages.set(conversationId, []); usage.delete(conversationId); for (const attachment of [...attachments.values()].filter(item => item.conversationId === conversationId)) attachments.delete(attachment.id); const run = runs.get(conversationId); if (run) { run.generation += 1; run.status = "deleted"; run.snapshot = {}; } return true;
     },
     async deleteConversations(conversationIds) {
       const deleted = [];
@@ -278,6 +302,14 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
   };
   const insertRuntimeHistory = (connection, record) => connection.execute("INSERT INTO nanoduck_runtime_instruction_history (id,owner_id,action,restored_from_id,ciphertext,iv,tag,content_hash,created_at) VALUES (?,'owner',?,?,?,?,?,?,?)", [record.id,record.action,record.restoredFromId,record.ciphertext,record.iv,record.tag,record.contentHash,record.createdAt]);
   const decode = (row, attachments = []) => ({ id: row.id, role: row.role, recipient: row.recipient, body: decryptText({ iv: row.iv, ciphertext: row.ciphertext, tag: row.tag }, dataKey), sequence: row.sequence, createdAt: row.created_at, sources: storedArray(row.sources_json, "sources"), attachments });
+  const decodeUsage = row => {
+    let value;
+    try { value = JSON.parse(decryptText({ iv: row.iv, ciphertext: row.ciphertext, tag: row.tag }, dataKey)); }
+    catch { throw new Error("stored_usage_invalid"); }
+    const attempt = normalizeUsageAttempt(value);
+    if (!attempt || attempt.id !== row.id) throw new Error("stored_usage_invalid");
+    return attempt;
+  };
   const attachmentMetadata = row => publicAttachment({ id: row.id, contentType: row.content_type, byteLength: Number(row.byte_length), createdAt: row.created_at });
   const attachmentsByMessage = async conversationId => {
     const [rows] = await query("SELECT id,message_id,content_type,byte_length,created_at FROM nanoduck_attachments WHERE conversation_id=? AND message_id IS NOT NULL ORDER BY created_at", [conversationId]);
@@ -353,6 +385,51 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
     },
     kind: "mysql",
     ...createMySqlDocuments(pool, dataKey),
+    async recordUsage(conversationId, input) {
+      const attempt = normalizeUsageAttempt(input);
+      if (!attempt) throw new Error("invalid_usage");
+      const connection = await pool.getConnection();
+      try {
+        await connection.beginTransaction();
+        const [conversationRows] = await connection.execute("SELECT id FROM nanoduck_conversations WHERE id=? AND deleted_at IS NULL FOR UPDATE", [conversationId]);
+        if (!conversationRows.length) { await connection.rollback(); return false; }
+        const [rows] = await connection.execute("SELECT id,conversation_id,ciphertext,iv,tag FROM nanoduck_usage_attempts WHERE id=? FOR UPDATE", [attempt.id]);
+        if (rows.length) {
+          if (rows[0].conversation_id !== conversationId) throw new Error("invalid_usage");
+          const prior = decodeUsage(rows[0]);
+          if (["provider", "model", "startedAt"].some(key => prior[key] !== attempt[key])) throw new Error("invalid_usage");
+          if (!["running", "interrupted"].includes(prior.status)) { await connection.rollback(); return false; }
+          const encrypted = encryptText(JSON.stringify(attempt), dataKey);
+          await connection.execute("UPDATE nanoduck_usage_attempts SET ciphertext=?,iv=?,tag=?,updated_at=? WHERE id=? AND conversation_id=?", [encrypted.ciphertext,encrypted.iv,encrypted.tag,now(),attempt.id,conversationId]);
+        } else {
+          const encrypted = encryptText(JSON.stringify(attempt), dataKey);
+          await connection.execute("INSERT INTO nanoduck_usage_attempts (id,conversation_id,ciphertext,iv,tag,created_at,updated_at) VALUES (?,?,?,?,?,?,?)", [attempt.id,conversationId,encrypted.ciphertext,encrypted.iv,encrypted.tag,attempt.startedAt,now()]);
+        }
+        await connection.commit(); return true;
+      } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
+    },
+    async interruptUsage() {
+      const connection = await pool.getConnection();
+      try {
+        await connection.beginTransaction(); await lockOwner(connection);
+        const [rows] = await connection.execute("SELECT u.id,u.conversation_id,u.ciphertext,u.iv,u.tag FROM nanoduck_usage_attempts u JOIN nanoduck_conversations c ON c.id=u.conversation_id WHERE c.deleted_at IS NULL FOR UPDATE");
+        for (const row of rows) {
+          const attempt = decodeUsage(row);
+          if (attempt.status !== "running") continue;
+          attempt.status = "interrupted";
+          const encrypted = encryptText(JSON.stringify(attempt), dataKey);
+          await connection.execute("UPDATE nanoduck_usage_attempts SET ciphertext=?,iv=?,tag=?,updated_at=? WHERE id=?", [encrypted.ciphertext,encrypted.iv,encrypted.tag,now(),attempt.id]);
+        }
+        await connection.commit();
+      } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
+    },
+    async usageSummary(conversationId = undefined) {
+      if (conversationId && !await this.getConversation(conversationId)) return undefined;
+      const [rows] = conversationId
+        ? await query("SELECT u.id,u.ciphertext,u.iv,u.tag FROM nanoduck_usage_attempts u JOIN nanoduck_conversations c ON c.id=u.conversation_id WHERE c.deleted_at IS NULL AND u.conversation_id=? ORDER BY u.created_at", [conversationId])
+        : await query("SELECT u.id,u.ciphertext,u.iv,u.tag FROM nanoduck_usage_attempts u JOIN nanoduck_conversations c ON c.id=u.conversation_id WHERE c.deleted_at IS NULL ORDER BY u.created_at");
+      return summarizeUsage([{ usage: rows.map(decodeUsage) }]);
+    },
     async seedCodexGrant(bytes) {
       requireGrantLeadership();
       if (!bytes) return false;
@@ -631,11 +708,12 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
           if (conversation.deletedAt) { records.push({ conversation, messages: [] }); continue; }
           const [messageRows] = await connection.execute("SELECT id,role,recipient,ciphertext,iv,tag,sequence,created_at,sources_json FROM nanoduck_messages WHERE conversation_id=? ORDER BY sequence", [conversation.id]);
           const [attachmentRows] = await connection.execute("SELECT id,message_id,content_type,byte_length,ciphertext,iv,tag,created_at FROM nanoduck_attachments WHERE conversation_id=? AND message_id IS NOT NULL ORDER BY created_at", [conversation.id]);
+          const [usageRows] = await connection.execute("SELECT id,ciphertext,iv,tag FROM nanoduck_usage_attempts WHERE conversation_id=? ORDER BY created_at", [conversation.id]);
           const metadata = attachmentRows.reduce((grouped, row) => {
             const values = grouped.get(row.message_id) ?? [];
             values.push(attachmentMetadata(row)); grouped.set(row.message_id, values); return grouped;
           }, new Map());
-          records.push({ conversation, messages: messageRows.map(row => decode(row, metadata.get(row.id) ?? [])), attachments: attachmentRows.map(row => ({ ...attachmentMetadata(row), messageId: row.message_id, content: decryptBytes({ iv: row.iv, ciphertext: row.ciphertext, tag: row.tag }, dataKey).toString("base64url") })) });
+          records.push({ conversation, usage: usageRows.map(decodeUsage), messages: messageRows.map(row => decode(row, metadata.get(row.id) ?? [])), attachments: attachmentRows.map(row => ({ ...attachmentMetadata(row), messageId: row.message_id, content: decryptBytes({ iv: row.iv, ciphertext: row.ciphertext, tag: row.tag }, dataKey).toString("base64url") })) });
         }
         const configuration = await readConfiguration(connection, dataKey, defaults);
         await connection.commit(); return recoverySnapshot(records, configuration);
@@ -656,6 +734,7 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
             if (existing) await connection.execute("UPDATE nanoduck_conversations SET deleted_at=?, updated_at=?,title='Deleted consultation' WHERE id=? AND deleted_at IS NULL", [conversation.deletedAt, conversation.deletedAt, conversation.id]);
             else await connection.execute("INSERT INTO nanoduck_conversations (id,title,created_at,updated_at,deleted_at) VALUES (?,?,?,?,?)", [conversation.id, "Deleted consultation", conversation.createdAt, conversation.deletedAt, conversation.deletedAt]);
             await connection.execute("DELETE FROM nanoduck_attachments WHERE conversation_id=?", [conversation.id]);
+            await connection.execute("DELETE FROM nanoduck_usage_attempts WHERE conversation_id=?", [conversation.id]);
             await connection.execute("DELETE FROM nanoduck_messages WHERE conversation_id=?", [conversation.id]);
             await connection.execute("DELETE FROM nanoduck_requests WHERE conversation_id=?", [conversation.id]);
             await connection.execute("UPDATE nanoduck_runs SET snapshot_json=JSON_OBJECT(),generation=generation+1,status='deleted',updated_at=? WHERE conversation_id=?", [conversation.deletedAt, conversation.id]);
@@ -671,6 +750,10 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
             const encrypted = encryptBytes(Buffer.from(item.content, "base64url"), dataKey);
             await connection.execute("INSERT INTO nanoduck_attachments (id,conversation_id,message_id,content_type,byte_length,ciphertext,iv,tag,created_at) VALUES (?,?,?,?,?,?,?,?,?)", [item.id,conversation.id,item.messageId,item.contentType,item.byteLength,encrypted.ciphertext,encrypted.iv,encrypted.tag,item.createdAt]);
           }
+          for (const item of record.usage) {
+            const encrypted = encryptText(JSON.stringify(item), dataKey);
+            await connection.execute("INSERT INTO nanoduck_usage_attempts (id,conversation_id,ciphertext,iv,tag,created_at,updated_at) VALUES (?,?,?,?,?,?,?)", [item.id,conversation.id,encrypted.ciphertext,encrypted.iv,encrypted.tag,item.startedAt,item.finishedAt ?? item.startedAt]);
+          }
           restored += 1;
         }
         await connection.commit(); return Object.freeze({ restored, tombstones, preservedTombstones });
@@ -684,6 +767,7 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
         const [result] = await connection.execute("UPDATE nanoduck_conversations SET deleted_at=?, updated_at=?,title='Deleted consultation' WHERE id=? AND deleted_at IS NULL", [deletedAt, deletedAt, id]);
         if (result.affectedRows !== 1) { await connection.rollback(); return false; }
         await connection.execute("DELETE FROM nanoduck_attachments WHERE conversation_id=?", [id]);
+        await connection.execute("DELETE FROM nanoduck_usage_attempts WHERE conversation_id=?", [id]);
         await connection.execute("DELETE FROM nanoduck_messages WHERE conversation_id=?", [id]);
         await connection.execute("DELETE FROM nanoduck_requests WHERE conversation_id=?", [id]);
         await connection.execute("UPDATE nanoduck_runs SET snapshot_json=JSON_OBJECT(),generation=generation+1,status='deleted',updated_at=? WHERE conversation_id=?", [deletedAt,id]);

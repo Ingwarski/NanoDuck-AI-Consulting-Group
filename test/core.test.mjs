@@ -214,7 +214,7 @@ test("MySQL agent writes and deletion serialize through the conversation lock", 
       if (statement.startsWith("INSERT INTO nanoduck_messages")) return [{ affectedRows: 1 }];
       if (statement.startsWith("UPDATE nanoduck_conversations SET updated_at")) return [{ affectedRows: 1 }];
       if (statement.startsWith("UPDATE nanoduck_runs SET updated_at")) return [{ affectedRows: 1 }];
-      if (statement.startsWith("UPDATE nanoduck_conversations SET deleted_at") || statement.startsWith("DELETE FROM nanoduck_attachments") || statement.startsWith("DELETE FROM nanoduck_messages") || statement.startsWith("DELETE FROM nanoduck_requests")) return [{ affectedRows: 1 }];
+      if (statement.startsWith("UPDATE nanoduck_conversations SET deleted_at") || statement.startsWith("DELETE FROM nanoduck_attachments") || statement.startsWith("DELETE FROM nanoduck_usage_attempts") || statement.startsWith("DELETE FROM nanoduck_messages") || statement.startsWith("DELETE FROM nanoduck_requests")) return [{ affectedRows: 1 }];
       if (statement.startsWith("UPDATE nanoduck_runs SET snapshot_json")) return [{ affectedRows: 1 }];
       throw new Error(`Unexpected statement: ${statement}`);
     }
@@ -230,9 +230,10 @@ test("MySQL agent writes and deletion serialize through the conversation lock", 
   assert.ok(commands.some(command => command.includes("nanoduck_messages WHERE conversation_id=? FOR UPDATE")));
   const deleteIndex = commands.findIndex(command => command.startsWith("UPDATE nanoduck_conversations SET deleted_at"));
   assert.match(commands[deleteIndex + 1], /^DELETE FROM nanoduck_attachments/u);
-  assert.match(commands[deleteIndex + 2], /^DELETE FROM nanoduck_messages/u);
-  assert.match(commands[deleteIndex + 3], /^DELETE FROM nanoduck_requests/u);
-  assert.match(commands[deleteIndex + 4], /^UPDATE nanoduck_runs SET snapshot_json/u);
+  assert.match(commands[deleteIndex + 2], /^DELETE FROM nanoduck_usage_attempts/u);
+  assert.match(commands[deleteIndex + 3], /^DELETE FROM nanoduck_messages/u);
+  assert.match(commands[deleteIndex + 4], /^DELETE FROM nanoduck_requests/u);
+  assert.match(commands[deleteIndex + 5], /^UPDATE nanoduck_runs SET snapshot_json/u);
 });
 
 test("MySQL recovery exports app records and restores deletion tombstones before active history", async () => {
@@ -252,9 +253,10 @@ test("MySQL recovery exports app records and restores deletion tombstones before
       ]];
       if (statement.startsWith("SELECT id,role,recipient,ciphertext,iv,tag,sequence,created_at,sources_json FROM nanoduck_messages")) return [[{ id: "recovery-message-0001", role: "Head Consultant", recipient: null, ...encrypted, sequence: 1, created_at: "2026-09-14T00:01:00.000Z", sources_json: "[]" }]];
       if (statement.startsWith("SELECT id,message_id,content_type,byte_length,ciphertext,iv,tag,created_at FROM nanoduck_attachments")) return [[]];
+      if (statement.startsWith("SELECT id,ciphertext,iv,tag FROM nanoduck_usage_attempts")) return [[]];
       if (statement.startsWith("SELECT id,deleted_at FROM nanoduck_conversations")) return [[]];
       if (["FROM nanoduck_settings", "FROM nanoduck_runtime_instructions", "FROM nanoduck_runtime_instruction_history", "FROM nanoduck_instruction_documents"].some(table => statement.includes(table))) return [[]];
-      if (statement.startsWith("INSERT INTO nanoduck_conversations") || statement.startsWith("INSERT INTO nanoduck_messages") || statement.startsWith("INSERT INTO nanoduck_attachments") || statement.startsWith("DELETE FROM nanoduck_attachments") || statement.startsWith("DELETE FROM nanoduck_messages") || statement.startsWith("DELETE FROM nanoduck_requests") || statement.startsWith("UPDATE nanoduck_runs SET snapshot_json")) return [{ affectedRows: 1 }];
+      if (statement.startsWith("INSERT INTO nanoduck_conversations") || statement.startsWith("INSERT INTO nanoduck_messages") || statement.startsWith("INSERT INTO nanoduck_attachments") || statement.startsWith("INSERT INTO nanoduck_usage_attempts") || statement.startsWith("DELETE FROM nanoduck_attachments") || statement.startsWith("DELETE FROM nanoduck_usage_attempts") || statement.startsWith("DELETE FROM nanoduck_messages") || statement.startsWith("DELETE FROM nanoduck_requests") || statement.startsWith("UPDATE nanoduck_runs SET snapshot_json")) return [{ affectedRows: 1 }];
       throw new Error(`Unexpected statement: ${statement}`);
     }
   };

@@ -10,6 +10,7 @@ import { createRuntimePrompts, RuntimeInstructionError } from "./prompt-contract
 import { hasProhibitedLanguage, omitProhibitedLanguage, omitUnsafeExternalUrls, safeExternalUrl } from "./validation.mjs";
 import { codexModelEfforts } from "./codex-models.mjs";
 import { containsSecretLikeContent } from "./content-policy.mjs";
+import { beginUsage, codexTokens } from "./usage.mjs";
 
 const waitFor = (promise, milliseconds, label, signal = undefined) => new Promise((resolve, reject) => {
   let settled = false;
@@ -306,7 +307,7 @@ export function createCodexProvider(config, store = undefined, deadlineOptions =
       return capability;
     } catch { return Object.freeze({ status: "unavailable", models: Object.freeze([]) }); }
   };
-  const invoke = async ({ assignment, model, effort, evidence, research, outputKind = "discussion", maximumCharacters = undefined, runtimeInstructions, signal }) => {
+  const invoke = async ({ assignment, model, effort, evidence, research, outputKind = "discussion", maximumCharacters = undefined, runtimeInstructions, signal, onUsage }) => {
     if (shutdown.signal.aborted) return { ok: false, code: "provider_unavailable" };
     if (!config.readyForProvider) return { ok: false, code: "provider_unavailable" };
     if (!runtimeInstructions) throw new RuntimeInstructionError("Provider invocation is missing its runtime-instructions contract.");
@@ -314,6 +315,7 @@ export function createCodexProvider(config, store = undefined, deadlineOptions =
     activeInvocations += 1;
     let connection; let threadId; let unsubscribe = () => {}; let deadline;
     let startedAt; let lastProgressAt; let progressCount = 0;
+    let finishUsage; let expectedUsageTurn; let usageStatus = "failed"; const usageByTurn = new Map();
     try {
     try {
       connection = await startConnection(config, runSignal, store, persistSerialized);
@@ -335,6 +337,7 @@ export function createCodexProvider(config, store = undefined, deadlineOptions =
       unsubscribe = connection.on(notification => {
         const params = notification.params;
         if (!record(params) || params.threadId !== threadId) return;
+        if (notification.method === "thread/tokenUsage/updated" && typeof params.turnId === "string" && record(params.tokenUsage?.total)) usageByTurn.set(params.turnId, codexTokens(params.tokenUsage.total));
         if (isTurnProgress(notification, threadId, expectedTurnId)) {
           lastProgressAt = Date.now(); progressCount += 1; deadline.progress();
         }
@@ -349,12 +352,13 @@ export function createCodexProvider(config, store = undefined, deadlineOptions =
         if (completed.id === expectedTurnId) resolveTurn(completed);
       });
       if (runSignal.aborted) throw new Error("cancelled");
+      finishUsage = await beginUsage(onUsage, "codex", model);
       const turn = await waitFor(connection.request("turn/start", { threadId, input: [{ type: "text", text: prompt, text_elements: [] }], model, approvalPolicy: "never", sandboxPolicy: { type: "readOnly", networkAccess: research }, environments: [], effort }), 20_000, "app_server_timeout", runSignal);
       await connection.persistGrant();
       activeTurnConnections.add(connection);
       const startedTurn = record(turn) && record(turn.turn) ? turn.turn : undefined;
       if (!record(startedTurn) || typeof startedTurn.id !== "string") throw new Error("provider_error");
-      expectedTurnId = startedTurn.id;
+      expectedTurnId = startedTurn.id; expectedUsageTurn = expectedTurnId;
       startedAt = Date.now(); lastProgressAt ??= startedAt;
       deadline.start();
       providerLog("nanoduck.provider.turn_started", { outputKind, research, effort });
@@ -364,6 +368,7 @@ export function createCodexProvider(config, store = undefined, deadlineOptions =
         Promise.race([turnDone, deadline.promise, connection.closed.then(error => { throw error; })]),
         undefined, "provider_timeout", runSignal
       );
+      usageStatus = resolvedTurn.status === "completed" ? "completed" : "failed";
       if (resolvedTurn.status !== "completed") throw new AppServerRequestError("turn/completed", resolvedTurn.error);
       const resultBody = bodyFrom(resolvedTurn) ?? completedBodies.get(expectedTurnId);
       const completionSource = terminalTurn(startedTurn) ? "turn_start" : "notification";
@@ -376,6 +381,7 @@ export function createCodexProvider(config, store = undefined, deadlineOptions =
       return output?.body ? { ok: true, body: output.body, sources: output.sources } : output ? { ok: false, code: output.failureReason === "prohibited_language" ? "language_policy" : output.failureReason === "no_usable_content" ? "output_policy" : "empty_response" } : { ok: false, code: "empty_response" };
     } finally {
       deadline?.stop();
+      await finishUsage?.(runSignal.aborted ? "cancelled" : usageStatus, usageByTurn.has(expectedUsageTurn) ? [{ model, tokens: usageByTurn.get(expectedUsageTurn) }] : []);
       unsubscribe();
       if (connection && threadId && !runSignal.aborted) await connection.request("thread/unsubscribe", { threadId }, 1_000).catch(() => {});
       try { await connection?.close(); }
