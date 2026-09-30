@@ -3,7 +3,7 @@ import { createInterface } from "node:readline";
 
 const send = value => process.stdout.write(`${JSON.stringify({ jsonrpc: "2.0", ...value })}\n`);
 const expectedFeatures = ["shell_tool", "unified_exec", "view_image", "shell_snapshot", "apps", "plugins", "hooks", "memories", "browser_use", "browser_use_external", "browser_use_full_cdp_access", "computer_use", "image_generation", "workspace_dependencies", "code_mode", "code_mode_host", "multi_agent", "multi_agent_v2", "skill_search", "tool_suggest", "request_permissions_tool"];
-const modelEfforts = Object.freeze({ "gpt-6-astra": ["xhigh", "ultra"], "gpt-6-sol": ["low", "medium", "high", "xhigh", "max", "ultra"] });
+const modelEfforts = Object.freeze({ "gpt-6.1-sol": ["low", "medium", "high", "xhigh", "max", "ultra", "none", "minimal"], "gpt-6-astra": ["xhigh", "ultra"], "gpt-6-sol": ["low", "medium", "high", "xhigh", "max", "ultra"] });
 let activeModel;
 let changingCatalog = false;
 let failingCatalog = false;

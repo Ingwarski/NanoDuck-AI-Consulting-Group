@@ -3999,16 +3999,16 @@
         "src/server/index.mjs": "feb43bcb1af8ea131d126b047b72289c307e3932e982f9120b86cde8fabd0be9",
         "src/server/store.mjs": "ed15356255d92f740161746e471bdf6fcb92eb72fe2cf11f28f7933e74a30068",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
-        "test/core.test.mjs": "688900d328093c1071068c54b2b410f972785f6bb8603e0b1928e553ee9cefe0",
+        "test/core.test.mjs": "be019a09c21652de53e6092898a6acde43eab416030ffbf0589cfadbe4f3504c",
         "src/server/codex-provider.mjs": "228bb4e050a1f290e0955f8ffd878e25a649a91ca0ab836dfae9a1aca9ce2dec",
         "src/server/consultation.mjs": "e8c57da7aaa82691f1241d5a27395ea63c6be793a6150ddad3e736cccff4069c",
-        "test/codex-provider.test.mjs": "5a37aaedbf21a715cf1775d39674f3c01e8be2786547170ae1779b5b65e459fa",
+        "test/codex-provider.test.mjs": "cb6cf54f21f289d8ee8e3f31c6c048e177e484782e931fb83329ce9a2803e108",
         "test/consultation.test.mjs": "4afb3963ff51804a43156a43c4a17f70304be1646dce2e3c3b28ef0abcee756a",
         "test/http.test.mjs": "06a2f5b8a252a32b0033f59956d52f9e2168d3ad31abb2509ccbf8157f3db718",
         ".env.example": "71983a7601c502c44bddb0f1a6fb9c2a8ebe170dd7151395b9199e16da713d3d",
-        "test/fixtures/fake-codex.mjs": "3477994f501ce0faf324933a1be946dff3f91cddaf268054b9913134faa1c429",
+        "test/fixtures/fake-codex.mjs": "cfe7dce4ea57a7830e7226b063affd9509222d0361225e44dce391e4ea8e4ce3",
         "src/server/prompt-contracts.mjs": "93282b84449cc40de6e9222cefb72281ea270c770b518f12d60683688eb577fa",
-        "src/client/app.js": "54139a43336e67ff442d3927ba59972945557ccf81028ee8052d817ffaa3c174",
+        "src/client/app.js": "67fe4abc341529d230c3c25f6a0f154ee8be808d968bcdc764f53cecb1fb9f4f",
         "test/consolidation.test.mjs": "3184b7d1ecc4b62577becfa7cac7834aa568a51ae3d0ec3de4bf1f0a0ffb77f9",
         "test/prompt-contracts.test.mjs": "39f6d7622060d9e591cd31e07c919b36c877d848e941bde295a8095d43842d9d",
         "test/fixtures/runtime-instructions.mjs": "bbbbbad81efb9ce46718d43c37f3117b0ab03b8b2976319f2c9fc88854f0a4ec",
@@ -4041,7 +4041,7 @@
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
         "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
         "test/fixtures/fake-claude.mjs": "5b4fb5ebcb8121350de4981e0598f7a2c1033aca1ad603f80a67d8da173bf6d5",
-        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "src/server/codex-models.mjs": "9a06909a847649d7b47fa2fd08752f67de184efbf928e26c13cdca3b8c796e44",
         "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
         "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
         "package-lock.json": "da3063bb5b48fed7e548ce7e5f6781e9867070887d40cb3bd6c0146f887e92b0",
@@ -4070,7 +4070,7 @@
         "test/review-fixes.test.mjs": "fdb6db7db2deecebd55d0ad550c6b38c0db42a4ef114f293a37df2111d08a1d3",
         "test/usage.test.mjs": "3458c552f73307e46c98bbfa4abec4320ddd63ae47ac57ebae05e453d298dd18",
         "scripts/browser-progress-recovery.mjs": "ddc4ec97b61a7bc05daa4475dfd24f72df06bbc5268c1e9b3feaffd6b55374a4",
-        "scripts/browser-review-fixes.mjs": "d61fdfa6f2bf528a361392d6cb66662a1baf7b303abc320a44f2606c6b00be55",
+        "scripts/browser-review-fixes.mjs": "b6522b5ebf68163d67576b7d772f4eb75e9a55448a77c8492cd3710dfe5f4a37",
         "forge/runs/review-fixes-port-20260926/scope.json": "46ce42a2ae873b2a6d5d7920df8ba2b4c9459da9c717eae6de7d2a17722af74a"
       },
       "dependencies": [
@@ -4090,7 +4090,13 @@
         "kind": "owner-directed-consultation-review-repair-port",
         "reviewed_at": "2026-09-26T13:25:00Z",
         "executor": "Codex inline to-architecture",
-        "scope": "Reconcile linked Critic correction attempts, immediate dependency scheduling, saved prompt contracts, bounded follow-up research, source propagation, encrypted provider Usage and browser continuity while preserving the approved visual baseline and GoDaddy boundaries."
+        "scope": "Reconcile linked Critic correction attempts, immediate dependency scheduling, saved prompt contracts, bounded follow-up research, source propagation, encrypted provider Usage and browser continuity while preserving the approved visual baseline and GoDaddy boundaries.",
+        "codex_6_1_sol_revalidation": {
+          "date": "2026-09-30",
+          "executor": "Codex inline to-architecture",
+          "result": "passed",
+          "scope": "No-change document review: existing catalog-backed exact model/effort selection, independent branches, immutable accepted snapshots and existing Settings verification obligations cover the additional GPT-6.1 Sol choice. Provider, parser and three-engine browser fixture evidence only; no live provider or deployment evidence."
+        }
       },
       "open_questions": [],
       "security_coverage": {
@@ -4256,7 +4262,7 @@
         "src/server/migrate.mjs": "e2d2eb82f43470c9e71693545692844d3ef34ab7c0ee9f24d375256e291a2a57",
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
         "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
-        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "src/server/codex-models.mjs": "9a06909a847649d7b47fa2fd08752f67de184efbf928e26c13cdca3b8c796e44",
         "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
         "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
         "package.json": "f924ba585917c1fa44cdad96cf58e5e08fc38f2442f0b0802a3050a7ea790f21",
@@ -4269,7 +4275,7 @@
         "src/server/index.mjs": "feb43bcb1af8ea131d126b047b72289c307e3932e982f9120b86cde8fabd0be9",
         "src/server/preflight.mjs": "12d319c73af28e4538991cb86acd700cc41571b73ea3fd9912a65350a010411f",
         "src/server/schema.sql": "f2ebb2a6e92b33921ed0c8174a25a9ac8f55ceef56cdc44352fabf6d5b6da7a7",
-        "test/codex-provider.test.mjs": "5a37aaedbf21a715cf1775d39674f3c01e8be2786547170ae1779b5b65e459fa",
+        "test/codex-provider.test.mjs": "cb6cf54f21f289d8ee8e3f31c6c048e177e484782e931fb83329ce9a2803e108",
         "test/codex-grant.test.mjs": "03d3768018cac00de2693022d6a3851505e4fa75a0be600f91ed35e0301e9667",
         "test/mysql.integration.test.mjs": "67f5e6282620b566f9705be334fe67dca153b36eec59e292c0f6178c2ecad559",
         "test/settings-catalog.test.mjs": "0d8489ecfb1f9a6946ddf455193bca143fba3f5317fbf879a1e21eb09d91a4a5",
@@ -4289,7 +4295,7 @@
         "test/review-fixes.test.mjs": "fdb6db7db2deecebd55d0ad550c6b38c0db42a4ef114f293a37df2111d08a1d3",
         "test/usage.test.mjs": "3458c552f73307e46c98bbfa4abec4320ddd63ae47ac57ebae05e453d298dd18",
         "scripts/browser-progress-recovery.mjs": "ddc4ec97b61a7bc05daa4475dfd24f72df06bbc5268c1e9b3feaffd6b55374a4",
-        "scripts/browser-review-fixes.mjs": "d61fdfa6f2bf528a361392d6cb66662a1baf7b303abc320a44f2606c6b00be55",
+        "scripts/browser-review-fixes.mjs": "b6522b5ebf68163d67576b7d772f4eb75e9a55448a77c8492cd3710dfe5f4a37",
         "forge/runs/review-fixes-port-20260926/scope.json": "46ce42a2ae873b2a6d5d7920df8ba2b4c9459da9c717eae6de7d2a17722af74a"
       },
       "dependencies": [
@@ -4310,7 +4316,13 @@
         "kind": "owner-directed-consultation-review-repair-port",
         "reviewed_at": "2026-09-26T13:28:00Z",
         "executor": "Codex inline to-dod-evals",
-        "scope": "Reconcile completion gates for linked Critic attempts, dependency scheduling, private prompt rendering, source and research propagation, encrypted Usage, reconnecting progress and coalesced browser reads while preserving separate release evidence classes."
+        "scope": "Reconcile completion gates for linked Critic attempts, dependency scheduling, private prompt rendering, source and research propagation, encrypted Usage, reconnecting progress and coalesced browser reads while preserving separate release evidence classes.",
+        "codex_6_1_sol_revalidation": {
+          "date": "2026-09-30",
+          "executor": "Codex inline to-dod-evals",
+          "result": "passed",
+          "scope": "No-change document review: existing catalog-backed exact model/effort selection, independent branches, immutable accepted snapshots and existing Settings verification obligations cover the additional GPT-6.1 Sol choice. Provider, parser and three-engine browser fixture evidence only; no live provider or deployment evidence."
+        }
       },
       "open_questions": [],
       "security_coverage": {
@@ -4507,15 +4519,15 @@
         "src/server/index.mjs": "feb43bcb1af8ea131d126b047b72289c307e3932e982f9120b86cde8fabd0be9",
         "src/server/store.mjs": "ed15356255d92f740161746e471bdf6fcb92eb72fe2cf11f28f7933e74a30068",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
-        "test/core.test.mjs": "688900d328093c1071068c54b2b410f972785f6bb8603e0b1928e553ee9cefe0",
+        "test/core.test.mjs": "be019a09c21652de53e6092898a6acde43eab416030ffbf0589cfadbe4f3504c",
         "src/server/codex-provider.mjs": "228bb4e050a1f290e0955f8ffd878e25a649a91ca0ab836dfae9a1aca9ce2dec",
         "src/server/consultation.mjs": "e8c57da7aaa82691f1241d5a27395ea63c6be793a6150ddad3e736cccff4069c",
-        "test/codex-provider.test.mjs": "5a37aaedbf21a715cf1775d39674f3c01e8be2786547170ae1779b5b65e459fa",
+        "test/codex-provider.test.mjs": "cb6cf54f21f289d8ee8e3f31c6c048e177e484782e931fb83329ce9a2803e108",
         "test/consultation.test.mjs": "4afb3963ff51804a43156a43c4a17f70304be1646dce2e3c3b28ef0abcee756a",
         "test/http.test.mjs": "06a2f5b8a252a32b0033f59956d52f9e2168d3ad31abb2509ccbf8157f3db718",
-        "test/fixtures/fake-codex.mjs": "3477994f501ce0faf324933a1be946dff3f91cddaf268054b9913134faa1c429",
+        "test/fixtures/fake-codex.mjs": "cfe7dce4ea57a7830e7226b063affd9509222d0361225e44dce391e4ea8e4ce3",
         "src/server/prompt-contracts.mjs": "93282b84449cc40de6e9222cefb72281ea270c770b518f12d60683688eb577fa",
-        "src/client/app.js": "54139a43336e67ff442d3927ba59972945557ccf81028ee8052d817ffaa3c174",
+        "src/client/app.js": "67fe4abc341529d230c3c25f6a0f154ee8be808d968bcdc764f53cecb1fb9f4f",
         "test/consolidation.test.mjs": "3184b7d1ecc4b62577becfa7cac7834aa568a51ae3d0ec3de4bf1f0a0ffb77f9",
         "test/prompt-contracts.test.mjs": "39f6d7622060d9e591cd31e07c919b36c877d848e941bde295a8095d43842d9d",
         "test/fixtures/runtime-instructions.mjs": "bbbbbad81efb9ce46718d43c37f3117b0ab03b8b2976319f2c9fc88854f0a4ec",
@@ -4548,7 +4560,7 @@
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
         "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
         "test/fixtures/fake-claude.mjs": "5b4fb5ebcb8121350de4981e0598f7a2c1033aca1ad603f80a67d8da173bf6d5",
-        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "src/server/codex-models.mjs": "9a06909a847649d7b47fa2fd08752f67de184efbf928e26c13cdca3b8c796e44",
         "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
         "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
         "package-lock.json": "da3063bb5b48fed7e548ce7e5f6781e9867070887d40cb3bd6c0146f887e92b0",
@@ -4575,7 +4587,7 @@
         "test/review-fixes.test.mjs": "fdb6db7db2deecebd55d0ad550c6b38c0db42a4ef114f293a37df2111d08a1d3",
         "test/usage.test.mjs": "3458c552f73307e46c98bbfa4abec4320ddd63ae47ac57ebae05e453d298dd18",
         "scripts/browser-progress-recovery.mjs": "ddc4ec97b61a7bc05daa4475dfd24f72df06bbc5268c1e9b3feaffd6b55374a4",
-        "scripts/browser-review-fixes.mjs": "d61fdfa6f2bf528a361392d6cb66662a1baf7b303abc320a44f2606c6b00be55",
+        "scripts/browser-review-fixes.mjs": "b6522b5ebf68163d67576b7d772f4eb75e9a55448a77c8492cd3710dfe5f4a37",
         "forge/runs/review-fixes-port-20260926/scope.json": "46ce42a2ae873b2a6d5d7920df8ba2b4c9459da9c717eae6de7d2a17722af74a"
       },
       "dependencies": [
@@ -4597,7 +4609,13 @@
         "kind": "owner-directed-consultation-review-repair-port",
         "reviewed_at": "2026-09-26T13:31:00Z",
         "executor": "Codex inline to-qa-checklist",
-        "scope": "Prepare and record scoped checks for linked Critic attempts, scheduling, saved prompts, sensitive-output and source propagation, follow-up research, reconnecting progress, encrypted Usage and cross-browser continuity."
+        "scope": "Prepare and record scoped checks for linked Critic attempts, scheduling, saved prompts, sensitive-output and source propagation, follow-up research, reconnecting progress, encrypted Usage and cross-browser continuity.",
+        "codex_6_1_sol_revalidation": {
+          "date": "2026-09-30",
+          "executor": "Codex inline to-qa-checklist",
+          "result": "passed",
+          "scope": "No-change document review: existing catalog-backed exact model/effort selection, independent branches, immutable accepted snapshots and existing Settings verification obligations cover the additional GPT-6.1 Sol choice. Provider, parser and three-engine browser fixture evidence only; no live provider or deployment evidence."
+        }
       },
       "open_questions": [],
       "traceability": {
@@ -6928,15 +6946,15 @@
         "src/server/index.mjs": "feb43bcb1af8ea131d126b047b72289c307e3932e982f9120b86cde8fabd0be9",
         "src/server/store.mjs": "ed15356255d92f740161746e471bdf6fcb92eb72fe2cf11f28f7933e74a30068",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
-        "test/core.test.mjs": "688900d328093c1071068c54b2b410f972785f6bb8603e0b1928e553ee9cefe0",
+        "test/core.test.mjs": "be019a09c21652de53e6092898a6acde43eab416030ffbf0589cfadbe4f3504c",
         "src/server/codex-provider.mjs": "228bb4e050a1f290e0955f8ffd878e25a649a91ca0ab836dfae9a1aca9ce2dec",
         "src/server/consultation.mjs": "e8c57da7aaa82691f1241d5a27395ea63c6be793a6150ddad3e736cccff4069c",
-        "test/codex-provider.test.mjs": "5a37aaedbf21a715cf1775d39674f3c01e8be2786547170ae1779b5b65e459fa",
+        "test/codex-provider.test.mjs": "cb6cf54f21f289d8ee8e3f31c6c048e177e484782e931fb83329ce9a2803e108",
         "test/consultation.test.mjs": "4afb3963ff51804a43156a43c4a17f70304be1646dce2e3c3b28ef0abcee756a",
         "test/http.test.mjs": "06a2f5b8a252a32b0033f59956d52f9e2168d3ad31abb2509ccbf8157f3db718",
-        "test/fixtures/fake-codex.mjs": "3477994f501ce0faf324933a1be946dff3f91cddaf268054b9913134faa1c429",
+        "test/fixtures/fake-codex.mjs": "cfe7dce4ea57a7830e7226b063affd9509222d0361225e44dce391e4ea8e4ce3",
         "src/server/prompt-contracts.mjs": "93282b84449cc40de6e9222cefb72281ea270c770b518f12d60683688eb577fa",
-        "src/client/app.js": "54139a43336e67ff442d3927ba59972945557ccf81028ee8052d817ffaa3c174",
+        "src/client/app.js": "67fe4abc341529d230c3c25f6a0f154ee8be808d968bcdc764f53cecb1fb9f4f",
         "test/consolidation.test.mjs": "3184b7d1ecc4b62577becfa7cac7834aa568a51ae3d0ec3de4bf1f0a0ffb77f9",
         "test/prompt-contracts.test.mjs": "39f6d7622060d9e591cd31e07c919b36c877d848e941bde295a8095d43842d9d",
         "test/fixtures/runtime-instructions.mjs": "bbbbbad81efb9ce46718d43c37f3117b0ab03b8b2976319f2c9fc88854f0a4ec",
@@ -6969,7 +6987,7 @@
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
         "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
         "test/fixtures/fake-claude.mjs": "5b4fb5ebcb8121350de4981e0598f7a2c1033aca1ad603f80a67d8da173bf6d5",
-        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "src/server/codex-models.mjs": "9a06909a847649d7b47fa2fd08752f67de184efbf928e26c13cdca3b8c796e44",
         "package-lock.json": "da3063bb5b48fed7e548ce7e5f6781e9867070887d40cb3bd6c0146f887e92b0",
         "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
         "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
@@ -6980,7 +6998,7 @@
         "test/codex-grant.test.mjs": "03d3768018cac00de2693022d6a3851505e4fa75a0be600f91ed35e0301e9667",
         "test/settings-catalog.test.mjs": "0d8489ecfb1f9a6946ddf455193bca143fba3f5317fbf879a1e21eb09d91a4a5",
         "test/mysql.integration.test.mjs": "67f5e6282620b566f9705be334fe67dca153b36eec59e292c0f6178c2ecad559",
-        "test/preflight.test.mjs": "48ffeb7617745035523f8abdf97a9575010ecf3d0e620abb61734c4fb16b1e9b",
+        "test/preflight.test.mjs": "4bfdcf8e2ac54e6188fb2e545e02b8b6bc43d7e1673459fee7dde3a3507782bb",
         "test/fixtures/rotating-auth-codex.mjs": "4b4f3f119b2b8f84f0504a72b7ab9da9d9eb4f20128ee61391681abb9f921bb0",
         "instructions/AGENTS.md": "9e5cd883fcf88d7c1dfa0f24510f1b0f6a9d5152fdb42bcce55fbeb2c907adbf",
         "instructions/CONSILIUM.md": "3db326b9650cd84c7849440e9444b1766698a7846a2ffad6c32f9dbabf581f28",
@@ -6998,7 +7016,7 @@
         "test/review-fixes.test.mjs": "fdb6db7db2deecebd55d0ad550c6b38c0db42a4ef114f293a37df2111d08a1d3",
         "test/usage.test.mjs": "3458c552f73307e46c98bbfa4abec4320ddd63ae47ac57ebae05e453d298dd18",
         "scripts/browser-progress-recovery.mjs": "ddc4ec97b61a7bc05daa4475dfd24f72df06bbc5268c1e9b3feaffd6b55374a4",
-        "scripts/browser-review-fixes.mjs": "d61fdfa6f2bf528a361392d6cb66662a1baf7b303abc320a44f2606c6b00be55",
+        "scripts/browser-review-fixes.mjs": "b6522b5ebf68163d67576b7d772f4eb75e9a55448a77c8492cd3710dfe5f4a37",
         "forge/runs/review-fixes-port-20260926/implementation-prompt.json": "138024fce2295bc10fef8eba17a205e80f5353008920972f0fe574b236774099",
         "forge/runs/review-fixes-port-20260926/scope.json": "46ce42a2ae873b2a6d5d7920df8ba2b4c9459da9c717eae6de7d2a17722af74a"
       },
@@ -7022,7 +7040,13 @@
         "kind": "owner-directed-consultation-review-repair-port",
         "reviewed_at": "2026-09-26T13:38:00Z",
         "executor": "Codex inline to-development-plan",
-        "scope": "Bind the implemented linked-review, evidence, follow-up research, encrypted Usage and browser-continuity repair to U-09/U-02/U-03/U-05/U-08 with target-local verification and separate GoDaddy activation."
+        "scope": "Bind the implemented linked-review, evidence, follow-up research, encrypted Usage and browser-continuity repair to U-09/U-02/U-03/U-05/U-08 with target-local verification and separate GoDaddy activation.",
+        "codex_6_1_sol_revalidation": {
+          "date": "2026-09-30",
+          "result": "passed",
+          "executor": "Codex inline to-development-plan",
+          "scope": "Existing Settings unit and verification mappings cover additive catalog-backed model choice; no plan or baseline change."
+        }
       },
       "supersedes": "consultation-orchestration-port-development-plan-2026-09-24T21:35:00Z",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
@@ -10113,16 +10137,16 @@
         "src/server/index.mjs": "feb43bcb1af8ea131d126b047b72289c307e3932e982f9120b86cde8fabd0be9",
         "src/server/store.mjs": "ed15356255d92f740161746e471bdf6fcb92eb72fe2cf11f28f7933e74a30068",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
-        "test/core.test.mjs": "688900d328093c1071068c54b2b410f972785f6bb8603e0b1928e553ee9cefe0",
+        "test/core.test.mjs": "be019a09c21652de53e6092898a6acde43eab416030ffbf0589cfadbe4f3504c",
         "src/server/codex-provider.mjs": "228bb4e050a1f290e0955f8ffd878e25a649a91ca0ab836dfae9a1aca9ce2dec",
         "src/server/consultation.mjs": "e8c57da7aaa82691f1241d5a27395ea63c6be793a6150ddad3e736cccff4069c",
-        "test/codex-provider.test.mjs": "5a37aaedbf21a715cf1775d39674f3c01e8be2786547170ae1779b5b65e459fa",
+        "test/codex-provider.test.mjs": "cb6cf54f21f289d8ee8e3f31c6c048e177e484782e931fb83329ce9a2803e108",
         "test/consultation.test.mjs": "4afb3963ff51804a43156a43c4a17f70304be1646dce2e3c3b28ef0abcee756a",
         "test/http.test.mjs": "06a2f5b8a252a32b0033f59956d52f9e2168d3ad31abb2509ccbf8157f3db718",
         ".env.example": "71983a7601c502c44bddb0f1a6fb9c2a8ebe170dd7151395b9199e16da713d3d",
-        "test/fixtures/fake-codex.mjs": "3477994f501ce0faf324933a1be946dff3f91cddaf268054b9913134faa1c429",
+        "test/fixtures/fake-codex.mjs": "cfe7dce4ea57a7830e7226b063affd9509222d0361225e44dce391e4ea8e4ce3",
         "src/server/prompt-contracts.mjs": "93282b84449cc40de6e9222cefb72281ea270c770b518f12d60683688eb577fa",
-        "src/client/app.js": "54139a43336e67ff442d3927ba59972945557ccf81028ee8052d817ffaa3c174",
+        "src/client/app.js": "67fe4abc341529d230c3c25f6a0f154ee8be808d968bcdc764f53cecb1fb9f4f",
         "test/consolidation.test.mjs": "3184b7d1ecc4b62577becfa7cac7834aa568a51ae3d0ec3de4bf1f0a0ffb77f9",
         "test/prompt-contracts.test.mjs": "39f6d7622060d9e591cd31e07c919b36c877d848e941bde295a8095d43842d9d",
         "test/fixtures/runtime-instructions.mjs": "bbbbbad81efb9ce46718d43c37f3117b0ab03b8b2976319f2c9fc88854f0a4ec",
@@ -10155,7 +10179,7 @@
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
         "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
         "test/fixtures/fake-claude.mjs": "5b4fb5ebcb8121350de4981e0598f7a2c1033aca1ad603f80a67d8da173bf6d5",
-        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "src/server/codex-models.mjs": "9a06909a847649d7b47fa2fd08752f67de184efbf928e26c13cdca3b8c796e44",
         "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
         "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
         "package-lock.json": "da3063bb5b48fed7e548ce7e5f6781e9867070887d40cb3bd6c0146f887e92b0",
@@ -10184,7 +10208,7 @@
         "test/review-fixes.test.mjs": "fdb6db7db2deecebd55d0ad550c6b38c0db42a4ef114f293a37df2111d08a1d3",
         "test/usage.test.mjs": "3458c552f73307e46c98bbfa4abec4320ddd63ae47ac57ebae05e453d298dd18",
         "scripts/browser-progress-recovery.mjs": "ddc4ec97b61a7bc05daa4475dfd24f72df06bbc5268c1e9b3feaffd6b55374a4",
-        "scripts/browser-review-fixes.mjs": "d61fdfa6f2bf528a361392d6cb66662a1baf7b303abc320a44f2606c6b00be55",
+        "scripts/browser-review-fixes.mjs": "b6522b5ebf68163d67576b7d772f4eb75e9a55448a77c8492cd3710dfe5f4a37",
         "forge/runs/review-fixes-port-20260926/scope.json": "46ce42a2ae873b2a6d5d7920df8ba2b4c9459da9c717eae6de7d2a17722af74a"
       },
       "consumed_source_fragments": {}
@@ -10216,7 +10240,7 @@
         "src/server/migrate.mjs": "e2d2eb82f43470c9e71693545692844d3ef34ab7c0ee9f24d375256e291a2a57",
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
         "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
-        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "src/server/codex-models.mjs": "9a06909a847649d7b47fa2fd08752f67de184efbf928e26c13cdca3b8c796e44",
         "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
         "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
         "package.json": "f924ba585917c1fa44cdad96cf58e5e08fc38f2442f0b0802a3050a7ea790f21",
@@ -10229,7 +10253,7 @@
         "src/server/index.mjs": "feb43bcb1af8ea131d126b047b72289c307e3932e982f9120b86cde8fabd0be9",
         "src/server/preflight.mjs": "12d319c73af28e4538991cb86acd700cc41571b73ea3fd9912a65350a010411f",
         "src/server/schema.sql": "f2ebb2a6e92b33921ed0c8174a25a9ac8f55ceef56cdc44352fabf6d5b6da7a7",
-        "test/codex-provider.test.mjs": "5a37aaedbf21a715cf1775d39674f3c01e8be2786547170ae1779b5b65e459fa",
+        "test/codex-provider.test.mjs": "cb6cf54f21f289d8ee8e3f31c6c048e177e484782e931fb83329ce9a2803e108",
         "test/codex-grant.test.mjs": "03d3768018cac00de2693022d6a3851505e4fa75a0be600f91ed35e0301e9667",
         "test/mysql.integration.test.mjs": "67f5e6282620b566f9705be334fe67dca153b36eec59e292c0f6178c2ecad559",
         "test/settings-catalog.test.mjs": "0d8489ecfb1f9a6946ddf455193bca143fba3f5317fbf879a1e21eb09d91a4a5",
@@ -10249,7 +10273,7 @@
         "test/review-fixes.test.mjs": "fdb6db7db2deecebd55d0ad550c6b38c0db42a4ef114f293a37df2111d08a1d3",
         "test/usage.test.mjs": "3458c552f73307e46c98bbfa4abec4320ddd63ae47ac57ebae05e453d298dd18",
         "scripts/browser-progress-recovery.mjs": "ddc4ec97b61a7bc05daa4475dfd24f72df06bbc5268c1e9b3feaffd6b55374a4",
-        "scripts/browser-review-fixes.mjs": "d61fdfa6f2bf528a361392d6cb66662a1baf7b303abc320a44f2606c6b00be55",
+        "scripts/browser-review-fixes.mjs": "b6522b5ebf68163d67576b7d772f4eb75e9a55448a77c8492cd3710dfe5f4a37",
         "forge/runs/review-fixes-port-20260926/scope.json": "46ce42a2ae873b2a6d5d7920df8ba2b4c9459da9c717eae6de7d2a17722af74a"
       },
       "consumed_source_fragments": {}
@@ -10279,15 +10303,15 @@
         "src/server/index.mjs": "feb43bcb1af8ea131d126b047b72289c307e3932e982f9120b86cde8fabd0be9",
         "src/server/store.mjs": "ed15356255d92f740161746e471bdf6fcb92eb72fe2cf11f28f7933e74a30068",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
-        "test/core.test.mjs": "688900d328093c1071068c54b2b410f972785f6bb8603e0b1928e553ee9cefe0",
+        "test/core.test.mjs": "be019a09c21652de53e6092898a6acde43eab416030ffbf0589cfadbe4f3504c",
         "src/server/codex-provider.mjs": "228bb4e050a1f290e0955f8ffd878e25a649a91ca0ab836dfae9a1aca9ce2dec",
         "src/server/consultation.mjs": "e8c57da7aaa82691f1241d5a27395ea63c6be793a6150ddad3e736cccff4069c",
-        "test/codex-provider.test.mjs": "5a37aaedbf21a715cf1775d39674f3c01e8be2786547170ae1779b5b65e459fa",
+        "test/codex-provider.test.mjs": "cb6cf54f21f289d8ee8e3f31c6c048e177e484782e931fb83329ce9a2803e108",
         "test/consultation.test.mjs": "4afb3963ff51804a43156a43c4a17f70304be1646dce2e3c3b28ef0abcee756a",
         "test/http.test.mjs": "06a2f5b8a252a32b0033f59956d52f9e2168d3ad31abb2509ccbf8157f3db718",
-        "test/fixtures/fake-codex.mjs": "3477994f501ce0faf324933a1be946dff3f91cddaf268054b9913134faa1c429",
+        "test/fixtures/fake-codex.mjs": "cfe7dce4ea57a7830e7226b063affd9509222d0361225e44dce391e4ea8e4ce3",
         "src/server/prompt-contracts.mjs": "93282b84449cc40de6e9222cefb72281ea270c770b518f12d60683688eb577fa",
-        "src/client/app.js": "54139a43336e67ff442d3927ba59972945557ccf81028ee8052d817ffaa3c174",
+        "src/client/app.js": "67fe4abc341529d230c3c25f6a0f154ee8be808d968bcdc764f53cecb1fb9f4f",
         "test/consolidation.test.mjs": "3184b7d1ecc4b62577becfa7cac7834aa568a51ae3d0ec3de4bf1f0a0ffb77f9",
         "test/prompt-contracts.test.mjs": "39f6d7622060d9e591cd31e07c919b36c877d848e941bde295a8095d43842d9d",
         "test/fixtures/runtime-instructions.mjs": "bbbbbad81efb9ce46718d43c37f3117b0ab03b8b2976319f2c9fc88854f0a4ec",
@@ -10320,7 +10344,7 @@
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
         "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
         "test/fixtures/fake-claude.mjs": "5b4fb5ebcb8121350de4981e0598f7a2c1033aca1ad603f80a67d8da173bf6d5",
-        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "src/server/codex-models.mjs": "9a06909a847649d7b47fa2fd08752f67de184efbf928e26c13cdca3b8c796e44",
         "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
         "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
         "package-lock.json": "da3063bb5b48fed7e548ce7e5f6781e9867070887d40cb3bd6c0146f887e92b0",
@@ -10347,7 +10371,7 @@
         "test/review-fixes.test.mjs": "fdb6db7db2deecebd55d0ad550c6b38c0db42a4ef114f293a37df2111d08a1d3",
         "test/usage.test.mjs": "3458c552f73307e46c98bbfa4abec4320ddd63ae47ac57ebae05e453d298dd18",
         "scripts/browser-progress-recovery.mjs": "ddc4ec97b61a7bc05daa4475dfd24f72df06bbc5268c1e9b3feaffd6b55374a4",
-        "scripts/browser-review-fixes.mjs": "d61fdfa6f2bf528a361392d6cb66662a1baf7b303abc320a44f2606c6b00be55",
+        "scripts/browser-review-fixes.mjs": "b6522b5ebf68163d67576b7d772f4eb75e9a55448a77c8492cd3710dfe5f4a37",
         "forge/runs/review-fixes-port-20260926/scope.json": "46ce42a2ae873b2a6d5d7920df8ba2b4c9459da9c717eae6de7d2a17722af74a"
       },
       "consumed_source_fragments": {}
@@ -10382,15 +10406,15 @@
         "src/server/index.mjs": "feb43bcb1af8ea131d126b047b72289c307e3932e982f9120b86cde8fabd0be9",
         "src/server/store.mjs": "ed15356255d92f740161746e471bdf6fcb92eb72fe2cf11f28f7933e74a30068",
         "scripts/check-artifacts.mjs": "c2b78c7e3b5b8881bd1e13a47f9026271384563ba026e2926dec61435838aff4",
-        "test/core.test.mjs": "688900d328093c1071068c54b2b410f972785f6bb8603e0b1928e553ee9cefe0",
+        "test/core.test.mjs": "be019a09c21652de53e6092898a6acde43eab416030ffbf0589cfadbe4f3504c",
         "src/server/codex-provider.mjs": "228bb4e050a1f290e0955f8ffd878e25a649a91ca0ab836dfae9a1aca9ce2dec",
         "src/server/consultation.mjs": "e8c57da7aaa82691f1241d5a27395ea63c6be793a6150ddad3e736cccff4069c",
-        "test/codex-provider.test.mjs": "5a37aaedbf21a715cf1775d39674f3c01e8be2786547170ae1779b5b65e459fa",
+        "test/codex-provider.test.mjs": "cb6cf54f21f289d8ee8e3f31c6c048e177e484782e931fb83329ce9a2803e108",
         "test/consultation.test.mjs": "4afb3963ff51804a43156a43c4a17f70304be1646dce2e3c3b28ef0abcee756a",
         "test/http.test.mjs": "06a2f5b8a252a32b0033f59956d52f9e2168d3ad31abb2509ccbf8157f3db718",
-        "test/fixtures/fake-codex.mjs": "3477994f501ce0faf324933a1be946dff3f91cddaf268054b9913134faa1c429",
+        "test/fixtures/fake-codex.mjs": "cfe7dce4ea57a7830e7226b063affd9509222d0361225e44dce391e4ea8e4ce3",
         "src/server/prompt-contracts.mjs": "93282b84449cc40de6e9222cefb72281ea270c770b518f12d60683688eb577fa",
-        "src/client/app.js": "54139a43336e67ff442d3927ba59972945557ccf81028ee8052d817ffaa3c174",
+        "src/client/app.js": "67fe4abc341529d230c3c25f6a0f154ee8be808d968bcdc764f53cecb1fb9f4f",
         "test/consolidation.test.mjs": "3184b7d1ecc4b62577becfa7cac7834aa568a51ae3d0ec3de4bf1f0a0ffb77f9",
         "test/prompt-contracts.test.mjs": "39f6d7622060d9e591cd31e07c919b36c877d848e941bde295a8095d43842d9d",
         "test/fixtures/runtime-instructions.mjs": "bbbbbad81efb9ce46718d43c37f3117b0ab03b8b2976319f2c9fc88854f0a4ec",
@@ -10423,7 +10447,7 @@
         "src/server/configuration-recovery.mjs": "fcb167d56964fe204ca90205d6496346db49dfe75c91e0f007b35565cb9540b3",
         "test/settings-migration.test.mjs": "c2101550505a0e0ab40041b5fc6646d4a20150c3294fd5c51263ef0f3851149b",
         "test/fixtures/fake-claude.mjs": "5b4fb5ebcb8121350de4981e0598f7a2c1033aca1ad603f80a67d8da173bf6d5",
-        "src/server/codex-models.mjs": "6feb87f260930341a80bc8db32e3c6739d4036128c13df095aa27342792ad760",
+        "src/server/codex-models.mjs": "9a06909a847649d7b47fa2fd08752f67de184efbf928e26c13cdca3b8c796e44",
         "package-lock.json": "da3063bb5b48fed7e548ce7e5f6781e9867070887d40cb3bd6c0146f887e92b0",
         "src/server/browser-assets.mjs": "354776f01b6e9d6d55a3daa930a7d3842783a61b6dd71a54c1f5cdff3d9ad39c",
         "test/browser-assets.test.mjs": "907f6fc31c1293ae75fadb6dd723de2eaff8770c8ba90ad11fcbac4cfca947c5",
@@ -10434,7 +10458,7 @@
         "test/codex-grant.test.mjs": "03d3768018cac00de2693022d6a3851505e4fa75a0be600f91ed35e0301e9667",
         "test/settings-catalog.test.mjs": "0d8489ecfb1f9a6946ddf455193bca143fba3f5317fbf879a1e21eb09d91a4a5",
         "test/mysql.integration.test.mjs": "67f5e6282620b566f9705be334fe67dca153b36eec59e292c0f6178c2ecad559",
-        "test/preflight.test.mjs": "48ffeb7617745035523f8abdf97a9575010ecf3d0e620abb61734c4fb16b1e9b",
+        "test/preflight.test.mjs": "4bfdcf8e2ac54e6188fb2e545e02b8b6bc43d7e1673459fee7dde3a3507782bb",
         "test/fixtures/rotating-auth-codex.mjs": "4b4f3f119b2b8f84f0504a72b7ab9da9d9eb4f20128ee61391681abb9f921bb0",
         "instructions/AGENTS.md": "9e5cd883fcf88d7c1dfa0f24510f1b0f6a9d5152fdb42bcce55fbeb2c907adbf",
         "instructions/CONSILIUM.md": "3db326b9650cd84c7849440e9444b1766698a7846a2ffad6c32f9dbabf581f28",
@@ -10452,7 +10476,7 @@
         "test/review-fixes.test.mjs": "fdb6db7db2deecebd55d0ad550c6b38c0db42a4ef114f293a37df2111d08a1d3",
         "test/usage.test.mjs": "3458c552f73307e46c98bbfa4abec4320ddd63ae47ac57ebae05e453d298dd18",
         "scripts/browser-progress-recovery.mjs": "ddc4ec97b61a7bc05daa4475dfd24f72df06bbc5268c1e9b3feaffd6b55374a4",
-        "scripts/browser-review-fixes.mjs": "d61fdfa6f2bf528a361392d6cb66662a1baf7b303abc320a44f2606c6b00be55",
+        "scripts/browser-review-fixes.mjs": "b6522b5ebf68163d67576b7d772f4eb75e9a55448a77c8492cd3710dfe5f4a37",
         "forge/runs/review-fixes-port-20260926/implementation-prompt.json": "138024fce2295bc10fef8eba17a205e80f5353008920972f0fe574b236774099",
         "forge/runs/review-fixes-port-20260926/scope.json": "46ce42a2ae873b2a6d5d7920df8ba2b4c9459da9c717eae6de7d2a17722af74a"
       },
@@ -101473,20 +101497,14 @@
           "heading": "## Consultation review-repair checks — 2026-09-26"
         },
         "definition_status": "prepared",
-        "execution_status": "passed",
+        "execution_status": "not_run",
         "phase": "implementation",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Parallel consultation, review correction, Usage and browser recovery paths",
         "viewport": "320/390/430/768/1280/1440 CSS px; Chromium/Firefox/WebKit fixture matrix",
         "applicability": "applicable",
-        "evidence": [
-          {
-            "path": "forge/runs/review-fixes-port-20260926/verification.json",
-            "content_hash": "66a43cab4a9773fb1045ab033209fd6832f7cc2ff5b79430f2fab32985d0aac1",
-            "kind": "security"
-          }
-        ],
+        "evidence": [],
         "findings": [],
         "baseline_id": "nanoduck-electric-a-v8-20260914",
         "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
@@ -101508,11 +101526,15 @@
         ],
         "executor": "Codex",
         "executed_at": "2026-09-26T13:31:00Z",
-        "evaluated_source_hashes": {
-          "src/server/consultation-parallel.mjs": "ef8ee082210243a66e9fd2755469dbe13bb2f32ec0cbd05d8b43495f2ec99986",
-          "src/client/app.js": "54139a43336e67ff442d3927ba59972945557ccf81028ee8052d817ffaa3c174",
-          "test/review-fixes.test.mjs": "fdb6db7db2deecebd55d0ad550c6b38c0db42a4ef114f293a37df2111d08a1d3"
-        }
+        "evaluated_source_hashes": {},
+        "invalidation_reason": "GPT-6.1 Sol catalog addition changed evaluated sources; prior full check evidence is historical.",
+        "previous_execution_evidence": [
+          {
+            "path": "forge/runs/review-fixes-port-20260926/verification.json",
+            "content_hash": "66a43cab4a9773fb1045ab033209fd6832f7cc2ff5b79430f2fab32985d0aac1",
+            "kind": "security"
+          }
+        ]
       },
       {
         "definition_ref": {
@@ -101568,20 +101590,14 @@
           "heading": "## Consultation review-repair checks — 2026-09-26"
         },
         "definition_status": "prepared",
-        "execution_status": "passed",
+        "execution_status": "not_run",
         "phase": "implementation",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Parallel consultation, review correction, Usage and browser recovery paths",
         "viewport": "320/390/430/768/1280/1440 CSS px; Chromium/Firefox/WebKit fixture matrix",
         "applicability": "applicable",
-        "evidence": [
-          {
-            "path": "forge/runs/review-fixes-port-20260926/verification.json",
-            "content_hash": "66a43cab4a9773fb1045ab033209fd6832f7cc2ff5b79430f2fab32985d0aac1",
-            "kind": "visual"
-          }
-        ],
+        "evidence": [],
         "findings": [],
         "baseline_id": "nanoduck-electric-a-v8-20260914",
         "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
@@ -101599,13 +101615,15 @@
         ],
         "executor": "Codex",
         "executed_at": "2026-09-26T13:31:00Z",
-        "evaluated_source_hashes": {
-          "src/client/app.js": "54139a43336e67ff442d3927ba59972945557ccf81028ee8052d817ffaa3c174",
-          "public/index.html": "527ce56fafdf6f1e44ff5204f0ada0cea87a7700f760e575c04574186f34e674",
-          "public/styles.css": "a3e801e72e9426338c897d876126c6e8f74dcebca5b48a65544fe8fb22ef6cfb",
-          "scripts/browser-progress-recovery.mjs": "ddc4ec97b61a7bc05daa4475dfd24f72df06bbc5268c1e9b3feaffd6b55374a4",
-          "scripts/browser-review-fixes.mjs": "d61fdfa6f2bf528a361392d6cb66662a1baf7b303abc320a44f2606c6b00be55"
-        }
+        "evaluated_source_hashes": {},
+        "invalidation_reason": "GPT-6.1 Sol catalog addition changed evaluated sources; prior full check evidence is historical.",
+        "previous_execution_evidence": [
+          {
+            "path": "forge/runs/review-fixes-port-20260926/verification.json",
+            "content_hash": "66a43cab4a9773fb1045ab033209fd6832f7cc2ff5b79430f2fab32985d0aac1",
+            "kind": "visual"
+          }
+        ]
       },
       {
         "definition_ref": {

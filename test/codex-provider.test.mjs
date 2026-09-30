@@ -9,6 +9,7 @@ import { createMemoryStore } from "../src/server/store.mjs";
 import { testRuntimeInstructions as initialRuntimeInstructions } from "./fixtures/runtime-instructions.mjs";
 
 const codexModels = [
+  { id: "gpt-6.1-sol", efforts: ["low", "medium", "high", "xhigh", "max"] },
   { id: "gpt-6-astra", efforts: ["xhigh", "ultra"] },
   { id: "gpt-6-sol", efforts: ["low", "medium", "high", "xhigh", "max", "ultra"] }
 ];
@@ -283,3 +284,14 @@ createInterface({ input: process.stdin }).on('line', line => { const message = J
     assert.throws(() => process.kill(observed.pid,0), { code: "ESRCH" });
   } finally { await rm(root, { recursive: true, force: true }); }
  });
+
+test("GPT-6.1 Sol intersects advertised efforts with supported choices and invokes the exact tuple", async () => {
+  const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: command, codexAuthPath: undefined });
+  try {
+    const catalog = await provider.inspect();
+    assert.deepEqual(catalog.models.find(model => model.id === "gpt-6.1-sol"), { id: "gpt-6.1-sol", efforts: ["low", "medium", "high", "xhigh", "max"] });
+    const result = await provider.invoke({ assignment: "Return a bounded answer.", model: "gpt-6.1-sol", effort: "max", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions });
+    assert.equal(result.ok, true);
+  } finally { await provider.close(); }
+});

@@ -30,7 +30,13 @@ try {
       page.on("pageerror", error => errors.push(error.message)); await page.goto(origin);
       await page.locator("#development-sign-in").click(); await page.locator("#consent-check").check(); await page.locator("#consent-button").click(); await page.locator("#app").waitFor({ state: "visible" });
       await page.locator('.desktop-nav [data-nav="settings"]').click(); await page.waitForFunction(() => document.querySelector("#settings-status").textContent.includes("Codex"));
-      await page.locator("#critic-provider").selectOption("codex"); await page.locator("#settings-form button[type=submit]").click(); await page.waitForFunction(() => document.querySelector("#toast").textContent.includes("Settings saved"));
+      assert.equal(await page.locator('#head-model option[value="gpt-6.1-sol"]').textContent(), "GPT-6.1 Sol");
+      await page.locator("#head-model").selectOption("gpt-6.1-sol");
+      assert.deepEqual(await page.locator("#head-reasoning option").evaluateAll(options => options.map(option => option.value)), ["low", "medium", "high", "xhigh", "max"]);
+      await page.locator("#head-reasoning").selectOption("max");
+      await page.locator("#critic-provider").selectOption("codex");
+      await page.locator("#critic-model").selectOption("gpt-6.1-sol");
+      await page.locator("#critic-reasoning").selectOption("medium"); await page.locator("#settings-form button[type=submit]").click(); await page.waitForFunction(() => document.querySelector("#toast").textContent.includes("Settings saved"));
       await page.locator('.desktop-nav [data-nav="discussion"]').click(); await verifyProgressRecovery(page);
       assert.deepEqual(errors, [], `${name} page errors`); await context.close(); process.stdout.write(`${name}: progress recovery, usage coalescing, source claims and 320px reflow passed.\n`);
     } finally { await browser.close(); }

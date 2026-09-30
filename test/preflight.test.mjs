@@ -36,6 +36,7 @@ test("the preflight inspects the managed catalog without starting a model turn",
     assert.equal(report.schema_version, 1);
     assert.equal(report.codex.status, "ready");
     assert.deepEqual(report.codex.models, [
+      { id: "gpt-6.1-sol", efforts: ["low", "medium", "high", "xhigh", "max"] },
       { id: "gpt-6-astra", efforts: ["xhigh", "ultra"] },
       { id: "gpt-6-sol", efforts: ["low", "medium", "high", "xhigh", "max", "ultra"] }
     ]);

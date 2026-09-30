@@ -321,7 +321,7 @@ const replaceOptions = (select, options, selected, preserveMissing = false) => {
   if (preserveMissing && selected && !options.some(option => option.id === selected)) select.append(node("option", { value: selected, disabled: true }, `${selected} (unavailable)`));
   if (options.some(option => option.id === selected) || preserveMissing && selected) select.value = selected;
 };
-const codexModelOption = model => ({ ...model, label: model.id === "gpt-6-sol" ? "GPT-6 Sol" : model.id });
+const codexModelOption = model => ({ ...model, label: model.id === "gpt-6.1-sol" ? "GPT-6.1 Sol" : model.id === "gpt-6-sol" ? "GPT-6 Sol" : model.id });
 const replaceReasoningOptions = (select, efforts, selected, modelChanged = false, label = id => id) => {
   const options = efforts.map(id => ({ id, label: label(id) }));
   if (!selected || modelChanged && !efforts.includes(selected)) {
